@@ -6252,27 +6252,27 @@ nav ul.left {
 }
 @font-face {
   font-family: "Roboto";
-  src: url(../../bower_components/roboto-fontface/fonts/Roboto-Thin.ttf);
+  src: url(../fonts/Roboto-Thin.ttf);
   font-weight: 200;
 }
 @font-face {
   font-family: "Roboto";
-  src: url(../../bower_components/roboto-fontface/fonts/Roboto-Light.ttf);
+  src: url(../fonts/Roboto-Light.ttf);
   font-weight: 300;
 }
 @font-face {
   font-family: "Roboto";
-  src: url(../../bower_components/roboto-fontface/fonts/Roboto-Regular.ttf);
+  src: url(../fonts/Roboto-Regular.ttf);
   font-weight: 400;
 }
 @font-face {
   font-family: "Roboto";
-  src: url(../../bower_components/roboto-fontface/fonts/Roboto-Medium.ttf);
+  src: url(../fonts/Roboto-Medium.ttf);
   font-weight: 500;
 }
 @font-face {
   font-family: "Roboto";
-  src: url(../../bower_components/roboto-fontface/fonts/Roboto-Bold.ttf);
+  src: url(../fonts/Roboto-Bold.ttf);
   font-weight: 700;
 }
 a {

@@ -109,3 +109,7 @@ i {
 }
 .card .card-image span.card-title i{ cursor:pointer;}
 .card .card-image span.card-title i{ cursor:pointer;}
+
+.contact-list li {
+    display: inline-block;
+}
