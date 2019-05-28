@@ -5,18 +5,18 @@ module.exports = {
   title: 'Blog do GG',
   subtitle: 'O que fiz, o que faço e o que vou fazer',
   copyright: 'Made with ❤',
-  disqusShortname: '',
+  disqusShortname: 'ggdaltoso',
   postsPerPage: 4,
-  googleAnalyticsId: 'UA-73379983-2',
+  googleAnalyticsId: 'UA-64834505-1',
   menu: [
     {
       label: 'Articles',
       path: '/',
     },
-    {
-      label: 'About me',
-      path: '/pages/about',
-    },
+    // {
+    //   label: 'About me',
+    //   path: '/pages/about',
+    // },
   ],
   author: {
     name: 'Gabriel Daltoso',
