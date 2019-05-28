@@ -35,7 +35,7 @@ Como implementar um design system!? Como fazer uma biblioteca de componentes? Co
 
 Essas dúvidas foram tomando conta da gente no dia-a-dia do trabalho. As discussões eram tão grandes e calorosas que não tínhamos como ir pra casa sem pensar nisso.
 
-Foi aí que decidi fazer um projeto pessoal pra poder aprender sobre tudo o que discutíamos e quem me acompanhou nessa foi o [Allysson dos Santos](https://github.com/allyssonsantos), que trabalha comigo na Catho.
+Foi aí que decidi fazer um projeto pessoal pra poder aprender sobre tudo o que discutíamos e quem me acompanhou nessa foi o [Allysson dos Santos](https://allysson.me/), que trabalha comigo na Catho.
 
 Daí eu pensei: já que gostaria de fazer um projeto pessoal, que é uma biblioteca de componentes, preciso que ela me incentive a desenvolver em casa, já que existem várias outras formas de lazer e que devem ser aproveitadas, e por que não fazer os componentes do Windows95?
 
