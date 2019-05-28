@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  url: 'https://ggdaltoso.github.io',
+  url: 'https://ggdaltoso.dev',
   title: 'Blog do GG',
   subtitle: 'O que fiz, o que faço e o que vou fazer',
   copyright: 'Made with ❤',
