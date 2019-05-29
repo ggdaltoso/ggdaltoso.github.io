@@ -1,6 +1,6 @@
 ---
 title: 'Crie um videogame com Raspberry Pi'
-date: '2019-05-17T10:46:37.121Z'
+date: '2016-08-30T01:36:36.000Z'
 template: 'post'
 draft: false
 slug: '/posts/crie-um-videogame-com-raspberry-pi/'

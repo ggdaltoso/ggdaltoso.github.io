@@ -24,7 +24,7 @@ Entrei na Catho em novembro de 2017, no time de plataforma Front End. Desde o me
 
 Assim que tivemos esse insight, nos deparamos que junto com uma solução, vinha um problema.
 
-![Time de plataforma definindo o que iremos fazer](/media/React95-o-que-queremos.jpeg)
+![Time de plataforma definindo o que iremos fazer](/media/react95-fun-side-project-of-the-year/React95-o-que-queremos.jpeg)
 _Time de plataforma definindo o que iremos fazer_
 
 No começo só sabíamos o que era um design system porque ouvimos falar por aí. Nunca implementamos um.
@@ -41,7 +41,7 @@ Daí eu pensei: já que gostaria de fazer um projeto pessoal, que é uma bibliot
 
 E assim nasce o **React95**.
 
-![React95-v1.0.0](/media/React95-v1.0.0.jpeg)
+![React95-v1.0.0](/media/react95-fun-side-project-of-the-year/React95-v1.0.0.jpeg)
 _React95-v1.0.0_
 
 Em paralelo, todo o conhecimento aprendido foi utilizado para desenvolver o [Quantum](https://github.com/catho/quantum), a biblioteca de componentes da Catho, que nosso time vem dedicando muitos esforços para ficar bom não somente para os desenvolvedores mas também para o time de UX/UI.
@@ -105,7 +105,7 @@ Quando foi chegando mais pro meio do dia, começou a cerimônia _Open Source Awa
 
 A categoria que estávamos esperando era a “_Fun side project of the year_” e a terceira a ser apresentada. Estávamos apreensivos, sentados em uma das primeiras fileiras e vimos o seguinte a ser projetado no fundo:
 
-![React95 winner announcement](/media/React95-winner-announcement.jpeg)
+![React95 winner announcement](/media/react95-fun-side-project-of-the-year/React95-winner-announcement.jpeg)
 _React95 é o ganhador do prêmio “Fun side project of the Year”_
 
 GANHAMOS O PRÊMIO. SÉRIO. E, claro, fomos chamados lá em cima pra recebê-lo.
@@ -114,7 +114,7 @@ Esse, até hoje e com certeza, foi o ápice da minha vida profissional.
 
 Tudo o que estava acontecendo era difícil de acreditar, não pelo troféu em si, mas o que aconteceu pra chegar até ali.
 
-![Muitas emoções na entrega do prêmio](/media/React95-winner-trophy.jpeg)
+![Muitas emoções na entrega do prêmio](/media/react95-fun-side-project-of-the-year/React95-winner-trophy.jpeg)
 _Muitas emoções na entrega do prêmio_
 
 > O React95 não ganhou o prêmio porquê ele é um bom projeto ou um projeto engraçado. Ele ganhou por causa da comunidade.
