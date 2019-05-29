@@ -3,10 +3,15 @@
 <url> <loc>https://ggdaltoso.dev/tags</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ggdaltoso.dev/categories</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ggdaltoso.dev/pages/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ggdaltoso.dev/posts/crie-um-videogame-com-raspberry-pi/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ggdaltoso.dev/posts/react95-fun-side-project-of-the-year/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ggdaltoso.dev/tag/raspberry-pi</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ggdaltoso.dev/tag/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ggdaltoso.dev/tag/react-95</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ggdaltoso.dev/tag/recalbox</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ggdaltoso.dev/tag/style-guide</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ggdaltoso.dev/tag/videogame</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ggdaltoso.dev/category/design-system</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://ggdaltoso.dev/category/raspberry-pi</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://ggdaltoso.dev/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
