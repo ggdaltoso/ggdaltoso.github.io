@@ -5738,6 +5738,12 @@ gatsby-plugin-sitemap@^2.1.0:
     pify "^3.0.0"
     sitemap "^1.12.0"
 
+gatsby-plugin-twitter@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-twitter/-/gatsby-plugin-twitter-2.0.13.tgz#f6d79c56ebae3054f633b699498a8afdc80e5259"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 gatsby-react-router-scroll@^2.0.7:
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.0.7.tgz#b9425e366d4be546036080d85664d60ae76e6c29"
