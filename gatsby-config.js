@@ -87,6 +87,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
+            title: "Blog do GG - RSS Feed",
           },
         ],
       },
