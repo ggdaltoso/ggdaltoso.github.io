@@ -1,6 +1,15 @@
 /**
  * Generic
  */
+
+@font-face {
+  font-family: "w95";
+  src: url("/font/w95fa.woff2") format("woff2"),
+    url("/font/w95fa.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   font-size: $typographic-root-font-size;
 }
@@ -10,12 +19,18 @@ body {
   font-family: $typographic-font-family;
   color: $typographic-base-font-color;
   line-height: $typographic-base-line-height;
-  font-size: $typographic-base-font-size;
+  font-size: $typographic-base-font-size !important;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: unset !important;
+  background-color: unset !important;
+}
+
+* {
+  font-family: $typographic-font-family !important;
 }
 
 h1,
@@ -138,9 +153,9 @@ blockquote {
   border-left: 3px solid transparentize($color-primary, 0.6);
 }
 
-figure {
+figure,
+.figure {
   display: block;
-  width: 100%;
   height: auto;
 }
 
@@ -151,7 +166,7 @@ figcaption {
   font-size: $typographic-small-font-size;
   font-style: italic;
   margin-bottom: 0;
-  text-align: center;
+  text-align: left;
 }
 
 .anchor {
@@ -159,9 +174,58 @@ figcaption {
   padding-right: 14px !important;
 }
 
+.anchor.before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  padding-right: 4px;
+}
+.anchor.after {
+  display: inline-block;
+  padding-left: 4px;
+}
+h1 .anchor svg,
+h2 .anchor svg,
+h3 .anchor svg,
+h4 .anchor svg,
+h5 .anchor svg,
+h6 .anchor svg {
+  visibility: hidden;
+}
+h1:hover .anchor svg,
+h2:hover .anchor svg,
+h3:hover .anchor svg,
+h4:hover .anchor svg,
+h5:hover .anchor svg,
+h6:hover .anchor svg,
+h1 .anchor:focus svg,
+h2 .anchor:focus svg,
+h3 .anchor:focus svg,
+h4 .anchor:focus svg,
+h5 .anchor:focus svg,
+h6 .anchor:focus svg {
+  visibility: visible;
+}
+
+.figure-container {
+  display: flex;
+  flex-direction: column;
+
+  > *:first-child {
+    @include margin-top(1);
+    @include margin-bottom(1);
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @include breakpoint-sm {
   figure.float-left,
-  figure.float-right {
+  .figure.float-left,
+  figure.float-right,
+  .figure.float-right {
     max-width: 310px;
     @include padding(0, 1, 0, 1);
   }
@@ -172,5 +236,21 @@ figcaption {
 
   .float-left {
     float: left;
+  }
+
+  .figure-container {
+    flex-direction: row;
+
+    &.right {
+      flex-direction: row-reverse;
+
+      > *:first-child {
+        @include margin(0, 0, 0, 1);
+      }
+    }
+
+    > *:first-child {
+      @include margin(0, 1, 0, 0);
+    }
   }
 }
