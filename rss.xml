@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog do GG - RSS Feed]]></title><description><![CDATA[O que fiz, o que faço e o que vou fazer]]></description><link>https://ggdaltoso.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Aug 2020 13:08:22 GMT</lastBuildDate><item><title><![CDATA[Monolito, Multirepo ou Monorepo?]]></title><description><![CDATA[Monolito é fácil para começar um projeto. Multirepo pode ser bom  quando o problema é espaço. Monorepo tem vários projetos que compartilham o  mesmo repositório. Qual deles é bom pra mim?]]></description><link>https://ggdaltoso.dev/posts/monolito-multirepo-ou-monorepo/</link><guid isPermaLink="false">https://ggdaltoso.dev/posts/monolito-multirepo-ou-monorepo/</guid><pubDate>Fri, 10 Jul 2020 03:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Muitos projetos adotam o modelo de monorepo para estruturar seu repositório.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog do GG - RSS Feed]]></title><description><![CDATA[O que fiz, o que faço e o que vou fazer]]></description><link>https://ggdaltoso.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Aug 2020 13:25:24 GMT</lastBuildDate><item><title><![CDATA[Monolito, Multirepo ou Monorepo?]]></title><description><![CDATA[Monolito é fácil para começar um projeto. Multirepo pode ser bom quando o problema é espaço. Monorepo tem vários projetos que compartilham o mesmo repositório. Qual deles é bom pra mim?]]></description><link>https://ggdaltoso.dev/posts/monolito-multirepo-ou-monorepo/</link><guid isPermaLink="false">https://ggdaltoso.dev/posts/monolito-multirepo-ou-monorepo/</guid><pubDate>Fri, 10 Jul 2020 03:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Muitos projetos adotam o modelo de monorepo para estruturar seu repositório.
 Grandes nomes como &lt;a href=&quot;https://github.com/angular/angular&quot;&gt;Angular&lt;/a&gt;,
 &lt;a href=&quot;https://github.com/babel/babel&quot;&gt;Babel&lt;/a&gt; e
 &lt;a href=&quot;https://github.com/facebook/react&quot;&gt;React&lt;/a&gt;, por exemplo, utilizam essa
@@ -8,11 +8,11 @@ um monolito. Qual será a melhor para o meu projeto?&lt;/p&gt;
 acho importante falar um pouco de cada uma delas.&lt;/p&gt;
 &lt;h3&gt;Monolito&lt;/h3&gt;
 &lt;span class=&quot;figure float-left&quot;&gt;
-  &lt;img 
-    src=&quot;/media/monorepo/monolith.png&quot; 
-    width=&quot;180&quot; 
-    alt=&quot;Diagrama de um monolito&quot; 
-    title=&quot;Monolito.png&quot; 
+  &lt;img
+    src=&quot;/media/monorepo/monolith.png&quot;
+    width=&quot;180&quot;
+    alt=&quot;Diagrama de um monolito&quot;
+    title=&quot;Monolito.png&quot;
   /&gt;
 &lt;/span&gt;
 &lt;p&gt;Esse modelo consiste em ter tudo em um único lugar. Tudo junto e misturado.
@@ -20,35 +20,35 @@ Geralmente é a mais comum entre os projetos antigos (famoso legado) pois era a
 forma mais fácil de se começar e continuar um projeto, já que não haviam
 ferramentas suficientes para se fazer o manuseio de multiplos módulos em um
 mesmo repositório. Resumidamente: &lt;strong&gt;1 repositório e 1 projeto&lt;/strong&gt;.&lt;/p&gt;
-&lt;br /&gt;
-&lt;br /&gt;
+&lt;br class=&quot;hide-sm&quot;/&gt;
+&lt;br  class=&quot;hide-sm&quot;/&gt;
 &lt;h3&gt;Multirepo ou Polirepo&lt;/h3&gt;
 &lt;span class=&quot;figure float-right&quot;&gt;
-  &lt;img 
-    src=&quot;/media/monorepo/multirepo.png&quot; 
-    alt=&quot;Diagrama de um multirepo ou Polirepo&quot; 
-    width=&quot;160&quot; 
-    title=&quot;Multirepo.png&quot; 
+  &lt;img
+    src=&quot;/media/monorepo/multirepo.png&quot;
+    alt=&quot;Diagrama de um multirepo ou Polirepo&quot;
+    width=&quot;160&quot;
+    title=&quot;Multirepo.png&quot;
   /&gt;
 &lt;/span&gt;
 &lt;p&gt;Em um cenário onde um projeto possa ser subdivido em múltiplos módulos (ou em
 vários projetos), podemos atribuir para cada um deles, seu próprio repositório,
 ou seja, &lt;strong&gt;N repositórios para N projetos&lt;/strong&gt;.&lt;/p&gt;
-&lt;br /&gt;
-&lt;br /&gt;
+&lt;br class=&quot;hide-sm&quot;/&gt;
+&lt;br class=&quot;hide-sm&quot;/&gt;
 &lt;h3&gt;Monorepo&lt;/h3&gt;
 &lt;span class=&quot;figure float-left&quot;&gt;
-  &lt;img 
-    src=&quot;/media/monorepo/monorepo.png&quot; 
-    alt=&quot;Diagrama de um monorepo&quot; 
-    width=&quot;160&quot; 
-    title=&quot;Monorepo.png&quot; 
+  &lt;img
+    src=&quot;/media/monorepo/monorepo.png&quot;
+    alt=&quot;Diagrama de um monorepo&quot;
+    width=&quot;160&quot;
+    title=&quot;Monorepo.png&quot;
   /&gt;
 &lt;/span&gt;
 &lt;p&gt;Por fim, quando temos vários projetos que compartilham do mesmo repositório,
 damos o nome a essa estrutura de Monorepo que, em minha opinião, é uma extensão
 do Monolito, lidando com &lt;strong&gt;1 repositório para N projetos&lt;/strong&gt;.&lt;/p&gt;
-&lt;br /&gt;
+&lt;br class=&quot;hide-sm&quot; /&gt;
 &lt;p&gt;Qual dessas estruturas eu devo colocar em meu projeto? Bom, depende...&lt;/p&gt;
 &lt;h2&gt;Minha lista de receitas&lt;/h2&gt;
 &lt;span class=&quot;figure float-left&quot;&gt;
@@ -66,7 +66,7 @@ acompanhar a gente durante o raciocínio.
 Consideraremos também que esse é um projeto pessoal que vai sendo desenvolvido
 conforme as que necessidades vão aparecendo. Nosso projeto se chamará &lt;em&gt;Minha
 lista de Receitas&lt;/em&gt;.&lt;/p&gt;
-&lt;br /&gt;
+&lt;br class=&quot;hide-sm&quot; /&gt;
 &lt;p&gt;O mais importante aqui é começar. Apenas com a ideia na cabeça, o mais comum de
 se fazer é criar o repositório vazio seguido por um visual simples.&lt;/p&gt;
 &lt;p&gt;Dessa forma teremos um projeto para um repositório, caracterizando-o como
