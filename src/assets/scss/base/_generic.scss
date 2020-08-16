@@ -222,7 +222,15 @@ h6 .anchor:focus svg {
   }
 }
 
+.hide-sm {
+  display: none;
+}
+
 @include breakpoint-sm {
+  .hide-sm {
+    display: block;
+  }
+
   figure.float-left,
   .figure.float-left,
   figure.float-right,
