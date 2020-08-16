@@ -1,5 +1,5 @@
-@import "../../assets/scss/variables";
-@import "../../assets/scss/mixins";
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
 
 .post {
   &__footer {
@@ -16,7 +16,7 @@
 
   &__home-button {
     display: block;
-    max-width: 90px;
+    max-width: 160px;
     height: $button-height;
     padding: 0 24px;
     line-height: $button-height;
