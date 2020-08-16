@@ -28,9 +28,14 @@ acho importante falar um pouco de cada uma delas.
 
 ### Monolito
 
-<figure class="float-left" style="width: 120px">
-  <img src="/media/monorepo/monolith.png" alt="Monolito">
-</figure>
+<span class="figure float-left">
+  <img 
+    src="/media/monorepo/monolith.png" 
+    width="180" 
+    alt="Diagrama de um monolito" 
+    title="Monolito.png" 
+  />
+</span>
 
 Esse modelo consiste em ter tudo em um único lugar. Tudo junto e misturado.
 Geralmente é a mais comum entre os projetos antigos (famoso legado) pois era a
@@ -38,35 +43,56 @@ forma mais fácil de se começar e continuar um projeto, já que não haviam
 ferramentas suficientes para se fazer o manuseio de multiplos módulos em um
 mesmo repositório. Resumidamente: **1 repositório e 1 projeto**.
 
+<br />
+<br />
+
 ### Multirepo ou Polirepo
 
-<figure class="float-right" style="width: 167px">
-	<img src="/media/monorepo/multirepo.png" alt="Multirepo ou Polirepo">
-</figure>
+<span class="figure float-right">
+  <img 
+    src="/media/monorepo/multirepo.png" 
+    alt="Diagrama de um multirepo ou Polirepo" 
+    width="160" 
+    title="Multirepo.png" 
+  />
+</span>
 
 Em um cenário onde um projeto possa ser subdivido em múltiplos módulos (ou em
 vários projetos), podemos atribuir para cada um deles, seu próprio repositório,
 ou seja, **N repositórios para N projetos**.
 
+<br />
+<br />
+
 ### Monorepo
 
-<figure class="float-left" style="width: 120px">
-	<img src="/media/monorepo/monorepo.png" alt="Monorepo">
-</figure>
+<span class="figure float-left">
+  <img 
+    src="/media/monorepo/monorepo.png" 
+    alt="Diagrama de um monorepo" 
+    width="160" 
+    title="Monorepo.png" 
+  />
+</span>
 
 Por fim, quando temos vários projetos que compartilham do mesmo repositório,
 damos o nome a essa estrutura de Monorepo que, em minha opinião, é uma extensão
 do Monolito, lidando com **1 repositório para N projetos**.
 
-<br >
+<br />
 
 Qual dessas estruturas eu devo colocar em meu projeto? Bom, depende...
 
 ## Minha lista de receitas
 
-<figure class="float-left" style="width: 280px">
-	<img src="/media/monorepo/simple-structure.png" alt="Estrutura simples do projeto inicial">
-</figure>
+<span class="figure float-left">
+  <img
+    src="/media/monorepo/simple-structure.png"
+    alt="Estrutura simples do projeto inicial"
+    width="250"
+    title="Minha lista de Receitas.png"
+  />
+</span>
 
 Um projeto é tudo aquilo que tem começo, meio e fim e aqui ele vai ser
 considerado como algo que possa ser versionado também, para fins ilustrativos.
@@ -76,10 +102,10 @@ Consideraremos também que esse é um projeto pessoal que vai sendo desenvolvido
 conforme as que necessidades vão aparecendo. Nosso projeto se chamará _Minha
 lista de Receitas_.
 
+<br />
+
 O mais importante aqui é começar. Apenas com a ideia na cabeça, o mais comum de
 se fazer é criar o repositório vazio seguido por um visual simples.
-
-<br >
 
 Dessa forma teremos um projeto para um repositório, caracterizando-o como
 Monolito. No meu ponto de vista, essa é a estrutura mais simples que esse

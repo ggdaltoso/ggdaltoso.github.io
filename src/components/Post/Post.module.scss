@@ -5,7 +5,7 @@
   &__footer {
     max-width: $layout-post-width;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 4px;
   }
 
   &__comments {
@@ -16,7 +16,7 @@
 
   &__home-button {
     display: block;
-    max-width: 90px;
+    max-width: 160px;
     height: $button-height;
     padding: 0 24px;
     line-height: $button-height;
@@ -34,9 +34,7 @@
     &:focus {
       color: $color-primary;
     }
-
   }
-
 }
 
 @include breakpoint-md {
@@ -54,9 +52,7 @@
       max-width: auto;
       margin: 0;
       top: 30px;
-      left: 30px
+      left: 30px;
     }
-
   }
-
 }

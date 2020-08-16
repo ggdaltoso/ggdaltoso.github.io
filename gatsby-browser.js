@@ -1,5 +1,5 @@
-'use strict';
+"use strict";
 
-require('./src/assets/scss/init.scss');
+require("./src/assets/scss/init.scss");
 
 exports.onClientEntry = () => {};
