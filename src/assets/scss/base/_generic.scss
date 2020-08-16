@@ -3,9 +3,9 @@
  */
 
 @font-face {
-  font-family: "w95";
-  src: url("/font/w95fa.woff2") format("woff2"),
-    url("/font/w95fa.woff") format("woff");
+  font-family: 'w95';
+  src: url('/font/w95fa.woff2') format('woff2'),
+    url('/font/w95fa.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -116,6 +116,7 @@ hr {
 
 a {
   color: $typographic-link-p-font-color;
+  font-family: $typographic-font-family !important;
   text-decoration: none;
 
   &:hover,
