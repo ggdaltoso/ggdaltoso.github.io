@@ -11,8 +11,8 @@ tags:
   - "Monolito"
   - "Multirepo"
 
-description: "Monolito é fácil para começar um projeto. Multirepo pode ser bom 
-quando o problema é espaço. Monorepo tem vários projetos que compartilham o 
+description: "Monolito é fácil para começar um projeto. Multirepo pode ser bom
+quando o problema é espaço. Monorepo tem vários projetos que compartilham o
 mesmo repositório. Qual deles é bom pra mim?"
 ---
 
@@ -29,11 +29,11 @@ acho importante falar um pouco de cada uma delas.
 ### Monolito
 
 <span class="figure float-left">
-  <img 
-    src="/media/monorepo/monolith.png" 
-    width="180" 
-    alt="Diagrama de um monolito" 
-    title="Monolito.png" 
+  <img
+    src="/media/monorepo/monolith.png"
+    width="180"
+    alt="Diagrama de um monolito"
+    title="Monolito.png"
   />
 </span>
 
@@ -43,17 +43,17 @@ forma mais fácil de se começar e continuar um projeto, já que não haviam
 ferramentas suficientes para se fazer o manuseio de multiplos módulos em um
 mesmo repositório. Resumidamente: **1 repositório e 1 projeto**.
 
-<br />
-<br />
+<br class="hide-sm"/>
+<br  class="hide-sm"/>
 
 ### Multirepo ou Polirepo
 
 <span class="figure float-right">
-  <img 
-    src="/media/monorepo/multirepo.png" 
-    alt="Diagrama de um multirepo ou Polirepo" 
-    width="160" 
-    title="Multirepo.png" 
+  <img
+    src="/media/monorepo/multirepo.png"
+    alt="Diagrama de um multirepo ou Polirepo"
+    width="160"
+    title="Multirepo.png"
   />
 </span>
 
@@ -61,17 +61,17 @@ Em um cenário onde um projeto possa ser subdivido em múltiplos módulos (ou em
 vários projetos), podemos atribuir para cada um deles, seu próprio repositório,
 ou seja, **N repositórios para N projetos**.
 
-<br />
-<br />
+<br class="hide-sm"/>
+<br class="hide-sm"/>
 
 ### Monorepo
 
 <span class="figure float-left">
-  <img 
-    src="/media/monorepo/monorepo.png" 
-    alt="Diagrama de um monorepo" 
-    width="160" 
-    title="Monorepo.png" 
+  <img
+    src="/media/monorepo/monorepo.png"
+    alt="Diagrama de um monorepo"
+    width="160"
+    title="Monorepo.png"
   />
 </span>
 
@@ -79,7 +79,7 @@ Por fim, quando temos vários projetos que compartilham do mesmo repositório,
 damos o nome a essa estrutura de Monorepo que, em minha opinião, é uma extensão
 do Monolito, lidando com **1 repositório para N projetos**.
 
-<br />
+<br class="hide-sm" />
 
 Qual dessas estruturas eu devo colocar em meu projeto? Bom, depende...
 
@@ -102,7 +102,7 @@ Consideraremos também que esse é um projeto pessoal que vai sendo desenvolvido
 conforme as que necessidades vão aparecendo. Nosso projeto se chamará _Minha
 lista de Receitas_.
 
-<br />
+<br class="hide-sm" />
 
 O mais importante aqui é começar. Apenas com a ideia na cabeça, o mais comum de
 se fazer é criar o repositório vazio seguido por um visual simples.

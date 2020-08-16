@@ -1,7 +1,7 @@
-import React from "react";
-import { Frame } from "@react95/core";
-import Icons from "@react95/icons";
-import styled from "styled-components";
+import React from 'react';
+import { Frame } from '@react95/core';
+import Icons from '@react95/icons';
+import styled from 'styled-components';
 
 const Title = styled.span`
   color: white;
@@ -14,8 +14,6 @@ const Title = styled.span`
 `;
 
 const GGImage = (props) => {
-  console.log("props", props);
-
   const { src, alt, title, width } = props;
 
   return (
@@ -34,8 +32,8 @@ const GGImage = (props) => {
             backgroundImage: `url('${Icons.wangimg_128}')`,
             width: 15,
             height: 15,
-            backgroundSize: "cover",
-            display: "block",
+            backgroundSize: 'cover',
+            display: 'block',
             margin: 0,
           }}
         />
