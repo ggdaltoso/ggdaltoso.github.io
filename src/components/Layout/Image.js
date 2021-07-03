@@ -1,6 +1,6 @@
 import React from 'react';
 import { Frame } from '@react95/core';
-import Icons from '@react95/icons';
+import Icons, { Wangimg128 } from '@react95/icons';
 import styled from 'styled-components';
 
 const Title = styled.span`
@@ -19,7 +19,7 @@ const GGImage = (props) => {
   return (
     <Frame p={1} width={`${width}px`} mh="auto">
       <Frame
-        bg="primary"
+        bg="headerBackground"
         height={18}
         w="100%"
         boxShadow="none"
@@ -27,13 +27,12 @@ const GGImage = (props) => {
         pt={1}
         display="flex"
       >
-        <i
+        <Wangimg128
+          variant="16x16_4"
           style={{
-            backgroundImage: `url('${Icons.wangimg_128}')`,
             width: 15,
             height: 15,
-            backgroundSize: 'cover',
-            display: 'block',
+            maxWidth: 'unset',
             margin: 0,
           }}
         />

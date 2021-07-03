@@ -6,7 +6,7 @@ import Comments from './Comments';
 import Content from './Content';
 import Meta from './Meta';
 import Tags from './Tags';
-import styles from './Post.module.scss';
+import * as styles from './Post.module.scss';
 
 const Post = ({ post, mdx }) => {
   const { html } = post;
@@ -14,12 +14,12 @@ const Post = ({ post, mdx }) => {
   const { tags, title, date } = post.frontmatter;
 
   return (
-    <div className={styles['post']}>
-      <Link className={styles['post__home-button']} to="/">
+    <div>
+      <Link className={styles['post__homeButton']} to="/">
         Todos os artigos
       </Link>
 
-      <div className={styles['post__content']}>
+      <div>
         <Content
           body={mdx ? mdx.body : html}
           mdx={Boolean(mdx)}

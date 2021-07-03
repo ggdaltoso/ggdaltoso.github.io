@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Icon.module.scss';
+import * as styles from './Icon.module.scss';
 
 const Icon = ({ icon }) => (
   <svg className={styles['icon']} viewBox={icon.viewBox}>

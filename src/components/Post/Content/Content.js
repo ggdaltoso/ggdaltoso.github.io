@@ -1,7 +1,7 @@
 import React from 'react';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 
-import styles from './Content.module.scss';
+import * as styles from './Content.module.scss';
 
 const Content = ({ body, title, mdx }) => (
   <div className={styles['content']}>

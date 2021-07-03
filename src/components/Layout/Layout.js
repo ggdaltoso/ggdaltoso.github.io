@@ -5,7 +5,7 @@ import { ThemeProvider, GlobalStyle } from '@react95/core';
 
 import GGHighlight from './Highlight';
 import GGImage from './Image';
-import styles from './Layout.module.scss';
+import * as styles from './Layout.module.scss';
 
 const Layout = ({ children, title, description }) => (
   <div className={styles.layout}>
