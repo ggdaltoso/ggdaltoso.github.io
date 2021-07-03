@@ -1,15 +1,10 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import Post from "../components/Post";
-import { useSiteMetadata } from "../hooks";
-import type { MarkdownRemark } from "../types";
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Post from '../components/Post';
+import { useSiteMetadata } from '../hooks';
 
-type Props = {
-  data: MarkdownRemark,
-};
-
-const PostTemplate = ({ data }: Props) => {
+const PostTemplate = ({ data }) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
   const {
     title: postTitle,

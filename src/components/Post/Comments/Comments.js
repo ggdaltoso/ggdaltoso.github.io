@@ -1,14 +1,8 @@
-// @flow
 import React from 'react';
 import ReactDisqusComments from 'react-disqus-comments';
 import { useSiteMetadata } from '../../../hooks';
 
-type Props = {
-  postTitle: string,
-  postSlug: string
-};
-
-const Comments = ({ postTitle, postSlug }: Props) => {
+const Comments = ({ postTitle, postSlug }) => {
   const { url, disqusShortname } = useSiteMetadata();
 
   if (!disqusShortname) {

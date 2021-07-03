@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { Link } from 'gatsby';
 import kebabCase from 'lodash/kebabCase';

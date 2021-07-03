@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
@@ -7,14 +6,8 @@ import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import { useSiteMetadata } from '../hooks';
-import type { PageContext, AllMarkdownRemark } from '../types';
 
-type Props = {
-  data: AllMarkdownRemark,
-  pageContext: PageContext
-};
-
-const CategoryTemplate = ({ data, pageContext }: Props) => {
+const CategoryTemplate = ({ data, pageContext }) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
 
   const {
@@ -27,7 +20,10 @@ const CategoryTemplate = ({ data, pageContext }: Props) => {
   } = pageContext;
 
   const { edges } = data.allMarkdownRemark;
-  const pageTitle = currentPage > 0 ? `${category} - Page ${currentPage} - ${siteTitle}` : `${category} - ${siteTitle}`;
+  const pageTitle =
+    currentPage > 0
+      ? `${category} - Page ${currentPage} - ${siteTitle}`
+      : `${category} - ${siteTitle}`;
 
   return (
     <Layout title={pageTitle} description={siteSubtitle}>
@@ -48,11 +44,17 @@ const CategoryTemplate = ({ data, pageContext }: Props) => {
 export const query = graphql`
   query CategoryPage($category: String, $postsLimit: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
-        limit: $postsLimit,
-        skip: $postsOffset,
-        filter: { frontmatter: { category: { eq: $category }, template: { eq: "post" }, draft: { ne: true } } },
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ){
+      limit: $postsLimit
+      skip: $postsOffset
+      filter: {
+        frontmatter: {
+          category: { eq: $category }
+          template: { eq: "post" }
+          draft: { ne: true }
+        }
+      }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
       edges {
         node {
           fields {

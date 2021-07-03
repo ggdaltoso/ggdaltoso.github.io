@@ -1,21 +1,13 @@
-// @flow
-import React from "react";
-import Helmet from "react-helmet";
-import { MDXProvider } from "@mdx-js/react";
-import type { Node as ReactNode } from "react";
-import { ThemeProvider, GlobalStyle, Frame, Icon } from "@react95/core";
+import React from 'react';
+import Helmet from 'react-helmet';
+import { MDXProvider } from '@mdx-js/react';
+import { ThemeProvider, GlobalStyle } from '@react95/core';
 
-import GGHighlight from "./Highlight";
-import GGImage from "./Image";
-import styles from "./Layout.module.scss";
+import GGHighlight from './Highlight';
+import GGImage from './Image';
+import styles from './Layout.module.scss';
 
-type Props = {
-  children: ReactNode,
-  title: string,
-  description?: string,
-};
-
-const Layout = ({ children, title, description }: Props) => (
+const Layout = ({ children, title, description }) => (
   <div className={styles.layout}>
     <Helmet>
       <html lang="en" />
