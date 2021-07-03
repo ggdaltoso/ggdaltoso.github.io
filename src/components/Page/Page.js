@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import styles from './Page.module.scss';
+import * as styles from './Page.module.scss';
 
 const Page = ({ title, children }) => {
   const pageRef = useRef();

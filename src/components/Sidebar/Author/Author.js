@@ -1,9 +1,9 @@
 import React from 'react';
 import { withPrefix, Link } from 'gatsby';
-import styles from './Author.module.scss';
+import * as styles from './Author.module.scss';
 
 const Author = ({ author, isIndex }) => (
-  <div className={styles['author']}>
+  <div>
     <Link to="/">
       <img
         src={withPrefix(author.photo)}
@@ -16,13 +16,13 @@ const Author = ({ author, isIndex }) => (
 
     {isIndex ? (
       <h1 className={styles['author__title']}>
-        <Link className={styles['author__title-link']} to="/">
+        <Link className={styles['author__titleLink']} to="/">
           {author.name}
         </Link>
       </h1>
     ) : (
       <h2 className={styles['author__title']}>
-        <Link className={styles['author__title-link']} to="/">
+        <Link className={styles['author__titleLink']} to="/">
           {author.name}
         </Link>
       </h2>
