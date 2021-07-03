@@ -14,7 +14,6 @@
 - [Netlify CMS](https://www.netlifycms.org) support.
 - Google Analytics.
 - Disqus Comments.
-- [Flow](https://flow.org/) static type checking.
 
 ## Quick Start
 
