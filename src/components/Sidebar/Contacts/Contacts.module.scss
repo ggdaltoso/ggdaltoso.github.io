@@ -21,9 +21,9 @@
       align-content: center;
       align-items: center;
       justify-content: center;
-      height: $button-height;
-      width: $button-height;
-      line-height: $button-height;
+      height: var(--button-height);
+      width: var(--button-height);
+      line-height: var(--button-height);
       border-radius: 50%;
       text-align: center;
       border: 1px solid $color-gray-bg;

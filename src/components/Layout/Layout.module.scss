@@ -2,5 +2,5 @@
 @import '../../assets/scss/mixins';
 
 .layout {
-    lost-center: $layout-width;
+  lost-center: var(--layout-post-single-width);
 }

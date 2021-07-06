@@ -3,13 +3,13 @@
 
 .post {
   &__footer {
-    max-width: $layout-post-width;
+    max-width: var(--layout-post-width);
     margin: 0 auto;
     padding: 0 4px;
   }
 
   &__comments {
-    max-width: $layout-post-width;
+    max-width: var(--layout-post-width);
     margin: 0 auto;
     padding: 0 15px;
   }
@@ -17,13 +17,13 @@
   &__home-button {
     display: block;
     max-width: 160px;
-    height: $button-height;
+    height: var(--button-height);
     padding: 0 24px;
-    line-height: $button-height;
+    line-height: var(--button-height);
     text-align: center;
     color: $color-base;
     border: 1px solid $color-gray-border;
-    border-radius: $button-border-radius;
+    border-radius: var(--button-border-radius);
     font-size: $typographic-base-font-size;
     font-weight: normal;
     margin-left: auto;
