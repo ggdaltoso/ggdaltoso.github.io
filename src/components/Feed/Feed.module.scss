@@ -6,38 +6,36 @@
     @include margin-bottom(1.25);
 
     &:last-child {
-      @include margin-bottom(.5);
+      @include margin-bottom(0.5);
     }
 
     &-title {
       font-size: $typographic-base-font-size * 1.6875;
       @include line-height(1.5);
       @include margin-top(0);
-      @include margin-bottom(.5);
+      @include margin-bottom(0.5);
 
       &-link {
-        color: $color-base;
+        color: var(--color-base);
 
         &:hover,
         &:focus {
-          color: $color-base;
-          border-bottom: 1px solid $color-base;
+          color: var(--color-base);
+          border-bottom: 1px solid var(--color-base);
         }
-
       }
-
     }
 
     &-description {
       font-size: $typographic-base-font-size;
       @include line-height(1);
-      @include margin-bottom(.75);
+      @include margin-bottom(0.75);
     }
 
     &-meta {
       &-time {
         font-size: $typographic-small-font-size;
-        color: $color-base;
+        color: var(--color-base);
         font-weight: 600;
         text-transform: uppercase;
       }
@@ -49,33 +47,27 @@
       &-category {
         &-link {
           font-size: $typographic-small-font-size;
-          color: $color-secondary;
+          color: var(--color-secondary);
           font-weight: 600;
           text-transform: uppercase;
 
           &:hover,
           &:focus {
-            color: $color-primary;
+            color: var(--color-primary);
           }
-
         }
-
       }
-
     }
 
     &-readmore {
       font-size: $typographic-base-font-size;
-      color: $color-primary;
+      color: var(--color-primary);
 
       &:hover,
       &:focus {
-        color: $color-primary;
-        border-bottom: 1px solid $color-primary;
+        color: var(--color-primary);
+        border-bottom: 1px solid var(--color-primary);
       }
-
     }
-
   }
-
 }

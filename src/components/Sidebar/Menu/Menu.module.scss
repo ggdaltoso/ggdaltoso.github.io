@@ -21,19 +21,15 @@
 
         &:hover,
         &:focus {
-          color: $color-primary;
-          border-bottom: 1px solid $color-primary;
+          color: var(--color-primary);
+          border-bottom: 1px solid var(--color-primary);
         }
 
         &--active {
-          color: $color-base;
-          border-bottom: 1px solid $color-base;
+          color: var(--color-base);
+          border-bottom: 1px solid var(--color-base);
         }
-
       }
-
     }
-
   }
-
 }

@@ -10,22 +10,21 @@
     text-align: left;
 
     &-link {
-      color: $color-secondary;
+      color: var(--color-secondary);
       font-size: 26px;
       font-weight: bold;
 
       &:hover,
       &:focus {
-        color: $color-primary;
+        color: var(--color-primary);
       }
 
       &--disable {
         pointer-events: none;
-        color: lighten($color-gray, 20%);
+        color: var(--color-gray);
+        opacity: 0.2;
       }
-
     }
-
   }
 
   &__next {
@@ -33,22 +32,20 @@
     text-align: right;
 
     &-link {
-      color: $color-secondary;
+      color: var(--color-secondary);
       font-size: 26px;
       font-weight: bold;
 
       &:hover,
       &:focus {
-        color: $color-primary;
+        color: var(--color-primary);
       }
 
       &--disable {
         pointer-events: none;
-        color: lighten($color-gray, 20%);
+        color: var(--color-gray);
+        opacity: 0.2;
       }
-
     }
-
   }
-
 }

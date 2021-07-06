@@ -96,7 +96,7 @@ hr {
   margin-top: 52px;
   margin-bottom: 52px;
   border: 0;
-  color: $color-base;
+  color: var(--color-base);
   display: block;
   height: 26px;
   margin-right: auto;
@@ -106,8 +106,8 @@ hr {
     to bottom,
     transparent 1px,
     transparent 11px,
-    $color-base 11px,
-    $color-base 15px,
+    var(--color-base) 11px,
+    var(--color-base) 15px,
     transparent 15px,
     transparent 26px
   );
@@ -151,7 +151,7 @@ blockquote {
   font-style: italic;
   text-align: left;
   padding-left: 20px;
-  border-left: 3px solid transparentize($color-primary, 0.6);
+  border-left: 3px solid rgba(var(--color-primary-rgb), 0.6);
 }
 
 figure,
@@ -163,7 +163,7 @@ figure,
 figcaption {
   @include line-height(0.75);
   @include margin-top(0.25);
-  color: $color-base;
+  color: var(--color-base);
   font-size: $typographic-small-font-size;
   font-style: italic;
   margin-bottom: 0;
