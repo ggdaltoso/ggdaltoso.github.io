@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog do GG - RSS Feed]]></title><description><![CDATA[O que fiz, o que faço e o que vou fazer]]></description><link>https://ggdaltoso.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Aug 2020 13:25:24 GMT</lastBuildDate><item><title><![CDATA[Monolito, Multirepo ou Monorepo?]]></title><description><![CDATA[Monolito é fácil para começar um projeto. Multirepo pode ser bom quando o problema é espaço. Monorepo tem vários projetos que compartilham o mesmo repositório. Qual deles é bom pra mim?]]></description><link>https://ggdaltoso.dev/posts/monolito-multirepo-ou-monorepo/</link><guid isPermaLink="false">https://ggdaltoso.dev/posts/monolito-multirepo-ou-monorepo/</guid><pubDate>Fri, 10 Jul 2020 03:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Muitos projetos adotam o modelo de monorepo para estruturar seu repositório.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog do GG - RSS Feed]]></title><description><![CDATA[O que fiz, o que faço e o que vou fazer]]></description><link>https://ggdaltoso.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 31 Jul 2021 22:00:55 GMT</lastBuildDate><item><title><![CDATA[Monolito, Multirepo ou Monorepo?]]></title><description><![CDATA[Monolito é fácil para começar um projeto. Multirepo pode ser bom quando o problema é espaço. Monorepo tem vários projetos que compartilham o mesmo repositório. Qual deles é bom pra mim?]]></description><link>https://ggdaltoso.dev/posts/monolito-multirepo-ou-monorepo/</link><guid isPermaLink="false">https://ggdaltoso.dev/posts/monolito-multirepo-ou-monorepo/</guid><pubDate>Fri, 10 Jul 2020 03:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Muitos projetos adotam o modelo de monorepo para estruturar seu repositório.
 Grandes nomes como &lt;a href=&quot;https://github.com/angular/angular&quot;&gt;Angular&lt;/a&gt;,
 &lt;a href=&quot;https://github.com/babel/babel&quot;&gt;Babel&lt;/a&gt; e
 &lt;a href=&quot;https://github.com/facebook/react&quot;&gt;React&lt;/a&gt;, por exemplo, utilizam essa
@@ -139,9 +139,9 @@ Foi aí que nosso time teve a brilhante ideia de fazer um design system. Ótimo!
 &lt;p&gt;Assim que tivemos esse insight, nos deparamos que junto com uma solução, vinha
 um problema.&lt;/p&gt;
 &lt;p&gt;&lt;img 
-  src=&quot;/media/react95-fun-side-project-of-the-year/React95-o-que-queremos.jpeg&quot; 
-  alt=&quot;Time de plataforma definindo o que iremos fazer&quot; 
-  title=&quot;Time.png&quot;
+src=&quot;/media/react95-fun-side-project-of-the-year/React95-o-que-queremos.jpeg&quot; 
+alt=&quot;Time de plataforma definindo o que iremos fazer&quot; 
+title=&quot;Time.png&quot;
 /&gt;&lt;/p&gt;
 &lt;p&gt;No começo só sabíamos o que era um design system porque ouvimos falar por aí.
 Nunca implementamos um.&lt;/p&gt;
@@ -162,9 +162,9 @@ existem várias outras formas de lazer e que devem ser aproveitadas, e por que
 não fazer os componentes do Windows95?&lt;/p&gt;
 &lt;p&gt;E assim nasce o &lt;strong&gt;React95&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img 
-  src=&quot;/media/react95-fun-side-project-of-the-year/React95-v1.0.0.jpeg&quot; 
-  alt=&quot;Primeira versão do React95&quot; 
-  title=&quot;React95-v1.0.0.png&quot;
+src=&quot;/media/react95-fun-side-project-of-the-year/React95-v1.0.0.jpeg&quot; 
+alt=&quot;Primeira versão do React95&quot; 
+title=&quot;React95-v1.0.0.png&quot;
 /&gt;&lt;/p&gt;
 &lt;p&gt;Em paralelo, todo o conhecimento aprendido foi utilizado para desenvolver o
 &lt;a href=&quot;https://github.com/catho/quantum&quot;&gt;Quantum&lt;/a&gt;, a biblioteca de componentes da
@@ -209,7 +209,7 @@ groups, and up to 4 selected nominees per each group, where your project
 &lt;/blockquote&gt;
 &lt;p&gt;Eu tava lendo de boa e parei quando li &lt;strong&gt;“React95” is nominated for “Fun side
 project of the year”&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/U6MlaIe1ljs&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
+&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/U6MlaIe1ljs&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
 &lt;p&gt;Li várias vezes. Lia e relia. Nem dormi direito naquele dia. E sabe o que mais
 me impressionou nisso?&lt;/p&gt;
 &lt;p&gt;EU NÃO SEI ATÉ HOJE QUEM FOI QUE INSCREVEU O REACT95 NESSA CONFERÊNCIA!&lt;/p&gt;
@@ -234,7 +234,7 @@ de ter ouvido falarem em fazer uma vaquinha pra custear tudo.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Vocês vão. Pagaremos tudo para vocês.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/vSqkwpFA4ZwAM/giphy.gif&quot; alt=&quot;Anima&amp;#xE7;&amp;#xE3;o mostrando minha rea&amp;#xE7;&amp;#xE3;o&quot; title=&quot;WTF.gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/vSqkwpFA4ZwAM/giphy.gif&quot; alt=&quot;Animação mostrando minha reação&quot; title=&quot;WTF.gif&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Eu fiquei muito surpreso porque o React95, diretamente, não tinha nada a ver com
 a Catho. Era um projeto pessoal. A empresa não tinha que fazer isso mas mesmo
 assim o fez e, inclusive, disse para a gente trabalhar de lá, já que a empresa
@@ -254,18 +254,18 @@ categorias.&lt;/p&gt;
 terceira a ser apresentada. Estávamos apreensivos, sentados em uma das primeiras
 fileiras e vimos o seguinte a ser projetado no fundo:&lt;/p&gt;
 &lt;p&gt;&lt;img
-  src=&quot;/media/react95-fun-side-project-of-the-year/React95-winner-announcement.jpeg&quot;
-  alt=&quot;React95 é o ganhador do prêmio “Fun side project of the Year”&quot;
-  title=&quot;Fun side project of the Year.png&quot;
+src=&quot;/media/react95-fun-side-project-of-the-year/React95-winner-announcement.jpeg&quot;
+alt=&quot;React95 é o ganhador do prêmio “Fun side project of the Year”&quot;
+title=&quot;Fun side project of the Year.png&quot;
 /&gt;&lt;/p&gt;
 &lt;p&gt;GANHAMOS O PRÊMIO. SÉRIO. E, claro, fomos chamados lá em cima pra recebê-lo.&lt;/p&gt;
 &lt;p&gt;Esse, até hoje e com certeza, foi o ápice da minha vida profissional.&lt;/p&gt;
 &lt;p&gt;Tudo o que estava acontecendo era difícil de acreditar, não pelo troféu em si,
 mas o que aconteceu pra chegar até ali.&lt;/p&gt;
 &lt;p&gt;&lt;img
-  src=&quot;/media/react95-fun-side-project-of-the-year/React95-winner-trophy.jpeg&quot;
-  alt=&quot;Muitas emoções na entrega do prêmio&quot;
-  title=&quot;Fun Side Project of the Year.png&quot;
+src=&quot;/media/react95-fun-side-project-of-the-year/React95-winner-trophy.jpeg&quot;
+alt=&quot;Muitas emoções na entrega do prêmio&quot;
+title=&quot;Fun Side Project of the Year.png&quot;
 /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;O React95 não ganhou o prêmio porquê ele é um bom projeto ou um projeto
@@ -666,7 +666,7 @@ detalhes de como fiz meu &quot;videogame&quot;. Haha&lt;/p&gt;
 &lt;h3&gt;Resultado&lt;/h3&gt;
 &lt;p&gt;O que seremos capaz de fazer, se seguirmos esse post passo-a-passo, é o
 seguinte:&lt;/p&gt;
-&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/q5UYxuzKEec&quot; frameborder=&quot;0&quot; allowfullscreen style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
+&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/q5UYxuzKEec&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
 &lt;h3&gt;Primeiros passos&lt;/h3&gt;
 &lt;p&gt;O que precisamos?&lt;/p&gt;
 &lt;p&gt;Ao contrário dos consoles convencionais, nosso videogame será montado peça por
@@ -749,16 +749,16 @@ Raspberry.&lt;/p&gt;
 &lt;p&gt;Utilize o teclado para acessar as configurações. Aperte Enter para aparecer o
 menu, A para selecionar e S para voltar.&lt;/p&gt;
 &lt;p&gt;&lt;img 
-  src=&quot;/media/crie-um-videogame-com-raspberry-pi/menu.jpg&quot; 
-  alt=&quot;Menu principal do Recalbox&quot; 
-  title=&quot;Menu.png&quot;
+src=&quot;/media/crie-um-videogame-com-raspberry-pi/menu.jpg&quot; 
+alt=&quot;Menu principal do Recalbox&quot; 
+title=&quot;Menu.png&quot;
 /&gt;&lt;/p&gt;
 &lt;p&gt;Essa etapa é simples: você deve apertar a tecla do controle referente à pedida
 na tela, conforme a imagem&lt;/p&gt;
 &lt;p&gt;&lt;img 
-  src=&quot;/media/crie-um-videogame-com-raspberry-pi/controller.png&quot; 
-  alt=&quot;Controle do PlayStation 3&quot; 
-  title=&quot;PS3.png&quot;
+src=&quot;/media/crie-um-videogame-com-raspberry-pi/controller.png&quot; 
+alt=&quot;Controle do PlayStation 3&quot; 
+title=&quot;PS3.png&quot;
 /&gt;&lt;/p&gt;
 &lt;p&gt;Um detalhe importante é a última tecla pedida: a &lt;em&gt;HOTKEY&lt;/em&gt;. Através dela você
 conseguirá acessar vários comandos importantes da plataforma.&lt;/p&gt;
@@ -823,9 +823,9 @@ conseguirá acessar vários comandos importantes da plataforma.&lt;/p&gt;
 &lt;p&gt;Ainda com o teclado conectado, vá nas opções e configure a conexão com a
 internet (o Raspberry Pi 3 possui Wi-Fi e Bluetooth nativo)&lt;/p&gt;
 &lt;p&gt;&lt;img 
-  src=&quot;/media/crie-um-videogame-com-raspberry-pi/networkHD.jpg&quot; 
-  alt=&quot;Tela de configuração de internet&quot; 
-  title=&quot;Network.png&quot;
+src=&quot;/media/crie-um-videogame-com-raspberry-pi/networkHD.jpg&quot; 
+alt=&quot;Tela de configuração de internet&quot; 
+title=&quot;Network.png&quot;
 /&gt;&lt;/p&gt;
 &lt;p&gt;Se você tiver um cabo de rede, plugue-o e pule essa etapa. Caso prefira Wi-Fi,
 como eu, preencha os campos necessários para a conexão:&lt;/p&gt;
@@ -841,9 +841,9 @@ rede.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Acessando diretamente o cartão SD&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Pelo o executar ou pelo explorer, digite o caminho &lt;code&gt;\\recalbox&lt;/code&gt; e aperte enter.&lt;/p&gt;
 &lt;p&gt;&lt;img 
-  src=&quot;/media/crie-um-videogame-com-raspberry-pi/executar.png&quot; 
-  alt=&quot;Diretório do Recalbox&quot; 
-  title=&quot;\\recalbox.png&quot;
+src=&quot;/media/crie-um-videogame-com-raspberry-pi/executar.png&quot; 
+alt=&quot;Diretório do Recalbox&quot; 
+title=&quot;\\recalbox.png&quot;
 /&gt;&lt;/p&gt;
 &lt;p&gt;Navegue até o caminho &lt;code&gt;\\recalbox\share\roms&lt;/code&gt; e tenha acesso à todas as pastas.
 Agora é só copiar e colar a &lt;em&gt;rom&lt;/em&gt; em seu respectivo diretório.&lt;/p&gt;
@@ -853,18 +853,18 @@ acessar várias configurações a partir da interface que irá aparecer: monitor
 temperatura, adicionar/remover bios, ler a documentação e inclusive adicionar e
 remover &lt;em&gt;roms&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img 
-  src=&quot;/media/crie-um-videogame-com-raspberry-pi/interface.png&quot; 
-  alt=&quot;Interface do Recalbox acessado no browser&quot; 
-  title=&quot;browser.png&quot;
+src=&quot;/media/crie-um-videogame-com-raspberry-pi/interface.png&quot; 
+alt=&quot;Interface do Recalbox acessado no browser&quot; 
+title=&quot;browser.png&quot;
 /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Pegando imagens&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Depois de ter adicionado os jogos você pode colocar imagens nas roms. Para isso,
 basta voltar ao menu principal e escolher a opção &lt;em&gt;SCRAPER&lt;/em&gt;. Siga as instruções
 pedidas e depois veja como ficaram seus jogos (esse passo pode demorar).&lt;/p&gt;
 &lt;p&gt;&lt;img 
-  src=&quot;/media/crie-um-videogame-com-raspberry-pi/scrapper.png&quot; 
-  alt=&quot;Imagem de um jogo e suas informações&quot; 
-  title=&quot;Scraper.png&quot;
+src=&quot;/media/crie-um-videogame-com-raspberry-pi/scrapper.png&quot; 
+alt=&quot;Imagem de um jogo e suas informações&quot; 
+title=&quot;Scraper.png&quot;
 /&gt;&lt;/p&gt;
 &lt;h3&gt;Case&lt;/h3&gt;
 &lt;p&gt;Seu videogame está praticamente pronto mas para não ligar uma placa na TV
@@ -872,9 +872,9 @@ diretamente, eu comprei um case para o Raspberry. Como ele ainda não chegou
 (comprei da China), fiz um temporário de papelão, seguindo um template que
 &lt;a href=&quot;http://sixes.net/rdcHQ/mosh/raspberry.pi.b.plus.pdf&quot;&gt;achei na internet&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img 
-  src=&quot;/media/crie-um-videogame-com-raspberry-pi/case.png&quot; 
-  alt=&quot;Capa para seu videogame&quot; 
-  title=&quot;Capinha.png&quot;
+src=&quot;/media/crie-um-videogame-com-raspberry-pi/case.png&quot; 
+alt=&quot;Capa para seu videogame&quot; 
+title=&quot;Capinha.png&quot;
 /&gt;&lt;/p&gt;
 &lt;p&gt;Ele não ficou tão bonito mas, como disse, é provisório até o case chegar.&lt;/p&gt;
 &lt;h3&gt;Próximos passos&lt;/h3&gt;
