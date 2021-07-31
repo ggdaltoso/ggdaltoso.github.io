@@ -1,27 +1,6 @@
-@use 'sass:math';
 /**
  * Variables
  */
-
-// Typographic
-$typographic-font-family: 'w95', 'MS Sans Serif', -apple-system,
-  BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-  'Helvetica Neue', sans-serif;
-
-$typographic-root-font-size: 100;
-$typographic-base-font-size: 16px;
-$typographic-small-font-size: 14px;
-
-$typographic-base-line-height: 1.625;
-
-$typographic-base-font-color: var(--color-base);
-$typographic-link-p-font-color: var(--color-primary);
-$typographic-link-s-font-color: var(--color-secondary);
-
-$typographic-leading: round(
-  16 * math.div($typographic-root-font-size, 100) *
-    $typographic-base-line-height
-);
 
 :root {
   // Buttons
@@ -30,7 +9,7 @@ $typographic-leading: round(
 
   // Layout
   --layout-post-single-width: 945px;
-  --layout-post-width: var(--layout-post-single-width) - 305px;
+  --layout-post-width: calc(var(--layout-post-single-width) - 305px);
 
   --layout-width: 1070px;
 
@@ -44,4 +23,21 @@ $typographic-leading: round(
   --color-gray: #888; // color-base 40%
   --color-gray-border: #e6e6e6; // color-base 77%
   --color-gray-bg: #ebebeb; // color-base 79%
+
+  // Typographic
+  --typographic-font-family: 'w95', 'MS Sans Serif', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', sans-serif;
+
+  --typographic-root-font-size: 100;
+  --typographic-base-font-size: 16px;
+  --typographic-small-font-size: 14px;
+
+  --typographic-base-line-height: 1.625;
+
+  --typographic-base-font-color: var(--color-base);
+  --typographic-link-p-font-color: var(--color-primary);
+  --typographic-link-s-font-color: var(--color-secondary);
+
+  --typographic-leading: calc(16 * var(--typographic-base-line-height) * 1px);
 }

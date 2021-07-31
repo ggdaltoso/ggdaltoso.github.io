@@ -1,8 +1,5 @@
-@import '../../../assets/scss/variables';
-@import '../../../assets/scss/mixins';
-
 .copyright {
   color: var(--color-gray);
-  font-size: $typographic-small-font-size;
-  opacity: 0.2%;
+  font-size: var(--typographic-small-font-size);
+  opacity: 0.6;
 }

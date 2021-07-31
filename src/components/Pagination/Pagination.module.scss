@@ -1,8 +1,5 @@
-@import '../../assets/scss/variables';
-@import '../../assets/scss/mixins';
-
 .pagination {
-  @include margin-top(2);
+  margin-top: calc(var(--typographic-leading) * 2);
   display: flex;
 
   &__prev {
