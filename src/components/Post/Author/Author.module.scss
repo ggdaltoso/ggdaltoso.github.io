@@ -1,13 +1,10 @@
-@import '../../../assets/scss/variables';
-@import '../../../assets/scss/mixins';
-
 .author {
-  border-top: 1px solid $color-gray-border;
-  max-width: $layout-post-width;
+  border-top: 1px solid var(--color-gray-border);
+  max-width: var(--layout-post-width);
   padding-top: 20px;
-  @include line-height(1);
-  @include margin-top(1);
-  @include margin-bottom(2);
+  line-height: var(--typographic-leading);
+  margin-top: var(--typographic-leading);
+  margin-bottom: calc(var(--typographic-leading) * 2);
 
   &__bio {
     &-twitter {
@@ -17,10 +14,9 @@
   }
 }
 
-@include breakpoint-sm {
+@media screen and (min-width: 685px) {
   .author {
     margin-left: auto;
     margin-right: auto;
   }
-
 }

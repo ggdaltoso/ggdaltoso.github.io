@@ -1,43 +1,38 @@
-@import '../../assets/scss/variables';
-@import '../../assets/scss/mixins';
-
 .feed {
   &__item {
-    @include margin-bottom(1.25);
+    margin-bottom: calc(var(--typographic-leading) * 1.25);
 
     &:last-child {
-      @include margin-bottom(.5);
+      margin-bottom: calc(var(--typographic-leading) * 0.5);
     }
 
     &-title {
-      font-size: $typographic-base-font-size * 1.6875;
-      @include line-height(1.5);
-      @include margin-top(0);
-      @include margin-bottom(.5);
+      font-size: calc(var(--typographic-base-font-size) * 1.6875);
+      line-height: calc(1.5 * var(--typographic-leading));
+      margin-top: 0;
+      margin-bottom: calc(var(--typographic-leading) * 0.5);
 
       &-link {
-        color: $color-base;
+        color: var(--color-base);
 
         &:hover,
         &:focus {
-          color: $color-base;
-          border-bottom: 1px solid $color-base;
+          color: var(--color-base);
+          border-bottom: 1px solid var(--color-base);
         }
-
       }
-
     }
 
     &-description {
-      font-size: $typographic-base-font-size;
-      @include line-height(1);
-      @include margin-bottom(.75);
+      font-size: var(--typographic-base-font-size);
+      line-height: var(--typographic-leading);
+      margin-bottom: calc(var(--typographic-leading) * 0.75);
     }
 
     &-meta {
       &-time {
-        font-size: $typographic-small-font-size;
-        color: $color-base;
+        font-size: var(--typographic-small-font-size);
+        color: var(--color-base);
         font-weight: 600;
         text-transform: uppercase;
       }
@@ -48,34 +43,28 @@
 
       &-category {
         &-link {
-          font-size: $typographic-small-font-size;
-          color: $color-secondary;
+          font-size: var(--typographic-small-font-size);
+          color: var(--color-secondary);
           font-weight: 600;
           text-transform: uppercase;
 
           &:hover,
           &:focus {
-            color: $color-primary;
+            color: var(--color-primary);
           }
-
         }
-
       }
-
     }
 
     &-readmore {
-      font-size: $typographic-base-font-size;
-      color: $color-primary;
+      font-size: var(--typographic-base-font-size);
+      color: var(--color-primary);
 
       &:hover,
       &:focus {
-        color: $color-primary;
-        border-bottom: 1px solid $color-primary;
+        color: var(--color-primary);
+        border-bottom: 1px solid var(--color-primary);
       }
-
     }
-
   }
-
 }

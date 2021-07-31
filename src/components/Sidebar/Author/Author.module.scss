@@ -1,36 +1,31 @@
-@import '../../../assets/scss/variables';
-@import '../../../assets/scss/mixins';
-
 .author {
   &__photo {
     display: inline-block;
     margin-bottom: 0;
     border-radius: 50%;
-    background-clip: padding-box
+    background-clip: padding-box;
   }
 
   &__title {
-    font-size: $typographic-base-font-size * 1.125;
+    font-size: calc(var(--typographic-base-font-size) * 1.125);
     font-weight: 600;
-    @include line-height(1.125);
-    @include margin(.5, 0, .5, 0);
+    line-height: calc(1.125 * var(--typographic-leading));
+    margin-top: calc(var(--typographic-leading) * 0.5);
+    margin-bottom: calc(var(--typographic-leading) * 0.5);
 
     &-link {
-      color: $color-base;
+      color: var(--color-base);
 
       &:hover,
       &:focus {
-        color: $color-base
+        color: var(--color-base);
       }
-
     }
-
   }
 
   &__subtitle {
-    color: $color-gray;
-    @include line-height(1);
-    @include margin-bottom(1)
+    color: var(--color-gray);
+    line-height: var(--typographic-leading);
+    margin-bottom: var(--typographic-leading);
   }
-
 }

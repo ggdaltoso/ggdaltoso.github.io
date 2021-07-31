@@ -14,7 +14,7 @@ const Pagination = ({
 }) => {
   const prevClassName = cx({
     pagination__prevLink: true,
-    pagination__prevLinkDsable: !hasPrevPage,
+    pagination__prevLinkDisable: !hasPrevPage,
   });
 
   const nextClassName = cx({

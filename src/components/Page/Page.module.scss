@@ -1,49 +1,41 @@
-@import '../../assets/scss/variables';
-@import '../../assets/scss/mixins';
-
 .page {
-  @include margin-bottom(2);
+  margin-bottom: calc(var(--typographic-leading) * 2);
 
   &__inner {
     padding: 25px 20px;
   }
 
   &__title {
-    font-size: $typographic-base-font-size * 2.5;
+    font-size: calc(var(--typographic-base-font-size) * 2.5);
     font-weight: 600;
-    @include line-height(2);
-    @include margin-top(0);
-    @include margin-bottom(1.45);
+    line-height: calc(2 * var(--typographic-leading));
+    margin-top: 0;
+    margin-bottom: calc(var(--typographic-leading) * 1.45);
   }
 
   &__body {
-    font-size: $typographic-base-font-size;
-    @include line-height(1);
-    @include margin(0, 0, 1);
+    font-size: var(--typographic-base-font-size);
+    line-height: var(--typographic-leading);
+    margin-bottom: var(--typographic-leading);
   }
-
 }
 
-@include breakpoint-sm {
+@media screen and (min-width: 685px) {
   .page {
     lost-column: 7/12;
 
     &__inner {
       padding: 30px 20px;
     }
-
   }
-
 }
 
-@include breakpoint-md {
+@media screen and (min-width: 960px) {
   .page {
     lost-column: 2/3;
 
     &__inner {
       padding: 40px 35px;
     }
-
   }
-
 }

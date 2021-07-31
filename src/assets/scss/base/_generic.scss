@@ -11,15 +11,15 @@
 }
 
 html {
-  font-size: $typographic-root-font-size;
+  font-size: var(--typographic-root-font-size);
 }
 
 body {
   margin: 0;
-  font-family: $typographic-font-family;
-  color: $typographic-base-font-color;
-  line-height: $typographic-base-line-height;
-  font-size: $typographic-base-font-size !important;
+  font-family: var(--typographic-font-family);
+  color: var(--typographic-base-font-color);
+  line-height: var(--typographic-base-line-height);
+  font-size: var(--typographic-base-font-size) !important;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -30,7 +30,7 @@ body {
 }
 
 * {
-  font-family: $typographic-font-family !important;
+  font-family: var(--typographic-font-family) !important;
 }
 
 h1,
@@ -39,50 +39,50 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $typographic-font-family;
+  font-family: var(--typographic-font-family);
   font-weight: 600;
 }
 
 h1 {
-  font-size: $typographic-base-font-size * 2.5;
-  @include line-height(2);
-  @include margin-top(4);
-  @include margin-bottom(1);
+  font-size: calc(var(--typographic-base-font-size) * 2.5);
+  line-height: calc(2 * var(--typographic-leading));
+  margin-top: calc(var(--typographic-leading) * 4);
+  margin-bottom: var(--typographic-leading);
 }
 
 h2 {
-  font-size: $typographic-base-font-size * 1.6875;
-  @include line-height(1.5);
-  @include margin-top(2);
-  @include margin-bottom(0.5);
+  font-size: calc(var(--typographic-base-font-size) * 1.6875);
+  line-height: calc(1.5 * var(--typographic-leading));
+  margin-top: calc(var(--typographic-leading) * 2);
+  margin-bottom: calc(var(--typographic-leading) * 0.5);
 }
 
 h3 {
-  font-size: $typographic-base-font-size * 1.375;
-  @include line-height(1);
-  @include margin-top(2);
-  @include margin-bottom(0.5);
+  font-size: calc(var(--typographic-base-font-size) * 1.375);
+  line-height: var(--typographic-leading);
+  margin-top: calc(var(--typographic-leading) * 2);
+  margin-bottom: calc(var(--typographic-leading) * 0.5);
 }
 
 h4 {
-  font-size: $typographic-base-font-size * 1.2;
-  @include line-height(1);
-  @include margin-top(1.5);
-  @include margin-bottom(0.5);
+  font-size: calc(var(--typographic-base-font-size) * 1.2);
+  line-height: var(--typographic-leading);
+  margin-top: calc(var(--typographic-leading) * 1.5);
+  margin-bottom: calc(var(--typographic-leading) * 0.5);
 }
 
 h5 {
-  font-size: $typographic-base-font-size;
-  @include line-height(1);
-  @include margin-top(2.5);
-  @include margin-bottom(0.5);
+  font-size: var(--typographic-base-font-size);
+  line-height: var(--typographic-leading);
+  margin-top: calc(var(--typographic-leading) * 2.5);
+  margin-bottom: calc(var(--typographic-leading) * 0.5);
 }
 
 h6 {
-  font-size: $typographic-base-font-size;
-  @include line-height(1);
-  @include margin-top(2.5);
-  @include margin-bottom(0.5);
+  font-size: var(--typographic-base-font-size);
+  line-height: var(--typographic-leading);
+  margin-top: calc(var(--typographic-leading) * 2.5);
+  margin-bottom: calc(var(--typographic-leading) * 0.5);
 }
 
 img {
@@ -96,7 +96,7 @@ hr {
   margin-top: 52px;
   margin-bottom: 52px;
   border: 0;
-  color: $color-base;
+  color: var(--color-base);
   display: block;
   height: 26px;
   margin-right: auto;
@@ -106,8 +106,8 @@ hr {
     to bottom,
     transparent 1px,
     transparent 11px,
-    $color-base 11px,
-    $color-base 15px,
+    var(--color-base) 11px,
+    var(--color-base) 15px,
     transparent 15px,
     transparent 26px
   );
@@ -115,14 +115,14 @@ hr {
 }
 
 a {
-  color: $typographic-link-p-font-color;
-  font-family: $typographic-font-family !important;
+  color: var(--typographic-link-p-font-color) !important;
+  font-family: var(--typographic-font-family) !important;
   text-decoration: none;
 
   &:hover,
   &:focus,
   &:active {
-    color: $typographic-link-s-font-color;
+    color: var(--typographic-link-s-font-color);
   }
 }
 
@@ -133,7 +133,7 @@ strong {
 
 ul {
   list-style: square;
-  @include margin-bottom(1);
+  margin-bottom: var(--typographic-leading);
 
   & li {
     padding: 0 5px;
@@ -142,8 +142,8 @@ ul {
 }
 
 p {
-  @include line-height(1);
-  @include margin-bottom(1);
+  line-height: var(--typographic-leading);
+  margin-bottom: var(--typographic-leading);
 }
 
 blockquote {
@@ -151,7 +151,7 @@ blockquote {
   font-style: italic;
   text-align: left;
   padding-left: 20px;
-  border-left: 3px solid transparentize($color-primary, 0.6);
+  border-left: 3px solid rgba(var(--color-primary-rgb), 0.4);
 }
 
 figure,
@@ -161,10 +161,10 @@ figure,
 }
 
 figcaption {
-  @include line-height(0.75);
-  @include margin-top(0.25);
-  color: $color-base;
-  font-size: $typographic-small-font-size;
+  line-height: calc(0.75 * var(--typographic-leading));
+  margin-top: calc(var(--typographic-leading) * 0.25);
+  color: var(--color-base);
+  font-size: var(--typographic-small-font-size);
   font-style: italic;
   margin-bottom: 0;
   text-align: left;
@@ -214,8 +214,8 @@ h6 .anchor:focus svg {
   flex-direction: column;
 
   > *:first-child {
-    @include margin-top(1);
-    @include margin-bottom(1);
+    margin-top: var(--typographic-leading);
+    margin-bottom: var(--typographic-leading);
 
     margin-left: auto;
     margin-right: auto;
@@ -226,7 +226,7 @@ h6 .anchor:focus svg {
   display: none;
 }
 
-@include breakpoint-sm {
+@media screen and (min-width: 685px) {
   .hide-sm {
     display: block;
   }
@@ -236,7 +236,8 @@ h6 .anchor:focus svg {
   figure.float-right,
   .figure.float-right {
     max-width: 310px;
-    @include padding(0, 1, 0, 1);
+    padding-right: var(--typographic-leading);
+    padding-left: var(--typographic-leading);
   }
 
   .float-right {
@@ -254,12 +255,12 @@ h6 .anchor:focus svg {
       flex-direction: row-reverse;
 
       > *:first-child {
-        @include margin(0, 0, 0, 1);
+        margin-left: var(--typographic-leading);
       }
     }
 
     > *:first-child {
-      @include margin(0, 1, 0, 0);
+      margin-bottom: var(--typographic-leading);
     }
   }
 }

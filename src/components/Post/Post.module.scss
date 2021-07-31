@@ -1,15 +1,12 @@
-@import '../../assets/scss/variables';
-@import '../../assets/scss/mixins';
-
 .post {
   &__footer {
-    max-width: $layout-post-width;
+    max-width: var(--layout-post-width);
     margin: 0 auto;
     padding: 0 4px;
   }
 
   &__comments {
-    max-width: $layout-post-width;
+    max-width: var(--layout-post-width);
     margin: 0 auto;
     padding: 0 15px;
   }
@@ -17,27 +14,27 @@
   &__home-button {
     display: block;
     max-width: 160px;
-    height: $button-height;
+    height: var(--button-height);
     padding: 0 24px;
-    line-height: $button-height;
+    line-height: var(--button-height);
     text-align: center;
-    color: $color-base;
-    border: 1px solid $color-gray-border;
-    border-radius: $button-border-radius;
-    font-size: $typographic-base-font-size;
+    color: var(--color-base);
+    border: 1px solid var(--color-gray-border);
+    border-radius: var(--button-border-radius);
+    font-size: var(--typographic-base-font-size);
     font-weight: normal;
     margin-left: auto;
     margin-right: auto;
-    @include margin-top(1);
+    margin-top: var(--typographic-leading);
 
     &:hover,
     &:focus {
-      color: $color-primary;
+      color: var(--color-primary);
     }
   }
 }
 
-@include breakpoint-md {
+@media screen and (min-width: 960px) {
   .post {
     &__footer {
       padding: 0;
