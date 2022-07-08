@@ -65,7 +65,7 @@
     "invariant": "^2.2.4",
     "katex": "^0.13.11",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "node-sass": "^7.0.0",
     "normalize-scss": "^7.0.1",
     "prism-react-renderer": "^1.2.1",
