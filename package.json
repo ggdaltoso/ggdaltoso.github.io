@@ -63,7 +63,7 @@
     "gatsby-transformer-remark": "^4.5.0",
     "gatsby-transformer-sharp": "^3.8.0",
     "invariant": "^2.2.4",
-    "katex": "^0.13.11",
+    "katex": "^0.16.10",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "node-sass": "^7.0.0",
