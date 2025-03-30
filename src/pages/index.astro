@@ -3,6 +3,11 @@ import { BlankScreen100, Mail } from '@react95/icons';
 import BaseHead from '../components/BaseHead.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { Avatar } from '@react95/core';
+import FormattedDate from '@/components/FormattedDate.astro';
+
+import { fetchGitHubIssues } from '@/utils/github';
+
+const posts = await fetchGitHubIssues();
 ---
 
 <!doctype html>
@@ -22,7 +27,7 @@ import { Avatar } from '@react95/core';
         max-width: 100%;
       }
       .sidebar {
-        width: 25%;
+        width: 50%;
         padding-right: 2rem;
         border-right: 1px solid rgb(var(--gray-light));
       }
@@ -49,8 +54,61 @@ import { Avatar } from '@react95/core';
         text-decoration: underline;
       }
       .content {
-        width: 75%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
         padding-left: 2rem;
+      }
+
+      .post {
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+      }
+
+      .post-link {
+        color: unset;
+      }
+
+      .meta {
+        font-size: 0.875rem;
+        color: rgb(var(--gray-dark));
+        margin-bottom: 0.5rem;
+      }
+
+      .meta .date {
+        font-weight: bold;
+      }
+
+      .meta .category {
+        margin-left: 0.5rem;
+        color: var(--accent);
+        text-transform: uppercase;
+      }
+
+      .title {
+        font-size: 1.25rem;
+        margin: 0.5rem 0;
+        color: rgb(var(--text-dark));
+      }
+
+      .description {
+        font-size: 1rem;
+        color: rgb(var(--text-light));
+        margin: 0.5rem 0;
+      }
+
+      .read-link {
+        font-size: 0.875rem;
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: bold;
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
+      }
+
+      .read-link:hover {
+        opacity: 1;
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -63,7 +121,7 @@ import { Avatar } from '@react95/core';
           client:only
           src="/me.jpeg"
           alt="Gabriel Daltoso"
-          circle
+          padding="1px"
         />
         <h1>
           <a href="https://ggdaltoso.dev" title="Gabriel Daltoso"
@@ -85,9 +143,36 @@ import { Avatar } from '@react95/core';
           >
         </div>
       </div>
-      <div class="content">
-        <h1>Hi!</h1>
-      </div>
+      <ul class="content">
+        {
+          posts.map((post) => {
+            if (!post) return null;
+
+            return (
+              <li class="post">
+                <p class="meta">
+                  <span class="date">
+                    {new Date(post.frontmatter.date).toLocaleString('en-US', {
+                      month: 'long',
+                      year: 'numeric',
+                    })}
+                  </span>
+                  <span class="category">
+                    {post.frontmatter.category.toUpperCase()}
+                  </span>
+                </p>
+                <a href={post.url} target="_blank" class="post-link">
+                  <h4 class="title">{post.title}</h4>
+                </a>
+                <p class="description">{post.frontmatter.description}</p>
+                <a href={post.url} target="_blank" class="read-link">
+                  Read
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
     </main>
   </body>
 </html>
