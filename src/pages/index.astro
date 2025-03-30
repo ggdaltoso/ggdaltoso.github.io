@@ -1,0 +1,93 @@
+---
+import { BlankScreen100, Mail } from '@react95/icons';
+import BaseHead from '../components/BaseHead.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Avatar } from '@react95/core';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+      main {
+        display: flex;
+        margin: auto;
+        width: 960px;
+        max-width: 100%;
+      }
+      .sidebar {
+        width: 25%;
+        padding-right: 2rem;
+        border-right: 1px solid rgb(var(--gray-light));
+      }
+      .sidebar h1 {
+        font-size: 1.5rem;
+        margin: 0 0 1rem;
+      }
+      .sidebar h1 a {
+        color: unset;
+      }
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0;
+      }
+      .sidebar ul li {
+        margin-bottom: 0.5rem;
+      }
+      .sidebar a {
+        text-decoration: none;
+        color: var(--accent);
+      }
+      .sidebar a:hover {
+        text-decoration: underline;
+      }
+      .content {
+        width: 75%;
+        padding-left: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="sidebar">
+        <Avatar
+          w="100px"
+          h="100px"
+          client:only
+          src="/me.jpeg"
+          alt="Gabriel Daltoso"
+          circle
+        />
+        <h1>
+          <a href="https://ggdaltoso.dev" title="Gabriel Daltoso"
+            >Gabriel Daltoso</a
+          >
+        </h1>
+        <ul>
+          <li><a href="/articles">Articles</a></li>
+        </ul>
+        <div>
+          <a href="mailto:ggdaltoso@gmail.com" title="Send me an Email"
+            ><Mail variant="16x16_4" client:only /></a
+          >
+          <a
+            href="https://github.com/ggdaltoso"
+            target="_blank"
+            title="Visit my GitHub"
+            ><BlankScreen100 variant="16x16_4" client:only /></a
+          >
+        </div>
+      </div>
+      <div class="content">
+        <h1>Hi!</h1>
+      </div>
+    </main>
+  </body>
+</html>
