@@ -7,6 +7,7 @@ const CACHE_FILE = path.resolve('./src/data/github-issues.json');
 
 const octokit = new Octokit({
   auth:
+    process.env.GITHUB_TOKEN ||
     import.meta.env.GITHUB_TOKEN ||
     (() => {
       throw new Error('GITHUB_TOKEN is not defined');
@@ -27,7 +28,7 @@ type Post = Awaited<
   ReturnType<typeof octokit.issues.listForRepo>
 >['data'][number] & {
   frontmatter: Frontmatter;
-};
+} & Pick<ReturnType<typeof matter>, 'content'>;
 
 export async function fetchGitHubIssues(): Promise<Post[]> {
   try {
