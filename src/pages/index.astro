@@ -3,11 +3,16 @@ import { BlankScreen100, Mail } from '@react95/icons';
 import BaseHead from '../components/BaseHead.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { Avatar } from '@react95/core';
-import FormattedDate from '@/components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
 
-import { fetchGitHubIssues } from '@/utils/github';
+const blog = await getCollection('posts');
+const posts = blog.sort((a, b) => {
+      return (
+        new Date(b.data.date).getTime() -
+        new Date(a.data.date).getTime()
+      );
+    }).map((post) => post.data);
 
-const posts = await fetchGitHubIssues();
 ---
 
 <!doctype html>
@@ -152,20 +157,20 @@ const posts = await fetchGitHubIssues();
               <li class="post">
                 <p class="meta">
                   <span class="date">
-                    {new Date(post.frontmatter.date).toLocaleString('en-US', {
+                    {new Date(post.date).toLocaleString('en-US', {
                       month: 'long',
                       year: 'numeric',
                     })}
                   </span>
                   <span class="category">
-                    {post.frontmatter.category.toUpperCase()}
+                    {post.category.toUpperCase()}
                   </span>
                 </p>
-                <a href={post.url} target="_blank" class="post-link">
+                <a href={`/post${post.slug}`} target="_blank" class="post-link">
                   <h4 class="title">{post.title}</h4>
                 </a>
-                <p class="description">{post.frontmatter.description}</p>
-                <a href={post.url} target="_blank" class="read-link">
+                <p class="description">{post.description}</p>
+                <a href={`/post${post.slug}`} target="_blank" class="read-link">
                   Read
                 </a>
               </li>
