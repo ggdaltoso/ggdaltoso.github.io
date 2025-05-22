@@ -13,10 +13,7 @@ const posts = blog.sort((a, b) => {
       );
     }).map((post) => post.data);
 
-const desktopAvatarSize = {
-  width: '80px',
-  height: '80px',
-}
+const desktopAvatarSize = '80px'
 ---
 
 <script>
@@ -191,8 +188,8 @@ const desktopAvatarSize = {
       <div class="sidebar">
         <div class="sidebar-header">
           <Avatar
-            w={desktopAvatarSize.width}
-            h={desktopAvatarSize.height}
+            w={desktopAvatarSize}
+            h={desktopAvatarSize}
             client:only
             src="/me.jpeg"
             alt="Gabriel Daltoso"
