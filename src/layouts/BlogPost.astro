@@ -27,6 +27,8 @@ const { title, description, date } = Astro.props;
 				margin: 0 auto;
 				border-radius: 12px;
 				box-shadow: var(--box-shadow);
+				max-width: 100%;
+				height: auto;
 			}
 			.prose {
 				width: 720px;
@@ -50,6 +52,18 @@ const { title, description, date } = Astro.props;
 			}
 			.last-updated-on {
 				font-style: italic;
+			}
+
+			@media (max-width: 720px) {
+				.prose {
+					padding: 0.5em;
+				}
+				.title {
+					padding: 0.5em 0;
+				}
+				.title h1 {
+					font-size: 2em;
+				}
 			}
 		</style>
 	</head>
