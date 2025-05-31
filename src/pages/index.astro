@@ -1,39 +1,18 @@
 ---
+import { getCollection } from 'astro:content';
 import { BlankScreen100, Mail } from '@react95/icons';
+import { Avatar } from '@react95/core';
+
 import BaseHead from '../components/BaseHead.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { Avatar } from '@react95/core';
-import { getCollection } from 'astro:content';
 
 const blog = await getCollection('posts');
-const posts = blog.sort((a, b) => {
-      return (
-        new Date(b.data.date).getTime() -
-        new Date(a.data.date).getTime()
-      );
-    }).map((post) => post.data);
-
-const desktopAvatarSize = '80px'
+const posts = blog
+  .sort((a, b) => {
+    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+  })
+  .map((post) => post.data);
 ---
-
-<script>
-  function updateAvatarSize() {
-    const avatar = document.querySelector('astro-island div') as HTMLDivElement;
-
-    if (avatar) {
-      const size = window.innerWidth <= 768 ? '64px' : '80px';
-
-      avatar.style.width = size;
-      avatar.style.height = size;
-    }
-  }
-
-  // Initial check
-  updateAvatarSize();
-
-  // Update on resize
-  window.addEventListener('resize', updateAvatarSize);
-</script>
 
 <!doctype html>
 <html lang="en">
@@ -154,6 +133,18 @@ const desktopAvatarSize = '80px'
         text-decoration: underline;
       }
 
+      .avatar-img {
+        width: 80px;
+        height: 80px;
+      }
+
+      @media (max-width: 768px) {
+        .avatar-img {
+          width: 64px;
+          height: 64px;
+        }
+      }
+
       @media (max-width: 768px) {
         main {
           flex-direction: column;
@@ -188,9 +179,7 @@ const desktopAvatarSize = '80px'
       <div class="sidebar">
         <div class="sidebar-header">
           <Avatar
-            w={desktopAvatarSize}
-            h={desktopAvatarSize}
-            client:only
+            className="avatar-img"
             src="/me.jpeg"
             alt="Gabriel Daltoso"
             padding="1px"
@@ -230,9 +219,7 @@ const desktopAvatarSize = '80px'
                       year: 'numeric',
                     })}
                   </span>
-                  <span class="category">
-                    {post.category.toUpperCase()}
-                  </span>
+                  <span class="category">{post.category.toUpperCase()}</span>
                 </p>
                 <a href={`/post${post.slug}`} target="_blank" class="post-link">
                   <h4 class="title">{post.title}</h4>
