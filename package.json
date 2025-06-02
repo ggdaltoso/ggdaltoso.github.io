@@ -19,12 +19,12 @@
     "@octokit/rest": "^21.1.1",
     "@react95/core": "^9.3.1",
     "@react95/icons": "^2.1.1",
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
     "astro": "^5.7.14",
     "gray-matter": "^4.0.3",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "dotenv": "^16.5.0",
