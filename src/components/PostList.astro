@@ -1,5 +1,7 @@
 ---
+import { Date as DateIcon } from '@react95/icons';
 import type { BlogPost } from '../types/index';
+import { Button, Frame, TitleBar, contract } from '@react95/core';
 
 export interface Props {
   posts: BlogPost[];
@@ -13,6 +15,8 @@ const formatDate = (date: Date) => {
     year: 'numeric',
   });
 };
+
+const textColor = contract.colors.materialTextInvert;
 ---
 
 <ul class="content">
@@ -21,25 +25,42 @@ const formatDate = (date: Date) => {
       if (!post) return null;
 
       return (
-        <li class="post">
-          <p class="meta">
-            <span class="date">{formatDate(post.date)}</span>
-            <span class="category">{post.category.toUpperCase()}</span>
-          </p>
-          <a href={`/post${post.slug}`} target="_blank" class="post-link">
-            <h4 class="title">{post.title}</h4>
-          </a>
-          <p class="description">{post.description}</p>
-          <a href={`/post${post.slug}`} target="_blank" class="read-link">
-            Read
-          </a>
-        </li>
+        <Frame as="li" p="$4" boxShadow="$out" className="post">
+          <TitleBar
+            as="a"
+            href={`/post${post.slug}`}
+            target="_blank"
+            title={post.title}
+            className="title"
+          />
+          <Frame bgColor="white" boxShadow="$in" p="$8">
+            <p class="description">{post.description}</p>
+            <div class="meta-container">
+              <p class="meta">
+                <DateIcon variant="16x16_4" className="date-icon" client:only />
+                <span class="date">{formatDate(post.date)}</span>
+              </p>
+              <p class="meta">
+                <span class="category">{post.category.toUpperCase()}</span>
+              </p>
+            </div>
+            <Button
+              as="a"
+              href={`/post${post.slug}`}
+              target="_blank"
+              className="read-link"
+              client:only
+            >
+              Read
+            </Button>
+          </Frame>
+        </Frame>
       );
     })
   }
 </ul>
 
-<style>
+<style define:vars={{ textColor }}>
   .content {
     list-style: none;
     padding: 0;
@@ -49,11 +70,16 @@ const formatDate = (date: Date) => {
 
   .post {
     margin-bottom: 2rem;
-    padding-bottom: 1rem;
   }
 
   .post-link {
     color: unset;
+  }
+
+  .meta-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
   .meta {
@@ -74,8 +100,14 @@ const formatDate = (date: Date) => {
 
   .title {
     font-size: 1.25rem;
-    margin: 0.5rem 0;
-    color: rgb(var(--text-dark));
+    height: 2rem;
+    text-decoration: none;
+  }
+
+  .title:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--textColor);
+    text-underline-offset: 0.25rem;
   }
 
   .description {
@@ -85,17 +117,11 @@ const formatDate = (date: Date) => {
   }
 
   .read-link {
-    font-size: 0.875rem;
-    color: var(--accent);
     text-decoration: none;
-    font-weight: bold;
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
   }
 
   .read-link:hover {
-    opacity: 1;
-    text-decoration: underline;
+    color: var(--accent);
   }
 
   @media (max-width: 768px) {
