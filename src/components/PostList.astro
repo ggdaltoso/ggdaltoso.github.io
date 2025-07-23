@@ -1,5 +1,13 @@
 ---
-import { Date as DateIcon } from '@react95/icons';
+import {
+  Date as DateIcon,
+  FolderOpen,
+  Computer3,
+  FileText,
+  Brush,
+  Code,
+  Defrag,
+} from '@react95/icons';
 import type { BlogPost } from '../types/index';
 import { Button, Frame, TitleBar, contract } from '@react95/core';
 
@@ -16,6 +24,20 @@ const formatDate = (date: Date) => {
   });
 };
 
+const getCategoryIcon = (category: string) => {
+  const lowerCategory = category.toLowerCase();
+  if (lowerCategory.includes('design')) return 'design';
+  if (
+    lowerCategory.includes('tech') ||
+    lowerCategory.includes('programming') ||
+    lowerCategory.includes('javascript') ||
+    lowerCategory.includes('arquitetura')
+  )
+    return 'tech';
+  if (lowerCategory.includes('system')) return 'system';
+  return 'default';
+};
+
 const textColor = contract.colors.materialTextInvert;
 ---
 
@@ -23,16 +45,11 @@ const textColor = contract.colors.materialTextInvert;
   {
     posts.map((post) => {
       if (!post) return null;
+      const categoryType = getCategoryIcon(post.category);
 
       return (
         <Frame as="li" p="$4" boxShadow="$out" className="post">
-          <TitleBar
-            as="a"
-            href={`/post${post.slug}`}
-            target="_blank"
-            title={post.title}
-            className="title"
-          />
+          <TitleBar title={post.title} className="title" />
           <Frame bgColor="white" boxShadow="$in" p="$8">
             <p class="description">{post.description}</p>
             <div class="meta-container">
@@ -40,7 +57,35 @@ const textColor = contract.colors.materialTextInvert;
                 <DateIcon variant="16x16_4" className="date-icon" client:only />
                 <span class="date">{formatDate(post.date)}</span>
               </p>
-              <p class="meta">
+              <p class="meta category-meta">
+                {categoryType === 'design' && (
+                  <Defrag
+                    variant="16x16_4"
+                    className="category-icon"
+                    client:only
+                  />
+                )}
+                {categoryType === 'tech' && (
+                  <Computer3
+                    variant="16x16_4"
+                    className="category-icon"
+                    client:only
+                  />
+                )}
+                {categoryType === 'system' && (
+                  <FolderOpen
+                    variant="16x16_4"
+                    className="category-icon"
+                    client:only
+                  />
+                )}
+                {categoryType === 'default' && (
+                  <FileText
+                    variant="16x16_4"
+                    className="category-icon"
+                    client:only
+                  />
+                )}
                 <span class="category">{post.category.toUpperCase()}</span>
               </p>
             </div>
@@ -83,9 +128,23 @@ const textColor = contract.colors.materialTextInvert;
   }
 
   .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.875rem;
     color: rgb(var(--gray-dark));
     margin-bottom: 0.5rem;
+  }
+
+  .category-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .date-icon,
+  .category-icon {
+    flex-shrink: 0;
   }
 
   .meta .date {
@@ -93,9 +152,9 @@ const textColor = contract.colors.materialTextInvert;
   }
 
   .meta .category {
-    margin-left: 0.5rem;
     color: var(--accent);
     text-transform: uppercase;
+    font-weight: bold;
   }
 
   .title {
