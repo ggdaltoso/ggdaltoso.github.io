@@ -1,0 +1,43 @@
+---
+import BaseHead from './BaseHead.astro';
+import type { SeoConfig } from '../types/index';
+
+export interface Props extends SeoConfig {}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      main {
+        display: flex;
+        margin: auto;
+        width: 960px;
+        max-width: 100%;
+        padding: 1rem;
+        flex-direction: row;
+      }
+
+      @media (max-width: 768px) {
+        main {
+          flex-direction: column;
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

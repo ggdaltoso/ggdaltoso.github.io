@@ -1,0 +1,119 @@
+---
+import { BlankScreen100, Mail } from '@react95/icons';
+import { Avatar } from '@react95/core';
+import type { ProfileConfig } from '../types/index';
+
+export interface Props extends ProfileConfig {}
+
+const { name, profileUrl, avatarSrc, email, githubUrl } = Astro.props;
+---
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <Avatar
+      className="avatar-img"
+      src={avatarSrc}
+      alt={name}
+      padding="1px"
+      flexShrink={0}
+    />
+    <div class="sidebar-content">
+      <h1>
+        <a href={profileUrl} title={name}>{name}</a>
+      </h1>
+      <div class="sidebar-icons">
+        <a href={`mailto:${email}`} title="Send me an Email">
+          <Mail variant="16x16_4" client:only />
+        </a>
+        <a href={githubUrl} target="_blank" title="Visit my GitHub">
+          <BlankScreen100 variant="16x16_4" client:only />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sidebar {
+    width: 50%;
+    min-width: 250px;
+    padding-right: 2rem;
+    border-right: 1px solid rgb(var(--gray-light));
+  }
+
+  .sidebar-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sidebar h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .sidebar h1 a {
+    color: unset;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+  }
+
+  .sidebar ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: var(--accent);
+  }
+
+  .sidebar a:hover {
+    text-decoration: underline;
+  }
+
+  .sidebar-icons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  :global(.avatar-img) {
+    width: 80px;
+    height: 80px;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      min-width: auto;
+      padding-right: 0;
+      border-right: none;
+      border-bottom: 1px solid rgb(var(--gray-light));
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar-header {
+      align-items: start;
+    }
+
+    .sidebar-content {
+      gap: 0.5rem;
+    }
+
+    :global(.avatar-img) {
+      width: 64px;
+      height: 64px;
+    }
+  }
+</style>
