@@ -47,7 +47,13 @@ const textColor = contract.colors.materialTextInvert;
 
       return (
         <Frame as="li" p="$4" boxShadow="$out" className="post">
-          <TitleBar title={post.title} className="title" />
+          <TitleBar
+            as="a"
+            href={`/post${post.slug}`}
+            target="_blank"
+            title={post.title}
+            className="title"
+          />
           <Frame bgColor="white" boxShadow="$in" p="$8">
             <p class="description">{post.description}</p>
             <div class="meta-container">

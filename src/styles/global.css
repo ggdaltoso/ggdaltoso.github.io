@@ -21,7 +21,7 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: rgb(var(--gray-dark));
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.7;
 }
 main {
@@ -150,4 +150,55 @@ hr {
   clip-path: inset(50%);
   /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
   white-space: nowrap;
+}
+
+/* Figure styles for blog posts */
+.figure {
+  display: inline-block;
+  margin: 0;
+}
+
+.figure.float-left {
+  float: left;
+  margin-right: 2em;
+  margin-bottom: 1em;
+}
+
+.figure.float-right {
+  float: right;
+  margin-left: 2em;
+  margin-bottom: 1em;
+}
+
+figure img {
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 100%;
+}
+
+figure {
+  margin: 0 auto;
+}
+
+/* Clear floats */
+.hide-sm {
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .hide-sm {
+    display: none;
+  }
+
+  .figure.float-left,
+  .figure.float-right {
+    float: none;
+    display: block;
+    margin: 1em auto;
+  }
+
+  .figure img {
+    max-width: 100%;
+  }
 }

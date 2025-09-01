@@ -36,7 +36,7 @@ me chamaram a atenção foram essas:
 Assim que tivemos esse insight, nos deparamos que junto com uma solução, vinha
 um problema.
 
-![Image](https://github.com/user-attachments/assets/d7d5d99a-7b5d-4924-ab13-adccb79adf40)
+![Time de plataforma definindo o que iremos fazer](https://github.com/user-attachments/assets/d7d5d99a-7b5d-4924-ab13-adccb79adf40 "Time.png")
 
 No começo só sabíamos o que era um design system porque ouvimos falar por aí.
 Nunca implementamos um.
@@ -63,7 +63,7 @@ não fazer os componentes do Windows95?
 
 E assim nasce o **React95**.
 
-![Primeira versão do React95](https://github.com/user-attachments/assets/99f8e504-e328-4e49-a853-8b6739265b1a)
+![Primeira versão do React95](https://github.com/user-attachments/assets/99f8e504-e328-4e49-a853-8b6739265b1a "React95-v1.0.0.png")
 
 Em paralelo, todo o conhecimento aprendido foi utilizado para desenvolver o
 [Quantum](https://github.com/catho/quantum), a biblioteca de componentes da
@@ -158,11 +158,7 @@ Foi aí que a Catho entrou em cena:
 
 > Vocês vão. Pagaremos tudo para vocês.
 
-<img
-  src="https://media.giphy.com/media/vSqkwpFA4ZwAM/giphy.gif"
-  alt="Animação mostrando minha reação"
-  title="WTF.gif"
-/>
+![Animação mostrando minha reação](https://media.giphy.com/media/vSqkwpFA4ZwAM/giphy.gif "WTF.gif")
 
 Eu fiquei muito surpreso porque o React95, diretamente, não tinha nada a ver com
 a Catho. Era um projeto pessoal. A empresa não tinha que fazer isso mas mesmo
@@ -187,7 +183,7 @@ A categoria que estávamos esperando era a “_Fun side project of the year_” 
 terceira a ser apresentada. Estávamos apreensivos, sentados em uma das primeiras
 fileiras e vimos o seguinte a ser projetado no fundo:
 
-![React95 é o ganhador do prêmio “Fun side project of the Year”](https://github.com/user-attachments/assets/11776806-1bbc-4a47-adcc-625cf1363b06)
+![React95 é o ganhador do prêmio “Fun side project of the Year”](https://github.com/user-attachments/assets/11776806-1bbc-4a47-adcc-625cf1363b06 "Fun side project of the Year.png")
 
 GANHAMOS O PRÊMIO. SÉRIO. E, claro, fomos chamados lá em cima pra recebê-lo.
 
@@ -196,7 +192,7 @@ Esse, até hoje e com certeza, foi o ápice da minha vida profissional.
 Tudo o que estava acontecendo era difícil de acreditar, não pelo troféu em si,
 mas o que aconteceu pra chegar até ali.
 
-![Muitas emoções na entrega do prêmio](https://github.com/user-attachments/assets/7bf528b7-f0fe-4375-a020-796937867eae)
+![Muitas emoções na entrega do prêmio](https://github.com/user-attachments/assets/7bf528b7-f0fe-4375-a020-796937867eae "Recebendo o prêmio.png")
 
 > O React95 não ganhou o prêmio porquê ele é um bom projeto ou um projeto
 > engraçado. Ele ganhou por causa da comunidade.

@@ -2,17 +2,18 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { render } from 'astro:content';
+import GGImage from '../../components/GGImage.tsx';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('posts');
+  const posts = await getCollection('posts');
 
-	return posts.map((post) => {
+  return posts.map((post) => {
     const { slug } = post.data;
 
     return {
-		params: { slug },
-		props: post,
-	}
+      params: { slug },
+      props: post,
+    };
   });
 }
 
@@ -20,8 +21,14 @@ type Props = CollectionEntry<'posts'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
+
+// Componentes customizados para usar no markdown
+export const components = {
+  GGImage: GGImage,
+  img: GGImage, // Para imagens normais também
+};
 ---
 
 <BlogPost {...post.data}>
-	<Content />
+  <Content components={components} />
 </BlogPost>
