@@ -30,7 +30,7 @@ acho importante falar um pouco de cada uma delas.
 
 <span class="figure float-left">
 
-![Diagrama de um monolito](https://github.com/user-attachments/assets/dbe5d54c-dcab-45d7-930f-408b8aeca79a "Monolito.png")
+![Diagrama de um monolito](https://github.com/user-attachments/assets/dbe5d54c-dcab-45d7-930f-408b8aeca79a "Monolito.png | width=180")
 
 </span>
 
@@ -47,7 +47,7 @@ mesmo repositório. Resumidamente: **1 repositório e 1 projeto**.
 
 <span class="figure float-right">
 
-![Diagrama de um multirepo ou Polirepo](https://github.com/user-attachments/assets/ada284e3-1c79-4c7d-abdd-996d86dcc67f "Multirepo.png")
+![Diagrama de um multirepo ou Polirepo](https://github.com/user-attachments/assets/ada284e3-1c79-4c7d-abdd-996d86dcc67f "Multirepo.png | width=220")
 
 </span>
 
@@ -62,7 +62,7 @@ ou seja, **N repositórios para N projetos**.
 
 <span class="figure float-left">
 
-![Diagrama de um monorepo](https://github.com/user-attachments/assets/a8595005-a5f1-4029-b37d-cf3f05d49d10 "Monorepo.png")
+![Diagrama de um monorepo](https://github.com/user-attachments/assets/a8595005-a5f1-4029-b37d-cf3f05d49d10 "Monorepo.png | width=160")
 
 </span>
 
@@ -71,6 +71,7 @@ damos o nome a essa estrutura de Monorepo que, em minha opinião, é uma extens�
 do Monolito, lidando com **1 repositório para N projetos**.
 
 <br class="hide-sm" />
+<br class="hide-sm" />
 
 Qual dessas estruturas eu devo colocar em meu projeto? Bom, depende...
 
@@ -78,7 +79,7 @@ Qual dessas estruturas eu devo colocar em meu projeto? Bom, depende...
 
 <span class="figure float-left">
 
-![Estrutura simples do projeto inicial](https://github.com/user-attachments/assets/81d40de6-1ad4-48dc-954f-6011eed6a40c "Minha lista de Receitas.png")
+![Estrutura simples do projeto inicial](https://github.com/user-attachments/assets/81d40de6-1ad4-48dc-954f-6011eed6a40c "Minha lista de Receitas.png | width=260")
 
 </span>
 
