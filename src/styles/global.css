@@ -10,51 +10,73 @@
   --gray-dark: 34, 41, 57;
   --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
     0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+  --layout-width: 1070px;
+
+  --layout-post-single-width: 945px;
+  --layout-post-width: 685px;
+  --layout-post-width: calc(var(--layout-post-single-width) - 305px);
+  --typographic-base-font-size: 16px;
+  --typographic-base-line-height: 1.625;
+  --typographic-leading: calc(var(--typographic-base-line-height)*16*1px)
 }
 
 body {
   margin: 0;
   padding: 0;
   text-align: left;
-  background: rgba(var(--gray-light), 50%);
+  background: rgba(var(--gray-light), 10%);
   background-size: 100% 600px;
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: rgb(var(--gray-dark));
-  font-size: 16px;
+  font-size: var(--typographic-base-font-size);
   line-height: 1.7;
 }
 main {
-  width: 720px;
-  max-width: calc(100% - 2em);
+  max-width: var(--layout-width);
   margin: auto;
   padding: 3em 1em;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0 0 0.5rem 0;
-  color: rgb(var(--black));
-  line-height: 1.2;
+
+h1,h2,h3,h4,h5,h6{
+    font-family:var(--typographic-font-family);
+    font-weight:600
 }
 h1 {
-  font-size: 3.052em;
+    font-size:calc(var(--typographic-base-font-size)*2.5);
+    line-height:calc(var(--typographic-leading)*2);
+    margin-bottom:var(--typographic-leading);
+    margin-top:calc(var(--typographic-leading)*4)
 }
 h2 {
-  font-size: 2.441em;
+    font-size:calc(var(--typographic-base-font-size)*1.6875);
+    line-height:calc(var(--typographic-leading)*1.5)
+}
+h2,h3 {
+    margin-bottom:calc(var(--typographic-leading)*.5);
+    margin-top:calc(var(--typographic-leading)*2)
 }
 h3 {
-  font-size: 1.953em;
+    font-size:calc(var(--typographic-base-font-size)*1.375);
+    line-height:var(--typographic-leading)
 }
 h4 {
-  font-size: 1.563em;
+    font-size:calc(var(--typographic-base-font-size)*1.2);
+    margin-top:calc(var(--typographic-leading)*1.5)
 }
-h5 {
-  font-size: 1.25em;
+h4,h5 {
+    line-height:var(--typographic-leading);
+    margin-bottom:calc(var(--typographic-leading)*.5)
 }
+h5,h6 {
+    font-size:var(--typographic-base-font-size);
+    margin-top:calc(var(--typographic-leading)*2.5)
+}
+h6 {
+    line-height:var(--typographic-leading);
+    margin-bottom:calc(var(--typographic-leading)*.5)
+}
+
 strong,
 b {
   font-weight: 700;
@@ -101,6 +123,197 @@ hr {
   border: none;
   border-top: 1px solid rgb(var(--gray-light));
 }
+
+.gg-image-container {
+  width: 100% !important;
+
+  font-size: calc(var(--typographic-base-font-size) * 0.75);
+  line-height: calc(var(--typographic-leading) * 0.75);
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  min-height: 200px;
+}
+
+.content {
+  max-width: var(--layout-post-single-width);
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.content__title {
+  font-size: calc(var(--typographic-base-font-size) * 2);
+  max-width: var(--layout-post-width);
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 600;
+  text-align: center;
+  line-height: calc(1.65 * var(--typographic-leading));
+  margin-top: var(--typographic-leading);
+  margin-bottom: 0;
+}
+
+.content__body figure,
+.content__body .figure {
+  margin: 0 auto;
+}
+
+.content__body figure blockquote,
+.content__body .figure blockquote {
+  font-style: italic;
+  text-align: center;
+  margin-top: 0;
+  padding-top: var(--typographic-leading);
+}
+
+.content__body figure blockquote p,
+.content__body .figure blockquote p {
+  max-width: var(--layout-post-width);
+  font-size: calc(var(--typographic-base-font-size) * 1.6817);
+  margin-top: 0;
+  margin-bottom: var(--typographic-leading);
+  line-height: calc(1.5 * var(--typographic-leading));
+}
+
+.content__body a {
+  text-decoration: underline;
+}
+
+.content__body * {
+  max-width: var(--layout-post-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content__body img {
+  max-width: 100%;
+}
+
+.content__body img + em {
+  line-height: 3;
+  text-align: center;
+  display: block;
+  opacity: 0.6;
+}
+
+/* Data e meta informações */
+.date {
+  margin-bottom: 0.5em;
+  color: rgb(var(--gray));
+  font-size: 0.9em;
+  text-align: center;
+}
+
+/* Post footer */
+.post-footer {
+  max-width: var(--layout-post-width);
+  margin: 3em auto 0;
+  padding-top: 2em;
+  border-top: 1px solid rgb(var(--gray-light));
+}
+
+.post-meta {
+  margin-bottom: 2em;
+}
+
+.published-date {
+  color: rgb(var(--gray-dark));
+  font-size: 0.9em;
+  margin-bottom: 1em;
+}
+
+.tags {
+  margin-bottom: 1.5em;
+}
+
+.tag {
+  display: inline-block;
+  background: rgb(var(--accent));
+  color: white;
+  text-decoration: none;
+  padding: 0.3em 0.8em;
+  border-radius: 4px;
+  font-size: 0.85em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.tag:hover {
+  background: rgb(var(--accent-dark));
+}
+
+.author-link {
+  display: inline-block;
+  color: rgb(var(--accent));
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.author-link:hover {
+  text-decoration: underline;
+}
+
+.navigation {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.navigation a {
+  color: rgb(var(--accent));
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navigation a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 960px) {
+  .gg-image-container {
+    width: unset;
+  }
+
+  iframe {
+    min-height: 500px;
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  .content__title {
+    font-size: calc(var(--typographic-base-font-size) * 3);
+    line-height: calc(2.25 * var(--typographic-leading));
+    margin-top: calc(var(--typographic-leading) * 2.25);
+    margin-bottom: calc(var(--typographic-leading) * 1.5);
+  }
+
+  .content__body {
+    font-size: calc(var(--typographic-base-font-size) * 1.125);
+    line-height: calc(1.125 * var(--typographic-leading));
+    margin-bottom: calc(var(--typographic-leading) * 1.125);
+  }
+
+  .content__body p {
+    font-size: calc(var(--typographic-base-font-size) * 1.125);
+    line-height: calc(1.125 * var(--typographic-leading));
+    margin-bottom: calc(var(--typographic-leading) * 1.125);
+  }
+
+  .content__body p:has(div) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .figure.float-left,.figure.float-right,figure.float-left,figure.float-right{
+    max-width:19.375rem;
+    padding-left:var(--typographic-leading);
+    padding-right:var(--typographic-leading)
+  }
+}
+
 @media (max-width: 720px) {
   body {
     font-size: 16px;
@@ -160,14 +373,10 @@ hr {
 
 .figure.float-left {
   float: left;
-  margin-right: 2em;
-  margin-bottom: 1em;
 }
 
 .figure.float-right {
   float: right;
-  margin-left: 2em;
-  margin-bottom: 1em;
 }
 
 figure img {
