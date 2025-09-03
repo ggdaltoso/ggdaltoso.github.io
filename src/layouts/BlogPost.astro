@@ -20,15 +20,16 @@ const { title, description, date, tags, category } = Astro.props;
     <Header />
     <main>
       <article>
-        <div class="prose">
-          <div class="title">
-            <div class="date">
-              <FormattedDate date={date} />
-            </div>
-            <h1>{title}</h1>
-            <hr />
+        <div class="content">
+          <div class="date">
+            <FormattedDate date={date} />
           </div>
-          <slot />
+          <h1 class="content__title">{title}</h1>
+          <hr />
+
+          <div class="content__body">
+            <slot />
+          </div>
 
           <div class="post-footer">
             <div class="post-meta">

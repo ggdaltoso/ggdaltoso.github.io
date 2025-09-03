@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import GGImage from './GGImage.tsx';
+import GGImage from './GGImage';
 
 const ImageHydrator: React.FC = () => {
   useEffect(() => {
@@ -8,6 +8,7 @@ const ImageHydrator: React.FC = () => {
     const ggImages = document.querySelectorAll('gg-image');
 
     ggImages.forEach((element) => {
+      console.log({ element });
       const src = element.getAttribute('src') || '';
       const alt = element.getAttribute('alt') || '';
       const title = element.getAttribute('title') || alt;

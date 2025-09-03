@@ -46,13 +46,20 @@ const textColor = contract.colors.materialTextInvert;
       const categoryType = getCategoryIcon(post.category);
 
       return (
-        <Frame as="li" p="$4" boxShadow="$out" className="post">
+        <Frame
+          as="li"
+          p="$4"
+          boxShadow="$out"
+          className="post"
+          bgColor="$material"
+        >
           <TitleBar
             as="a"
             href={`/post${post.slug}`}
             target="_blank"
             title={post.title}
             className="title"
+            mb="$4"
           />
           <Frame bgColor="white" boxShadow="$in" p="$8">
             <p class="description">{post.description}</p>

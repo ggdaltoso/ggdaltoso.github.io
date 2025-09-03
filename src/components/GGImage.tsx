@@ -1,4 +1,3 @@
-import React from 'react';
 import { Frame, TitleBar } from '@react95/core';
 import { Wangimg128 } from '@react95/icons';
 
@@ -34,7 +33,7 @@ const GGImage: React.FC<GGImageProps> = ({
         maxWidth: '100%',
       }}
     >
-      <Frame p="$1" mh="auto" boxShadow="$out">
+      <Frame p="$1" mh="auto" boxShadow="$out" bgColor="$material">
         <TitleBar title={title} icon={<Wangimg128 variant="16x16_4" />} />
 
         <Frame p="$3" pr="$4" as="figure" boxShadow="none">
@@ -49,7 +48,14 @@ const GGImage: React.FC<GGImageProps> = ({
             />
           </Frame>
 
-          <Frame boxShadow="$in" as="figcaption" pl="$4" pt="$2" mt="$4">
+          <Frame
+            boxShadow="$in"
+            as="figcaption"
+            pl="$4"
+            pt="$2"
+            mt="$4"
+            fontStyle="italic"
+          >
             {alt}
           </Frame>
         </Frame>
