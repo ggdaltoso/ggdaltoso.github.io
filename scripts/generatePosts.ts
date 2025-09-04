@@ -23,7 +23,7 @@ async function generatePosts() {
       }
 
       // Define the file path using the slug
-      const filePath = path.join(OUTPUT_DIR, `${frontmatter.slug}.md`);
+      const filePath = path.join(OUTPUT_DIR, `${frontmatter.slug}.mdx`);
 
       // Write the file
       await fs.writeFile(filePath, body, 'utf-8');
