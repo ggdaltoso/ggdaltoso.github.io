@@ -124,7 +124,7 @@ hr {
   border-top: 1px solid rgb(var(--gray-light));
 }
 
-.gg-image-container {
+.image-container {
   width: 100% !important;
 
   font-size: calc(var(--typographic-base-font-size) * 0.75);
@@ -271,7 +271,7 @@ iframe {
 }
 
 @media screen and (min-width: 960px) {
-  .gg-image-container {
+  .image-container {
     width: unset;
   }
 

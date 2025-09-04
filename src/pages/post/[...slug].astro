@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 import { render } from 'astro:content';
-import GGImage from '../../components/GGImage.tsx';
+import MDXImage from '../../components/MDXImage';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -22,10 +22,8 @@ type Props = CollectionEntry<'posts'>;
 const post = Astro.props;
 const { Content } = await render(post);
 
-// Componentes customizados para usar no markdown
-export const components = {
-  GGImage: GGImage,
-  img: GGImage, // Para imagens normais também
+const components = {
+  img: MDXImage,
 };
 ---
 
