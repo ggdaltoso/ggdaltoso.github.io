@@ -5,7 +5,6 @@ module.exports = {
   title: 'Blog do GG',
   subtitle: 'O que fiz, o que faço e o que vou fazer',
   copyright: 'Made with ❤',
-  disqusShortname: 'ggdaltoso',
   postsPerPage: 4,
   googleAnalyticsId: 'UA-64834505-1',
   menu: [
