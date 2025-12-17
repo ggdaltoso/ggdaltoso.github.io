@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/github";
-import { Frame } from "@react95/core";
+import { Highlight, themes } from 'prism-react-renderer';
+import { Frame } from '@react95/core';
 
 const Wrapper = styled.div`
   font-family: sans-serif;
@@ -40,17 +39,16 @@ const GGHighlight = (props) => {
   return (
     <Frame p={4} pr={5}>
       <Highlight
-        {...defaultProps}
         code={props.children.props.children}
         language="javascript"
-        theme={theme}
+        theme={themes.github}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <Frame
             p={4}
             boxShadow="in"
             style={{
-              overflowX: "auto",
+              overflowX: 'auto',
               ...style,
             }}
             className="gatsby-highlight"
