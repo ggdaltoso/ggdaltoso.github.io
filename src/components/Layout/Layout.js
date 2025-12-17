@@ -1,11 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { MDXProvider } from '@mdx-js/react';
-import { ThemeProvider, GlobalStyle } from '@react95/core';
 
 import GGHighlight from './Highlight';
 import GGImage from './Image';
 import * as styles from './Layout.module.scss';
+
+import '@react95/core/themes/win95.css';
+import '@react95/core/GlobalStyle';
 
 const Layout = ({ children, title, description }) => (
   <div className={styles.layout}>
@@ -14,17 +16,14 @@ const Layout = ({ children, title, description }) => (
       <title>{title}</title>
       <meta name="description" content={description} />
     </Helmet>
-    <ThemeProvider>
-      <GlobalStyle />
-      <MDXProvider
-        components={{
-          pre: GGHighlight,
-          img: GGImage,
-        }}
-      >
-        {children}
-      </MDXProvider>
-    </ThemeProvider>
+    <MDXProvider
+      components={{
+        pre: GGHighlight,
+        img: GGImage,
+      }}
+    >
+      {children}
+    </MDXProvider>
   </div>
 );
 
