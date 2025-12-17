@@ -4,9 +4,9 @@
   "description": "Blog pessoal do Gabriel Daltoso",
   "main": "n/a",
   "scripts": {
-    "develop": "yarn run clean && gatsby develop",
-    "build": "yarn run clean && gatsby build",
-    "deploy": "yarn run clean && gatsby build --prefix-paths && gh-pages -d public -b master",
+    "develop": "npm run clean && gatsby develop",
+    "build": "npm run clean && gatsby build",
+    "deploy": "npm run clean && gatsby build --prefix-paths && gh-pages -d public -b master",
     "clean": "rimraf .cache public",
     "lint": "eslint --cache --ext .js,.jsx .",
     "test": "jest --config ./jest/jest-config.js",
