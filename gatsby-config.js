@@ -96,12 +96,6 @@ module.exports = {
       options: {
         gatsbyRemarkPlugins: [
           {
-            resolve: 'gatsby-remark-katex',
-            options: {
-              strict: 'ignore',
-            },
-          },
-          {
             resolve: 'gatsby-remark-images',
             options: { maxWidth: 960, showCaptions: true },
           },
@@ -120,12 +114,6 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          {
-            resolve: 'gatsby-remark-katex',
-            options: {
-              strict: 'ignore',
-            },
-          },
           {
             resolve: 'gatsby-remark-images',
             options: { maxWidth: 960, showCaptions: true },
