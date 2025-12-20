@@ -9,7 +9,7 @@ import Tags from './Tags';
 import * as styles from './Post.module.scss';
 
 const Post = ({ post, children }) => {
-  const { tagSlugs, slug } = post.fields;
+  const { tagSlugs, slug } = (post.fields = {});
   const { tags, title, date } = post.frontmatter;
 
   return (
@@ -34,15 +34,5 @@ const Post = ({ post, children }) => {
     </div>
   );
 };
-
-export const pageQuery = graphql`
-  query PostTemplate($id: String!) {
-    mdx(id: { eq: $id }) {
-      frontmatter {
-        title
-      }
-    }
-  }
-`;
 
 export default Post;
