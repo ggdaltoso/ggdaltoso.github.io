@@ -1,21 +1,11 @@
 import React from 'react';
-import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 
 import * as styles from './Content.module.scss';
 
-const Content = ({ body, title, mdx }) => (
+const Content = ({ children, title }) => (
   <div className={styles['content']}>
     <h1 className={styles['content__title']}>{title}</h1>
-    {mdx ? (
-      <div className={styles['content__body']}>
-        <MDXRenderer>{body}</MDXRenderer>
-      </div>
-    ) : (
-      <div
-        className={styles['content__body']}
-        dangerouslySetInnerHTML={{ __html: body }}
-      />
-    )}
+    <div className={styles['content__body']}>{children}</div>
   </div>
 );
 
