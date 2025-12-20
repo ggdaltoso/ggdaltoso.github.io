@@ -52,20 +52,23 @@ const createPages = async ({ graphql, actions }) => {
     const template = frontmatter.template || 'page';
     const slug = frontmatter.slug;
     const id = node.id;
+    const contentFilePath = node.internal.contentFilePath;
 
     if (!slug) {
       return;
     }
 
     if (template === 'page') {
+      const pageTemplate = path.resolve('./src/templates/page-template.js');
+      const component = `${pageTemplate}?__contentFilePath=${contentFilePath}`;
+
       createPage({
         path: slug,
-        component: path.resolve('./src/templates/page-template.js'),
+        component,
         context: { slug, id },
       });
     } else if (template === 'post') {
       const postTemplate = path.resolve('./src/templates/post-template.js');
-      const contentFilePath = node.internal.contentFilePath;
       const component = `${postTemplate}?__contentFilePath=${contentFilePath}`;
 
       createPage({
