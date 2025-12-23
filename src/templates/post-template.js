@@ -7,34 +7,24 @@ import { useSiteMetadata } from '../hooks';
 const PostTemplate = ({ data, children }) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
   const { title: postTitle, description: postDescription } =
-    data.markdownRemark.frontmatter;
+    data.mdx.frontmatter;
   const metaDescription =
     postDescription !== null ? postDescription : siteSubtitle;
 
   return (
     <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
-      <Post post={data.markdownRemark}>{children}</Post>
+      <Post post={data.mdx}>{children}</Post>
     </Layout>
   );
 };
 
 export const query = graphql`
   query PostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      html
+    mdx(frontmatter: { slug: { eq: $slug } }) {
       fields {
         slug
         tagSlugs
       }
-      frontmatter {
-        date
-        description
-        tags
-        title
-      }
-    }
-    mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         date
         description
