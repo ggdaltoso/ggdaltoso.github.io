@@ -11,7 +11,7 @@ const GGImage = (props) => {
   return (
     <Frame p="$1" boxShadow="$out" width={`${width}px`} mh="auto">
       <TitleBar
-        title={alt}
+        title={description}
         icon={<Wangimg128 variant="16x16_4" />}
         style={{
           fontSize: 'var(--typographic-small-font-size)',
@@ -24,7 +24,7 @@ const GGImage = (props) => {
         </Frame>
 
         <Frame boxShadow="$in" as="figcaption" pl="$2" pt="$2">
-          {description}
+          {alt}
         </Frame>
       </Frame>
     </Frame>
