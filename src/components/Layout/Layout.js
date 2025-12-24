@@ -4,10 +4,9 @@ import { MDXProvider } from '@mdx-js/react';
 
 import GGHighlight from './Highlight';
 import GGImage from './Image';
-import * as styles from './Layout.module.scss';
 
 const Layout = ({ children, title, description }) => (
-  <div className={styles.layout}>
+  <div>
     <Helmet>
       <html lang="en" />
       <title>{title}</title>
@@ -16,7 +15,10 @@ const Layout = ({ children, title, description }) => (
     <MDXProvider
       components={{
         pre: GGHighlight,
-        img: GGImage,
+        img: (props) => {
+          console.log(`Rendering image with props:`, props);
+          return <GGImage {...props} />;
+        },
       }}
     >
       {children}
