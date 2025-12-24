@@ -4,7 +4,7 @@ import { Frame } from '@react95/core';
 
 const GGHighlight = (props) => {
   return (
-    <Frame p={4} pr={5}>
+    <Frame boxShadow="$out" p="$4" bgColor="$material">
       <Highlight
         code={props.children.props.children}
         language="javascript"
@@ -12,15 +12,15 @@ const GGHighlight = (props) => {
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <Frame
-            p={4}
-            boxShadow="in"
+            p="$4"
+            boxShadow="$in"
             style={{
               overflowX: 'auto',
               ...style,
             }}
             className="gatsby-highlight"
           >
-            <Pre className={className} style={style}>
+            <pre className={className} style={style}>
               {tokens.map((line, i) => (
                 <div {...getLineProps({ line, key: i })}>
                   {line.map((token, key) => (
@@ -28,7 +28,7 @@ const GGHighlight = (props) => {
                   ))}
                 </div>
               ))}
-            </Pre>
+            </pre>
           </Frame>
         )}
       </Highlight>
