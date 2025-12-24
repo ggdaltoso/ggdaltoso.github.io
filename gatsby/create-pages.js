@@ -30,35 +30,51 @@ const createPages = async ({ graphql, actions }) => {
   // Posts and pages from markdown
   const result = await graphql(`
     {
-      allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
-        edges {
-          node {
-            frontmatter {
-              template
-            }
-            fields {
-              slug
-            }
+      allMdx(filter: { frontmatter: { draft: { ne: true } } }) {
+        nodes {
+          id
+          frontmatter {
+            template
+            slug
+          }
+          internal {
+            contentFilePath
           }
         }
       }
     }
   `);
 
-  const { edges } = result.data.allMarkdownRemark;
+  const { nodes } = result.data.allMdx;
 
-  _.each(edges, (edge) => {
-    if (_.get(edge, "node.frontmatter.template") === "page") {
+  _.each(nodes, (node) => {
+    const frontmatter = node.frontmatter || {};
+    const template = frontmatter.template || 'page';
+    const slug = frontmatter.slug;
+    const id = node.id;
+    const contentFilePath = node.internal.contentFilePath;
+
+    if (!slug) {
+      return;
+    }
+
+    if (template === 'page') {
+      const pageTemplate = path.resolve('./src/templates/page-template.js');
+      const component = `${pageTemplate}?__contentFilePath=${contentFilePath}`;
+
       createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve("./src/templates/page-template.js"),
-        context: { slug: edge.node.fields.slug },
+        path: slug,
+        component,
+        context: { slug, id },
       });
-    } else if (_.get(edge, "node.frontmatter.template") === "post") {
+    } else if (template === 'post') {
+      const postTemplate = path.resolve('./src/templates/post-template.js');
+      const component = `${postTemplate}?__contentFilePath=${contentFilePath}`;
+
       createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve("./src/templates/post-template.js"),
-        context: { slug: edge.node.fields.slug },
+        path: slug,
+        component,
+        context: { slug, id },
       });
     }
   });

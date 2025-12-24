@@ -9,7 +9,6 @@ module.exports = {
     title: siteConfig.title,
     subtitle: siteConfig.subtitle,
     copyright: siteConfig.copyright,
-    disqusShortname: siteConfig.disqusShortname,
     menu: siteConfig.menu,
     author: siteConfig.author,
   },
@@ -65,7 +64,7 @@ module.exports = {
               {
                 allMarkdownRemark(
                   limit: 1000,
-                  sort: { order: DESC, fields: [frontmatter___date] },
+                  sort: { frontmatter: { date: DESC } },
                   filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
                 ) {
                   edges {
@@ -97,12 +96,6 @@ module.exports = {
       options: {
         gatsbyRemarkPlugins: [
           {
-            resolve: 'gatsby-remark-katex',
-            options: {
-              strict: 'ignore',
-            },
-          },
-          {
             resolve: 'gatsby-remark-images',
             options: { maxWidth: 960, showCaptions: true },
           },
@@ -121,12 +114,6 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          {
-            resolve: 'gatsby-remark-katex',
-            options: {
-              strict: 'ignore',
-            },
-          },
           {
             resolve: 'gatsby-remark-images',
             options: { maxWidth: 960, showCaptions: true },
@@ -196,6 +183,10 @@ module.exports = {
         postCssPlugins: [...postCssPlugins],
         cssLoaderOptions: {
           camelCase: false,
+        },
+        sassOptions: {
+          api: 'modern',
+          silenceDeprecations: ['legacy-js-api'],
         },
       },
     },

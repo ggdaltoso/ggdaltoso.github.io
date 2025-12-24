@@ -8,9 +8,8 @@ import Meta from './Meta';
 import Tags from './Tags';
 import * as styles from './Post.module.scss';
 
-const Post = ({ post, mdx }) => {
-  const { html } = post;
-  const { tagSlugs, slug } = post.fields;
+const Post = ({ post, children }) => {
+  const { tagSlugs, slug } = (post.fields = {});
   const { tags, title, date } = post.frontmatter;
 
   return (
@@ -20,11 +19,7 @@ const Post = ({ post, mdx }) => {
       </Link>
 
       <div>
-        <Content
-          body={mdx ? mdx.body : html}
-          mdx={Boolean(mdx)}
-          title={title}
-        />
+        <Content title={title}>{children}</Content>
       </div>
 
       <div className={styles['post__footer']}>
