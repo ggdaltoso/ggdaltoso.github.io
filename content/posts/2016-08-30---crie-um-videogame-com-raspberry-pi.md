@@ -3,7 +3,7 @@ title: "Crie um videogame com Raspberry Pi"
 date: "2016-08-30T01:36:36.000Z"
 template: "post"
 draft: false
-slug: "/posts/crie-um-videogame-com-raspberry-pi/"
+slug: "/crie-um-videogame-com-raspberry-pi"
 category: "RaspberryPi"
 tags:
   - "Videogame"
@@ -136,20 +136,12 @@ Você pode configurar vários [tipos de controles para o Recalbox](<https://gith
 Utilize o teclado para acessar as configurações. Aperte Enter para aparecer o
 menu, A para selecionar e S para voltar.
 
-<img 
-  src="/media/crie-um-videogame-com-raspberry-pi/menu.jpg" 
-  alt="Menu principal do Recalbox" 
-  title="Menu.png"
-/>
+![Menu principal do Recalbox](https://github.com/user-attachments/assets/9a7396fd-e3ad-4fbc-b002-d55f227ce8e4)
 
 Essa etapa é simples: você deve apertar a tecla do controle referente à pedida
 na tela, conforme a imagem
 
-<img 
-  src="/media/crie-um-videogame-com-raspberry-pi/controller.png" 
-  alt="Controle do PlayStation 3" 
-  title="PS3.png"
-/>
+![Controle do PlayStation 3](https://github.com/user-attachments/assets/db247f82-e1c4-4a35-9e71-c7eca1600bd2)
 
 Um detalhe importante é a última tecla pedida: a _HOTKEY_. Através dela você
 conseguirá acessar vários comandos importantes da plataforma.
@@ -217,11 +209,7 @@ conseguirá acessar vários comandos importantes da plataforma.
 Ainda com o teclado conectado, vá nas opções e configure a conexão com a
 internet (o Raspberry Pi 3 possui Wi-Fi e Bluetooth nativo)
 
-<img 
-  src="/media/crie-um-videogame-com-raspberry-pi/networkHD.jpg" 
-  alt="Tela de configuração de internet" 
-  title="Network.png"
-/>
+![Tela de configuração de internet](https://github.com/user-attachments/assets/6233c89d-be29-487b-8045-6f9c797bc9ad)
 
 Se você tiver um cabo de rede, plugue-o e pule essa etapa. Caso prefira Wi-Fi,
 como eu, preencha os campos necessários para a conexão:
@@ -241,11 +229,7 @@ rede.
 
 Pelo o executar ou pelo explorer, digite o caminho `\\recalbox` e aperte enter.
 
-<img 
-  src="/media/crie-um-videogame-com-raspberry-pi/executar.png" 
-  alt="Diretório do Recalbox" 
-  title="\\recalbox.png"
-/>
+![Diretório do Recalbox](https://github.com/user-attachments/assets/fdb20fc5-78bb-4f97-8944-e334fbe7bb1e)
 
 Navegue até o caminho `\\recalbox\share\roms` e tenha acesso à todas as pastas.
 Agora é só copiar e colar a _rom_ em seu respectivo diretório.
@@ -257,11 +241,7 @@ acessar várias configurações a partir da interface que irá aparecer: monitor
 temperatura, adicionar/remover bios, ler a documentação e inclusive adicionar e
 remover _roms_.
 
-<img 
-  src="/media/crie-um-videogame-com-raspberry-pi/interface.png" 
-  alt="Interface do Recalbox acessado no browser" 
-  title="browser.png"
-/>
+![Interface do Recalbox acessado no browser](https://github.com/user-attachments/assets/836356f0-9440-4259-9e40-222db2733f42)
 
 **Pegando imagens**
 
@@ -269,11 +249,8 @@ Depois de ter adicionado os jogos você pode colocar imagens nas roms. Para isso
 basta voltar ao menu principal e escolher a opção _SCRAPER_. Siga as instruções
 pedidas e depois veja como ficaram seus jogos (esse passo pode demorar).
 
-<img 
-  src="/media/crie-um-videogame-com-raspberry-pi/scrapper.png" 
-  alt="Imagem de um jogo e suas informações" 
-  title="Scraper.png"
-/>
+
+![Imagem de um jogo e suas informações](https://github.com/user-attachments/assets/aa76b205-8bb8-41b2-9494-3a356a83a6c8)
 
 ### Case
 
@@ -282,11 +259,7 @@ diretamente, eu comprei um case para o Raspberry. Como ele ainda não chegou
 (comprei da China), fiz um temporário de papelão, seguindo um template que
 [achei na internet](http://sixes.net/rdcHQ/mosh/raspberry.pi.b.plus.pdf).
 
-<img 
-  src="/media/crie-um-videogame-com-raspberry-pi/case.png" 
-  alt="Capa para seu videogame" 
-  title="Capinha.png"
-/>
+![Capa para seu videogame](https://github.com/user-attachments/assets/8cbc93cd-4d86-4017-b896-7bf6c94fd9bc)
 
 Ele não ficou tão bonito mas, como disse, é provisório até o case chegar.
 
