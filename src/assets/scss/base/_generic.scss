@@ -2,26 +2,15 @@
  * Generic
  */
 
-@font-face {
-  font-family: 'w95';
-  src: url('/font/w95fa.woff2') format('woff2'),
-    url('/font/w95fa.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 html {
   font-size: var(--typographic-root-font-size);
 }
 
 body {
   margin: 0;
-  font-family: var(--typographic-font-family);
   color: var(--typographic-base-font-color);
   line-height: var(--typographic-base-line-height);
   font-size: var(--typographic-base-font-size) !important;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
