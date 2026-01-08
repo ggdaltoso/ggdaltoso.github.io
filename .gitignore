@@ -7,3 +7,7 @@ npm-debug.log
 .idea
 gatsby-starter-lumen.iml
 .DS_Store
+.env.development
+.env.production
+.env.local
+.env
