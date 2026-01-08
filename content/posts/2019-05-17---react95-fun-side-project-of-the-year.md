@@ -1,18 +1,19 @@
 ---
-title: "React95: fun side project of the year"
-date: "2019-05-17T10:46:37.121Z"
-template: "post"
+title: 'React95: fun side project of the year'
+date: '2019-05-17T10:46:37.121Z'
+template: post
 draft: false
-slug: "/react95-fun-side-project-of-the-year"
-category: "Design System"
+slug: /react95-fun-side-project-of-the-year
+category: Design System
 tags:
-  - "React"
-  - "React95"
-  - "Style-guide"
-
-description: "React95 é uma biblioteca de componentes escrita em React usando 
-styled-components. Em abril de 2019, ganhou o prêmio de “Fun side project of 
-the year” na maior conferência de React do mundo, em Amsterdã."
+  - React
+  - React95
+  - Style-guide
+description: >-
+  React95 é uma biblioteca de componentes escrita em React usando 
+  styled-components. Em abril de 2019, ganhou o prêmio de “Fun side project of 
+  the year” na maior conferência de React do mundo, em Amsterdã.
+issueNumber: 46
 ---
 
 Já faz um tempo que deveria ter escrito essa história mas como a ficha está

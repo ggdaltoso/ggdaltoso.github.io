@@ -1,14 +1,14 @@
 ---
-title: "Hoisting. Quê?"
-date: "2017-08-03T00:35:06.000Z"
-template: "post"
+title: Hoisting. Quê?
+date: '2017-08-03T00:35:06.000Z'
+template: post
 draft: false
-slug: "/hoisting-que"
-category: "JavaScript"
+slug: /hoisting-que
+category: JavaScript
 tags:
-  - "JavaScript"
-
-description: "O que é hoisting?"
+  - JavaScript
+description: O que é hoisting?
+issueNumber: 45
 ---
 
 "Quê?" mesmo. Eu falei exatamente isso na primeira vez que ouvi essa palavra:
