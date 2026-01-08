@@ -33,6 +33,7 @@ export const query = graphql`
         description
         tags
         title
+        issueNumber
       }
     }
   }
