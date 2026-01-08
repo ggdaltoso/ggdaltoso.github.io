@@ -2,6 +2,17 @@
 
 exports.createPages = require('./gatsby/create-pages');
 exports.onCreateNode = require('./gatsby/on-create-node');
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type MarkdownRemarkFrontmatter {
+      issueNumber: Int
+    }
+  `;
+  createTypes(typeDefs);
+};
+
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
   const config = getConfig();
   // Get the mini-css-extract-plugin
