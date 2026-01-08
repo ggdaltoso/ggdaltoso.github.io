@@ -3,7 +3,7 @@ title: "Monolito, Multirepo ou Monorepo?"
 date: "2020-07-10T00:00:00.0000"
 template: "post"
 draft: false
-slug: "/posts/monolito-multirepo-ou-monorepo/"
+slug: "/monolito-multirepo-ou-monorepo"
 category: "Arquitetura"
 tags:
   - "Arquitetura"
@@ -29,12 +29,9 @@ acho importante falar um pouco de cada uma delas.
 ### Monolito
 
 <span class="figure float-left">
-  <img
-    src="/media/monorepo/monolith.png"
-    width="180"
-    alt="Diagrama de um monolito"
-    title="Monolito.png"
-  />
+
+![Diagrama de um monolito](https://github.com/user-attachments/assets/dbe5d54c-dcab-45d7-930f-408b8aeca79a "Monolito.png | 180")
+
 </span>
 
 Esse modelo consiste em ter tudo em um único lugar. Tudo junto e misturado.
@@ -49,12 +46,9 @@ mesmo repositório. Resumidamente: **1 repositório e 1 projeto**.
 ### Multirepo ou Polirepo
 
 <span class="figure float-right">
-  <img
-    src="/media/monorepo/multirepo.png"
-    alt="Diagrama de um multirepo ou Polirepo"
-    width="160"
-    title="Multirepo.png"
-  />
+
+![Diagrama de um multirepo ou Polirepo](https://github.com/user-attachments/assets/ada284e3-1c79-4c7d-abdd-996d86dcc67f "Multirepo.png | 220")
+
 </span>
 
 Em um cenário onde um projeto possa ser subdivido em múltiplos módulos (ou em
@@ -67,12 +61,9 @@ ou seja, **N repositórios para N projetos**.
 ### Monorepo
 
 <span class="figure float-left">
-  <img
-    src="/media/monorepo/monorepo.png"
-    alt="Diagrama de um monorepo"
-    width="160"
-    title="Monorepo.png"
-  />
+
+![Diagrama de um monorepo](https://github.com/user-attachments/assets/a8595005-a5f1-4029-b37d-cf3f05d49d10 "Monorepo.png | 160")
+
 </span>
 
 Por fim, quando temos vários projetos que compartilham do mesmo repositório,
@@ -80,18 +71,16 @@ damos o nome a essa estrutura de Monorepo que, em minha opinião, é uma extens�
 do Monolito, lidando com **1 repositório para N projetos**.
 
 <br class="hide-sm" />
+<br class="hide-sm" />
 
 Qual dessas estruturas eu devo colocar em meu projeto? Bom, depende...
 
 ## Minha lista de receitas
 
 <span class="figure float-left">
-  <img
-    src="/media/monorepo/simple-structure.png"
-    alt="Estrutura simples do projeto inicial"
-    width="250"
-    title="Minha lista de Receitas.png"
-  />
+
+![Estrutura simples do projeto inicial](https://github.com/user-attachments/assets/81d40de6-1ad4-48dc-954f-6011eed6a40c "Minha lista de Receitas.png | 260")
+
 </span>
 
 Um projeto é tudo aquilo que tem começo, meio e fim e aqui ele vai ser

@@ -2,14 +2,10 @@ import React from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
 import { Frame } from '@react95/core';
 
-const GGHighlight = (props) => {
+const GGHighlight = ({ code, language = 'javascript' }) => {
   return (
     <Frame boxShadow="$out" p="$4" bgColor="$material">
-      <Highlight
-        code={props.children.props.children}
-        language="javascript"
-        theme={themes.github}
-      >
+      <Highlight code={code} language={language} theme={themes.github}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <Frame
             p="$4"

@@ -3,7 +3,7 @@ title: "Hoisting. Quê?"
 date: "2017-08-03T00:35:06.000Z"
 template: "post"
 draft: false
-slug: "/posts/hoisting-que/"
+slug: "/hoisting-que"
 category: "JavaScript"
 tags:
   - "JavaScript"
@@ -24,7 +24,7 @@ Esses dias me deparei com esse tweet:
     <br /><br />
     No cheating 😂 👀 
     <a href="https://t.co/Vqacfzhh4n">pic.twitter.com/Vqacfzhh4n</a>
-  </p>&mdash; 
+  </p>
   Rowland I. Ekemezie (@rowlandekemezie) 
   <a href="https://twitter.com/rowlandekemezie/status/884752434953945088?ref_src=twsrc%5Etfw">
     July 11, 2017
