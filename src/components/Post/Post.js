@@ -10,7 +10,7 @@ import * as styles from './Post.module.scss';
 
 const Post = ({ post, html }) => {
   const { tagSlugs, slug } = post.fields || {};
-  const { tags, title, date } = post.frontmatter;
+  const { tags, title, date, issueNumber } = post.frontmatter;
 
   return (
     <div>
@@ -29,7 +29,7 @@ const Post = ({ post, html }) => {
       </div>
 
       <div className={styles['post__comments']}>
-        <Comments postSlug={slug} postTitle={post.frontmatter.title} />
+        <Comments issueNumber={issueNumber} />
       </div>
     </div>
   );
