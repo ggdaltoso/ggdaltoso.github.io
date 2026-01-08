@@ -51,6 +51,9 @@ function issueToPost(issue) {
   const parsed = matter(issue.body);
   const frontmatter = parsed.data;
 
+  // Add issue number to frontmatter
+  frontmatter.issueNumber = issue.number;
+
   // Extract slug from frontmatter
   let slug = null;
   if (frontmatter.slug) {
@@ -81,7 +84,9 @@ function issueToPost(issue) {
 
   // File name
   const filename = `${datePrefix}---${finalSlug}.md`;
-  const content = issue.body;
+
+  // Rebuild content with updated frontmatter
+  const content = matter.stringify(parsed.content, frontmatter);
 
   return {
     filename,
