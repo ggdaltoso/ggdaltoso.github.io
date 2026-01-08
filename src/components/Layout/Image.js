@@ -3,7 +3,7 @@ import { Frame, TitleBar } from '@react95/core';
 import { Wangimg128 } from '@react95/icons';
 
 const GGImage = (props) => {
-  const { src, alt, title = '' } = props;
+  const { src, alt, title = `${alt.replace(/\s+/g, '_')}.png` } = props;
 
   const [description, width] = title.split('|').map((s) => s.trim());
 
