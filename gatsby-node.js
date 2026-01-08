@@ -15,3 +15,8 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
   // Update the config.
   actions.replaceWebpackConfig(config);
 };
+
+exports.onPostBuild = async ({ graphql, reporter }) => {
+  const generateLlmsTxt = require('./gatsby/generate-llms-txt');
+  await generateLlmsTxt(graphql, reporter);
+};
