@@ -5,7 +5,7 @@ import * as styles from './Meta.module.scss';
 const Meta = ({ date }) => (
   <div>
     <p className={styles['meta__date']}>
-      Published {moment(date).format('D MMM YYYY')}
+      Publicado em {moment(date).format('D MMM YYYY')}
     </p>
   </div>
 );
