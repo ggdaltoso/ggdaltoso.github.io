@@ -28,7 +28,7 @@ const Comments = ({ issueNumber }) => {
   }
 
   return (
-    <Fieldset legend="Comentários" mt="$0" mb="$8">
+    <Fieldset legend="Comentários" mt="$0" mb="$20">
       <Frame ref={containerRef} mb="$8">
         <Frame>
           {!visible && <p>Carregando...</p>}
@@ -47,7 +47,11 @@ const Comments = ({ issueNumber }) => {
               ) : (
                 <div>
                   {comments.map((comment) => (
-                    <CommentItem key={comment.id} comment={comment} />
+                    <CommentItem
+                      key={comment.id}
+                      comment={comment}
+                      issueNumber={issueNumber}
+                    />
                   ))}
                 </div>
               )}

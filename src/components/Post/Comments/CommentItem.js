@@ -3,7 +3,7 @@ import { Avatar, Frame } from '@react95/core';
 import CommentReactions from './CommentReactions';
 import * as styles from './Comments.module.scss';
 
-const CommentItem = ({ comment }) => {
+const CommentItem = ({ comment, issueNumber }) => {
   return (
     <Frame
       bgColor="$material"
@@ -23,16 +23,14 @@ const CommentItem = ({ comment }) => {
           p="$1"
         />
         <Frame width="100%" display="flex" flexDirection="column" gap="$2">
-          <Frame
-            p="$2"
-            pl="$4"
-            boxShadow="$in"
-            as="a"
-            href={comment.user.html_url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @{comment.user.login}
+          <Frame p="$2" pl="$4" boxShadow="$in">
+            <a
+              href={comment.user.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @{comment.user.login}
+            </a>
           </Frame>
 
           <Frame p="$2" pl="$4" boxShadow="$in" as="time">
@@ -51,7 +49,11 @@ const CommentItem = ({ comment }) => {
         dangerouslySetInnerHTML={{ __html: comment.body_html }}
         className={styles['comments__body']}
       />
-      <CommentReactions reactions={comment.reactions} />
+      <CommentReactions
+        reactions={comment.reactions}
+        commentId={comment.id}
+        issueNumber={issueNumber}
+      />
     </Frame>
   );
 };

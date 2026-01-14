@@ -71,3 +71,84 @@ export const usePostCommentMutation = (issueNumber) => {
     },
   });
 };
+
+export const useToggleReactionMutation = (issueNumber) => {
+  const { getToken, owner, repo } = useGitHubAuth();
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({ commentId, reactionType, action }) => {
+      const token = getToken();
+
+      if (!token) {
+        throw new Error('Not authenticated');
+      }
+
+      if (action === 'add') {
+        // Add reaction
+        const response = await fetch(
+          `https://api.github.com/repos/${owner}/${repo}/issues/comments/${commentId}/reactions`,
+          {
+            method: 'POST',
+            headers: {
+              Authorization: `token ${token}`,
+              'Content-Type': 'application/json',
+              Accept: 'application/vnd.github.squirrel-girl-preview+json',
+            },
+            body: JSON.stringify({ content: reactionType }),
+          },
+        );
+
+        if (!response.ok) {
+          throw new Error('Error adding reaction');
+        }
+
+        return response.json();
+      } else {
+        // Remove reaction - need to find the reaction ID first
+        const listResponse = await fetch(
+          `https://api.github.com/repos/${owner}/${repo}/issues/comments/${commentId}/reactions`,
+          {
+            headers: {
+              Authorization: `token ${token}`,
+              Accept: 'application/vnd.github.squirrel-girl-preview+json',
+            },
+          },
+        );
+
+        if (!listResponse.ok) {
+          throw new Error('Error fetching reactions');
+        }
+
+        const reactions = await listResponse.json();
+        const userReaction = reactions.find(
+          (r) =>
+            r.content === reactionType && r.user.login === token.user?.login,
+        );
+
+        if (userReaction) {
+          const deleteResponse = await fetch(
+            `https://api.github.com/repos/${owner}/${repo}/issues/comments/${commentId}/reactions/${userReaction.id}`,
+            {
+              method: 'DELETE',
+              headers: {
+                Authorization: `token ${token}`,
+                Accept: 'application/vnd.github.squirrel-girl-preview+json',
+              },
+            },
+          );
+
+          if (!deleteResponse.ok) {
+            throw new Error('Error removing reaction');
+          }
+        }
+      }
+    },
+    onSuccess: () => {
+      // Invalidate and refetch comments to get updated reactions
+      queryClient.invalidateQueries({
+        queryKey: ['comments', owner, repo, issueNumber],
+      });
+    },
+  });
+};
