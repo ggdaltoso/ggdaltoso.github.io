@@ -9,7 +9,7 @@ export const useCommentsQuery = (issueNumber, enabled = true) => {
     queryFn: async () => {
       const token = getToken();
       const headers = {
-        Accept: 'application/vnd.github.v3.html+json',
+        Accept: 'application/vnd.github.v3.html+json, application/vnd.github.squirrel-girl-preview+json',
       };
 
       if (token) {
@@ -28,7 +28,7 @@ export const useCommentsQuery = (issueNumber, enabled = true) => {
       return response.json();
     },
     enabled: enabled && !!issueNumber,
-    staleTime: 2 * 60 * 1000, // 2 minutes
+    staleTime: 0, // Don't cache, always fetch fresh data
   });
 };
 
@@ -72,8 +72,39 @@ export const usePostCommentMutation = (issueNumber) => {
   });
 };
 
-export const useToggleReactionMutation = (issueNumber) => {
+export const useCommentReactionsQuery = (commentId, enabled = true) => {
   const { getToken, owner, repo } = useGitHubAuth();
+
+  return useQuery({
+    queryKey: ['commentReactions', owner, repo, commentId],
+    queryFn: async () => {
+      const token = getToken();
+      const headers = {
+        Accept: 'application/vnd.github.squirrel-girl-preview+json',
+      };
+
+      if (token) {
+        headers['Authorization'] = `token ${token}`;
+      }
+
+      const response = await fetch(
+        `https://api.github.com/repos/${owner}/${repo}/issues/comments/${commentId}/reactions`,
+        { headers },
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to load reactions');
+      }
+
+      return response.json();
+    },
+    enabled: enabled && !!commentId,
+    staleTime: 0,
+  });
+};
+
+export const useToggleReactionMutation = (issueNumber) => {
+  const { getToken, owner, repo, user } = useGitHubAuth();
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -123,7 +154,7 @@ export const useToggleReactionMutation = (issueNumber) => {
         const reactions = await listResponse.json();
         const userReaction = reactions.find(
           (r) =>
-            r.content === reactionType && r.user.login === token.user?.login,
+            r.content === reactionType && r.user.login === user?.login,
         );
 
         if (userReaction) {
@@ -141,14 +172,23 @@ export const useToggleReactionMutation = (issueNumber) => {
           if (!deleteResponse.ok) {
             throw new Error('Error removing reaction');
           }
+
+          return { id: userReaction.id };
         }
       }
     },
-    onSuccess: () => {
-      // Invalidate and refetch comments to get updated reactions
-      queryClient.invalidateQueries({
-        queryKey: ['comments', owner, repo, issueNumber],
-      });
+    onSuccess: async (data, variables) => {
+      // Force refetch both queries immediately
+      await Promise.all([
+        queryClient.refetchQueries({
+          queryKey: ['comments', owner, repo, issueNumber],
+          exact: true,
+        }),
+        queryClient.refetchQueries({
+          queryKey: ['commentReactions', owner, repo, variables.commentId],
+          exact: true,
+        }),
+      ]);
     },
   });
 };

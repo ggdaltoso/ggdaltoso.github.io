@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Cursor, Frame } from '@react95/core';
 import { useGitHubAuth } from '../../../hooks/use-github-auth';
-import { useToggleReactionMutation } from '../../../hooks/use-comments-query';
+import { useToggleReactionMutation, useCommentReactionsQuery } from '../../../hooks/use-comments-query';
 import ReactionPicker from './ReactionPicker';
 import * as styles from './Comments.module.scss';
 
@@ -23,16 +23,22 @@ const CommentReactions = ({ reactions, commentId, issueNumber }) => {
   const { user } = useGitHubAuth();
   const [loadingReaction, setLoadingReaction] = useState(null);
   const toggleReactionMutation = useToggleReactionMutation(issueNumber);
+  const { data: detailedReactions } = useCommentReactionsQuery(commentId, true);
 
   const handleReactionClick = async (reactionType) => {
     if (!user) return;
+
+    // Check if user already reacted with this type
+    const userHasReacted = detailedReactions?.some(
+      (r) => r.content === reactionType && r.user.login === user.login
+    );
 
     setLoadingReaction(reactionType);
     try {
       await toggleReactionMutation.mutateAsync({
         commentId,
         reactionType,
-        action: 'add',
+        action: userHasReacted ? 'remove' : 'add',
       });
     } catch (err) {
       console.error('Error toggling reaction:', err);
@@ -41,13 +47,16 @@ const CommentReactions = ({ reactions, commentId, issueNumber }) => {
     }
   };
 
-  const filteredReactions =
-    reactions && reactions.total_count > 0
-      ? Object.entries(reactions).filter(
-          ([type, count]) =>
-            type !== 'url' && type !== 'total_count' && count > 0,
-        )
-      : [];
+  // Build reaction summary from detailed reactions
+  const reactionSummary = detailedReactions?.reduce((acc, reaction) => {
+    const type = reaction.content;
+    acc[type] = (acc[type] || 0) + 1;
+    return acc;
+  }, {}) || {};
+
+  const filteredReactions = Object.entries(reactionSummary).filter(
+    ([type, count]) => count > 0
+  );
 
   return (
     <Frame display="flex" gap="$4" flexWrap="wrap" alignItems="center">
