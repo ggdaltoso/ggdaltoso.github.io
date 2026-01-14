@@ -3,7 +3,6 @@ import React, { createContext, useState, useEffect } from 'react';
 const GITHUB_OWNER = 'ggdaltoso';
 const GITHUB_REPO = 'ggdaltoso.github.io';
 const GITHUB_CLIENT_ID = process.env.GATSBY_GITHUB_CLIENT_ID || '';
-const OAUTH_PROXY = 'https://utteranc.es';
 
 export const GitHubAuthContext = createContext(null);
 
@@ -36,7 +35,8 @@ export const GitHubAuthProvider = ({ children }) => {
 
   const exchangeCodeForToken = async (code) => {
     try {
-      const response = await fetch(`${OAUTH_PROXY}/token`, {
+      // Use Gatsby Function to exchange code for token
+      const response = await fetch('/api/github-token', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,6 +48,10 @@ export const GitHubAuthProvider = ({ children }) => {
         const { token } = await response.json();
         localStorage.setItem('github_token', token);
         await fetchUser(token);
+      } else {
+        const error = await response.json();
+        console.error('Error getting token:', error);
+        setLoading(false);
       }
     } catch (err) {
       console.error('Error exchanging code for token:', err);
