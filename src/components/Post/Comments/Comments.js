@@ -54,17 +54,15 @@ const Comments = ({ issueNumber }) => {
 
               {user ? (
                 <CommentForm
-                  user={user}
                   newComment={newComment}
                   setNewComment={setNewComment}
                   posting={posting}
                   issueUrl={issueUrl}
                   issueNumber={issueNumber}
                   onSubmit={handleSubmitComment}
-                  onLogout={handleLogout}
                 />
               ) : (
-                <LoginPrompt onLogin={handleLogin} hasClientId={hasClientId} />
+                <LoginPrompt />
               )}
             </>
           )}

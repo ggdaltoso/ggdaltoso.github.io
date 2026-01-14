@@ -32,6 +32,7 @@
     "@babel/runtime": "^7.28.4",
     "@react95/core": "^9.6.2",
     "@react95/icons": "^2.2.0",
+    "@tanstack/react-query": "^5.90.17",
     "classnames": "^2.5.1",
     "gatsby": "^5.15.0",
     "gatsby-link": "^5.15.0",

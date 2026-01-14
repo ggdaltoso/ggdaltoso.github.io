@@ -1,15 +1,18 @@
 import React from 'react';
+import { useGitHubAuth } from '../../../hooks/use-github-auth';
 
 const CommentForm = ({
-  user,
   newComment,
   setNewComment,
   posting,
   issueUrl,
   issueNumber,
   onSubmit,
-  onLogout,
 }) => {
+  const { user, handleLogout } = useGitHubAuth();
+
+  if (!user) return null;
+
   return (
     <div>
       <div>
@@ -17,7 +20,7 @@ const CommentForm = ({
         <span>
           Commenting as <strong>{user.login}</strong>
         </span>
-        <button onClick={onLogout}>Sign out</button>
+        <button onClick={handleLogout}>Sign out</button>
       </div>
       <form onSubmit={onSubmit}>
         <textarea

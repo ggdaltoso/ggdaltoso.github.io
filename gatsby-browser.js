@@ -1,10 +1,13 @@
 "use strict";
 
-require("./src/assets/scss/init.scss");
+require('./src/assets/scss/init.scss');
 
 // Import React95 core styles and theme
 require('@react95/core/themes/win95.css');
 require('@react95/core/GlobalStyle');
+
+// Import wrapper from shared file
+exports.wrapRootElement = require('./gatsby-shared').wrapRootElement;
 
 // Import React95 components to include their styles in the build
 require('@react95/core/Button');
