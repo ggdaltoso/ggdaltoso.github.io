@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Cursor, Frame } from '@react95/core';
 import { useGitHubAuth } from '../../../hooks/use-github-auth';
 import { useToggleReactionMutation } from '../../../hooks/use-comments-query';
+import ReactionPicker from './ReactionPicker';
 import * as styles from './Comments.module.scss';
 
 const getReactionEmoji = (reactionType) => {
@@ -23,25 +24,11 @@ const CommentReactions = ({ reactions, commentId, issueNumber }) => {
   const [loadingReaction, setLoadingReaction] = useState(null);
   const toggleReactionMutation = useToggleReactionMutation(issueNumber);
 
-  if (!reactions || reactions.total_count === 0) {
-    return null;
-  }
-
-  const filteredReactions = Object.entries(reactions).filter(
-    ([type, count]) => type !== 'url' && type !== 'total_count' && count > 0,
-  );
-
-  if (filteredReactions.length === 0) {
-    return null;
-  }
-
   const handleReactionClick = async (reactionType) => {
     if (!user) return;
 
     setLoadingReaction(reactionType);
     try {
-      // For now, we'll always add reactions
-      // To properly toggle, we'd need to track which reactions the user has already made
       await toggleReactionMutation.mutateAsync({
         commentId,
         reactionType,
@@ -54,8 +41,23 @@ const CommentReactions = ({ reactions, commentId, issueNumber }) => {
     }
   };
 
+  const filteredReactions =
+    reactions && reactions.total_count > 0
+      ? Object.entries(reactions).filter(
+          ([type, count]) =>
+            type !== 'url' && type !== 'total_count' && count > 0,
+        )
+      : [];
+
   return (
-    <Frame display="flex" gap="$4" flexWrap="wrap">
+    <Frame display="flex" gap="$4" flexWrap="wrap" alignItems="center">
+      {user && (
+        <ReactionPicker
+          onSelectReaction={handleReactionClick}
+          disabled={!!loadingReaction}
+        />
+      )}
+
       {filteredReactions.map(([type, count]) => (
         <Button
           key={type}

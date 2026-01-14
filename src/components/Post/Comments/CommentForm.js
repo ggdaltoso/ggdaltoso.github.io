@@ -52,9 +52,8 @@ const CommentForm = ({
                 alt={user.login}
                 size="20px"
                 ml="$4"
-                mr="$2"
               />
-              <Frame as="strong" mt="-4px">
+              <Frame as="strong" mt="-4px" ml="$2">
                 @{user.login}
               </Frame>
             </Frame>
