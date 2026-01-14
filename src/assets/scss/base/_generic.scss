@@ -123,11 +123,6 @@ strong {
 ul {
   list-style: square;
   margin-bottom: var(--typographic-leading);
-
-  & li {
-    padding: 0 5px;
-    margin-bottom: 10px;
-  }
 }
 
 p {
