@@ -51,6 +51,7 @@ function readPostFile(filename: string): Post | null {
         category: (data.category as string) || 'Uncategorized',
         tags: Array.isArray(data.tags) ? data.tags : [],
         description: (data.description as string) || (data.title as string),
+        issueNumber: data.issueNumber ? Number(data.issueNumber) : undefined,
       },
       content: content.trim(),
     };
@@ -89,8 +90,6 @@ export async function getAllPosts(): Promise<Post[]> {
  */
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   const files = getPostFiles();
-
-  console.log('Searching for slug:', slug, files);
 
   for (const filename of files) {
     const post = readPostFile(filename);

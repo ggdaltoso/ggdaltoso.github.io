@@ -170,6 +170,7 @@ function createPostFile(issue) {
     category: frontmatter.category || 'Uncategorized',
     tags: frontmatter.tags || [],
     description: frontmatter.description || issue.title,
+    issueNumber: issue.number,
     ...frontmatter,
   };
 

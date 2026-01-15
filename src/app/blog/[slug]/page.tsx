@@ -3,6 +3,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getPostBySlug, getAllSlugs } from '@/lib/posts';
 import { mdxComponents } from '@/components/MDX/MDXComponents';
 import PostHeader from '@/components/Post/PostHeader';
+import Comments from '@/components/Post/Comments';
 import Link from 'next/link';
 
 interface PostPageProps {
@@ -49,7 +50,6 @@ export default async function PostPage({ params }: PostPageProps) {
   if (!post) {
     notFound();
   }
-
   return (
     <article className="max-w-4xl mx-auto">
       {/* Header do Post */}
@@ -59,6 +59,11 @@ export default async function PostPage({ params }: PostPageProps) {
       <div className="prose prose-lg max-w-none">
         <MDXRemote source={post.content} components={mdxComponents} />
       </div>
+
+      {/* Comentários */}
+      {post.frontmatter.issueNumber && (
+        <Comments issueNumber={post.frontmatter.issueNumber} />
+      )}
 
       {/* Navegação */}
       <div className="mt-16 pt-8 border-t border-gray-200">

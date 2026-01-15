@@ -7,6 +7,7 @@ export interface PostFrontmatter {
   category: string;
   tags: string[];
   description: string;
+  issueNumber?: number;
 }
 
 export interface Post {
