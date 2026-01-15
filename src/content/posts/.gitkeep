@@ -1,0 +1,37 @@
+---
+title: "Post de Exemplo"
+date: "2026-01-15T00:00:00.0000"
+template: "post"
+draft: false
+slug: "/exemplo-post"
+category: "Tutorial"
+tags:
+  - "Next.js"
+  - "Markdown"
+description: "Este é um post de exemplo para testar o sistema de geração"
+---
+
+# Post de Exemplo
+
+Este é um post de exemplo criado manualmente para testar o sistema antes de gerar os posts do GitHub Issues.
+
+## Features
+
+- **Markdown** completo
+- Suporte a **negrito** e *itálico*
+- Listas e código
+
+```javascript
+const hello = 'world';
+console.log(hello);
+```
+
+## Próximos Passos
+
+1. Testar a geração de posts
+2. Implementar a leitura dos posts
+3. Criar as páginas do blog
+
+![Exemplo de imagem](https://via.placeholder.com/800x400)
+
+> Esta é uma citação de exemplo
