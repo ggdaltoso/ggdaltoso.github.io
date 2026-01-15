@@ -47,8 +47,8 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador.
 - ✅ **Etapa 2**: Script de busca de issues
 - ✅ **Etapa 3**: Sistema de leitura de posts
 - ✅ **Etapa 4**: Página de lista de posts
-- ⏳ **Etapa 5**: Componentes MDX customizados (próxima)
-- ⏳ **Etapa 6**: Página individual de post
+- ✅ **Etapa 5**: Componentes MDX customizados
+- ⏳ **Etapa 6**: Página individual de post (próxima)
 - ⏳ **Etapa 7**: Integração React95
 - ⏳ **Etapa 8**: Deploy na Vercel
 
