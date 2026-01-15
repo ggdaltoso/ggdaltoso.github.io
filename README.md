@@ -45,8 +45,8 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
 - ✅ **Etapa 1**: Setup inicial do Next.js com TypeScript e Tailwind
 - ✅ **Etapa 2**: Script de busca de issues
-- ⏳ **Etapa 3**: Sistema de leitura de posts (próxima)
-- ⏳ **Etapa 4**: Página de lista de posts
+- ✅ **Etapa 3**: Sistema de leitura de posts
+- ⏳ **Etapa 4**: Página de lista de posts (próxima)
 - ⏳ **Etapa 5**: Componentes MDX customizados
 - ⏳ **Etapa 6**: Página individual de post
 - ⏳ **Etapa 7**: Integração React95

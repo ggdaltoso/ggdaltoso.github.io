@@ -25,7 +25,8 @@
     "@react95/core": "^9.6.2",
     "@react95/icons": "^2.2.0",
     "date-fns": "^3.0.0",
-    "classnames": "^2.5.1"
+    "classnames": "^2.5.1",
+    "clsx": "^2.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
