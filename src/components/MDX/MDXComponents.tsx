@@ -49,7 +49,19 @@ export const mdxComponents: MDXComponents = {
   ),
 
   // Parágrafos
-  p: (props: any) => <p className="mb-4 leading-7 text-gray-800" {...props} />,
+  p: (props: any) => {
+    // Se o parágrafo contém apenas uma imagem, renderiza diretamente sem <p>
+    const children = props.children;
+    if (
+      children &&
+      typeof children === 'object' &&
+      children.type &&
+      children.type.name === 'GGImage'
+    ) {
+      return <>{children}</>;
+    }
+    return <p className="mb-4 leading-7 text-gray-800" {...props} />;
+  },
 
   // Links
   a: (props: any) => (
