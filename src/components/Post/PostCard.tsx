@@ -8,6 +8,8 @@ interface PostCardProps {
 
 export default function PostCard({ post }: PostCardProps) {
   const { title, date, category, tags, description } = post.frontmatter;
+  // Normaliza slug removendo barra inicial se houver
+  const slug = post.frontmatter.slug.replace(/^\//, '');
 
   return (
     <article className="p-6 border border-gray-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all duration-200">
@@ -15,7 +17,7 @@ export default function PostCard({ post }: PostCardProps) {
         <div className="flex-1">
           <h2 className="text-2xl font-bold mb-2">
             <Link
-              href={`/blog/${post.slug}`}
+              href={`/blog/${slug}`}
               className="hover:text-blue-600 transition-colors"
             >
               {title}
@@ -48,7 +50,7 @@ export default function PostCard({ post }: PostCardProps) {
       )}
 
       <Link
-        href={`/blog/${post.slug}`}
+        href={`/blog/${slug}`}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm group"
       >
         Ler mais

@@ -90,11 +90,19 @@ export async function getAllPosts(): Promise<Post[]> {
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   const files = getPostFiles();
 
+  console.log('Searching for slug:', slug, files);
+
   for (const filename of files) {
     const post = readPostFile(filename);
 
-    if (post && post.slug === slug) {
-      return post;
+    if (post) {
+      // Normaliza slugs removendo barra inicial se houver
+      const postSlug = post.frontmatter.slug.replace(/^\//, '');
+      const searchSlug = slug.replace(/^\//, '');
+
+      if (postSlug === searchSlug) {
+        return post;
+      }
     }
   }
 
@@ -129,7 +137,7 @@ export async function getPostsByCategory(category: string): Promise<Post[]> {
  */
 export async function getAllSlugs(): Promise<string[]> {
   const allPosts = await getAllPosts();
-  return allPosts.map((post) => post.slug);
+  return allPosts.map((post) => post.frontmatter.slug.replace(/^\//, ''));
 }
 
 /**
