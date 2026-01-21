@@ -58,7 +58,7 @@
     "gray-matter": "^4.0.3",
     "html-react-parser": "^5.2.11",
     "invariant": "^2.2.4",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "moment": "^2.30.1",
     "prism-react-renderer": "^2.4.1",
     "prismjs": "^1.30.0",
