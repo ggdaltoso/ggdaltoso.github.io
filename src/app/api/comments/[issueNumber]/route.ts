@@ -34,8 +34,8 @@ export async function GET(
       {
         method: 'GET',
         headers,
-        // Cache de 60 segundos
-        next: { revalidate: 60 },
+        // Sem cache para sempre buscar comentários mais recentes
+        cache: 'no-store',
       }
     );
 

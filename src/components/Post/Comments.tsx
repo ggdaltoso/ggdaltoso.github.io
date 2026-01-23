@@ -84,16 +84,38 @@ export default function Comments({ issueNumber }: CommentsProps) {
           type: 'success',
           text: 'Comentário adicionado com sucesso!',
         });
+        const submittedComment = comment.trim();
         setComment('');
 
-        // Recarrega comentários após adicionar novo
+        // Adiciona comentário otimisticamente (UI update imediato)
+        if (session?.user) {
+          const optimisticComment: Comment = {
+            id: Date.now(), // ID temporário
+            body: submittedComment,
+            author: {
+              login: session.user.name || 'Você',
+              avatar_url: session.user.image || '',
+              html_url: `https://github.com/${session.user.name}`,
+            },
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+            html_url: data.comment?.html_url || '',
+          };
+          setComments([...comments, optimisticComment]);
+        }
+
+        // Recarrega comentários do servidor para garantir sincronização
         setTimeout(async () => {
-          const commentsResponse = await fetch(`/api/comments/${issueNumber}`);
+          const timestamp = Date.now();
+          const commentsResponse = await fetch(
+            `/api/comments/${issueNumber}?t=${timestamp}`,
+            { cache: 'no-store' }
+          );
           const commentsData = await commentsResponse.json();
           if (commentsResponse.ok && commentsData.success) {
             setComments(commentsData.comments);
           }
-        }, 1000);
+        }, 500);
       } else {
         setMessage({
           type: 'error',
