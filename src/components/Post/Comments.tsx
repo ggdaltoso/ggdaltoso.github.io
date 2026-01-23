@@ -1,20 +1,10 @@
 'use client';
 
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
-
-interface Comment {
-  id: number;
-  body: string;
-  author: {
-    login: string;
-    avatar_url: string;
-    html_url: string;
-  };
-  created_at: string;
-  updated_at: string;
-  html_url: string;
-}
+import { useComments } from '@/hooks/useComments';
+import { useCreateComment } from '@/hooks/useCreateComment';
+import { Message } from '@/types/comment';
 
 interface CommentsProps {
   issueNumber: number;
@@ -23,33 +13,23 @@ interface CommentsProps {
 export default function Comments({ issueNumber }: CommentsProps) {
   const { data: session, status } = useSession();
   const [comment, setComment] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [comments, setComments] = useState<Comment[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [message, setMessage] = useState<{
-    type: 'success' | 'error';
-    text: string;
-  } | null>(null);
+  const [message, setMessage] = useState<Message | null>(null);
 
-  // Busca comentários existentes
-  useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        const response = await fetch(`/api/comments/${issueNumber}`);
-        const data = await response.json();
+  const { data: comments = [], isLoading } = useComments(issueNumber);
 
-        if (response.ok && data.success) {
-          setComments(data.comments);
-        }
-      } catch (error) {
-        console.error('Error fetching comments:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchComments();
-  }, [issueNumber]);
+  const createCommentMutation = useCreateComment({
+    issueNumber,
+    onSuccess: () => {
+      setMessage({
+        type: 'success',
+        text: 'Comentário adicionado com sucesso!',
+      });
+      setComment('');
+    },
+    onError: (errorMessage) => {
+      setMessage(errorMessage);
+    },
+  });
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -62,74 +42,8 @@ export default function Comments({ issueNumber }: CommentsProps) {
       return;
     }
 
-    setIsSubmitting(true);
     setMessage(null);
-
-    try {
-      const response = await fetch('/api/comments', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          issueNumber,
-          comment: comment.trim(),
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setMessage({
-          type: 'success',
-          text: 'Comentário adicionado com sucesso!',
-        });
-        const submittedComment = comment.trim();
-        setComment('');
-
-        // Adiciona comentário otimisticamente (UI update imediato)
-        if (session?.user) {
-          const optimisticComment: Comment = {
-            id: Date.now(), // ID temporário
-            body: submittedComment,
-            author: {
-              login: session.user.name || 'Você',
-              avatar_url: session.user.image || '',
-              html_url: `https://github.com/${session.user.name}`,
-            },
-            created_at: new Date().toISOString(),
-            updated_at: new Date().toISOString(),
-            html_url: data.comment?.html_url || '',
-          };
-          setComments([...comments, optimisticComment]);
-        }
-
-        // Recarrega comentários do servidor para garantir sincronização
-        setTimeout(async () => {
-          const timestamp = Date.now();
-          const commentsResponse = await fetch(
-            `/api/comments/${issueNumber}?t=${timestamp}`,
-            { cache: 'no-store' }
-          );
-          const commentsData = await commentsResponse.json();
-          if (commentsResponse.ok && commentsData.success) {
-            setComments(commentsData.comments);
-          }
-        }, 500);
-      } else {
-        setMessage({
-          type: 'error',
-          text: data.error || 'Erro ao adicionar comentário',
-        });
-      }
-    } catch (error) {
-      setMessage({
-        type: 'error',
-        text: 'Erro ao enviar comentário. Tente novamente.',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    createCommentMutation.mutate(comment.trim());
   };
 
   return (
@@ -252,7 +166,7 @@ export default function Comments({ issueNumber }: CommentsProps) {
               rows={5}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-              disabled={isSubmitting}
+              disabled={createCommentMutation.isPending}
             />
           </div>
 
@@ -282,10 +196,10 @@ export default function Comments({ issueNumber }: CommentsProps) {
             </p>
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={createCommentMutation.isPending}
               className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              {isSubmitting ? 'Enviando...' : 'Comentar'}
+              {createCommentMutation.isPending ? 'Enviando...' : 'Comentar'}
             </button>
           </div>
         </form>
