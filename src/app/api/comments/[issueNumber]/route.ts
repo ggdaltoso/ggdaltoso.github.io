@@ -19,14 +19,21 @@ export async function GET(
     }
 
     // Busca comentários da issue (não precisa de token para leitura pública)
+    const headers: HeadersInit = {
+      'Accept': 'application/vnd.github.v3+json',
+      'User-Agent': 'Next.js Blog',
+    };
+
+    // Adiciona token apenas se estiver configurado e válido
+    if (GITHUB_TOKEN && GITHUB_TOKEN.trim()) {
+      headers['Authorization'] = `Bearer ${GITHUB_TOKEN}`;
+    }
+
     const response = await fetch(
       `https://api.github.com/repos/${OWNER}/${REPO}/issues/${issueNumber}/comments`,
       {
         method: 'GET',
-        headers: {
-          'Accept': 'application/vnd.github.v3+json',
-          ...(GITHUB_TOKEN && { 'Authorization': `token ${GITHUB_TOKEN}` }),
-        },
+        headers,
         // Cache de 60 segundos
         next: { revalidate: 60 },
       }

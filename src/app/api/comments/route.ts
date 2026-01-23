@@ -1,13 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../auth/[...nextauth]/route';
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO || 'ggdaltoso/ggdaltoso.github.io';
 const [OWNER, REPO] = GITHUB_REPO.split('/');
 
 export async function POST(request: NextRequest) {
   try {
+    // Verifica se o usuário está autenticado
+    const session = await getServerSession(authOptions);
+
+    if (!session || !session.accessToken) {
+      return NextResponse.json(
+        { error: 'Você precisa estar logado para comentar' },
+        { status: 401 },
+      );
+    }
+
     const body = await request.json();
-    const { issueNumber, name, comment } = body;
+    const { issueNumber, comment } = body;
 
     // Validações
     if (!issueNumber || !comment) {
@@ -17,28 +28,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!GITHUB_TOKEN) {
-      return NextResponse.json(
-        { error: 'Token do GitHub não configurado' },
-        { status: 500 },
-      );
-    }
-
-    // Monta o comentário (incluindo nome se fornecido)
-    const commentBody = name ? `**${name}** comentou:\n\n${comment}` : comment;
-
-    // Faz requisição ao GitHub para criar o comentário
+    // Faz requisição ao GitHub usando o token do usuário autenticado
     const response = await fetch(
       `https://api.github.com/repos/${OWNER}/${REPO}/issues/${issueNumber}/comments`,
       {
         method: 'POST',
         headers: {
           Accept: 'application/vnd.github.v3+json',
-          Authorization: `token ${GITHUB_TOKEN}`,
+          Authorization: `Bearer ${session.accessToken}`,
           'Content-Type': 'application/json',
+          'User-Agent': 'Next.js Blog',
         },
         body: JSON.stringify({
-          body: commentBody,
+          body: comment,
         }),
       },
     );
