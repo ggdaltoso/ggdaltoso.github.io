@@ -11,6 +11,7 @@ export default function QueryProvider({ children }: { children: ReactNode }) {
           queries: {
             staleTime: 60 * 1000, // 1 minuto
             refetchOnWindowFocus: false,
+            suspense: true, // Habilita Suspense mode
           },
         },
       }),

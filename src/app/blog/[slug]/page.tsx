@@ -4,7 +4,10 @@ import { getPostBySlug, getAllSlugs } from '@/lib/posts';
 import { mdxComponents } from '@/components/MDX/MDXComponents';
 import PostHeader from '@/components/Post/PostHeader';
 import Comments from '@/components/Post/Comments';
+import { LoadingComments } from '@/components/Post/LoadingComments';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 interface PostPageProps {
   params: {
@@ -62,7 +65,11 @@ export default async function PostPage({ params }: PostPageProps) {
 
       {/* Comentários */}
       {post.frontmatter.issueNumber && (
-        <Comments issueNumber={post.frontmatter.issueNumber} />
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingComments />}>
+            <Comments issueNumber={post.frontmatter.issueNumber} />
+          </Suspense>
+        </ErrorBoundary>
       )}
 
       {/* Navegação */}

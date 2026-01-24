@@ -50,8 +50,59 @@ export async function GET(
 
     const comments = await response.json();
 
+    // Busca reações para cada comentário
+    const commentsWithReactions = await Promise.all(
+      comments.map(async (comment: any) => {
+        try {
+          const reactionsResponse = await fetch(
+            `https://api.github.com/repos/${OWNER}/${REPO}/issues/comments/${comment.id}/reactions`,
+            {
+              method: 'GET',
+              headers: {
+                ...headers,
+                'Accept': 'application/vnd.github.squirrel-girl-preview+json',
+              },
+              cache: 'no-store',
+            }
+          );
+
+          const reactions = reactionsResponse.ok ? await reactionsResponse.json() : [];
+
+          // Agrega reações por tipo
+          const reactionCounts = {
+            '+1': 0,
+            '-1': 0,
+            laugh: 0,
+            hooray: 0,
+            confused: 0,
+            heart: 0,
+            rocket: 0,
+            eyes: 0,
+          };
+
+          reactions.forEach((reaction: any) => {
+            if (reactionCounts.hasOwnProperty(reaction.content)) {
+              reactionCounts[reaction.content as keyof typeof reactionCounts]++;
+            }
+          });
+
+          return {
+            ...comment,
+            reactions: {
+              ...reactionCounts,
+              total_count: reactions.length,
+              url: `https://api.github.com/repos/${OWNER}/${REPO}/issues/comments/${comment.id}/reactions`,
+            },
+          };
+        } catch (error) {
+          console.error(`Error fetching reactions for comment ${comment.id}:`, error);
+          return comment;
+        }
+      })
+    );
+
     // Formata os comentários para o formato necessário
-    const formattedComments = comments.map((comment: any) => ({
+    const formattedComments = commentsWithReactions.map((comment: any) => ({
       id: comment.id,
       body: comment.body,
       author: {
@@ -62,6 +113,7 @@ export async function GET(
       created_at: comment.created_at,
       updated_at: comment.updated_at,
       html_url: comment.html_url,
+      reactions: comment.reactions,
     }));
 
     return NextResponse.json({

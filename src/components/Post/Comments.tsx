@@ -5,6 +5,7 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import { useComments } from '@/hooks/useComments';
 import { useCreateComment } from '@/hooks/useCreateComment';
 import { Message } from '@/types/comment';
+import CommentReactions from './CommentReactions';
 
 interface CommentsProps {
   issueNumber: number;
@@ -15,7 +16,8 @@ export default function Comments({ issueNumber }: CommentsProps) {
   const [comment, setComment] = useState('');
   const [message, setMessage] = useState<Message | null>(null);
 
-  const { data: comments = [], isLoading } = useComments(issueNumber);
+  // Com Suspense, data SEMPRE estará disponível (nunca undefined)
+  const { data: comments } = useComments(issueNumber);
 
   const createCommentMutation = useCreateComment({
     issueNumber,
@@ -51,11 +53,7 @@ export default function Comments({ issueNumber }: CommentsProps) {
       <h2 className="text-2xl font-bold mb-6">Comentários</h2>
 
       {/* Lista de comentários existentes */}
-      {isLoading ? (
-        <div className="mb-8 text-center py-8">
-          <p className="text-gray-600">Carregando comentários...</p>
-        </div>
-      ) : comments.length > 0 ? (
+      {comments.length > 0 ? (
         <div className="mb-8 space-y-4">
           {comments.map((c) => (
             <div
@@ -91,6 +89,11 @@ export default function Comments({ issueNumber }: CommentsProps) {
                   <div className="prose prose-sm max-w-none text-gray-700 whitespace-pre-wrap">
                     {c.body}
                   </div>
+                  <CommentReactions
+                    commentId={c.id}
+                    issueNumber={issueNumber}
+                    reactions={c.reactions}
+                  />
                 </div>
               </div>
             </div>
