@@ -1,8 +1,8 @@
-import { useQuery, UseSuspenseQueryResult } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { Comment } from '@/types/comment';
 
 export function useComments(issueNumber: number) {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: ['comments', issueNumber],
     queryFn: async () => {
       const response = await fetch(`/api/comments/${issueNumber}`);
@@ -14,5 +14,5 @@ export function useComments(issueNumber: number) {
 
       return data.comments as Comment[];
     },
-  }) as UseSuspenseQueryResult<Comment[]>;
+  });
 }
