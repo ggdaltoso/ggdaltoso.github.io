@@ -51,7 +51,6 @@ function readPostFile(filename: string): Post | null {
         category: (data.category as string) || 'Uncategorized',
         tags: Array.isArray(data.tags) ? data.tags : [],
         description: (data.description as string) || (data.title as string),
-        issueNumber: data.issueNumber ? Number(data.issueNumber) : undefined,
       },
       content: content.trim(),
     };
