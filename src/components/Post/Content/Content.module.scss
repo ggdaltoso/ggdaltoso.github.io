@@ -1,0 +1,85 @@
+.content {
+  max-width: var(--layout-post-single-width);
+  padding: 0 15px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: calc(var(--typographic-base-font-size) * 2);
+    max-width: var(--layout-post-width);
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+    text-align: center;
+    line-height: calc(1.65 * var(--typographic-leading));
+    margin-top: var(--typographic-leading);
+    margin-bottom: 0;
+  }
+
+  &__body {
+    & figure,
+    & .figure {
+      margin: 0 auto;
+
+      & blockquote {
+        font-style: italic;
+        text-align: center;
+        margin-top: 0;
+        padding-top: var(--typographic-leading);
+
+        & p {
+          max-width: var(--layout-post-width);
+          font-size: calc(var(--typographic-base-font-size) * 1.6817);
+          margin-top: 0;
+          margin-bottom: var(--typographic-leading);
+          line-height: calc(1.5 * var(--typographic-leading));
+        }
+      }
+    }
+
+    & a {
+      text-decoration: underline;
+    }
+
+    & * {
+      max-width: var(--layout-post-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    & img {
+      max-width: 100%;
+    }
+
+    & img + em {
+      line-height: 3;
+      text-align: center;
+      display: block;
+      opacity: 0.6;
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .content {
+    padding: 0;
+
+    &__title {
+      font-size: calc(var(--typographic-base-font-size) * 3);
+      line-height: calc(2.25 * var(--typographic-leading));
+      margin-top: calc(var(--typographic-leading) * 2.25);
+      margin-bottom: calc(var(--typographic-leading) * 1.5);
+    }
+
+    &__body {
+      font-size: calc(var(--typographic-base-font-size) * 1.125);
+      line-height: calc(1.125 * var(--typographic-leading));
+      margin-bottom: calc(var(--typographic-leading) * 1.125);
+
+      & p {
+        font-size: calc(var(--typographic-base-font-size) * 1.125);
+        line-height: calc(1.125 * var(--typographic-leading));
+        margin-bottom: calc(var(--typographic-leading) * 1.125);
+      }
+    }
+  }
+}

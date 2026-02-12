@@ -1,0 +1,255 @@
+/**
+ * Generic
+ */
+
+html {
+  font-size: var(--typographic-root-font-size);
+}
+
+body {
+  margin: 0;
+  color: var(--typographic-base-font-color);
+  line-height: var(--typographic-base-line-height);
+  font-size: var(--typographic-base-font-size) !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: unset !important;
+  background-color: unset !important;
+}
+
+* {
+  font-family: var(--typographic-font-family) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--typographic-font-family);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: calc(var(--typographic-base-font-size) * 2.5);
+  line-height: calc(2 * var(--typographic-leading));
+  margin-top: calc(var(--typographic-leading) * 4);
+  margin-bottom: var(--typographic-leading);
+}
+
+h2 {
+  font-size: calc(var(--typographic-base-font-size) * 1.6875);
+  line-height: calc(1.5 * var(--typographic-leading));
+  margin-top: calc(var(--typographic-leading) * 2);
+  margin-bottom: calc(var(--typographic-leading) * 0.5);
+}
+
+h3 {
+  font-size: calc(var(--typographic-base-font-size) * 1.375);
+  line-height: var(--typographic-leading);
+  margin-top: calc(var(--typographic-leading) * 2);
+  margin-bottom: calc(var(--typographic-leading) * 0.5);
+}
+
+h4 {
+  font-size: calc(var(--typographic-base-font-size) * 1.2);
+  line-height: var(--typographic-leading);
+  margin-top: calc(var(--typographic-leading) * 1.5);
+  margin-bottom: calc(var(--typographic-leading) * 0.5);
+}
+
+h5 {
+  font-size: var(--typographic-base-font-size);
+  line-height: var(--typographic-leading);
+  margin-top: calc(var(--typographic-leading) * 2.5);
+  margin-bottom: calc(var(--typographic-leading) * 0.5);
+}
+
+h6 {
+  font-size: var(--typographic-base-font-size);
+  line-height: var(--typographic-leading);
+  margin-top: calc(var(--typographic-leading) * 2.5);
+  margin-bottom: calc(var(--typographic-leading) * 0.5);
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+  display: block;
+  margin: inherit auto;
+}
+
+hr {
+  margin-top: 52px;
+  margin-bottom: 52px;
+  border: 0;
+  color: var(--color-base);
+  display: block;
+  height: 26px;
+  margin-right: auto;
+  margin-left: auto;
+  background-size: 100% 26px;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 1px,
+    transparent 11px,
+    var(--color-base) 11px,
+    var(--color-base) 15px,
+    transparent 15px,
+    transparent 26px
+  );
+  width: 100px;
+}
+
+a {
+  color: var(--typographic-link-p-font-color);
+  font-family: var(--typographic-font-family) !important;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--typographic-link-s-font-color);
+  }
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+ul {
+  list-style: square;
+  margin-bottom: var(--typographic-leading);
+
+  & li {
+    padding: 0 5px;
+    margin-bottom: 10px;
+  }
+}
+
+p {
+  line-height: var(--typographic-leading);
+  margin-bottom: var(--typographic-leading);
+}
+
+blockquote {
+  padding: 0;
+  font-style: italic;
+  text-align: left;
+  padding-left: 20px;
+  border-left: 3px solid rgba(var(--color-primary-rgb), 0.4);
+}
+
+figure,
+.figure {
+  display: block;
+  height: auto;
+}
+
+figcaption {
+  line-height: calc(0.75 * var(--typographic-leading));
+  margin-top: calc(var(--typographic-leading) * 0.25);
+  color: var(--color-base);
+  font-size: var(--typographic-small-font-size);
+  font-style: italic;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.anchor {
+  margin-left: -30px !important;
+  padding-right: 14px !important;
+}
+
+.anchor.before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  padding-right: 4px;
+}
+.anchor.after {
+  display: inline-block;
+  padding-left: 4px;
+}
+h1 .anchor svg,
+h2 .anchor svg,
+h3 .anchor svg,
+h4 .anchor svg,
+h5 .anchor svg,
+h6 .anchor svg {
+  visibility: hidden;
+}
+h1:hover .anchor svg,
+h2:hover .anchor svg,
+h3:hover .anchor svg,
+h4:hover .anchor svg,
+h5:hover .anchor svg,
+h6:hover .anchor svg,
+h1 .anchor:focus svg,
+h2 .anchor:focus svg,
+h3 .anchor:focus svg,
+h4 .anchor:focus svg,
+h5 .anchor:focus svg,
+h6 .anchor:focus svg {
+  visibility: visible;
+}
+
+.figure-container {
+  display: flex;
+  flex-direction: column;
+
+  > *:first-child {
+    margin-top: var(--typographic-leading);
+    margin-bottom: var(--typographic-leading);
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.hide-sm {
+  display: none;
+}
+
+@media screen and (min-width: 685px) {
+  .hide-sm {
+    display: block;
+  }
+
+  figure.float-left,
+  .figure.float-left,
+  figure.float-right,
+  .figure.float-right {
+    max-width: 310px;
+    padding-right: var(--typographic-leading);
+    padding-left: var(--typographic-leading);
+  }
+
+  .float-right {
+    float: right;
+  }
+
+  .float-left {
+    float: left;
+  }
+
+  .figure-container {
+    flex-direction: row;
+
+    &.right {
+      flex-direction: row-reverse;
+
+      > *:first-child {
+        margin-left: var(--typographic-leading);
+      }
+    }
+
+    > *:first-child {
+      margin-bottom: var(--typographic-leading);
+    }
+  }
+}

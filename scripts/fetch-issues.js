@@ -1,249 +1,157 @@
 const fs = require('fs');
 const path = require('path');
+const matter = require('gray-matter');
 
-// Configurações do GitHub
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_REPO = process.env.GITHUB_REPO || 'ggdaltoso/ggdaltoso.github.io';
-const [OWNER, REPO] = GITHUB_REPO.split('/');
-
-// Diretório de destino
-const POSTS_DIR = path.join(__dirname, '..', 'src', 'content', 'posts');
+// Configuration
+const GITHUB_OWNER = 'ggdaltoso';
+const GITHUB_REPO = 'ggdaltoso.github.io';
+const POSTS_DIR = path.join(__dirname, '..', 'content', 'posts');
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // Optional token to avoid rate limit
 
 /**
- * Faz requisição à API do GitHub
+ * Fetch all issues from the repository
  */
-async function fetchGitHub(endpoint) {
-  const res = await fetch(`https://api.github.com${endpoint}`, {
+async function fetchIssues() {
+  const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?state=all&per_page=100`;
+
+  console.log('Fetching issues from GitHub...');
+
+  const response = await fetch(url, {
     headers: {
-      'User-Agent': 'Node.js',
-      'Accept': 'application/vnd.github.v3+json',
-      ...(GITHUB_TOKEN && { 'Authorization': `token ${GITHUB_TOKEN}` }),
+      'User-Agent': 'Blog-CMS-Script',
+      ...(GITHUB_TOKEN && { Authorization: `Bearer ${GITHUB_TOKEN}` }),
     },
   });
 
-  if (!res.ok) {
-    const body = await res.text();
-    throw new Error(`GitHub API error: ${res.status} - ${body}`);
+  if (!response.ok) {
+    throw new Error(
+      `Request failed with status ${response.status}: ${await response.text()}`,
+    );
   }
 
-  return res.json();
+  const issues = await response.json();
+
+  // Filter only issues (not pull requests)
+  return issues.filter((issue) => !issue.pull_request);
 }
 
 /**
- * Busca todas as issues do repositório
+ * Convert an issue to blog post format
  */
-async function fetchAllIssues() {
-  console.log(`📡 Buscando issues do repositório ${GITHUB_REPO}...`);
-
-  let allIssues = [];
-  let page = 1;
-  const perPage = 100;
-
-  while (true) {
-    const endpoint = `/repos/${OWNER}/${REPO}/issues?state=all&per_page=${perPage}&page=${page}`;
-    const issues = await fetchGitHub(endpoint);
-
-    if (issues.length === 0) break;
-
-    // Filtrar apenas issues (não pull requests)
-    const onlyIssues = issues.filter((issue) => !issue.pull_request);
-    allIssues = allIssues.concat(onlyIssues);
-
-    console.log(`   Página ${page}: ${onlyIssues.length} issues encontradas`);
-
-    if (issues.length < perPage) break;
-    page++;
+function issueToPost(issue) {
+  if (!issue.body) {
+    throw new Error(
+      `Issue #${issue.number ?? 'unknown'} (${
+        issue.title ?? 'untitled'
+      }) has an empty body`,
+    );
   }
 
-  console.log(`✅ Total: ${allIssues.length} issues encontradas\n`);
-  return allIssues;
-}
+  // Parse frontmatter from issue body using gray-matter
+  const parsed = matter(issue.body);
+  const frontmatter = parsed.data;
 
-/**
- * Extrai frontmatter do corpo da issue
- */
-function extractFrontmatter(body) {
-  if (!body) return { frontmatter: {}, content: '' };
-
-  // Procura por frontmatter YAML (--- ... ---)
-  const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
-  const match = body.match(frontmatterRegex);
-
-  if (!match) {
-    return { frontmatter: {}, content: body };
+  // Extract slug from frontmatter
+  let slug = null;
+  if (frontmatter.slug) {
+    slug = frontmatter.slug.replace(/^\//, ''); // Remove leading slash
   }
 
-  const [, frontmatterText, content] = match;
-  const frontmatter = {};
+  // If no slug found, create from title
+  const finalSlug =
+    slug ||
+    issue.title
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') // Remove accents
+      .replace(/[^\w\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Remove duplicate hyphens
+      .trim();
 
-  // Parse simples do YAML (apenas key: value)
-  const lines = frontmatterText.split('\n');
-  let currentKey = null;
-  let currentValue = [];
-
-  for (const line of lines) {
-    const trimmedLine = line.trim();
-
-    if (trimmedLine.startsWith('-')) {
-      // Item de array
-      if (currentKey && Array.isArray(frontmatter[currentKey])) {
-        frontmatter[currentKey].push(
-          trimmedLine
-            .substring(1)
-            .trim()
-            .replace(/^["']|["']$/g, ''),
-        );
-      }
-    } else if (trimmedLine.includes(':')) {
-      // Nova chave
-      if (currentKey && currentValue.length > 0) {
-        frontmatter[currentKey] = currentValue.join('\n');
-        currentValue = [];
-      }
-
-      const colonIndex = trimmedLine.indexOf(':');
-      currentKey = trimmedLine.substring(0, colonIndex).trim();
-      let value = trimmedLine.substring(colonIndex + 1).trim();
-
-      // Remove aspas
-      value = value.replace(/^["']|["']$/g, '');
-
-      // Verifica se é um array
-      if (lines[lines.indexOf(line) + 1]?.trim().startsWith('-')) {
-        frontmatter[currentKey] = [];
-      } else if (value) {
-        frontmatter[currentKey] = value;
-        currentKey = null;
-      }
-    }
+  // Use date from frontmatter or fallback to issue creation date
+  let datePrefix;
+  if (frontmatter.date) {
+    const postDate = new Date(frontmatter.date);
+    datePrefix = postDate.toISOString().split('T')[0];
+  } else {
+    const createdDate = new Date(issue.created_at);
+    datePrefix = createdDate.toISOString().split('T')[0];
   }
 
-  return { frontmatter, content: content.trim() };
-}
+  // File name
+  const filename = `${datePrefix}---${finalSlug}.md`;
+  const content = issue.body;
 
-/**
- * Converte título em slug
- */
-function titleToSlug(title) {
-  return title
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '') // Remove acentos
-    .replace(/[^a-z0-9]+/g, '-') // Substitui caracteres especiais por -
-    .replace(/^-+|-+$/g, ''); // Remove - do início e fim
-}
-
-/**
- * Cria arquivo markdown do post
- */
-function createPostFile(issue) {
-  const { frontmatter, content } = extractFrontmatter(issue.body);
-
-  // Usa slug do frontmatter ou gera a partir do título
-  const slug = frontmatter.slug || titleToSlug(issue.title);
-  const filename = `${slug}.md`;
-  const filepath = path.join(POSTS_DIR, filename);
-
-  // Monta frontmatter completo
-  const completeFrontmatter = {
-    title: frontmatter.title || issue.title,
-    date: frontmatter.date || issue.created_at,
-    template: frontmatter.template || 'post',
-    draft:
-      frontmatter.draft === 'true' || frontmatter.draft === true ? true : false,
-    slug: slug,
-    category: frontmatter.category || 'Uncategorized',
-    tags: frontmatter.tags || [],
-    description: frontmatter.description || issue.title,
-    ...frontmatter,
+  return {
+    filename,
+    content,
+    issue,
   };
+}
 
-  // Monta arquivo markdown
-  const lines = ['---'];
+/**
+ * Save post to file
+ */
+function savePost(post) {
+  const filepath = path.join(POSTS_DIR, post.filename);
 
-  for (const [key, value] of Object.entries(completeFrontmatter)) {
-    if (Array.isArray(value)) {
-      lines.push(`${key}:`);
-      value.forEach((item) => lines.push(`  - "${item}"`));
-    } else if (typeof value === 'boolean') {
-      lines.push(`${key}: ${value}`);
-    } else {
-      lines.push(`${key}: "${value}"`);
-    }
-  }
-
-  lines.push('---');
-  lines.push('');
-  lines.push(content);
-
-  const fileContent = lines.join('\n');
-
-  // Garante que o diretório existe
+  // Create directory if it doesn't exist
   if (!fs.existsSync(POSTS_DIR)) {
     fs.mkdirSync(POSTS_DIR, { recursive: true });
   }
 
-  // Salva arquivo
-  fs.writeFileSync(filepath, fileContent, 'utf8');
-
-  return {
-    filename,
-    slug,
-    draft: completeFrontmatter.draft,
-  };
+  fs.writeFileSync(filepath, post.content, 'utf8');
+  console.log(`✓ Post created: ${post.filename}`);
 }
 
 /**
- * Main
+ * Main function
  */
 async function main() {
-  console.log('🚀 Iniciando geração de posts do GitHub Issues\n');
-
-  // Valida token
-  if (!GITHUB_TOKEN) {
-    console.warn(
-      '⚠️  AVISO: GITHUB_TOKEN não definido. A API terá limite de taxa reduzido.\n',
-    );
-  }
-
   try {
-    // Busca issues
-    const issues = await fetchAllIssues();
+    console.log('=== Fetch GitHub Issues to Blog Posts ===\n');
+
+    // Fetch issues
+    const issues = await fetchIssues();
+    console.log(`Found ${issues.length} issues\n`);
 
     if (issues.length === 0) {
-      console.log('ℹ️  Nenhuma issue encontrada.');
+      console.log('No issues found to process.');
       return;
     }
 
-    // Processa cada issue
-    console.log('📝 Processando issues...\n');
-
+    // Process each issue
     let created = 0;
-    let drafts = 0;
+    let skipped = 0;
 
     for (const issue of issues) {
-      const result = createPostFile(issue);
+      try {
+        const post = issueToPost(issue);
+        const filepath = path.join(POSTS_DIR, post.filename);
 
-      if (result.draft) {
-        console.log(`   ⏭️  [DRAFT] ${result.filename}`);
-        drafts++;
-      } else {
-        console.log(`   ✅ ${result.filename}`);
-        created++;
+        // Check if file already exists
+        if (fs.existsSync(filepath)) {
+          console.log(`⊘ Skipping (already exists): ${post.filename}`);
+          skipped++;
+        } else {
+          savePost(post);
+          created++;
+        }
+      } catch (err) {
+        console.error(`Error processing issue #${issue.number}:`, err.message);
       }
     }
 
-    console.log('\n' + '='.repeat(50));
-    console.log(`✅ Concluído!`);
-    console.log(`   Posts criados: ${created}`);
-    console.log(`   Rascunhos: ${drafts}`);
-    console.log(`   Total: ${created + drafts}`);
-    console.log('='.repeat(50) + '\n');
+    console.log(`\n=== Summary ===`);
+    console.log(`Posts created: ${created}`);
+    console.log(`Posts skipped: ${skipped}`);
+    console.log(`Total issues: ${issues.length}`);
   } catch (error) {
-    console.error('\n❌ Erro:', error.message);
+    console.error('Error fetching issues:', error.message);
     process.exit(1);
   }
 }
 
-// Executa
+// Run the script
 main();
