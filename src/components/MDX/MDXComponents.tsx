@@ -119,7 +119,7 @@ export const mdxComponents: MDXComponents = {
     <hr className="my-8 border-t border-gray-300" {...props} />
   ),
 
-  //強調
+  // Ênfase
   strong: (props: any) => (
     <strong className="font-bold text-gray-900" {...props} />
   ),
