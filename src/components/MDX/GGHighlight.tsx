@@ -1,7 +1,7 @@
 'use client';
 
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import schoolBook from 'react-syntax-highlighter/dist/cjs/styles/hljs/school-book';
 import { useState } from 'react';
 
 interface GGHighlightProps {
@@ -72,30 +72,11 @@ export default function GGHighlight({
         )}
       </button>
 
-      {/* Language Badge */}
-      <div className="absolute left-3 top-3 z-10 px-2 py-1 rounded text-xs font-mono bg-gray-800 text-gray-300">
-        {language}
-      </div>
-
       {/* Code Block */}
       <SyntaxHighlighter
         language={language}
-        style={vscDarkPlus}
-        customStyle={{
-          borderRadius: '0.5rem',
-          padding: '1.5rem',
-          paddingTop: '3rem',
-          fontSize: '0.875rem',
-          margin: 0,
-        }}
+        style={schoolBook}
         showLineNumbers={showLineNumbers}
-        wrapLines={true}
-        lineNumberStyle={{
-          minWidth: '3em',
-          paddingRight: '1em',
-          color: '#6e7681',
-          userSelect: 'none',
-        }}
       >
         {code}
       </SyntaxHighlighter>
