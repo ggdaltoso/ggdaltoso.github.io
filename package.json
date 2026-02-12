@@ -24,7 +24,7 @@
     "next-mdx-remote": "^4.4.1",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
-    "react-syntax-highlighter": "^15.5.0",
+    "react-syntax-highlighter": "^16.1.0",
     "rehype-prism-plus": "^2.0.0",
     "remark-gfm": "^4.0.0"
   },
