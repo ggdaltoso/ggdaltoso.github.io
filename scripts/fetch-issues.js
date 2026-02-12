@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const https = require('https');
 
 // Configurações do GitHub
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
@@ -13,35 +12,21 @@ const POSTS_DIR = path.join(__dirname, '..', 'src', 'content', 'posts');
 /**
  * Faz requisição à API do GitHub
  */
-function fetchGitHub(endpoint) {
-  return new Promise((resolve, reject) => {
-    const options = {
-      hostname: 'api.github.com',
-      path: endpoint,
-      method: 'GET',
-      headers: {
-        'User-Agent': 'Node.js',
-        'Accept': 'application/vnd.github.v3+json',
-        ...(GITHUB_TOKEN && { 'Authorization': `token ${GITHUB_TOKEN}` })
-      }
-    };
-
-    https.get(options, (res) => {
-      let data = '';
-
-      res.on('data', (chunk) => {
-        data += chunk;
-      });
-
-      res.on('end', () => {
-        if (res.statusCode === 200) {
-          resolve(JSON.parse(data));
-        } else {
-          reject(new Error(`GitHub API error: ${res.statusCode} - ${data}`));
-        }
-      });
-    }).on('error', reject);
+async function fetchGitHub(endpoint) {
+  const res = await fetch(`https://api.github.com${endpoint}`, {
+    headers: {
+      'User-Agent': 'Node.js',
+      'Accept': 'application/vnd.github.v3+json',
+      ...(GITHUB_TOKEN && { 'Authorization': `token ${GITHUB_TOKEN}` }),
+    },
   });
+
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`GitHub API error: ${res.status} - ${body}`);
+  }
+
+  return res.json();
 }
 
 /**
@@ -170,7 +155,6 @@ function createPostFile(issue) {
     category: frontmatter.category || 'Uncategorized',
     tags: frontmatter.tags || [],
     description: frontmatter.description || issue.title,
-    issueNumber: issue.number,
     ...frontmatter,
   };
 
