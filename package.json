@@ -8,7 +8,7 @@
     "build": "npm run clean && gatsby build",
     "deploy": "npm run clean && gatsby build --prefix-paths && gh-pages -d public -b master",
     "clean": "rimraf .cache public",
-    "clean:posts": "rimraf \"content/posts/**/*\"",
+    "clean:posts": "rimraf ./content/posts/*",
     "generate:posts": "npm run clean:posts && node scripts/fetch-issues.js",
     "lint": "eslint --cache --ext .js,.jsx .",
     "test": "jest --config ./jest/jest-config.js",
