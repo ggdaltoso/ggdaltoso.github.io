@@ -3,7 +3,7 @@ import GiscusComponent from '@giscus/react';
 
 /**
  * Giscus comment component
- * 
+ *
  * @param {Object} props - Component properties
  * @param {string} props.repo - GitHub repository in the format "owner/repo"
  * @param {string} props.repoId - GitHub repository ID
