@@ -11,6 +11,7 @@ module.exports = {
     copyright: siteConfig.copyright,
     menu: siteConfig.menu,
     author: siteConfig.author,
+    giscus: siteConfig.giscus,
   },
   plugins: [
     {
@@ -172,5 +173,8 @@ module.exports = {
       },
     },
     'gatsby-plugin-twitter',
+    {
+      resolve: 'gatsby-plugin-giscus',
+    },
   ],
 };
