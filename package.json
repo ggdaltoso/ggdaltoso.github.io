@@ -30,6 +30,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.28.4",
+    "@giscus/react": "^3.0.0",
     "@react95/core": "^9.6.2",
     "@react95/icons": "^2.2.0",
     "classnames": "^2.5.1",
