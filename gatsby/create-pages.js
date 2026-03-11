@@ -33,6 +33,9 @@ const createPages = async ({ graphql, actions }) => {
       allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
         nodes {
           id
+          fields {
+            slug
+          }
           frontmatter {
             template
             slug
@@ -47,7 +50,7 @@ const createPages = async ({ graphql, actions }) => {
   _.each(nodes, (node) => {
     const frontmatter = node.frontmatter || {};
     const template = frontmatter.template || 'page';
-    const slug = frontmatter.slug;
+    const slug = frontmatter.slug || node.fields?.slug;
     const id = node.id;
 
     if (!slug) {

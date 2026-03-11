@@ -8,7 +8,7 @@
     "build": "npm run clean && gatsby build",
     "deploy": "npm run clean && gatsby build --prefix-paths && gh-pages -d public -b master",
     "clean": "rimraf .cache public",
-    "clean:posts": "rimraf \"content/posts/**/*\"",
+    "clean:posts": "rimraf ./content/posts/*",
     "generate:posts": "npm run clean:posts && node scripts/fetch-issues.js",
     "lint": "eslint --cache --ext .js,.jsx .",
     "test": "jest --config ./jest/jest-config.js",
@@ -30,6 +30,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.28.4",
+    "@giscus/react": "^3.0.0",
     "@react95/core": "^9.6.2",
     "@react95/icons": "^2.2.0",
     "classnames": "^2.5.1",

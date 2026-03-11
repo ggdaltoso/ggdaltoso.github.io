@@ -1,0 +1,23 @@
+{
+  "name": "gatsby-plugin-giscus",
+  "version": "1.0.0",
+  "description": "Gatsby plugin for Giscus comments system",
+  "main": "index.js",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "giscus",
+    "comments",
+    "github-discussions"
+  ],
+  "author": "Gabriel Daltoso <ggdaltoso@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "gatsby": "^5.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@giscus/react": "^3.0.0"
+  }
+}
