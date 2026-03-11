@@ -92,6 +92,7 @@ conforme as que necessidades vão aparecendo. Nosso projeto se chamará _Minha
 lista de Receitas_.
 
 <br class="hide-sm" />
+<br class="hide-sm" />
 
 O mais importante aqui é começar. Apenas com a ideia na cabeça, o mais comum de
 se fazer é criar o repositório vazio seguido por um visual simples.
