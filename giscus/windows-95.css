@@ -1,0 +1,287 @@
+/*!
+ * Windows 95 Theme for Giscus
+ * Inspired by the classic Windows 95/98 UI
+ * Incorporates @react95/core design tokens for consistency
+ * Based on the Giscus custom_example.css structure
+ */
+
+/* Import React95 design tokens */
+:root {
+  /* React95 z-index */
+  --r95-zIndex-modal: 2;
+  --r95-zIndex-tooltip: 3;
+  --r95-zIndex-taskbar: 3;
+
+  /* React95 spacing scale */
+  --r95-space-0: 0px;
+  --r95-space-1: 1px;
+  --r95-space-2: 2px;
+  --r95-space-3: 3px;
+  --r95-space-4: 4px;
+  --r95-space-5: 5px;
+  --r95-space-6: 6px;
+  --r95-space-7: 7px;
+  --r95-space-8: 8px;
+  --r95-space-9: 9px;
+  --r95-space-10: 10px;
+  --r95-space-11: 11px;
+  --r95-space-12: 12px;
+  --r95-space-13: 13px;
+  --r95-space-14: 14px;
+  --r95-space-15: 15px;
+  --r95-space-16: 16px;
+  --r95-space-17: 17px;
+  --r95-space-18: 18px;
+  --r95-space-19: 19px;
+  --r95-space-20: 20px;
+
+  /* React95 Win95 theme colors */
+  --r95-color-anchor: #000e7a;
+  --r95-color-anchorVisited: #440381;
+  --r95-color-borderDark: #868a8e;
+  --r95-color-borderDarkest: #000000;
+  --r95-color-borderLight: #d2d2d2;
+  --r95-color-borderLighter: #e6e6e6;
+  --r95-color-borderLightest: #ffffff;
+  --r95-color-canvas: #000000;
+  --r95-color-canvasText: #ffffff;
+  --r95-color-headerBackground: #000e7a;
+  --r95-color-headerNotActiveBackground: #7f787f;
+  --r95-color-headerNotActiveText: #c6c6c6;
+  --r95-color-headerText: #fefefe;
+  --r95-color-material: #c3c7cb;
+  --r95-color-materialText: #000000;
+  --r95-color-materialTextDisabled: #868a8e;
+  --r95-color-materialTextDisabledShadow: #d2d2d2;
+  --r95-color-materialTextInvert: #ffffff;
+  --r95-color-progress: #000e7a;
+  --r95-color-inputBackground: #ffffff;
+  --r95-color-inputBackgroundDisabled: #d2d2d2;
+
+  /* React95 shadows */
+  --r95-shadow-out: inset 0.5px 0.5px 0px 0.5px #ffffff,
+          inset 0 0 0 1px #868a8e,
+          1px 0px 0 0px #000000,
+          0px 1px 0 0px #000000,
+          1px 1px 0 0px #000000;
+  --r95-shadow-in: inset 0px 0px 0px 0px,
+        inset 1px 1px 0px 0px #868a8e,
+        0.5px 0.5px 0px 0.5px #ffffff;
+  --r95-shadow-input: inset -1px -1px 0 0 #c3c7cb,
+            inset 1px 1px 0 0 #000000,
+            0.5px 0.5px 0 0.5px #ffffff;
+}
+
+main {
+  /* Syntax highlighting — keeping muted, classic tones */
+  --color-prettylights-syntax-comment: #008000;
+  --color-prettylights-syntax-constant: #00007f;
+  --color-prettylights-syntax-entity: #7f007f;
+  --color-prettylights-syntax-storage-modifier-import: #000000;
+  --color-prettylights-syntax-entity-tag: #00007f;
+  --color-prettylights-syntax-keyword: #00007f;
+  --color-prettylights-syntax-string: #7f0000;
+  --color-prettylights-syntax-variable: #00007f;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #ff0000;
+  --color-prettylights-syntax-invalid-illegal-text: #ffffff;
+  --color-prettylights-syntax-invalid-illegal-bg: #ff0000;
+  --color-prettylights-syntax-carriage-return-text: #ffffff;
+  --color-prettylights-syntax-carriage-return-bg: #ff0000;
+  --color-prettylights-syntax-string-regexp: #008000;
+  --color-prettylights-syntax-markup-list: #7f5200;
+  --color-prettylights-syntax-markup-heading: #00007f;
+  --color-prettylights-syntax-markup-italic: #000000;
+  --color-prettylights-syntax-markup-bold: #000000;
+  --color-prettylights-syntax-markup-deleted-text: #7f0000;
+  --color-prettylights-syntax-markup-deleted-bg: #ffd6d6;
+  --color-prettylights-syntax-markup-inserted-text: #008000;
+  --color-prettylights-syntax-markup-inserted-bg: #d6ffd6;
+  --color-prettylights-syntax-markup-changed-text: #7f5200;
+  --color-prettylights-syntax-markup-changed-bg: #fff0d6;
+  --color-prettylights-syntax-markup-ignored-text: #808080;
+  --color-prettylights-syntax-markup-ignored-bg: #c0c0c0;
+  --color-prettylights-syntax-meta-diff-range: #7f007f;
+  --color-prettylights-syntax-brackethighlighter-angle: #808080;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #808080;
+  --color-prettylights-syntax-constant-other-reference-link: #00007f;
+  /* Buttons — classic Win95 raised button style */
+  --color-btn-text: var(--r95-color-materialText);
+  --color-btn-bg: var(--r95-color-material);
+  --color-btn-border: var(--r95-color-borderDark);
+  --color-btn-shadow: var(--r95-shadow-out);
+  --color-btn-inset-shadow: 0 0 transparent;
+  --color-btn-hover-bg: #d4d0c8;
+  --color-btn-hover-border: var(--r95-color-borderDark);
+  --color-btn-active-bg: hsl(0deg 0% 70% / 100%);
+  --color-btn-active-border: #404040;
+  --color-btn-selected-bg: var(--r95-color-material);
+
+  /* Primary button — Win95 focused/default button */
+  --color-btn-primary-text: var(--r95-color-materialText);
+  --color-btn-primary-bg: var(--r95-color-material);
+  --color-btn-primary-border: var(--r95-color-borderDarkest);
+  --color-btn-primary-shadow: 0 0 transparent;
+  --color-btn-primary-inset-shadow: 0 0 transparent;
+  --color-btn-primary-hover-bg: #d4d0c8;
+  --color-btn-primary-hover-border: var(--r95-color-borderDarkest);
+  --color-btn-primary-selected-bg: #a0a0a0;
+  --color-btn-primary-selected-shadow: 0 0 transparent;
+  --color-btn-primary-disabled-text: var(--r95-color-materialTextDisabled);
+  --color-btn-primary-disabled-bg: rgb(192 192 192 / 60%);
+  --color-btn-primary-disabled-border: var(--r95-color-borderDark);
+
+  /* Action list & segmented control */
+  --color-action-list-item-default-hover-bg: rgb(0 14 122 / 12%);
+  --color-segmented-control-bg: rgb(195 199 203 / 40%);
+  --color-segmented-control-button-bg: var(--r95-color-material);
+  --color-segmented-control-button-selected-border: var(--r95-color-borderDark);
+
+  /* Foreground / text colors — black on gray, classic Windows */
+  --color-fg-default: var(--r95-color-materialText);
+  --color-fg-muted: #404040;
+  --color-fg-subtle: var(--r95-color-borderDark);
+
+  /* Canvas / backgrounds — Win95 silver/gray palette */
+  --color-canvas-default: var(--r95-color-material);
+  --color-canvas-overlay: var(--r95-color-material);
+  --color-canvas-inset: var(--r95-color-inputBackground);
+  --color-canvas-subtle: #d4d0c8;
+
+  /* Borders — sunken/raised 3D look borders */
+  --color-border-default: var(--r95-color-borderDark);
+  --color-border-muted: #a0a0a0;
+
+  /* Neutral */
+  --color-neutral-muted: rgb(134 138 142 / 40%);
+
+  /* Accent — classic Win95 link blue & selection navy */
+  --color-accent-fg: var(--r95-color-anchor);
+  --color-accent-emphasis: var(--r95-color-headerBackground);
+  --color-accent-muted: rgb(0 14 122 / 40%);
+  --color-accent-subtle: rgb(0 14 122 / 10%);
+
+  /* Status colors */
+  --color-success-fg: #008000;
+  --color-attention-fg: #7f5200;
+  --color-attention-muted: rgb(127 82 0 / 40%);
+  --color-attention-subtle: rgb(127 82 0 / 15%);
+  --color-danger-fg: #ff0000;
+  --color-danger-muted: rgb(255 0 0 / 40%);
+  --color-danger-subtle: rgb(255 0 0 / 10%);
+
+  /* Shadows & scales */
+  --color-primer-shadow-inset: 0 0 transparent;
+  --color-scale-gray-7: var(--r95-color-borderDark);
+  --color-scale-blue-8: var(--r95-color-headerBackground);
+  /*! Extensions from @primer/css/alerts/flash.scss */
+  --color-social-reaction-bg-hover: var(--color-scale-gray-7);
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
+}
+main .pagination-loader-container {
+  background-image: url("https://github.com/images/modules/pulls/progressive-disclosure-line.svg");
+}
+/*! Custom CSS — Windows 95 Styling */
+/* Classic MS Sans Serif / Tahoma font stack */
+main,
+.gsc-comment,
+.gsc-comment-box,
+.gsc-reply,
+.gsc-header {
+  font-family: "MS Sans Serif", "Tahoma", "Arial", sans-serif;
+}
+/* Win95 teal desktop background behind the widget */
+.gsc-homepage-bg {
+  background-color: #008080;
+}
+/* 3D raised border on main container — Win95 window look */
+main .gsc-comment-box {
+  border: 2px solid;
+  border-color: var(--r95-color-borderLightest) var(--r95-color-borderDark) var(--r95-color-borderDark) var(--r95-color-borderLightest);
+  background-color: var(--r95-color-material);
+  box-shadow: inset 1px 1px 0 var(--r95-color-borderLighter), inset -1px -1px 0 #404040;
+}
+main .gsc-comment {
+  border: 2px solid;
+  border-color: var(--r95-color-borderLightest) var(--r95-color-borderDark) var(--r95-color-borderDark) var(--r95-color-borderLightest);
+  background-color: var(--r95-color-material);
+  box-shadow: inset 1px 1px 0 var(--r95-color-borderLighter), inset -1px -1px 0 #404040;
+}
+/* Sunken inset style for text areas and inputs (like the dropdown/input in the image) */
+main .gsc-comment-box textarea,
+main .gsc-comment-box .gsc-comment-box-tabs {
+  border: 2px solid;
+  border-color: var(--r95-color-borderDark) var(--r95-color-borderLightest) var(--r95-color-borderLightest) var(--r95-color-borderDark);
+  background-color: var(--r95-color-inputBackground);
+  box-shadow: var(--r95-shadow-input);
+}
+/* Comment content area — white inset "edit field" style */
+main .gsc-comment .gsc-comment-content {
+  border: 2px solid;
+  border-color: var(--r95-color-borderDark) var(--r95-color-borderLightest) var(--r95-color-borderLightest) var(--r95-color-borderDark);
+  background-color: var(--r95-color-inputBackground);
+}
+/* Tab header — Win95 property sheet tab style */
+main .gsc-comment-box-tabs > button,
+main .gsc-header .gsc-left-header {
+  border: 2px solid;
+  border-color: var(--r95-color-borderLightest) var(--r95-color-borderDark) var(--r95-color-borderDark) var(--r95-color-borderLightest);
+  background-color: var(--r95-color-material);
+}
+main .gsc-comment-box-tabs > button:hover {
+  background-color: #d4d0c8;
+}
+main .gsc-comment-box-tabs > button[aria-selected="true"] {
+  background-color: var(--r95-color-material);
+  border-bottom-color: var(--r95-color-material);
+}
+/* Reactions — raised pill buttons */
+main .gsc-reactions button,
+main .gsc-reply-box button,
+main .gsc-comment-box button[type="submit"] {
+  border: 2px solid;
+  border-color: var(--r95-color-borderLightest) var(--r95-color-borderDark) var(--r95-color-borderDark) var(--r95-color-borderLightest);
+  background-color: var(--r95-color-material);
+  color: var(--r95-color-materialText);
+  box-shadow: 1px 1px 0 #404040;
+}
+main .gsc-reactions button:active,
+main .gsc-reply-box button:active,
+main .gsc-comment-box button[type="submit"]:active {
+  border-color: var(--r95-color-borderDark) var(--r95-color-borderLightest) var(--r95-color-borderLightest) var(--r95-color-borderDark);
+  box-shadow: inset 1px 1px 0 #404040;
+}
+/* Links — classic blue underlined */
+main a {
+  color: var(--r95-color-anchor);
+  text-decoration: underline;
+}
+main a:visited {
+  color: var(--r95-color-anchorVisited);
+}
+main a:hover {
+  color: #ff0000;
+}
+/* Fieldset groupbox style (like "Compatibility mode" and "Display Settings" boxes) */
+main .gsc-reactions,
+main .gsc-comment-box-separator {
+  border: 2px solid;
+  border-color: var(--r95-color-borderDark) var(--r95-color-borderLightest) var(--r95-color-borderLightest) var(--r95-color-borderDark);
+  padding: 0.75rem;
+}
+/* Scrollbar styling for Webkit browsers — Win95 scrollbar look */
+main ::-webkit-scrollbar {
+  width: 16px;
+  background-color: var(--r95-color-material);
+}
+main ::-webkit-scrollbar-thumb {
+  background-color: var(--r95-color-material);
+  border: 2px solid;
+  border-color: var(--r95-color-borderLightest) var(--r95-color-borderDark) var(--r95-color-borderDark) var(--r95-color-borderLightest);
+}
+main ::-webkit-scrollbar-track {
+  background: repeating-conic-gradient(var(--r95-color-material) 0% 25%, var(--r95-color-borderLightest) 0% 50%) 50% / 2px 2px;
+}
+/* Loading image */
+main .gsc-loading-image {
+  background-image: url("https://github.githubassets.com/images/mona-loading-default.gif");
+}
