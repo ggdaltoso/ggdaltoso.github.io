@@ -30,7 +30,7 @@ module.exports = {
   giscus: {
     repo: 'ggdaltoso/ggdaltoso.github.io',
     repoId: 'MDEwOlJlcG9zaXRvcnkzODc3ODMxOQ==',
-    category: 'General',
+    category: 'Ideas',
     categoryId: 'DIC_kwDOAk-1z84C3rCH',
     mapping: 'title',
     reactionsEnabled: '1',
