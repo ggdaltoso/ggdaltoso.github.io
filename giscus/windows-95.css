@@ -158,7 +158,10 @@ main {
   --color-canvas-default: var(--r95-color-material);
   --color-canvas-overlay: var(--r95-color-material);
   --color-canvas-inset: var(--r95-color-inputBackground);
-  --color-canvas-subtle: #d4d0c8;
+  --color-canvas-subtle: radial-gradient(#ff0 20%, transparent 20%) 0 0,
+     radial-gradient(#ff0 20%, transparent 20%) 4px 4px,
+     radial-gradient(rgba(255, 255, 255, 0.1) 20%, transparent 25%) 0 1px,
+     radial-gradient(rgba(255, 255, 255, 0.1) 20%, transparent 25%) 3px 4px;
 
   /* Borders — sunken/raised 3D look borders */
   --color-border-default: var(--r95-color-borderDark);
@@ -187,7 +190,7 @@ main {
   --color-scale-gray-7: var(--r95-color-borderDark);
   --color-scale-blue-8: var(--r95-color-headerBackground);
   /*! Extensions from @primer/css/alerts/flash.scss */
-  --color-social-reaction-bg-hover: var(--color-scale-gray-7);
+  --color-social-reaction-bg-hover: var(--r95-color-material);
   --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
 }
 
@@ -347,8 +350,18 @@ inset 0 0 0 1px var(--r95-color-borderDark),
   width: 158px;
 }
 
-.gsc-emoji-button {
+.gsc-emoji-button, .gsc-social-reaction-summary-item {
   padding: var(--r95-space-7);
+  line-height: 1rem;
+}
+
+.gsc-reactions-button {
+  padding-top: var(--r95-space-8);
+  padding-left: var(--r95-space-8);
+}
+
+.gsc-social-reaction-summary-item.has-reacted:hover:enabled {
+  background-color: var(--color-social-reaction-bg-hover);
 }
 
 .gsc-reactions-popover div:nth-of-type(2) {
@@ -359,4 +372,57 @@ inset 0 0 0 1px var(--r95-color-borderDark),
 
 .input-contrast:focus {
   background-color: var(--r95-color-inputBackground);
+}
+
+.gsc-comment .gsc-comment-box {
+  padding: var(--r95-space-10) !important;
+}
+
+.gsc-comment .gsc-comment-box-tabs {
+  border-radius: 0;
+  border-top-width: 1px;
+  padding-top: var(--r95-space-10) !important;
+}
+
+.gsc-upvote-button {
+  padding-inline: 8px !important;
+}
+
+.gsc-comment > div {
+  box-shadow: var(--r95-shadow-out) !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.gsc-comment {
+    display: flex;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding: 2px;
+}
+
+.gsc-comment-content {
+  border-start-end-radius: 0;
+  border-start-start-radius: 0;
+  margin: var(--r95-space-16);
+  padding: var(--r95-space-4);
+  background-color: var(--r95-color-inputBackground);
+  box-shadow: var(--r95-shadow-in);
+}
+
+.gsc-reply-box > button {
+  border-radius: 0 !important;
+  border: none;
+  box-shadow: var(--r95-shadow-in);
+  background-color: var(--r95-color-inputBackground);
+}
+
+.markdown .highlight pre, .markdown pre {
+  background: var(--color-canvas-subtle);
+  background-size: var(--r95-space-7) var(--r95-space-7);
+  border-radius: 0;
+}
+
+.gsc-left-header > em, .gsc-right-header  {
+  display: none;
 }
