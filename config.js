@@ -36,7 +36,7 @@ module.exports = {
     reactionsEnabled: '1',
     emitMetadata: '0',
     inputPosition: 'bottom',
-    theme: 'light',
+    theme: 'https://ggdaltoso.dev/giscus/windows-95.css',
     lang: 'pt',
   },
 };
