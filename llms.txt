@@ -4,7 +4,7 @@
 
 Este é o blog pessoal de Gabriel Daltoso, onde compartilho artigos sobre desenvolvimento de software, tecnologia e projetos pessoais.
 
-Contatos: email: ggdaltoso@gmail.com, Twitter: @ggdaltoso, GitHub: ggdaltoso
+Contatos: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltoso.bsky.social, GitHub: ggdaltoso
 
 ## Artigos
 
