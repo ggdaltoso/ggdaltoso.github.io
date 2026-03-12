@@ -23,7 +23,7 @@ module.exports = {
     bio: '[object Object]',
     contacts: {
       email: 'ggdaltoso@gmail.com',
-      twitter: 'ggdaltoso',
+      bluesky: 'ggdaltoso.bsky.social',
       github: 'ggdaltoso',
     },
   },
