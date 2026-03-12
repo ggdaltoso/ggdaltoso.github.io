@@ -22,7 +22,6 @@ const useSiteMetadata = () => {
           url
           title
           subtitle
-          copyright
         }
       }
     }

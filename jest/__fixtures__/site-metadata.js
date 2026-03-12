@@ -6,7 +6,6 @@ module.exports = {
       url: 'http://localhost',
       title: 'Test title',
       subtitle: 'Test subtitle',
-      copyright: 'Test copyright',
       postsPerPage: 4,
       menu: [
         {
