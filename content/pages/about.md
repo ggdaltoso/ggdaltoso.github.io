@@ -19,14 +19,14 @@ Eu gosto de entender como as coisas funcionam por dentro e de montá-las peça p
 
 </span>
 
-Gosto de montar meus próprios relógios, escolhendo cada componente com cuidado como a caixa ao mostrador, os ponteiros e o tipo de pulseira criando assim combinações únicas que tenham personalidade. Esse processo me atrai porque mistura precisão, estética e paciência, como se cada peça tivesse um papel específico até o conjunto finalmente fazer sentido.
+Gosto de montar meus próprios relógios, escolhendo cada componente com cuidado, como a caixa, o mostrador, os ponteiros e o tipo de pulseira, criando assim combinações únicas que tenham personalidade. Esse processo me atrai porque mistura precisão, estética e paciência, como se cada peça tivesse um papel específico até o conjunto finalmente fazer sentido.
 
 
 ### Miçangas
 
 <span class="figure float-right no-padding-right">
 
-![Alguns trabalhos](/media/sobre-mim/micanga.jpg 'Miçangas.png | 280')
+![Guitarra, flores, abacaxis e um trabalho em andamento](/media/sobre-mim/micanga.jpg 'Miçangas.png | 280')
 
 </span>
 
