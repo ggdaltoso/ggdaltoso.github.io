@@ -13,6 +13,7 @@ const useSiteMetadata = () => {
               email
               bluesky
               github
+              rss
             }
           }
           menu {

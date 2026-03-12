@@ -24,6 +24,7 @@ module.exports = {
       email: 'ggdaltoso@gmail.com',
       bluesky: 'ggdaltoso.bsky.social',
       github: 'ggdaltoso',
+      rss: '/rss.xml',
     },
   },
   giscus: {
