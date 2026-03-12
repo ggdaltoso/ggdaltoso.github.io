@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
+import Content from '../components/Post/Content';
 import { useSiteMetadata } from '../hooks';
 
 const PageTemplate = ({ data }) => {
@@ -18,8 +19,8 @@ const PageTemplate = ({ data }) => {
   return (
     <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription}>
       <Sidebar />
-      <Page title={pageTitle}>
-        <div dangerouslySetInnerHTML={{ __html: pageBody }} />
+      <Page>
+        <Content title={pageTitle} body={pageBody} />
       </Page>
     </Layout>
   );
