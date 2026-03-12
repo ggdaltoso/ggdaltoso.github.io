@@ -1,12 +1,27 @@
 ---
-title: "About me"
+title: "Oi"
 template: "page"
 ---
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+Meu nome é <strong>Gabriel Daltoso</strong>. Sou desenvolvedor frontend há mais de uma década e trabalho construindo interfaces e sistemas para a web.
 
-![Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.](/media/image-2.jpg)
+Ao longo da minha carreira, tive a oportunidade de trabalhar em diferentes tipos de produtos — desde ferramentas para desenvolvedores até plataformas usadas por milhares de pessoas diariamente. Gosto especialmente de trabalhar na arquitetura de interfaces, na criação de design systems e em ferramentas que tornam o desenvolvimento mais consistente e produtivo.
 
-*Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.*
+Mas existe um fio condutor que aparece tanto no meu trabalho quanto nos meus hobbies: o prazer pelo trabalho meticuloso.
 
-Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+Eu gosto de entender como as coisas funcionam por dentro e de montá-las peça por peça.
+
+Isso aparece de várias formas:
+
+<span class="figure float-left">
+
+![2 exemplares construídos por mim](/media/sobre-mim/relogio.jpg "Relógios.png | 180")
+
+</span>
+ - Relógios — gosto de montar relógios usando movimentos como o NH35, escolhendo e combinando cada componente.
+ - Miçangas — pequenos módulos que, quando organizados com precisão, formam imagens.
+ - Software — sistemas também são construídos assim: pequenas peças bem definidas que, juntas, formam algo maior.
+
+No fundo, todas essas coisas são variações do mesmo processo: organizar pequenas partes com cuidado até que algo interessante emerja.
+
+Este blog é um espaço para compartilhar algumas dessas coisas — ideias, projetos, experimentos e coisas que estou aprendendo pelo caminho.
