@@ -1,15 +1,15 @@
 import React from 'react';
 import { withPrefix, Link } from 'gatsby';
 import * as styles from './Author.module.scss';
+import { Avatar } from '@react95/core';
 
 const Author = ({ author, isIndex }) => (
   <div>
     <Link to="/">
-      <img
+      <Avatar
         src={withPrefix(author.photo)}
-        className={styles['author__photo']}
-        width="75"
-        height="75"
+        p="$1"
+        size="75px"
         alt={author.name}
       />
     </Link>
