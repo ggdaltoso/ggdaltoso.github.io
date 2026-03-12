@@ -229,6 +229,14 @@ h6 .anchor:focus svg {
     padding-left: var(--typographic-leading);
   }
 
+  .figure.no-padding-left {
+    padding-left: 0;
+  }
+
+  .figure.no-padding-right {
+    padding-right: 0;
+  }
+
   .float-right {
     float: right;
   }
