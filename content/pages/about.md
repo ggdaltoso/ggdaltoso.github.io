@@ -3,7 +3,7 @@ title: 'Oi'
 template: 'page'
 ---
 
-Meu nome é <strong>Gabriel Daltoso</strong>. Sou desenvolvedor frontend há mais de uma década e trabalho construindo interfaces e sistemas para a web.
+Meu nome é **Gabriel Daltoso**. Sou desenvolvedor frontend há mais de uma década e trabalho construindo interfaces e sistemas para a web.
 
 Ao longo da minha carreira, tive a oportunidade de trabalhar em diferentes tipos de produtos, desde ferramentas para desenvolvedores até plataformas usadas por milhares de pessoas diariamente. Gosto especialmente de trabalhar na arquitetura de interfaces, na criação de design systems e em ferramentas que tornam o desenvolvimento mais consistente e produtivo.
 
@@ -19,10 +19,8 @@ Eu gosto de entender como as coisas funcionam por dentro e de montá-las peça p
 
 </span>
 
-Gosto de montar meus próprios relógios, escolhendo cada componente e criando combinações únicas. Inclusive tenho meu próprio logo e uma pequena frase que sempre aparece nos meus projetos: Fun is the key.
+Gosto de montar meus próprios relógios, escolhendo cada componente com cuidado como a caixa ao mostrador, os ponteiros e o tipo de pulseira criando assim combinações únicas que tenham personalidade. Esse processo me atrai porque mistura precisão, estética e paciência, como se cada peça tivesse um papel específico até o conjunto finalmente fazer sentido.
 
-<br class="hide-sm"/>
-<br class="hide-sm"/>
 
 ### Miçangas
 
@@ -32,17 +30,11 @@ Gosto de montar meus próprios relógios, escolhendo cada componente e criando c
 
 </span>
 
-Uma forma manual e meticulosa de dar vida à pixel art no mundo físico, organizando pequenas peças como se fossem pixels.
+É uma atividade manual e detalhista que transforma pixel art em algo físico, alinhando pequenas peças como se cada uma fosse um pixel.
 
-É um passatempo muito gostoso que me deixa longe das redes sociais e telas por um momento.
+É um passatempo que me faz muito bem, porque me ajuda a sair um pouco do ritmo acelerado do dia a dia. Quando estou focado nisso, consigo me afastar das redes sociais e das telas por mais tempo, relaxar a mente e aproveitar um momento mais calmo e presente.
 
 <br class="hide-sm"/>
-<br class="hide-sm"/>
-<br class="hide-sm"/>
-<br class="hide-sm"/>
-
-
-
 
 No fundo, todas essas coisas são variações do mesmo processo: organizar pequenas partes com cuidado até que algo interessante apareça.
 
