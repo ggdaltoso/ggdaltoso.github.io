@@ -69,8 +69,12 @@ function generateLlmsTxt(posts, reporter) {
   if (siteConfig.author.contacts.email) {
     contacts.push(`email: ${siteConfig.author.contacts.email}`);
   }
-  if (siteConfig.author.contacts.twitter) {
-    contacts.push(`Twitter: @${siteConfig.author.contacts.twitter}`);
+  if (siteConfig.author.contacts.bluesky) {
+    const blueskyUrl = siteConfig.author.contacts.bluesky.startsWith('http')
+      ? siteConfig.author.contacts.bluesky
+      : `https://bsky.app/profile/${siteConfig.author.contacts.bluesky}`;
+
+    contacts.push(`Bluesky: ${blueskyUrl}`);
   }
   if (siteConfig.author.contacts.github) {
     contacts.push(`GitHub: ${siteConfig.author.contacts.github}`);
