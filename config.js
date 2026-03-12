@@ -19,7 +19,7 @@ module.exports = {
   author: {
     name: 'Gabriel Daltoso',
     photo: '/photo.jpg',
-    bio: '[object Object]',
+    bio: 'Artista frontend | Relógios | Miçangas',
     contacts: {
       email: 'ggdaltoso@gmail.com',
       bluesky: 'ggdaltoso.bsky.social',
