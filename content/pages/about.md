@@ -26,7 +26,7 @@ Gosto de montar meus próprios relógios, escolhendo cada componente com cuidado
 
 <span class="figure float-right no-padding-right">
 
-![Alguns trabalhos](/media/sobre-mim/micanga.jpg 'Miçangas.png | 280')
+![Guitarra, flores, abacaxis e um trabalho em andamento](/media/sobre-mim/micanga.jpg 'Miçangas.png | 280')
 
 </span>
 
