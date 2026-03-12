@@ -1,6 +1,7 @@
 import React from 'react';
 import { Frame, TitleBar } from '@react95/core';
 import { Wangimg128 } from '@react95/icons';
+import Zoom from 'react-medium-image-zoom';
 
 const GGImage = (props) => {
   const { src, alt, title = `${alt.replace(/\s+/g, '_')}.png` } = props;
@@ -19,7 +20,9 @@ const GGImage = (props) => {
 
       <Frame p="$3" pr="$4" as="figure" bgColor="$material">
         <Frame bg="white" boxShadow="$in" pt="$2" pl="$2">
-          <img src={src} alt={alt} title={title} />
+          <Zoom>
+            <img src={src} alt={alt} title={title} />
+          </Zoom>
         </Frame>
 
         <Frame boxShadow="$in" as="figcaption" pl="$2" pt="$2">

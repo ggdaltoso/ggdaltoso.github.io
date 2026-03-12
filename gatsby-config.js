@@ -8,7 +8,6 @@ module.exports = {
     url: siteConfig.url,
     title: siteConfig.title,
     subtitle: siteConfig.subtitle,
-    copyright: siteConfig.copyright,
     menu: siteConfig.menu,
     author: siteConfig.author,
     giscus: siteConfig.giscus,

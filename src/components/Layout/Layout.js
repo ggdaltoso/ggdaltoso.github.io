@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import * as styles from './Layout.module.scss';
+import 'react-medium-image-zoom/dist/styles.css';
 
 const Layout = ({ children, title, description }) => (
   <div className={styles.layout}>

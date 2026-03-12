@@ -4,27 +4,27 @@ module.exports = {
   url: 'https://ggdaltoso.dev',
   title: 'Blog do GG',
   subtitle: 'O que fiz, o que faço e o que vou fazer',
-  copyright: 'Made with ❤',
   postsPerPage: 4,
   googleAnalyticsId: 'UA-64834505-1',
   menu: [
     {
-      label: 'Articles',
+      label: 'Artigos',
       path: '/',
     },
-    // {
-    //   label: 'About me',
-    //   path: '/pages/about',
-    // },
+    {
+      label: 'Sobre mim',
+      path: '/pages/about',
+    },
   ],
   author: {
     name: 'Gabriel Daltoso',
     photo: '/photo.jpg',
-    bio: '[object Object]',
+    bio: 'Artista frontend | Relógios | Miçangas',
     contacts: {
       email: 'ggdaltoso@gmail.com',
-      twitter: 'ggdaltoso',
+      bluesky: 'ggdaltoso.bsky.social',
       github: 'ggdaltoso',
+      rss: '/rss.xml',
     },
   },
   giscus: {

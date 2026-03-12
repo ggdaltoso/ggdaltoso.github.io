@@ -4,8 +4,8 @@ const getIcon = (name) => {
   let icon;
 
   switch (name) {
-    case 'twitter':
-      icon = ICONS.TWITTER;
+    case 'bluesky':
+      icon = ICONS.BLUESKY;
       break;
     case 'github':
       icon = ICONS.GITHUB;
