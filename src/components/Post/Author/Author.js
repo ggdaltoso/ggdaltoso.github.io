@@ -11,12 +11,12 @@ const Author = () => {
       <p>
         {author.bio}
         <a
-          className={styles['author__bioTwitter']}
-          href={getContactHref('twitter', author.contacts.twitter)}
+          className={styles['author__bioBluesky']}
+          href={getContactHref('bluesky', author.contacts.bluesky)}
           rel="noopener noreferrer"
           target="_blank"
         >
-          <strong>{author.name}</strong> on Twitter
+          <strong>{author.name}</strong> on Bluesky
         </a>
       </p>
     </div>
