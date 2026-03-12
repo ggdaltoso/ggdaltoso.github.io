@@ -8,13 +8,13 @@ module.exports = {
   googleAnalyticsId: 'UA-64834505-1',
   menu: [
     {
-      label: 'Articles',
+      label: 'Artigos',
       path: '/',
     },
-    // {
-    //   label: 'About me',
-    //   path: '/pages/about',
-    // },
+    {
+      label: 'Sobre mim',
+      path: '/pages/about',
+    },
   ],
   author: {
     name: 'Gabriel Daltoso',
