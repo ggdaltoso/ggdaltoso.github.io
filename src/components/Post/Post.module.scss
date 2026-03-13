@@ -1,4 +1,5 @@
 .post {
+  flex-grow: 1;
   &__footer {
     max-width: var(--layout-post-width);
     margin: 0 auto;

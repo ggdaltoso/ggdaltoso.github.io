@@ -6,11 +6,11 @@
   }
 }
 
-@media screen and (min-width: 685px) {
+@media screen and (min-width: 960px) {
   .sidebar {
-    lost-column: 5/12;
+    width: 33.333%;
     &__inner {
-      padding: 30px 20px 0;
+      padding: 40px;
       &:after {
         background: var(--color-gray-border);
         background: linear-gradient(
@@ -28,15 +28,6 @@
         bottom: 0;
         opacity: 0.2;
       }
-    }
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .sidebar {
-    lost-column: 1/3;
-    &__inner {
-      padding: 40px;
     }
   }
 }

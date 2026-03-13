@@ -1,16 +1,8 @@
 .layout {
+  display: flex;
+  flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
   max-width: var(--layout-width);
-
-  &::before {
-    content: '';
-    display: table;
-  }
-
-  &::after {
-    clear: both;
-    content: '';
-    display: table;
-  }
 }
+

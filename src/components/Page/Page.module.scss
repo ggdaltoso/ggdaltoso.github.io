@@ -1,4 +1,5 @@
 .page {
+  flex-grow: 1;
   margin-bottom: calc(var(--typographic-leading) * 2);
 
   &__inner {
@@ -20,19 +21,9 @@
   }
 }
 
-@media screen and (min-width: 685px) {
-  .page {
-    lost-column: 7/12;
-
-    &__inner {
-      padding: 30px 20px;
-    }
-  }
-}
-
 @media screen and (min-width: 960px) {
   .page {
-    lost-column: 2/3;
+    width: 66.667%;
 
     &__inner {
       padding: 40px 35px;
