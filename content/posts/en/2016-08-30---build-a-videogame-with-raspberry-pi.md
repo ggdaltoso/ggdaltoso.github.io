@@ -1,0 +1,267 @@
+---
+title: "Build a videogame with Raspberry Pi"
+date: "2016-08-30T01:36:36.000Z"
+template: "post"
+draft: false
+slug: "/build-a-videogame-with-raspberry-pi"
+category: "RaspberryPi"
+tags:
+  - "Videogame"
+  - "RaspberryPi"
+  - "Recalbox"
+
+description: "Building a console that emulates many other consoles is very easy.
+The secret is using a Raspberry Pi and following this post!"
+---
+
+Nobody can deny that games keep getting ~~better~~ prettier every day. But we
+also cannot forget the great classics from the past.
+
+Can you even count how many hours you have already spent with Zelda? Donkey
+Kong? Street Fighter? Crash? Metroid? If we include the Mario saga, there is no
+way to count...
+
+What motivated me to do this project was my contact with Raspberry Pi and how
+easy it was to configure it and turn it into a complete emulation center, with
+many consoles available.
+
+I am writing this post because many people asked me to share more details about
+how I built my "videogame". Haha
+
+So, let us go!
+
+### Result
+
+What we will be able to do, if we follow this post step by step, is this:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/q5UYxuzKEec" frameborder="0" allowfullscreen></iframe>
+
+### First steps
+
+What do we need?
+
+Unlike conventional consoles, our videogame will be assembled piece by piece,
+until it becomes a single device. There are complete kits online, but I
+preferred to buy each item separately. The list is not big and not expensive:
+
+<p>
+  <table style="width: 80%; margin: auto">
+    <thead>
+      <tr ><th>Component</th> <th style="text-align: right">Price</th></tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td>Total</td>
+        <td style="text-align: right" ><strong>456.98</strong></td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td>Raspberry Pi 3</td>
+        <td style="text-align: right"> 279.79 </td>
+      </tr>
+      <tr>
+        <td>5V 2.2A power supply</td>
+        <td style="text-align: right"> 34.80 </td>
+      </tr>
+      <tr>
+        <td>64 GB micro SD card</td>
+        <td style="text-align: right"> 92.39 </td>
+      </tr>
+      <tr>
+        <td>DualShock controller (2x)</td>
+        <td style="text-align: right"> 50.00 </td>
+      </tr>
+      <tr>
+        <td>HDMI cable</td>
+        <td style="text-align: right"> 0.00 </td>
+      </tr>
+      <tr>
+        <td>USB keyboard</td>
+        <td style="text-align: right"> 0.00 </td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+
+Notice that I chose Raspberry Pi 3 because it was the newest one with better
+specs, but nothing stops you from doing this with an earlier version.
+
+We are going to use [Recalbox](https://www.recalbox.com/) as our platform. It
+is open source and easy to configure. For adventurous people there are other
+options, like [RetroPie](https://retropie.org.uk/) and
+[Lakka](http://www.lakka.tv/), for example.
+
+### Preparing the ground
+
+With all parts in hand, the next step is formatting the micro SD card to FAT32.
+Recalbox recommends using
+[SD Formatter](https://www.sdcard.org/downloads/formatter_4/) on Windows or
+macOS, and [gparted](http://gparted.org/ "sudo apt-get install gparted") on
+Linux.
+
+While you do that, start downloading Recalbox. Choose the latest version in its
+[GitHub releases page](https://github.com/recalbox/recalbox-os/releases).
+
+After the download, you should have a file called _recalboxOS.zip_ and a
+formatted card. Extract the files and copy them to the card.
+
+### 1, 2, 3 testing...
+
+Now that you have your videogame "hard drive", let us connect all parts to your
+Raspberry.
+
+1. Insert the micro SD
+2. Connect the HDMI cable to it and then to a monitor/TV
+3. Plug in a keyboard
+4. Connect the power supply
+
+For a few moments, it will run some setup and then reboot.
+
+And... voila!
+
+Simple, right?
+
+### Configuring controllers
+
+You can configure many [controller types for Recalbox](<https://github.com/recalbox/recalbox-os/wiki/Compatibility-(EN)>). I chose the classic DualShock.
+
+Use the keyboard to access settings. Press Enter to open the menu, A to select,
+and S to go back.
+
+![Recalbox main menu](/media/crie-um-videogame-com-raspberry-pi/menu.jpg "Menu.png")
+
+This step is simple: press the controller button requested on screen, as in the
+image below.
+
+![PlayStation 3 controller](/media/crie-um-videogame-com-raspberry-pi/controller.png)
+
+An important detail is the last button requested: _HOTKEY_. With it you can
+access many important platform commands.
+
+<p>
+  <table>
+    <thead>
+      <tr ><th>Command</th> <th>Function</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hotkey + Y</td>
+        <td> Load state </td>
+      </tr>
+      <tr>
+        <td>Hotkey + X</td>
+        <td> Save state </td>
+      </tr>
+      <tr>
+        <td>Hotkey + &uarr;</td>
+        <td> Select save slot -1 </td>
+      </tr>
+      <tr>
+        <td>Hotkey + &darr;</td>
+        <td> Select save slot +1 </td>
+      </tr>
+      <tr>
+        <td>Hotkey + Start</td>
+        <td> Return to game list </td>
+      </tr>
+      <tr>
+        <td>Hotkey + A</td>
+        <td> Reset game </td>
+      </tr>
+      <tr>
+        <td>Hotkey + B</td>
+        <td> Open emulation menu </td>
+      </tr>
+      <tr>
+        <td>Hotkey + L1</td>
+        <td> <i>Screenshot</i> </td>
+      </tr>
+      <tr>
+        <td>Hotkey + &rarr;</td>
+        <td> Increase speed </td>
+      </tr>
+      <tr>
+        <td>Hotkey + &larr;</td>
+        <td> Decrease speed </td>
+      </tr>
+      <tr>
+        <td>Hotkey + R2</td>
+        <td> Change image filter (next) </td>
+      </tr>
+      <tr>
+        <td>Hotkey + L2</td>
+        <td> Change image filter (previous) </td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+
+### Connecting to the network
+
+Still with the keyboard connected, go to settings and configure internet access
+(Raspberry Pi 3 has built-in Wi-Fi and Bluetooth).
+
+![Network settings screen](/media/crie-um-videogame-com-raspberry-pi/networkHD.jpg "Network.png")
+
+If you have an ethernet cable, plug it in and skip this step. If you prefer
+Wi-Fi, as I did, fill in the required fields:
+
+- WIFI SSID: your network name
+- WIFI KEY: your password
+
+Wait until connection is established and note the _IP ADDRESS_. This step is
+very important.
+
+### Adding games
+
+You can do this in a few ways, as long as your computer is on the same network.
+
+**Accessing the SD card directly**
+
+Through Run dialog or Explorer, type `\\recalbox` and press Enter.
+
+![Recalbox shared directory](/media/crie-um-videogame-com-raspberry-pi/executar.png "\\recalbox.png")
+
+Navigate to `\\recalbox\share\roms` and you will see all folders. Then just
+copy and paste each ROM into its corresponding folder.
+
+**Via browser**
+
+Remember the _IP ADDRESS_? Type it in your preferred browser. You can access
+many settings from that interface: monitor temperature, add/remove BIOS files,
+read docs, and also upload/remove ROMs.
+
+![Recalbox web interface](/media/crie-um-videogame-com-raspberry-pi/interface.png "browser.png")
+
+**Fetching game images**
+
+After adding games, you can fetch cover images and metadata. Go back to the
+main menu and choose _SCRAPER_. Follow the instructions and then check how your
+games look (this step may take a while).
+
+![Game image and information](/media/crie-um-videogame-com-raspberry-pi/scrapper.png "Scraper.png")
+
+### Case
+
+Your videogame is almost ready, but instead of leaving a bare board connected
+directly to the TV, I bought a case for Raspberry. Since it had not arrived yet
+(I bought it from China), I made a temporary cardboard one using a template I
+[found online](http://sixes.net/rdcHQ/mosh/raspberry.pi.b.plus.pdf).
+
+![Case for your videogame](/media/crie-um-videogame-com-raspberry-pi/case.png "Case.png")
+
+It is not the prettiest, but as I said, it is temporary until the real case
+arrives.
+
+### Next steps
+
+When the case arrives, I plan to add a power button, reset (maybe), and an LED
+to indicate whether it is on.
+
+And that is it!
+
+I hope you enjoy it and share photos of your own videogame if you build one.
+Mine is already done!
+
+Thanks! ;)
