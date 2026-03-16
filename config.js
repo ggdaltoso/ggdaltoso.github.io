@@ -3,23 +3,59 @@
 module.exports = {
   url: 'https://ggdaltoso.dev',
   title: 'Blog do GG',
-  subtitle: 'O que fiz, o que faço e o que vou fazer',
+  subtitle: {
+    pt: 'O que fiz, o que faço e o que vou fazer',
+    en: 'What I did, what I do and what I will do',
+  },
+  i18n: {
+    defaultLocale: 'pt',
+    locales: ['pt', 'en'],
+    paths: {
+      pt: {
+        tags: 'tags',
+        category: 'category',
+        categories: 'categories',
+        page: 'page',
+      },
+      en: {
+        tags: 'tags',
+        category: 'category',
+        categories: 'categories',
+        page: 'page',
+      },
+    },
+  },
   postsPerPage: 4,
   googleAnalyticsId: 'UA-64834505-1',
-  menu: [
-    {
-      label: 'Artigos',
-      path: '/',
-    },
-    {
-      label: 'Sobre mim',
-      path: '/pages/about',
-    },
-  ],
+  menu: {
+    pt: [
+      {
+        label: 'Artigos',
+        path: '/',
+      },
+      {
+        label: 'Sobre mim',
+        path: '/pages/about',
+      },
+    ],
+    en: [
+      {
+        label: 'Articles',
+        path: '/',
+      },
+      {
+        label: 'About me',
+        path: '/pages/about',
+      },
+    ],
+  },
   author: {
     name: 'Gabriel Daltoso',
     photo: '/photo.jpg',
-    bio: 'Artista frontend | Relógios | Miçangas',
+    bio: {
+      pt: 'Artista frontend | Relógios | Miçangas',
+      en: 'Frontend craftsperson | Watches | Beads',
+    },
     contacts: {
       email: 'ggdaltoso@gmail.com',
       bluesky: 'ggdaltoso.bsky.social',
