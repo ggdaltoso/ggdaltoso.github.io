@@ -8,6 +8,8 @@ module.exports = {
     url: siteConfig.url,
     title: siteConfig.title,
     subtitle: siteConfig.subtitle,
+    defaultDescription: siteConfig.subtitle.pt,
+    i18n: siteConfig.i18n,
     menu: siteConfig.menu,
     author: siteConfig.author,
     giscus: siteConfig.giscus,
@@ -18,6 +20,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content`,
         name: 'pages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/locales`,
+        name: 'locale',
       },
     },
     {
@@ -43,7 +52,7 @@ module.exports = {
               siteMetadata {
                 site_url: url
                 title
-                description: subtitle
+                description: defaultDescription
               }
             }
           }
@@ -87,6 +96,29 @@ module.exports = {
             `,
             output: '/rss.xml',
             title: 'Blog do GG - RSS Feed',
+          },
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-i18next',
+      options: {
+        localeJsonSourceName: 'locale',
+        languages: siteConfig.i18n.locales,
+        defaultLanguage: siteConfig.i18n.defaultLocale,
+        redirect: false,
+        siteUrl: siteConfig.url,
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false,
+          },
+          keySeparator: false,
+          nsSeparator: false,
+        },
+        pages: [
+          {
+            matchPath: '/:lang?/:uid*',
+            getLanguageFromPath: true,
           },
         ],
       },
