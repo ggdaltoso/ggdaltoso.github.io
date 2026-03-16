@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
 
 import Author from './Author';
 import Comments from './Comments';
@@ -9,13 +9,14 @@ import Tags from './Tags';
 import * as styles from './Post.module.scss';
 
 const Post = ({ post, html }) => {
+  const { t } = useTranslation();
   const { tagSlugs, slug } = post.fields || {};
   const { tags, title, date } = post.frontmatter;
 
   return (
     <div className={styles['post']}>
       <Link className={styles['post__homeButton']} to="/">
-        Todos os artigos
+        {t('All posts')}
       </Link>
 
       <div>
