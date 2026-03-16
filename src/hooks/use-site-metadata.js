@@ -7,7 +7,10 @@ const useSiteMetadata = () => {
         siteMetadata {
           author {
             name
-            bio
+            bio {
+              pt
+              en
+            }
             photo
             contacts {
               email
@@ -17,12 +20,39 @@ const useSiteMetadata = () => {
             }
           }
           menu {
-            label
-            path
+            pt {
+              label
+              path
+            }
+            en {
+              label
+              path
+            }
+          }
+          i18n {
+            defaultLocale
+            locales
+            paths {
+              pt {
+                tags
+                category
+                categories
+                page
+              }
+              en {
+                tags
+                category
+                categories
+                page
+              }
+            }
           }
           url
           title
-          subtitle
+          subtitle {
+            pt
+            en
+          }
         }
       }
     }
