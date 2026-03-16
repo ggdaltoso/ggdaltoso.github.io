@@ -1,14 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import { useSiteMetadata } from '../hooks';
+import { getLocalizedValue } from '../utils';
 
 const TagTemplate = ({ data, pageContext }) => {
-  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
+  const { title: siteTitle, subtitle } = useSiteMetadata();
+  const { language, defaultLanguage } = useI18next();
+  const siteSubtitle = getLocalizedValue(subtitle, language, defaultLanguage);
 
   const {
     tag,
@@ -42,11 +46,19 @@ const TagTemplate = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query TagPage($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
-    site {
-      siteMetadata {
-        title
-        subtitle
+  query TagPage(
+    $locale: String!
+    $tag: String
+    $postsLimit: Int!
+    $postsOffset: Int!
+  ) {
+    locales: allLocale(filter: { language: { eq: $locale } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
       }
     }
     allMarkdownRemark(
@@ -58,6 +70,7 @@ export const query = graphql`
           template: { eq: "post" }
           draft: { ne: true }
         }
+        fields: { locale: { eq: $locale } }
       }
       sort: { frontmatter: { date: DESC } }
     ) {
