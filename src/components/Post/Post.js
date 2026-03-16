@@ -13,7 +13,7 @@ const Post = ({ post, html }) => {
   const { tags, title, date } = post.frontmatter;
 
   return (
-    <div>
+    <div className={styles['post']}>
       <Link className={styles['post__homeButton']} to="/">
         Todos os artigos
       </Link>
