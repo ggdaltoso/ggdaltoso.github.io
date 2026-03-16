@@ -12,8 +12,10 @@ const Sidebar = ({ isIndex }) => {
     <div className={styles['sidebar']}>
       <div className={styles['sidebar__inner']}>
         <Author author={author} isIndex={isIndex} />
-        <Menu menu={menu} />
-        <Contacts contacts={author.contacts} />
+        <div className={styles['sidebar__content']}>
+          <Menu menu={menu} />
+          <Contacts contacts={author.contacts} />
+        </div>
       </div>
     </div>
   );

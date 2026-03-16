@@ -1,7 +1,9 @@
 .menu {
-  margin-bottom: var(--typographic-leading);
+  margin-bottom: calc(var(--typographic-leading) / 2);
 
   &__list {
+    display: flex;
+    gap: 10px;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -28,5 +30,11 @@
         }
       }
     }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .menu {
+    margin-bottom: var(--typographic-leading);
   }
 }

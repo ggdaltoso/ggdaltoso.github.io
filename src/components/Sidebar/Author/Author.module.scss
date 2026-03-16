@@ -10,8 +10,8 @@
     font-size: calc(var(--typographic-base-font-size) * 1.125);
     font-weight: 600;
     line-height: calc(1.125 * var(--typographic-leading));
-    margin-top: calc(var(--typographic-leading) * 0.5);
-    margin-bottom: calc(var(--typographic-leading) * 0.5);
+    margin-top: 0;
+    margin-bottom: 0;
 
     &-link {
       color: var(--color-base);
@@ -26,6 +26,34 @@
   &__subtitle {
     color: var(--color-gray);
     line-height: var(--typographic-leading);
-    margin-bottom: var(--typographic-leading);
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__info {
+    display: inline-flex;
+    gap: 12px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .author {
+    &__photo {
+      margin-right: var(--space-2);
+    }
+
+    &__subtitle {
+      margin-bottom: var(--typographic-leading);
+    }
+
+
+    &__info {
+      display: block;
+    }
+
+    &__title {
+      margin-top: calc(var(--typographic-leading) * 0.5);
+      margin-bottom: calc(var(--typographic-leading) * 0.5);
+    }
   }
 }

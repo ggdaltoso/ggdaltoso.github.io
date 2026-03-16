@@ -5,29 +5,30 @@ import { Avatar } from '@react95/core';
 
 const Author = ({ author, isIndex }) => (
   <div>
-    <Link to="/">
+    <Link to="/" className={styles['author__info']}>
       <Avatar
         src={withPrefix(author.photo)}
         p="$1"
         size="75px"
         alt={author.name}
       />
+      <div>
+        {isIndex ? (
+          <h1 className={styles['author__title']}>
+            <Link className={styles['author__titleLink']} to="/">
+              {author.name}
+            </Link>
+          </h1>
+        ) : (
+          <h2 className={styles['author__title']}>
+            <Link className={styles['author__titleLink']} to="/">
+              {author.name}
+            </Link>
+          </h2>
+        )}
+        <p className={styles['author__subtitle']}>{author.bio}</p>
+      </div>
     </Link>
-
-    {isIndex ? (
-      <h1 className={styles['author__title']}>
-        <Link className={styles['author__titleLink']} to="/">
-          {author.name}
-        </Link>
-      </h1>
-    ) : (
-      <h2 className={styles['author__title']}>
-        <Link className={styles['author__titleLink']} to="/">
-          {author.name}
-        </Link>
-      </h2>
-    )}
-    <p className={styles['author__subtitle']}>{author.bio}</p>
   </div>
 );
 
