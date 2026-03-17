@@ -4,12 +4,6 @@ date: "2016-08-30T01:36:36.000Z"
 template: "post"
 draft: false
 slug: "/crie-um-videogame-com-raspberry-pi"
-category: "RaspberryPi"
-tags:
-  - "Videogame"
-  - "RaspberryPi"
-  - "Recalbox"
-
 description: "Fazer um console que emule vários outros consoles é muito fácil. O 
 segredo está em utilizar um Raspberry Pi e ler esse post!"
 ---

@@ -4,12 +4,6 @@ date: "2016-08-30T01:36:36.000Z"
 template: "post"
 draft: false
 slug: "/build-a-videogame-with-raspberry-pi"
-category: "RaspberryPi"
-tags:
-  - "Videogame"
-  - "RaspberryPi"
-  - "Recalbox"
-
 description: "Building a console that emulates many other consoles is very easy.
 The secret is using a Raspberry Pi and following this post!"
 ---

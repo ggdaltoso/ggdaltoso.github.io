@@ -4,13 +4,6 @@ date: "2020-07-10T00:00:00.0000"
 template: "post"
 draft: false
 slug: "/monolith-multirepo-or-monorepo"
-category: "Architecture"
-tags:
-  - "Architecture"
-  - "Monorepo"
-  - "Monolith"
-  - "Multirepo"
-
 description: "Monolith is easy for getting started. Multirepo can be useful when
 the challenge is scale and separation. Monorepo keeps multiple projects in the
 same repository. Which one is right for me?"

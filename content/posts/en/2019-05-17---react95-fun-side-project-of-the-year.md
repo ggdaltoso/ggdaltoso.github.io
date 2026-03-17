@@ -4,12 +4,6 @@ date: "2019-05-17T10:46:37.121Z"
 template: "post"
 draft: false
 slug: "/react95-fun-side-project-of-the-year"
-category: "Design System"
-tags:
-  - "React"
-  - "React95"
-  - "Style-guide"
-
 description: "React95 is a React component library written with styled-components.
 In April 2019, it won the 'Fun side project of the year' award at the largest
 React conference in the world, in Amsterdam."

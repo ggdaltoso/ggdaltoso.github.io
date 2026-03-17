@@ -4,10 +4,6 @@ date: "2017-08-03T00:35:06.000Z"
 template: "post"
 draft: false
 slug: "/what-is-hoisting"
-category: "JavaScript"
-tags:
-  - "JavaScript"
-
 description: "What is hoisting?"
 ---
 
