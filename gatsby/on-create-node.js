@@ -1,13 +1,7 @@
 'use strict';
 
-const _ = require('lodash');
 const { createFilePath } = require('gatsby-source-filesystem');
-const {
-  defaultLocale,
-  locales,
-  getLocalePrefix,
-  getLocalePaths,
-} = require('./i18n');
+const { defaultLocale, locales, getLocalePrefix } = require('./i18n');
 
 const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -25,7 +19,6 @@ const onCreateNode = ({ node, actions, getNode }) => {
       localeFromDirectory ||
       (locales.includes(rawLocale) ? rawLocale : defaultLocale);
     const localePrefix = getLocalePrefix(locale);
-    const localePaths = getLocalePaths(locale);
 
     createNodeField({
       node,
@@ -57,23 +50,6 @@ const onCreateNode = ({ node, actions, getNode }) => {
       });
     }
 
-    if (node.frontmatter.tags) {
-      const tagSlugs = node.frontmatter.tags.map((tag) =>
-        `${localePrefix}/${localePaths.tags}/${_.kebabCase(tag)}/`.replace(
-          '//',
-          '/',
-        ),
-      );
-      createNodeField({ node, name: 'tagSlugs', value: tagSlugs });
-    }
-
-    if (node.frontmatter.category) {
-      const categorySlug =
-        `${localePrefix}/${localePaths.category}/${_.kebabCase(
-          node.frontmatter.category,
-        )}/`.replace('//', '/');
-      createNodeField({ node, name: 'categorySlug', value: categorySlug });
-    }
   }
 };
 
