@@ -1,5 +1,5 @@
 ---
-title: "Monolith, multirepo or monorepo?"
+title: "Monolith, Multirepo or Monorepo?"
 date: "2020-07-10T00:00:00.0000"
 template: "post"
 draft: false
