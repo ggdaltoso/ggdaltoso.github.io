@@ -1,15 +1,16 @@
 import React from 'react';
 import { getContactHref } from '../../../utils';
 import * as styles from './Author.module.scss';
-import { useSiteMetadata } from '../../../hooks';
+import { useLocalizedSiteMetadata, useLocalizedValue } from '../../../hooks';
 
 const Author = () => {
-  const { author } = useSiteMetadata();
+  const { author } = useLocalizedSiteMetadata();
+  const authorBio = useLocalizedValue(author.bio);
 
   return (
     <div className={styles['author']}>
       <p>
-        {author.bio}
+        {authorBio}
         <a
           className={styles['author__bioBluesky']}
           href={getContactHref('bluesky', author.contacts.bluesky)}

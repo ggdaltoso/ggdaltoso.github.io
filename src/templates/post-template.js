@@ -2,36 +2,47 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
-import { useSiteMetadata } from '../hooks';
+import { useLocalizedSiteMetadata } from '../hooks';
+import { buildDocumentTitle } from '../utils';
 
 const PostTemplate = ({ data }) => {
-  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
+  const { localizedSubtitle } = useLocalizedSiteMetadata();
   const { html: postBody } = data.markdownRemark;
   const { title: postTitle, description: postDescription } =
     data.markdownRemark.frontmatter;
   const metaDescription =
-    postDescription !== null ? postDescription : siteSubtitle;
+    postDescription !== null ? postDescription : localizedSubtitle;
 
   return (
-    <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
+    <Layout
+      title={buildDocumentTitle(postTitle)}
+      description={metaDescription}
+    >
       <Post post={data.markdownRemark} html={postBody} />
     </Layout>
   );
 };
 
 export const query = graphql`
-  query PostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query PostById($id: String!, $locale: String!) {
+    locales: allLocale(filter: { language: { eq: $locale } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    markdownRemark(id: { eq: $id }) {
       id
       html
       fields {
         slug
-        tagSlugs
       }
       frontmatter {
         date
         description
-        tags
         title
       }
     }

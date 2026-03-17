@@ -36,24 +36,6 @@
         font-weight: 600;
         text-transform: uppercase;
       }
-
-      &-divider {
-        margin: 0 5px;
-      }
-
-      &-category {
-        &-link {
-          font-size: var(--typographic-small-font-size);
-          color: var(--color-secondary);
-          font-weight: 600;
-          text-transform: uppercase;
-
-          &:hover,
-          &:focus {
-            color: var(--color-primary);
-          }
-        }
-      }
     }
 
     &-readmore {

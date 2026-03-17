@@ -1,21 +1,21 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
 
 import Author from './Author';
 import Comments from './Comments';
 import Content from './Content';
 import Meta from './Meta';
-import Tags from './Tags';
 import * as styles from './Post.module.scss';
 
 const Post = ({ post, html }) => {
-  const { tagSlugs, slug } = post.fields || {};
-  const { tags, title, date } = post.frontmatter;
+  const { t } = useTranslation();
+  const { slug } = post.fields || {};
+  const { title, date } = post.frontmatter;
 
   return (
     <div className={styles['post']}>
       <Link className={styles['post__homeButton']} to="/">
-        Todos os artigos
+        {t('All posts')}
       </Link>
 
       <div>
@@ -24,7 +24,6 @@ const Post = ({ post, html }) => {
 
       <div className={styles['post__footer']}>
         <Meta date={date} />
-        {tags && tagSlugs && <Tags tags={tags} tagSlugs={tagSlugs} />}
         <Author />
       </div>
 

@@ -1,6 +1,7 @@
 ---
 title: 'Oi'
 template: 'page'
+slug: '/sobre'
 ---
 
 Meu nome é **Gabriel Daltoso**. Sou desenvolvedor frontend há mais de uma década e trabalho construindo interfaces e sistemas para a web.

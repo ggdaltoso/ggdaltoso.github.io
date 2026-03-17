@@ -1,17 +1,30 @@
 import React from 'react';
+import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
 import Page from '../components/Page';
-import { useSiteMetadata } from '../hooks';
+import { useLocalizedSiteMetadata } from '../hooks';
+import { buildDocumentTitle } from '../utils';
 
 const NotFoundTemplate = () => {
-  const { title, subtitle } = useSiteMetadata();
+  const { localizedSubtitle } = useLocalizedSiteMetadata();
+  const { language } = useI18next();
+  const { t } = useTranslation();
+
+  const notFoundTitle = t('Not found');
+  const notFoundDescription =
+    language === 'en'
+      ? 'The route you tried to access does not exist.'
+      : 'A rota que voce tentou acessar nao existe.';
 
   return (
-    <Layout title={`Not Found - ${title}`} description={subtitle}>
+    <Layout
+      title={buildDocumentTitle(notFoundTitle)}
+      description={localizedSubtitle}
+    >
       <Sidebar />
-      <Page title="NOT FOUND">
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <Page title={notFoundTitle}>
+        <p>{notFoundDescription}</p>
       </Page>
     </Layout>
   );

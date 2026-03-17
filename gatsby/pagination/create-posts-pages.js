@@ -2,34 +2,59 @@
 
 const path = require('path');
 const siteConfig = require('../../config.js');
+const { locales, withLocalePath, getPagePathSegment } = require('../i18n');
 
 module.exports = async (graphql, actions) => {
   const { createPage } = actions;
 
-  const result = await graphql(`
-    {
-      allMarkdownRemark(
-        filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
-      ) { totalCount }
-    }
-  `);
-
   const { postsPerPage } = siteConfig;
-  const numPages = Math.ceil(result.data.allMarkdownRemark.totalCount / postsPerPage);
 
-  for (let i = 0; i < numPages; i += 1) {
-    createPage({
-      path: i === 0 ? '/' : `/page/${i}`,
-      component: path.resolve('./src/templates/index-template.js'),
-      context: {
-        currentPage: i,
-        postsLimit: postsPerPage,
-        postsOffset: i * postsPerPage,
-        prevPagePath: i <= 1 ? '/' : `/page/${i - 1}`,
-        nextPagePath: `/page/${i + 1}`,
-        hasPrevPage: i !== 0,
-        hasNextPage: i !== numPages - 1
+  for (const locale of locales) {
+    const result = await graphql(`
+      {
+        allMarkdownRemark(
+          filter: {
+            frontmatter: { template: { eq: "post" }, draft: { ne: true } }
+            fields: { locale: { eq: "${locale}" } }
+          }
+        ) {
+          totalCount
+        }
       }
-    });
+    `);
+
+    const totalCount = result.data.allMarkdownRemark.totalCount;
+    const numPages = Math.max(1, Math.ceil(totalCount / postsPerPage));
+    const pageSegment = getPagePathSegment(locale);
+
+    for (let i = 0; i < numPages; i += 1) {
+      const pagePath =
+        i === 0
+          ? withLocalePath(locale, '/')
+          : withLocalePath(locale, `/${pageSegment}/${i}`);
+      const prevPagePath =
+        i <= 1
+          ? withLocalePath(locale, '/')
+          : withLocalePath(locale, `/${pageSegment}/${i - 1}`);
+      const nextPagePath = withLocalePath(
+        locale,
+        `/${pageSegment}/${i + 1}`,
+      );
+
+      createPage({
+        path: pagePath,
+        component: path.resolve('./src/templates/index-template.js'),
+        context: {
+          locale,
+          currentPage: i,
+          postsLimit: postsPerPage,
+          postsOffset: i * postsPerPage,
+          prevPagePath,
+          nextPagePath,
+          hasPrevPage: i !== 0,
+          hasNextPage: i !== numPages - 1,
+        },
+      });
+    }
   }
 };

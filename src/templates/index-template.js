@@ -5,10 +5,11 @@ import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
-import { useSiteMetadata } from '../hooks';
+import { useLocalizedSiteMetadata } from '../hooks';
+import { buildDocumentTitle } from '../utils';
 
 const IndexTemplate = ({ data, pageContext }) => {
-  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
+  const { localizedSubtitle } = useLocalizedSiteMetadata();
 
   const {
     currentPage,
@@ -19,11 +20,12 @@ const IndexTemplate = ({ data, pageContext }) => {
   } = pageContext;
 
   const { edges } = data.allMarkdownRemark;
-  const pageTitle =
-    currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
+  const pageTitle = buildDocumentTitle(
+    currentPage > 0 ? `Posts - Page ${currentPage}` : '',
+  );
 
   return (
-    <Layout title={pageTitle} description={siteSubtitle}>
+    <Layout title={pageTitle} description={localizedSubtitle}>
       <Sidebar isIndex />
       <Page>
         <Feed edges={edges} />
@@ -39,23 +41,33 @@ const IndexTemplate = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query IndexTemplate($postsLimit: Int!, $postsOffset: Int!) {
+  query IndexTemplate($locale: String!, $postsLimit: Int!, $postsOffset: Int!) {
+    locales: allLocale(filter: { language: { eq: $locale } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
     allMarkdownRemark(
       limit: $postsLimit
       skip: $postsOffset
-      filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
+      filter: {
+        frontmatter: { template: { eq: "post" }, draft: { ne: true } }
+        fields: { locale: { eq: $locale } }
+      }
       sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {
           fields {
             slug
-            categorySlug
           }
           frontmatter {
             title
             date
-            category
             description
           }
         }
