@@ -17,7 +17,7 @@ const PostTemplate = ({ data }) => {
     postDescription !== null ? postDescription : siteSubtitle;
 
   return (
-    <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
+    <Layout title={`${siteTitle} - ${postTitle}`} description={metaDescription}>
       <Post post={data.markdownRemark} html={postBody} />
     </Layout>
   );
@@ -39,12 +39,10 @@ export const query = graphql`
       html
       fields {
         slug
-        tagSlugs
       }
       frontmatter {
         date
         description
-        tags
         title
       }
     }

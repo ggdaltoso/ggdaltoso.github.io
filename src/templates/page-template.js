@@ -21,7 +21,7 @@ const PageTemplate = ({ data }) => {
     pageDescription !== null ? pageDescription : siteSubtitle;
 
   return (
-    <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription}>
+    <Layout title={`${siteTitle} - ${pageTitle}`} description={metaDescription}>
       <Sidebar />
       <Page>
         <Content title={pageTitle} body={pageBody} />
