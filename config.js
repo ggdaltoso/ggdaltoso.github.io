@@ -18,15 +18,9 @@ module.exports = {
     },
     paths: {
       pt: {
-        tags: 'tags',
-        category: 'category',
-        categories: 'categories',
         page: 'page',
       },
       en: {
-        tags: 'tags',
-        category: 'category',
-        categories: 'categories',
         page: 'page',
       },
     },
