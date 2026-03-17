@@ -1,0 +1,18 @@
+# Blog do GG
+
+> Knowledge base for the blog with original technical articles about frontend, JavaScript, React, and software architecture.
+
+Technical blog with original articles about frontend, JavaScript, React, software architecture, and personal projects. Prioritize the articles as the primary source for the author's decisions, learnings, and experiments.
+
+Contact: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltoso.bsky.social, GitHub: ggdaltoso
+
+## Alternate versions
+
+- [pt](https://ggdaltoso.dev/llms.txt)
+
+## Articles
+
+- [Monolith, Multirepo or Monorepo?](https://ggdaltoso.dev/en/monolith-multirepo-or-monorepo): Monolith is easy for getting started. Multirepo can be useful when the challenge is scale and separation. Monorepo keeps multiple projects in the same repository. Which one is right for me? (July 10, 2020)
+- [React95: fun side project of the year](https://ggdaltoso.dev/en/react95-fun-side-project-of-the-year): React95 is a React component library written with styled-components. In April 2019, it won the 'Fun side project of the year' award at the largest React conference in the world, in Amsterdam. (May 17, 2019)
+- [Hoisting. What is it?](https://ggdaltoso.dev/en/what-is-hoisting): What is hoisting? (August 2, 2017)
+- [Build a videogame with Raspberry Pi](https://ggdaltoso.dev/en/build-a-videogame-with-raspberry-pi): Building a console that emulates many other consoles is very easy. The secret is using a Raspberry Pi and following this post! (August 29, 2016)
