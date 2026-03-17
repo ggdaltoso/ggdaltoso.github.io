@@ -1,18 +1,13 @@
-import { useI18next } from 'gatsby-plugin-react-i18next';
 import useSiteMetadata from './use-site-metadata';
-import { getLocalizedValue } from '../utils';
+import useLocalizedValue from './use-localized-value';
 
 const useLocalizedSiteMetadata = () => {
   const siteMetadata = useSiteMetadata();
-  const { language, defaultLanguage } = useI18next();
+  const localizedSubtitle = useLocalizedValue(siteMetadata.subtitle);
 
   return {
     ...siteMetadata,
-    localizedSubtitle: getLocalizedValue(
-      siteMetadata.subtitle,
-      language,
-      defaultLanguage,
-    ),
+    localizedSubtitle,
   };
 };
 
