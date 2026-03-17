@@ -1,13 +1,11 @@
 import React from 'react';
-import { useI18next } from 'gatsby-plugin-react-i18next';
-import { getContactHref, getLocalizedValue } from '../../../utils';
+import { getContactHref } from '../../../utils';
 import * as styles from './Author.module.scss';
-import { useSiteMetadata } from '../../../hooks';
+import { useLocalizedSiteMetadata, useLocalizedValue } from '../../../hooks';
 
 const Author = () => {
-  const { author } = useSiteMetadata();
-  const { language, defaultLanguage } = useI18next();
-  const authorBio = getLocalizedValue(author.bio, language, defaultLanguage);
+  const { author } = useLocalizedSiteMetadata();
+  const authorBio = useLocalizedValue(author.bio);
 
   return (
     <div className={styles['author']}>
