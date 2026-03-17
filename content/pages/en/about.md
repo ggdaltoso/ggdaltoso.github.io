@@ -1,7 +1,7 @@
 ---
 title: 'Hi'
 template: 'page'
-slug: '/pages/about'
+slug: '/about'
 ---
 
 My name is **Gabriel Daltoso**. I have been a frontend developer for more than a decade, building interfaces and systems for the web.

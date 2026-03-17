@@ -10,6 +10,12 @@ module.exports = {
   i18n: {
     defaultLocale: 'pt',
     locales: ['pt', 'en'],
+    pages: {
+      about: {
+        pt: '/sobre',
+        en: '/about',
+      },
+    },
     paths: {
       pt: {
         tags: 'tags',
@@ -35,7 +41,7 @@ module.exports = {
       },
       {
         label: 'Sobre mim',
-        path: '/pages/about',
+        path: '/sobre',
       },
     ],
     en: [
@@ -45,7 +51,7 @@ module.exports = {
       },
       {
         label: 'About me',
-        path: '/pages/about',
+        path: '/about',
       },
     ],
   },
