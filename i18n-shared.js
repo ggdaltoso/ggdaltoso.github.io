@@ -38,6 +38,9 @@ const getLocalePaths = (source, locale) => {
   );
 };
 
+const getPagePathSegment = (source, locale) =>
+  getLocalePaths(source, locale).page || 'page';
+
 const getLocalePrefix = (source, locale) => {
   const { defaultLocale } = getI18nConfig(source);
 
@@ -70,6 +73,7 @@ const withLocalePath = (pathName, locale, defaultLocale) => {
 module.exports = {
   getI18nConfig,
   getLocalePaths,
+  getPagePathSegment,
   getLocalePrefix,
   normalizePath,
   withLocalePath,

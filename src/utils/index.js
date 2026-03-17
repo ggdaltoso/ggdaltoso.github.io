@@ -4,7 +4,6 @@ export {
   buildLocalizedPageLookup,
   getLocalizedMenu,
   getLocalizedValue,
-  getLocalePaths,
   normalizePath,
   withLocalePath,
 } from './i18n';

@@ -1,6 +1,6 @@
 import sharedI18n from '../../i18n-shared';
 
-const { getLocalePaths, normalizePath, withLocalePath } = sharedI18n;
+const { normalizePath, withLocalePath } = sharedI18n;
 
 const getLocalizedMenu = (menuByLocale = {}, locale, defaultLocale) =>
   menuByLocale[locale] || menuByLocale[defaultLocale] || [];
@@ -47,7 +47,6 @@ export {
   buildLocalizedPageLookup,
   getLocalizedMenu,
   getLocalizedValue,
-  getLocalePaths,
   normalizePath,
   withLocalePath,
 };
