@@ -32,6 +32,12 @@ const useSiteMetadata = () => {
           i18n {
             defaultLocale
             locales
+            pages {
+              about {
+                pt
+                en
+              }
+            }
             paths {
               pt {
                 tags
