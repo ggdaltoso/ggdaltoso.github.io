@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog do GG - RSS Feed]]></title><description><![CDATA[O que fiz, o que faço e o que vou fazer]]></description><link>https://ggdaltoso.dev</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 16 Mar 2026 13:55:10 GMT</lastBuildDate><item><title><![CDATA[Monolito, Multirepo ou Monorepo?]]></title><description><![CDATA[Monolito é fácil para começar um projeto. Multirepo pode ser bom quando o problema é espaço. Monorepo tem vários projetos que compartilham o mesmo repositório. Qual deles é bom pra mim?]]></description><link>https://ggdaltoso.dev/monolito-multirepo-ou-monorepo</link><guid isPermaLink="false">https://ggdaltoso.dev/monolito-multirepo-ou-monorepo</guid><pubDate>Fri, 10 Jul 2020 03:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Muitos projetos adotam o modelo de monorepo para estruturar seu repositório.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog do GG - RSS Feed]]></title><description><![CDATA[O que fiz, o que faço e o que vou fazer]]></description><link>https://ggdaltoso.dev</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 17 Mar 2026 19:06:47 GMT</lastBuildDate><item><title><![CDATA[Monolito, Multirepo ou Monorepo?]]></title><description><![CDATA[Monolito é fácil para começar um projeto. Multirepo pode ser bom quando o problema é espaço. Monorepo tem vários projetos que compartilham o mesmo repositório. Qual deles é bom pra mim?]]></description><link>https://ggdaltoso.dev/monolito-multirepo-ou-monorepo</link><guid isPermaLink="false">https://ggdaltoso.dev/monolito-multirepo-ou-monorepo</guid><pubDate>Fri, 10 Jul 2020 03:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Muitos projetos adotam o modelo de monorepo para estruturar seu repositório.
 Grandes nomes como &lt;a href=&quot;https://github.com/angular/angular&quot;&gt;Angular&lt;/a&gt;,
 &lt;a href=&quot;https://github.com/babel/babel&quot;&gt;Babel&lt;/a&gt; e
 &lt;a href=&quot;https://github.com/facebook/react&quot;&gt;React&lt;/a&gt;, por exemplo, utilizam essa
@@ -102,7 +102,104 @@ Receitas&lt;/em&gt;?&lt;/p&gt;
 e, inclusive, implementei a transição de um
 &lt;a href=&quot;https://github.com/React95/React95/pull/117&quot;&gt;Monolito para um Monorepo&lt;/a&gt;, no
 React95.&lt;/p&gt;
-&lt;p&gt;Qual você escolheria?&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React95: fun side project of the year]]></title><description><![CDATA[React95 é uma biblioteca de componentes escrita em React usando  styled-components. Em abril de 2019, ganhou o prêmio de “Fun side project of  the year” na maior conferência de React do mundo, em Amsterdã.]]></description><link>https://ggdaltoso.dev/react95-fun-side-project-of-the-year</link><guid isPermaLink="false">https://ggdaltoso.dev/react95-fun-side-project-of-the-year</guid><pubDate>Fri, 17 May 2019 10:46:37 GMT</pubDate><content:encoded>&lt;p&gt;Já faz um tempo que deveria ter escrito essa história mas como a ficha está
+&lt;p&gt;Qual você escolheria?&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Monolith, Multirepo or Monorepo?]]></title><description><![CDATA[Monolith is easy for getting started. Multirepo can be useful when the challenge is scale and separation. Monorepo keeps multiple projects in the same repository. Which one is right for me?]]></description><link>https://ggdaltoso.dev/en/monolith-multirepo-or-monorepo</link><guid isPermaLink="false">https://ggdaltoso.dev/en/monolith-multirepo-or-monorepo</guid><pubDate>Fri, 10 Jul 2020 03:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Many projects adopt a monorepo model to organize their repositories. Large names
+like &lt;a href=&quot;https://github.com/angular/angular&quot;&gt;Angular&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/babel/babel&quot;&gt;Babel&lt;/a&gt;, and
+&lt;a href=&quot;https://github.com/facebook/react&quot;&gt;React&lt;/a&gt;, for example, use this strategy.
+On the other hand, Uber moved from
+&lt;a href=&quot;https://www.youtube.com/watch?v=lV8-1S28ycM&quot;&gt;monorepo to multirepo&lt;/a&gt;, and
+&lt;a href=&quot;https://github.com/microsoft/vscode&quot;&gt;VS Code&lt;/a&gt; is still a monolith.
+Which one is best for my project?&lt;/p&gt;
+&lt;p&gt;Before discussing whether one structure is good or bad, I think it is important
+to understand each of them.&lt;/p&gt;
+&lt;h3&gt;Monolith&lt;/h3&gt;
+&lt;span class=&quot;figure float-left&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;/media/monorepo/monolith.png&quot; alt=&quot;Monolith diagram&quot; title=&quot;Monolith.png | 180&quot;&gt;&lt;/p&gt;
+&lt;/span&gt;
+&lt;p&gt;This model keeps everything in one place: all together.
+It is common in older projects (legacy code), because it used to be the easiest
+way to start and continue software development before better tooling for handling
+multiple modules in one repository was widely available.&lt;/p&gt;
+&lt;p&gt;In short: &lt;strong&gt;1 repository and 1 project&lt;/strong&gt;.&lt;/p&gt;
+&lt;br class=&quot;hide-sm&quot;/&gt;
+&lt;br class=&quot;hide-sm&quot;/&gt;
+&lt;h3&gt;Multirepo or Polyrepo&lt;/h3&gt;
+&lt;span class=&quot;figure float-right&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;/media/monorepo/multirepo.png&quot; alt=&quot;Multirepo or Polyrepo diagram&quot; title=&quot;Multirepo.png | 220&quot;&gt;&lt;/p&gt;
+&lt;/span&gt;
+&lt;p&gt;In scenarios where a system can be split into multiple modules (or multiple
+projects), each module can have its own repository.
+That means &lt;strong&gt;N repositories for N projects&lt;/strong&gt;.&lt;/p&gt;
+&lt;br class=&quot;hide-sm&quot;/&gt;
+&lt;br class=&quot;hide-sm&quot;/&gt;
+&lt;h3&gt;Monorepo&lt;/h3&gt;
+&lt;span class=&quot;figure float-left&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;/media/monorepo/monorepo.png&quot; alt=&quot;Monorepo diagram&quot; title=&quot;Monorepo.png | 160&quot;&gt;&lt;/p&gt;
+&lt;/span&gt;
+&lt;p&gt;When you have many projects sharing the same repository, this is a monorepo.
+In my opinion, it is like an extension of the monolith model, handling
+&lt;strong&gt;1 repository for N projects&lt;/strong&gt;.&lt;/p&gt;
+&lt;br class=&quot;hide-sm&quot; /&gt;
+&lt;br class=&quot;hide-sm&quot; /&gt;
+&lt;p&gt;Which one should you choose? It depends.&lt;/p&gt;
+&lt;h2&gt;My recipe list&lt;/h2&gt;
+&lt;span class=&quot;figure float-left&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;/media/monorepo/simple-structure.png&quot; alt=&quot;Simple initial project structure&quot; title=&quot;My recipe list.png | 260&quot;&gt;&lt;/p&gt;
+&lt;/span&gt;
+&lt;p&gt;For this post, let us call a project anything that has a beginning, middle and
+end and can be versioned. To make things practical, let us create a fictional
+project to guide the reasoning.&lt;/p&gt;
+&lt;p&gt;Assume this is a personal project developed as needs appear. We will call it
+&lt;em&gt;My Recipe List&lt;/em&gt;.&lt;/p&gt;
+&lt;br class=&quot;hide-sm&quot; /&gt;
+&lt;br class=&quot;hide-sm&quot; /&gt;
+&lt;p&gt;The most important thing at first is to start. With just an idea, the usual path
+is creating an empty repository and then building a simple interface.&lt;/p&gt;
+&lt;p&gt;That gives us one project in one repository, which is a monolith.
+In my view, this is the simplest and easiest structure to begin with.&lt;/p&gt;
+&lt;p&gt;Development goes well and you get proud of how everything looks.
+At some point you realize it would be useful to reuse styles in another project,
+as a separate package. In other words, now you need to split the original
+project into two projects:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;My Recipe List&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Recipes.Styles&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;At this point, monolith no longer supports our needs (N projects).
+We need to choose between multirepo and monorepo.&lt;/p&gt;
+&lt;h2&gt;The choice&lt;/h2&gt;
+&lt;p&gt;For &lt;em&gt;My Recipe List&lt;/em&gt; or any other project, the best structure depends on several
+factors. Based on my own experience, here are some to help choose.&lt;/p&gt;
+&lt;h4&gt;Dependencies&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Monorepo: everything related to the project and subprojects is installed
+together, &lt;a href=&quot;https://classic.yarnpkg.com/en/docs/workspaces&quot;&gt;sharing common dependencies&lt;/a&gt;.
+In our example, even if you only need to change styles, you may still install
+dependencies for both &lt;em&gt;My Recipe List&lt;/em&gt; and &lt;em&gt;Recipes.Styles&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Multirepo: each repository has its own dependencies and duplicates can happen.
+If your projects are npm packages, you might need
+&lt;a href=&quot;https://docs.npmjs.com/cli/link&quot;&gt;&lt;code&gt;npm link&lt;/code&gt;&lt;/a&gt; during development so they can
+communicate. If you have used this before, you know it is not always as smooth
+as it sounds.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Issues and Pull Requests&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Monorepo: all issues and pull requests live in one repository, so you need
+&lt;a href=&quot;https://github.com/actions/labeler&quot;&gt;a strategy&lt;/a&gt; to categorize them and avoid
+chaos.&lt;/li&gt;
+&lt;li&gt;Multirepo: when responding to an issue or merging a pull request, you often
+need to change context, reinstall dependencies, link projects for testing, and
+so on.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I would also include &lt;a href=&quot;https://en.wikipedia.org/wiki/CI/CD&quot;&gt;CI/CD&lt;/a&gt; as an
+important factor. But there is a nuance: in both multirepo and monorepo, I have
+not had major problems managing publish/deploy pipelines. The key is to
+understand each project&apos;s steps and keep repository automation healthy.&lt;/p&gt;
+&lt;p&gt;Given those points, which structure is best for &lt;em&gt;My Recipe List&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;Personally, I would choose monorepo because I have worked with similar setups,
+and I even implemented a transition from
+&lt;a href=&quot;https://github.com/React95/React95/pull/117&quot;&gt;monolith to monorepo&lt;/a&gt; in React95.&lt;/p&gt;
+&lt;p&gt;Which one would you choose?&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React95: fun side project of the year]]></title><description><![CDATA[React95 é uma biblioteca de componentes escrita em React usando  styled-components. Em abril de 2019, ganhou o prêmio de “Fun side project of  the year” na maior conferência de React do mundo, em Amsterdã.]]></description><link>https://ggdaltoso.dev/react95-fun-side-project-of-the-year</link><guid isPermaLink="false">https://ggdaltoso.dev/react95-fun-side-project-of-the-year</guid><pubDate>Fri, 17 May 2019 10:46:37 GMT</pubDate><content:encoded>&lt;p&gt;Já faz um tempo que deveria ter escrito essa história mas como a ficha está
 caindo só agora, vou contar pra vocês como foi ter ganhado o prêmio de Fun
 Project of the Year, na maior conferência de React, em Amsterdã, por causa do
 React95.&lt;/p&gt;
@@ -239,7 +336,129 @@ engraçado. Ele ganhou por causa da comunidade.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;E é isso que me motiva a continuar fazendo o que eu faço. Amo ser desenvolvedor
 e pretendo continuar por muito tempo ainda.&lt;/p&gt;
-&lt;p&gt;Espero que minha experiência sirva de motivação para todo mundo!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hoisting. Quê?]]></title><description><![CDATA[O que é hoisting?]]></description><link>https://ggdaltoso.dev/hoisting-que</link><guid isPermaLink="false">https://ggdaltoso.dev/hoisting-que</guid><pubDate>Thu, 03 Aug 2017 00:35:06 GMT</pubDate><content:encoded>&lt;p&gt;&quot;Quê?&quot; mesmo. Eu falei exatamente isso na primeira vez que ouvi essa palavra:
+&lt;p&gt;Espero que minha experiência sirva de motivação para todo mundo!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React95: fun side project of the year]]></title><description><![CDATA[React95 is a React component library written with styled-components. In April 2019, it won the 'Fun side project of the year' award at the largest React conference in the world, in Amsterdam.]]></description><link>https://ggdaltoso.dev/en/react95-fun-side-project-of-the-year</link><guid isPermaLink="false">https://ggdaltoso.dev/en/react95-fun-side-project-of-the-year</guid><pubDate>Fri, 17 May 2019 10:46:37 GMT</pubDate><content:encoded>&lt;p&gt;I should have written this story a long time ago, but since it is only really
+sinking in now, I want to tell you what it felt like to win Fun Side Project of
+the Year at the biggest React conference in the world, in Amsterdam, because of
+React95.&lt;/p&gt;
+&lt;h3&gt;Who was involved&lt;/h3&gt;
+&lt;p&gt;I joined Catho in November 2017, on the Front End platform team. Since my first
+day, I heard many hallway conversations about layout &quot;problems&quot; on the main
+site and across products. Among many complaints, these two stood out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There was no defined visual standard and no clear way to communicate patterns.&lt;/li&gt;
+&lt;li&gt;There was no place where people could find those patterns.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That is when our team had the brilliant idea to build a design system. Great!&lt;/p&gt;
+&lt;p&gt;But as soon as we had that insight, we realized that together with a solution,
+a new problem also came.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-o-que-queremos.jpeg&quot; alt=&quot;Platform team deciding what to do&quot; title=&quot;Time.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;At first, we only knew what a design system was because we had heard about it.
+We had never implemented one.&lt;/p&gt;
+&lt;p&gt;So we started studying how to build a React component library, since React was
+already defined as our project standard.&lt;/p&gt;
+&lt;p&gt;How do you implement a design system? How do you build a component library? How
+do you automate build and deploy? NPM? Tree shaking?&lt;/p&gt;
+&lt;p&gt;Those questions took over our daily routine. Discussions were so frequent and so
+intense that we could not even go home without thinking about it.&lt;/p&gt;
+&lt;p&gt;That was when I decided to start a personal project to learn all those things in
+practice. &lt;a href=&quot;https://allysson.me/&quot;&gt;Allysson dos Santos&lt;/a&gt; joined me in this.&lt;/p&gt;
+&lt;p&gt;I thought: if I am going to build a personal component library, it has to be
+something fun enough to keep me motivated at home. So why not recreate Windows
+95 components?&lt;/p&gt;
+&lt;p&gt;And that is how &lt;strong&gt;React95&lt;/strong&gt; was born.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-v1.0.0.jpeg&quot; alt=&quot;First version of React95&quot; title=&quot;React95-v1.0.0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;In parallel, everything we were learning was applied to
+&lt;a href=&quot;https://github.com/catho/quantum&quot;&gt;Quantum&lt;/a&gt;, Catho&apos;s component library.&lt;/p&gt;
+&lt;h3&gt;Getting known&lt;/h3&gt;
+&lt;p&gt;The more I built components for React95, the more excited I got. I spent hours
+looking at old photos and talking to friends about Windows 95 memories.&lt;/p&gt;
+&lt;p&gt;With those conversations, React95 started spreading in the community and getting
+stars on GitHub. I still remember pressing F5 on the repository page waiting for
++1 star (and at that time I am talking about going from 7 to 8).&lt;/p&gt;
+&lt;p&gt;Commit after commit, pull requests opened and merged. Then suddenly the
+&lt;a href=&quot;https://github.com/React95/React95/pull/69&quot;&gt;first external contribution&lt;/a&gt;
+appeared. I was so happy that I did not even know what to do. It also solved an
+existing &lt;a href=&quot;https://github.com/React95/React95/pull/69&quot;&gt;issue&lt;/a&gt;, because we kept
+our roadmap as issues from day one.&lt;/p&gt;
+&lt;p&gt;Everything was really cool: friends discussing changes, sharing ideas, and
+contributing code. It finally felt like one of those GitHub projects we admire.&lt;/p&gt;
+&lt;h3&gt;The nomination&lt;/h3&gt;
+&lt;p&gt;As I said, I kept monitoring the repo stars. I saw it go from 0 to 10, then 30,
+then 100. When it hit that number, I could not believe it.&lt;/p&gt;
+&lt;p&gt;Around that same time, I received an email from
+&lt;a href=&quot;https://twitter.com/operatino&quot;&gt;Robert Haritonov&lt;/a&gt; saying:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hey Gabriel,&lt;/p&gt;
+&lt;p&gt;React ecosystem success is entirely built on top of it’s open source community
+and all the enthusiastic developers contributing with their code, ideas, and
+projects. To give an extra credit to hard working open source developers,
+together with React Amsterdam Conference, we continue running our annual Open
+Source Awards ceremony — &lt;a href=&quot;https://osawards.com/react&quot;&gt;https://osawards.com/react&lt;/a&gt; (think Oscars, but for OS).&lt;/p&gt;
+&lt;p&gt;With open submission form on OS Awards website and our programme committee,
+including active React open source contributors, we’ve came up with 5 award
+groups, and up to 4 selected nominees per each group, where your project
+“React95” is nominated for “Fun side project of the year”.&lt;/p&gt;
+&lt;p&gt;Before announcing the nominees, ...&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I was reading calmly, and then stopped when I saw:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&quot;React95&quot; is nominated for &quot;Fun side project of the year&quot;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/U6MlaIe1ljs&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
+&lt;p&gt;I read it many times. Again and again. I barely slept that night.&lt;/p&gt;
+&lt;p&gt;And do you know what impressed me the most?&lt;/p&gt;
+&lt;p&gt;I STILL DO NOT KNOW WHO SUBMITTED REACT95 TO THAT CONFERENCE!&lt;/p&gt;
+&lt;p&gt;Community is powerful.&lt;/p&gt;
+&lt;p&gt;I had to stop for a moment to process it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;React95 had been nominated as a finalist in one category of what looked like
+the Open Source Oscars.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Okay.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The ceremony would happen in Amsterdam one month later.
+&quot;How am I supposed to go there?&quot; I thought.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The trip&lt;/h3&gt;
+&lt;p&gt;When I got Robert&apos;s email, I was very excited. I showed it to my wife and to
+people at work.&lt;/p&gt;
+&lt;p&gt;My wife encouraged me a lot and said I should go somehow. At work, people got
+even more excited than I did. I remember hearing them talk about creating a
+crowdfunding to pay for the trip.&lt;/p&gt;
+&lt;p&gt;Then Catho stepped in:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You are going. We will pay for everything.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/vSqkwpFA4ZwAM/giphy.gif&quot; alt=&quot;Animation showing my reaction&quot; title=&quot;WTF.gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I was very surprised because React95 had no direct relation to Catho. It was a
+personal project. The company did not have to do that, but they did. They even
+said we could work remotely from there, which was one of the company benefits.
+We were impressed and we went.&lt;/p&gt;
+&lt;h3&gt;The award&lt;/h3&gt;
+&lt;p&gt;We arrived in Amsterdam and the conference was amazing. We met people we usually
+only saw on Twitter, like &lt;a href=&quot;https://twitter.com/peggyrayzis&quot;&gt;Peggy Rayzis&lt;/a&gt;,
+&lt;a href=&quot;https://twitter.com/kentcdodds&quot;&gt;Kent C. Dodds&lt;/a&gt;, and I had the pleasure of
+meeting &lt;a href=&quot;https://twitter.com/markdalgleish&quot;&gt;Mark Dalgleish&lt;/a&gt;, who worked at Seek
+(Catho&apos;s parent company) and was one of the people behind
+&lt;a href=&quot;https://github.com/seek-oss/braid-design-system&quot;&gt;Braid&lt;/a&gt;, a design system used
+across multiple Seek companies.&lt;/p&gt;
+&lt;p&gt;Later in the day, the &lt;em&gt;Open Source Awards&lt;/em&gt; ceremony started, and React95 was a
+finalist in one of the five categories.&lt;/p&gt;
+&lt;p&gt;The category we were waiting for was &quot;Fun side project of the year&quot;, the third
+one presented. We were anxious, sitting in one of the first rows, and then we
+saw this projected on the screen:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-winner-announcement.jpeg&quot; alt=&quot;React95 winner announcement&quot; title=&quot;Fun side project of the Year.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;WE WON THE AWARD. FOR REAL. And of course, we were called on stage to receive
+it.&lt;/p&gt;
+&lt;p&gt;To this day, this is still the peak moment of my professional life.&lt;/p&gt;
+&lt;p&gt;Everything happening there was hard to believe, not because of the trophy
+itself, but because of everything that happened to get us there.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-winner-trophy.jpeg&quot; alt=&quot;Many emotions during the award&quot; title=&quot;Receiving the award.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;React95 did not win because it is a &quot;funny&quot; project.
+It won because of the community.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And that is what motivates me to keep doing what I do. I love being a developer
+and I plan to keep doing this for a long time.&lt;/p&gt;
+&lt;p&gt;I hope this experience motivates everyone.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hoisting. Quê?]]></title><description><![CDATA[O que é hoisting?]]></description><link>https://ggdaltoso.dev/hoisting-que</link><guid isPermaLink="false">https://ggdaltoso.dev/hoisting-que</guid><pubDate>Thu, 03 Aug 2017 00:35:06 GMT</pubDate><content:encoded>&lt;p&gt;&quot;Quê?&quot; mesmo. Eu falei exatamente isso na primeira vez que ouvi essa palavra:
 Housing? Routing? Ahn? Quê?&lt;/p&gt;
 &lt;p&gt;Esses dias me deparei com esse tweet:&lt;/p&gt;
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;
@@ -617,7 +836,343 @@ exceção do tipo &lt;code&gt;ReferenceError&lt;/code&gt;, pois você
 &lt;/ul&gt;
 &lt;p&gt;Espero que esse post tenha ajudado você a entender um pouco mais desse conceito
 de &lt;strong&gt;hoisting&lt;/strong&gt;. Eu gostei bastante de escrever sobre isso e se você tiver
-gostado, deixa um recado ae nos comentários.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Crie um videogame com Raspberry Pi]]></title><description><![CDATA[Fazer um console que emule vários outros consoles é muito fácil. O  segredo está em utilizar um Raspberry Pi e ler esse post!]]></description><link>https://ggdaltoso.dev/crie-um-videogame-com-raspberry-pi</link><guid isPermaLink="false">https://ggdaltoso.dev/crie-um-videogame-com-raspberry-pi</guid><pubDate>Tue, 30 Aug 2016 01:36:36 GMT</pubDate><content:encoded>&lt;p&gt;Que a cada dia que passa os jogos ficam cada vez &lt;del&gt;melhores&lt;/del&gt; mais bonitos, isso
+gostado, deixa um recado ae nos comentários.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hoisting. What is it?]]></title><description><![CDATA[What is hoisting?]]></description><link>https://ggdaltoso.dev/en/what-is-hoisting</link><guid isPermaLink="false">https://ggdaltoso.dev/en/what-is-hoisting</guid><pubDate>Thu, 03 Aug 2017 00:35:06 GMT</pubDate><content:encoded>&lt;p&gt;&quot;What?&quot; Exactly. That is what I said the first time I heard that word.
+Housing? Routing? Huh? What?&lt;/p&gt;
+&lt;p&gt;These days I found this tweet:&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;
+  &lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+    Javascript simple quiz.
+    &lt;br /&gt;&lt;br /&gt;
+    What&amp;#39;s the output? And why?
+    &lt;br /&gt;&lt;br /&gt;
+    No cheating 😂 👀
+    &lt;a href=&quot;https://t.co/Vqacfzhh4n&quot;&gt;pic.twitter.com/Vqacfzhh4n&lt;/a&gt;
+  &lt;/p&gt;
+  Rowland I. Ekemezie (@rowlandekemezie)
+  &lt;a href=&quot;https://twitter.com/rowlandekemezie/status/884752434953945088?ref_src=twsrc%5Etfw&quot;&gt;
+    July 11, 2017
+  &lt;/a&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It is exactly the topic of this post. When I asked some people whether they knew
+what it was, or had ever heard about it, I got different answers. So I decided
+to write a bit about it.&lt;/p&gt;
+&lt;p&gt;According to &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Glossary/Hoisting&quot;&gt;MDN&lt;/a&gt;,
+the definition of &lt;em&gt;hoisting&lt;/em&gt; is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In JavaScript, function and variable declarations are &lt;strong&gt;hoisted&lt;/strong&gt; (or &quot;moved
+to the top&quot;). Hoisting is JavaScript&apos;s behavior of moving declarations to the
+top of a scope (the global scope or the function scope).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;What?&lt;/p&gt;
+&lt;p&gt;That means it does not matter where your functions and variables are declared;
+their declarations are moved to the top of the scope, either local or global.
+Only declarations are moved, not assignments.&lt;/p&gt;
+&lt;p&gt;And this is exactly what allows calling a function before its implementation.&lt;/p&gt;
+&lt;h2&gt;undefined vs ReferenceError&lt;/h2&gt;
+&lt;p&gt;Before coding examples, let us start from the basics.&lt;/p&gt;
+&lt;p&gt;When we inspect a variable (&lt;code&gt;foo&lt;/code&gt;) that was not declared, we get:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;console.log(typeof foo); // undefined
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That leads to an interesting point:
+in JavaScript, an undeclared variable returns &lt;code&gt;undefined&lt;/code&gt; for &lt;code&gt;typeof&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A different behavior appears when we try to access the variable directly:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;console.log(foo); // ReferenceError: variable is not defined
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;JavaScript behavior around variables feels confusing at first, and hoisting is a
+big part of why that happens.&lt;/p&gt;
+&lt;h2&gt;Variables&lt;/h2&gt;
+&lt;p&gt;This is how variables are declared and initialized in JavaScript:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var foo; // Declaration
+
+foo = 42; // Initialization/Assignment
+
+foo + 42; // Usage
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Of course, we usually write declaration and initialization together:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var foo = 42;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The key point is that JavaScript handles declaration and initialization as
+distinct steps.&lt;/p&gt;
+&lt;p&gt;As I said above, functions and variables are moved to the top of the scope,
+which means declarations happen before code execution.&lt;/p&gt;
+&lt;p&gt;There are cases where undeclared variables receive values and are created during
+execution as implicit globals. In other words: undeclared variables become
+global.&lt;/p&gt;
+&lt;p&gt;This snippet helps illustrate it:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function global() {
+  foo = 42;
+  var bar = 142;
+}
+
+global();
+
+// Calling global creates foo in global scope
+console.log(foo); // 42
+
+// But bar is function-scoped
+console.log(bar); // ReferenceError: bar is not defined
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;var&lt;/h2&gt;
+&lt;p&gt;In ES5, a variable declared with &lt;code&gt;var&lt;/code&gt; is scoped to the current execution
+context (function or global).&lt;/p&gt;
+&lt;h3&gt;Global variables&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;console.log(foo); // undefined
+
+var foo = &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;What!?&lt;/p&gt;
+&lt;p&gt;You might expect &lt;code&gt;ReferenceError: foo is not defined&lt;/code&gt;, but you get &lt;code&gt;undefined&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;That is hoisting in action. JavaScript effectively treats it like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var foo;
+
+console.log(foo); // undefined
+foo = &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Because of this behavior, you can use variables before declaration. But it is a
+trap: the value is &lt;code&gt;undefined&lt;/code&gt; until assignment. Better to declare and initialize
+before use.&lt;/p&gt;
+&lt;h3&gt;Variables inside a function&lt;/h3&gt;
+&lt;p&gt;The same thing happens in function scope:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function foo() {
+  console.log(bar);
+  var bar = &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;;
+}
+
+foo();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you guessed &lt;code&gt;undefined&lt;/code&gt;, you are right. JavaScript interprets it like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function foo() {
+  var bar;
+  console.log(bar);
+  bar = &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;;
+}
+
+foo();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice the scope changed: now the top is function scope, not global scope.&lt;/p&gt;
+&lt;p&gt;Personal advice: avoid this trap. Declare and initialize before using variables.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function foo() {
+  var bar = &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;;
+  console.log(bar);
+}
+
+foo(); // Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Strict Mode&lt;/h3&gt;
+&lt;p&gt;In ES5, we have &lt;em&gt;strict mode&lt;/em&gt;, which gives us better control over variable
+handling.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;&quot;use strict&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In short, it prevents some problematic patterns.&lt;/p&gt;
+&lt;p&gt;Now, running one of the previous examples in strict mode:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;&quot;use strict&quot;;
+console.log(foo); // ReferenceError: foo is not defined
+
+var foo = &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Interesting, right?&lt;/p&gt;
+&lt;h2&gt;ES6&lt;/h2&gt;
+&lt;p&gt;Then &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_2015_support_in_Mozilla&quot;&gt;ECMAScript 6&lt;/a&gt;
+introduced new ways to declare variables.&lt;/p&gt;
+&lt;h3&gt;let&lt;/h3&gt;
+&lt;p&gt;Variables declared with &lt;code&gt;let&lt;/code&gt; are block-scoped.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;console.log(foo); // ReferenceError: foo is not defined
+let foo = &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Different from &lt;code&gt;var&lt;/code&gt;, &lt;code&gt;let&lt;/code&gt; does not allow access before declaration in the same
+way.&lt;/p&gt;
+&lt;p&gt;Still, this code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let foo;
+
+console.log(foo); // undefined
+foo = &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;returns &lt;code&gt;undefined&lt;/code&gt;, because now the variable was declared before usage.&lt;/p&gt;
+&lt;p&gt;Again: declare and assign before using.&lt;/p&gt;
+&lt;h3&gt;const&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;const&lt;/code&gt; was introduced for constant bindings:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const PI = 3.14;
+
+PI = 22 / 7; // TypeError: Assignment to constant variable.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In our context:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;console.log(PI); // ReferenceError: PI is not defined
+const PI = 3.14;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And inside functions:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function getArea(radius) {
+  console.log(area);
+  area = PI * radius * radius;
+  const PI = 3.14;
+}
+
+getArea(5); // ReferenceError: area is not defined.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you use &lt;a href=&quot;http://jshint.com/&quot;&gt;jshint&lt;/a&gt;, you get a warning similar to:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&apos;PI&apos; was used before it was declared, which is illegal for &apos;const&apos; variables.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Trying to declare &lt;code&gt;const&lt;/code&gt; without initialization also fails:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const PI; // SyntaxError: Missing initializer in const declaration
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In short:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A &lt;code&gt;const&lt;/code&gt; variable must be declared and initialized before use.&lt;/li&gt;
+&lt;li&gt;Variables declared with &lt;code&gt;let&lt;/code&gt; and &lt;code&gt;const&lt;/code&gt; are not initialized at the start of
+execution like &lt;code&gt;var&lt;/code&gt; is (with &lt;code&gt;undefined&lt;/code&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Functions&lt;/h2&gt;
+&lt;p&gt;Functions in JavaScript can be &lt;strong&gt;declarations&lt;/strong&gt; or &lt;strong&gt;expressions&lt;/strong&gt;, and both are
+related to hoisting.&lt;/p&gt;
+&lt;h3&gt;Declarations&lt;/h3&gt;
+&lt;p&gt;Remember when I said functions and variables are moved to the top? This is why
+you can call a function before declaring it.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;foo(); // Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+function foo() {
+  console.log(&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Expressions&lt;/h3&gt;
+&lt;p&gt;Here is the common pattern:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;foo(); // TypeError: foo is not a function.
+
+var foo = function() {
+  console.log(&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;);
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And combining both forms:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;bar(); // TypeError: bar is not a function.
+
+var bar = function foo() {
+  console.log(&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;);
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As with variables, &lt;code&gt;var bar&lt;/code&gt; is hoisted but the assignment is not. So JavaScript
+sees &lt;code&gt;bar&lt;/code&gt; as a variable, not yet as a function.&lt;/p&gt;
+&lt;h2&gt;Order&lt;/h2&gt;
+&lt;p&gt;We should remember JavaScript has an execution order:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Variable value assignments&lt;/li&gt;
+&lt;li&gt;Function declarations&lt;/li&gt;
+&lt;li&gt;Variable declarations&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;From this, we get:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Function declarations are hoisted above variable declarations, but not above
+variable assignments.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;What?&lt;/p&gt;
+&lt;p&gt;Examples make it easier.&lt;/p&gt;
+&lt;h3&gt;Variable assignment above function declaration&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var double = 20;
+
+function double(value) {
+  return value * 2;
+}
+
+console.log(typeof double); // number
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Function declaration above variable assignment&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var double;
+
+function double(value) {
+  return value * 2;
+}
+
+console.log(typeof double); // function
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Even by changing source order, JavaScript can still resolve &lt;code&gt;double&lt;/code&gt; as a
+function depending on declaration/assignment interplay.&lt;/p&gt;
+&lt;h2&gt;Classes&lt;/h2&gt;
+&lt;p&gt;Classes also arrived in ES6, along with &lt;code&gt;let&lt;/code&gt; and &lt;code&gt;const&lt;/code&gt;.
+Like functions, classes can be &lt;strong&gt;declarations&lt;/strong&gt; or &lt;strong&gt;expressions&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;Declarations&lt;/h3&gt;
+&lt;p&gt;Class declarations are hoisted, but not initialized before evaluation. In
+practice, you must declare a class before using it.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var point = new Point();
+point.x = 10;
+point.y = 5;
+
+console.log(point); // ReferenceError: Point is not defined
+
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice the &lt;code&gt;ReferenceError&lt;/code&gt; instead of &lt;code&gt;undefined&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Declaring first works:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
+var point = new Point();
+point.x = 10;
+point.y = 5;
+
+console.log(point); // {x: 10, y: 5}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Expressions&lt;/h3&gt;
+&lt;p&gt;Again, behavior is similar to function expressions.&lt;/p&gt;
+&lt;p&gt;Anonymous class assigned to variable:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var point = new Point();
+point.x = 10;
+point.y = 5;
+
+console.log(point); // TypeError: Point is not a constructor
+
+var Point = class {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Named class expression:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var point = new Point();
+point.x = 10;
+point.y = 5;
+
+console.log(point); // TypeError: Point is not a constructor
+
+var Point = class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Correct implementation:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var Point = class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+};
+
+var point = new Point();
+point.x = 10;
+point.y = 5;
+
+console.log(point); // {x: 10, y: 5}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Wrapping up&lt;/h2&gt;
+&lt;p&gt;Important points to keep in mind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;var&lt;/code&gt;: using variables before declaration often results in &lt;code&gt;undefined&lt;/code&gt; after
+hoisting.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;let&lt;/code&gt; and &lt;code&gt;const&lt;/code&gt;: using variables before declaration throws &lt;code&gt;ReferenceError&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And one last reminder:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Build the habit of declaring and initializing variables before using them.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&apos;use strict&apos;&lt;/code&gt; helps with that.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I hope this post helped clarify hoisting for you. I really enjoyed writing it.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Crie um videogame com Raspberry Pi]]></title><description><![CDATA[Fazer um console que emule vários outros consoles é muito fácil. O  segredo está em utilizar um Raspberry Pi e ler esse post!]]></description><link>https://ggdaltoso.dev/crie-um-videogame-com-raspberry-pi</link><guid isPermaLink="false">https://ggdaltoso.dev/crie-um-videogame-com-raspberry-pi</guid><pubDate>Tue, 30 Aug 2016 01:36:36 GMT</pubDate><content:encoded>&lt;p&gt;Que a cada dia que passa os jogos ficam cada vez &lt;del&gt;melhores&lt;/del&gt; mais bonitos, isso
 ninguém pode discordar. Mas também não podemos esquecer dos grandes clássicos de
 antigamente.&lt;/p&gt;
 &lt;p&gt;Você consegue fazer as contas de quantas horas já gastou com Zelda? Donkey Kong?
@@ -821,4 +1376,200 @@ diretamente, eu comprei um case para o Raspberry. Como ele ainda não chegou
 &lt;p&gt;E é isso!&lt;/p&gt;
 &lt;p&gt;Espero que gostem e compartilhem fotos do videogame de vocês, caso o tenham
 feito. O meu já está compartilhado!&lt;/p&gt;
-&lt;p&gt;Vlw! ;)&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;Vlw! ;)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Build a videogame with Raspberry Pi]]></title><description><![CDATA[Building a console that emulates many other consoles is very easy. The secret is using a Raspberry Pi and following this post!]]></description><link>https://ggdaltoso.dev/en/build-a-videogame-with-raspberry-pi</link><guid isPermaLink="false">https://ggdaltoso.dev/en/build-a-videogame-with-raspberry-pi</guid><pubDate>Tue, 30 Aug 2016 01:36:36 GMT</pubDate><content:encoded>&lt;p&gt;Nobody can deny that games keep getting &lt;del&gt;better&lt;/del&gt; prettier every day. But we
+also cannot forget the great classics from the past.&lt;/p&gt;
+&lt;p&gt;Can you even count how many hours you have already spent with Zelda? Donkey
+Kong? Street Fighter? Crash? Metroid? If we include the Mario saga, there is no
+way to count...&lt;/p&gt;
+&lt;p&gt;What motivated me to do this project was my contact with Raspberry Pi and how
+easy it was to configure it and turn it into a complete emulation center, with
+many consoles available.&lt;/p&gt;
+&lt;p&gt;I am writing this post because many people asked me to share more details about
+how I built my &quot;videogame&quot;. Haha&lt;/p&gt;
+&lt;p&gt;So, let us go!&lt;/p&gt;
+&lt;h3&gt;Result&lt;/h3&gt;
+&lt;p&gt;What we will be able to do, if we follow this post step by step, is this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/q5UYxuzKEec&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
+&lt;h3&gt;First steps&lt;/h3&gt;
+&lt;p&gt;What do we need?&lt;/p&gt;
+&lt;p&gt;Unlike conventional consoles, our videogame will be assembled piece by piece,
+until it becomes a single device. There are complete kits online, but I
+preferred to buy each item separately. The list is not big and not expensive:&lt;/p&gt;
+&lt;p&gt;
+  &lt;table style=&quot;width: 80%; margin: auto&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr &gt;&lt;th&gt;Component&lt;/th&gt; &lt;th style=&quot;text-align: right&quot;&gt;Price&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tfoot&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Total&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot; &gt;&lt;strong&gt;456.98&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Raspberry Pi 3&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt; 279.79 &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;5V 2.2A power supply&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt; 34.80 &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;64 GB micro SD card&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt; 92.39 &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;DualShock controller (2x)&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt; 50.00 &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;HDMI cable&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt; 0.00 &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;USB keyboard&lt;/td&gt;
+        &lt;td style=&quot;text-align: right&quot;&gt; 0.00 &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/p&gt;
+&lt;p&gt;Notice that I chose Raspberry Pi 3 because it was the newest one with better
+specs, but nothing stops you from doing this with an earlier version.&lt;/p&gt;
+&lt;p&gt;We are going to use &lt;a href=&quot;https://www.recalbox.com/&quot;&gt;Recalbox&lt;/a&gt; as our platform. It
+is open source and easy to configure. For adventurous people there are other
+options, like &lt;a href=&quot;https://retropie.org.uk/&quot;&gt;RetroPie&lt;/a&gt; and
+&lt;a href=&quot;http://www.lakka.tv/&quot;&gt;Lakka&lt;/a&gt;, for example.&lt;/p&gt;
+&lt;h3&gt;Preparing the ground&lt;/h3&gt;
+&lt;p&gt;With all parts in hand, the next step is formatting the micro SD card to FAT32.
+Recalbox recommends using
+&lt;a href=&quot;https://www.sdcard.org/downloads/formatter_4/&quot;&gt;SD Formatter&lt;/a&gt; on Windows or
+macOS, and &lt;a href=&quot;http://gparted.org/&quot; title=&quot;sudo apt-get install gparted&quot;&gt;gparted&lt;/a&gt; on
+Linux.&lt;/p&gt;
+&lt;p&gt;While you do that, start downloading Recalbox. Choose the latest version in its
+&lt;a href=&quot;https://github.com/recalbox/recalbox-os/releases&quot;&gt;GitHub releases page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After the download, you should have a file called &lt;em&gt;recalboxOS.zip&lt;/em&gt; and a
+formatted card. Extract the files and copy them to the card.&lt;/p&gt;
+&lt;h3&gt;1, 2, 3 testing...&lt;/h3&gt;
+&lt;p&gt;Now that you have your videogame &quot;hard drive&quot;, let us connect all parts to your
+Raspberry.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Insert the micro SD&lt;/li&gt;
+&lt;li&gt;Connect the HDMI cable to it and then to a monitor/TV&lt;/li&gt;
+&lt;li&gt;Plug in a keyboard&lt;/li&gt;
+&lt;li&gt;Connect the power supply&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For a few moments, it will run some setup and then reboot.&lt;/p&gt;
+&lt;p&gt;And... voila!&lt;/p&gt;
+&lt;p&gt;Simple, right?&lt;/p&gt;
+&lt;h3&gt;Configuring controllers&lt;/h3&gt;
+&lt;p&gt;You can configure many &lt;a href=&quot;https://github.com/recalbox/recalbox-os/wiki/Compatibility-(EN)&quot;&gt;controller types for Recalbox&lt;/a&gt;. I chose the classic DualShock.&lt;/p&gt;
+&lt;p&gt;Use the keyboard to access settings. Press Enter to open the menu, A to select,
+and S to go back.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/crie-um-videogame-com-raspberry-pi/menu.jpg&quot; alt=&quot;Recalbox main menu&quot; title=&quot;Menu.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;This step is simple: press the controller button requested on screen, as in the
+image below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/crie-um-videogame-com-raspberry-pi/controller.png&quot; alt=&quot;PlayStation 3 controller&quot;&gt;&lt;/p&gt;
+&lt;p&gt;An important detail is the last button requested: &lt;em&gt;HOTKEY&lt;/em&gt;. With it you can
+access many important platform commands.&lt;/p&gt;
+&lt;p&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr &gt;&lt;th&gt;Command&lt;/th&gt; &lt;th&gt;Function&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + Y&lt;/td&gt;
+        &lt;td&gt; Load state &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + X&lt;/td&gt;
+        &lt;td&gt; Save state &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + &amp;uarr;&lt;/td&gt;
+        &lt;td&gt; Select save slot -1 &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + &amp;darr;&lt;/td&gt;
+        &lt;td&gt; Select save slot +1 &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + Start&lt;/td&gt;
+        &lt;td&gt; Return to game list &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + A&lt;/td&gt;
+        &lt;td&gt; Reset game &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + B&lt;/td&gt;
+        &lt;td&gt; Open emulation menu &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + L1&lt;/td&gt;
+        &lt;td&gt; &lt;i&gt;Screenshot&lt;/i&gt; &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + &amp;rarr;&lt;/td&gt;
+        &lt;td&gt; Increase speed &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + &amp;larr;&lt;/td&gt;
+        &lt;td&gt; Decrease speed &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + R2&lt;/td&gt;
+        &lt;td&gt; Change image filter (next) &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Hotkey + L2&lt;/td&gt;
+        &lt;td&gt; Change image filter (previous) &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/p&gt;
+&lt;h3&gt;Connecting to the network&lt;/h3&gt;
+&lt;p&gt;Still with the keyboard connected, go to settings and configure internet access
+(Raspberry Pi 3 has built-in Wi-Fi and Bluetooth).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/crie-um-videogame-com-raspberry-pi/networkHD.jpg&quot; alt=&quot;Network settings screen&quot; title=&quot;Network.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;If you have an ethernet cable, plug it in and skip this step. If you prefer
+Wi-Fi, as I did, fill in the required fields:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;WIFI SSID: your network name&lt;/li&gt;
+&lt;li&gt;WIFI KEY: your password&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Wait until connection is established and note the &lt;em&gt;IP ADDRESS&lt;/em&gt;. This step is
+very important.&lt;/p&gt;
+&lt;h3&gt;Adding games&lt;/h3&gt;
+&lt;p&gt;You can do this in a few ways, as long as your computer is on the same network.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Accessing the SD card directly&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Through Run dialog or Explorer, type &lt;code&gt;\\recalbox&lt;/code&gt; and press Enter.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/crie-um-videogame-com-raspberry-pi/executar.png&quot; alt=&quot;Recalbox shared directory&quot; title=&quot;\recalbox.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Navigate to &lt;code&gt;\\recalbox\share\roms&lt;/code&gt; and you will see all folders. Then just
+copy and paste each ROM into its corresponding folder.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Via browser&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Remember the &lt;em&gt;IP ADDRESS&lt;/em&gt;? Type it in your preferred browser. You can access
+many settings from that interface: monitor temperature, add/remove BIOS files,
+read docs, and also upload/remove ROMs.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/crie-um-videogame-com-raspberry-pi/interface.png&quot; alt=&quot;Recalbox web interface&quot; title=&quot;browser.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fetching game images&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;After adding games, you can fetch cover images and metadata. Go back to the
+main menu and choose &lt;em&gt;SCRAPER&lt;/em&gt;. Follow the instructions and then check how your
+games look (this step may take a while).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/crie-um-videogame-com-raspberry-pi/scrapper.png&quot; alt=&quot;Game image and information&quot; title=&quot;Scraper.png&quot;&gt;&lt;/p&gt;
+&lt;h3&gt;Case&lt;/h3&gt;
+&lt;p&gt;Your videogame is almost ready, but instead of leaving a bare board connected
+directly to the TV, I bought a case for Raspberry. Since it had not arrived yet
+(I bought it from China), I made a temporary cardboard one using a template I
+&lt;a href=&quot;http://sixes.net/rdcHQ/mosh/raspberry.pi.b.plus.pdf&quot;&gt;found online&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/crie-um-videogame-com-raspberry-pi/case.png&quot; alt=&quot;Case for your videogame&quot; title=&quot;Case.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;It is not the prettiest, but as I said, it is temporary until the real case
+arrives.&lt;/p&gt;
+&lt;h3&gt;Next steps&lt;/h3&gt;
+&lt;p&gt;When the case arrives, I plan to add a power button, reset (maybe), and an LED
+to indicate whether it is on.&lt;/p&gt;
+&lt;p&gt;And that is it!&lt;/p&gt;
+&lt;p&gt;I hope you enjoy it and share photos of your own videogame if you build one.
+Mine is already done!&lt;/p&gt;
+&lt;p&gt;Thanks! ;)&lt;/p&gt;</content:encoded></item></channel></rss>
