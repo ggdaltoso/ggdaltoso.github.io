@@ -14,9 +14,6 @@ const pathsByLocale = i18n.paths || {};
 const getLocalePaths = (locale) =>
   pathsByLocale[locale] ||
   pathsByLocale[defaultLocale] || {
-    tags: 'tags',
-    category: 'category',
-    categories: 'categories',
     page: 'page',
   };
 
