@@ -1,16 +1,9 @@
 "use strict";
 
 const path = require("path");
-const _ = require("lodash");
-const createCategoriesPages = require("./pagination/create-categories-pages.js");
-const createTagsPages = require("./pagination/create-tags-pages.js");
+const _ = require('lodash');
 const createPostsPages = require("./pagination/create-posts-pages.js");
-const {
-  locales,
-  defaultLocale,
-  withLocalePath,
-  getLocalePaths,
-} = require('./i18n');
+const { defaultLocale } = require('./i18n');
 
 const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -20,22 +13,6 @@ const createPages = async ({ graphql, actions }) => {
     path: '/404',
     component: path.resolve('./src/templates/not-found-template.js'),
     context: { locale: defaultLocale },
-  });
-
-  locales.forEach((locale) => {
-    const localePaths = getLocalePaths(locale);
-
-    createPage({
-      path: withLocalePath(locale, `/${localePaths.tags}`),
-      component: path.resolve('./src/templates/tags-list-template.js'),
-      context: { locale },
-    });
-
-    createPage({
-      path: withLocalePath(locale, `/${localePaths.categories}`),
-      component: path.resolve('./src/templates/categories-list-template.js'),
-      context: { locale },
-    });
   });
 
   // Posts and pages from markdown
@@ -89,8 +66,6 @@ const createPages = async ({ graphql, actions }) => {
   });
 
   // Feeds
-  await createTagsPages(graphql, actions);
-  await createCategoriesPages(graphql, actions);
   await createPostsPages(graphql, actions);
 };
 
