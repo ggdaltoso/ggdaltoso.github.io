@@ -46,9 +46,6 @@ const getLocalePaths = (siteMetadata, locale) => {
   return (
     paths[locale] ||
     paths[defaultLocale] || {
-      tags: 'tags',
-      category: 'category',
-      categories: 'categories',
       page: 'page',
     }
   );
