@@ -1,26 +1,25 @@
 import React from 'react';
-import { Link, useI18next } from 'gatsby-plugin-react-i18next';
+import { Link } from 'gatsby-plugin-react-i18next';
+import { useLanguageSwitcher } from '../../../hooks';
 import * as styles from './LanguageSwitcher.module.scss';
 
 const LanguageSwitcher = () => {
-  const { languages, language, originalPath } = useI18next();
+  const { links } = useLanguageSwitcher();
 
   return (
     <nav aria-label="Language selector">
       <ul className={styles['languageSwitcher__list']}>
-        {languages.map((lng) => {
-          const isActive = lng === language;
-
+        {links.map(({ language, isActive, to }) => {
           return (
-            <li className={styles['languageSwitcher__listItem']} key={lng}>
+            <li className={styles['languageSwitcher__listItem']} key={language}>
               <Link
-                to={originalPath}
-                language={lng}
+                to={to}
+                language={language}
                 className={`${styles['languageSwitcher__listItemLink']} ${
                   isActive ? styles['languageSwitcher__listItemLinkActive'] : ''
                 }`}
               >
-                {lng.toUpperCase()}
+                {language.toUpperCase()}
               </Link>
             </li>
           );
