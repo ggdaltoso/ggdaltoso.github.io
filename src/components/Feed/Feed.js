@@ -20,15 +20,6 @@ const Feed = ({ edges }) => {
             >
               {moment(edge.node.frontmatter.date).format('MMMM YYYY')}
             </time>
-            <span className={styles['feed__itemMetaDivider']} />
-            <span>
-              <Link
-                to={edge.node.fields.categorySlug}
-                className={styles['feed__itemMetaCategoryLink']}
-              >
-                {edge.node.frontmatter.category}
-              </Link>
-            </span>
           </div>
           <h2 className={styles['feed__itemTitle']}>
             <Link
