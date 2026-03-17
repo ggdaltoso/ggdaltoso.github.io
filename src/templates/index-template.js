@@ -2,15 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
+import SEO from '../components/SEO';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
-import { useLocalizedSiteMetadata } from '../hooks';
-import { buildDocumentTitle } from '../utils';
+import siteConfig from '../../config.js';
+import { buildDocumentTitle, getLocalizedValue } from '../utils';
 
 const IndexTemplate = ({ data, pageContext }) => {
-  const { localizedSubtitle } = useLocalizedSiteMetadata();
-
   const {
     currentPage,
     hasNextPage,
@@ -25,7 +24,7 @@ const IndexTemplate = ({ data, pageContext }) => {
   );
 
   return (
-    <Layout title={pageTitle} description={localizedSubtitle}>
+    <Layout>
       <Sidebar isIndex />
       <Page>
         <Feed edges={edges} />
@@ -37,6 +36,25 @@ const IndexTemplate = ({ data, pageContext }) => {
         />
       </Page>
     </Layout>
+  );
+};
+
+export const Head = ({ pageContext }) => {
+  const defaultLocale = siteConfig.i18n?.defaultLocale || 'pt';
+  const locale = pageContext.locale || defaultLocale;
+  const pageTitle =
+    pageContext.currentPage > 0
+      ? locale === 'en'
+        ? `Posts - Page ${pageContext.currentPage}`
+        : `Posts - Pagina ${pageContext.currentPage}`
+      : '';
+
+  return (
+    <SEO
+      locale={locale}
+      title={buildDocumentTitle(pageTitle)}
+      description={getLocalizedValue(siteConfig.subtitle, locale, defaultLocale)}
+    />
   );
 };
 
