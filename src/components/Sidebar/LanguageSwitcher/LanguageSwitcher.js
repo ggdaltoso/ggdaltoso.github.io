@@ -6,7 +6,7 @@ const LanguageSwitcher = () => {
   const { languages, language, originalPath } = useI18next();
 
   return (
-    <nav className={styles['languageSwitcher']} aria-label="Language selector">
+    <nav aria-label="Language selector">
       <ul className={styles['languageSwitcher__list']}>
         {languages.map((lng) => {
           const isActive = lng === language;
