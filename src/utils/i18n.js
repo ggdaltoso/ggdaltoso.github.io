@@ -54,17 +54,20 @@ const getLocalePaths = (siteMetadata, locale) => {
   );
 };
 
-const normalizePathname = (pathname = '/') => {
-  if (!pathname.startsWith('/')) {
-    return `/${pathname}`;
+const normalizePath = (pathName = '/') => {
+  if (!pathName.startsWith('/')) {
+    return `/${pathName}`;
   }
 
-  return pathname;
+  if (pathName !== '/' && pathName.endsWith('/')) {
+    return pathName.replace(/\/+$/, '');
+  }
+
+  return pathName;
 };
 
 const withLocalePath = (pathName, locale, defaultLocale) => {
-  const normalizedPath =
-    pathName === '/' ? '/' : normalizePathname(pathName).replace(/\/+$/, '');
+  const normalizedPath = normalizePath(pathName);
   const localePrefix = locale !== defaultLocale ? `/${locale}` : '';
 
   if (normalizedPath === '/') {
@@ -74,9 +77,24 @@ const withLocalePath = (pathName, locale, defaultLocale) => {
   return `${localePrefix}${normalizedPath}`;
 };
 
+const buildLocalizedPageLookup = (pagesByKey = {}, defaultLocale = 'pt') => {
+  return Object.values(pagesByKey).reduce((accumulator, localizedByLocale) => {
+    Object.entries(localizedByLocale || {}).forEach(([locale, basePath]) => {
+      const localizedPath = normalizePath(
+        withLocalePath(basePath, locale, defaultLocale),
+      );
+      accumulator[localizedPath] = localizedByLocale;
+    });
+
+    return accumulator;
+  }, {});
+};
+
 export {
+  buildLocalizedPageLookup,
   getLocalizedMenu,
   getLocalizedValue,
   getLocalePaths,
+  normalizePath,
   withLocalePath,
 };
