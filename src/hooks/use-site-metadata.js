@@ -40,15 +40,9 @@ const useSiteMetadata = () => {
             }
             paths {
               pt {
-                tags
-                category
-                categories
                 page
               }
               en {
-                tags
-                category
-                categories
                 page
               }
             }
