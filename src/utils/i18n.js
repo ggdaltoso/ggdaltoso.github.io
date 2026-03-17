@@ -1,17 +1,6 @@
-const getI18nConfig = (siteMetadata = {}) => {
-  const i18n = siteMetadata.i18n || {};
-  const defaultLocale = i18n.defaultLocale || 'pt';
-  const locales =
-    Array.isArray(i18n.locales) && i18n.locales.length
-      ? i18n.locales
-      : [defaultLocale];
+import sharedI18n from '../../i18n-shared';
 
-  return {
-    defaultLocale,
-    locales,
-    paths: i18n.paths || {},
-  };
-};
+const { getLocalePaths, normalizePath, withLocalePath } = sharedI18n;
 
 const getLocalizedMenu = (menuByLocale = {}, locale, defaultLocale) =>
   menuByLocale[locale] || menuByLocale[defaultLocale] || [];
@@ -39,39 +28,6 @@ const getLocalizedValue = (value, locale, defaultLocale) => {
 
   const fallbackKey = Object.keys(value)[0];
   return fallbackKey ? value[fallbackKey] : '';
-};
-
-const getLocalePaths = (siteMetadata, locale) => {
-  const { paths, defaultLocale } = getI18nConfig(siteMetadata);
-  return (
-    paths[locale] ||
-    paths[defaultLocale] || {
-      page: 'page',
-    }
-  );
-};
-
-const normalizePath = (pathName = '/') => {
-  if (!pathName.startsWith('/')) {
-    return `/${pathName}`;
-  }
-
-  if (pathName !== '/' && pathName.endsWith('/')) {
-    return pathName.replace(/\/+$/, '');
-  }
-
-  return pathName;
-};
-
-const withLocalePath = (pathName, locale, defaultLocale) => {
-  const normalizedPath = normalizePath(pathName);
-  const localePrefix = locale !== defaultLocale ? `/${locale}` : '';
-
-  if (normalizedPath === '/') {
-    return localePrefix ? `${localePrefix}/` : '/';
-  }
-
-  return `${localePrefix}${normalizedPath}`;
 };
 
 const buildLocalizedPageLookup = (pagesByKey = {}, defaultLocale = 'pt') => {

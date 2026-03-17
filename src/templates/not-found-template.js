@@ -3,14 +3,12 @@ import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
 import Page from '../components/Page';
-import { useSiteMetadata } from '../hooks';
-import { getLocalizedValue } from '../utils';
+import { useLocalizedSiteMetadata } from '../hooks';
 
 const NotFoundTemplate = () => {
-  const { title, subtitle } = useSiteMetadata();
-  const { language, defaultLanguage } = useI18next();
+  const { title, localizedSubtitle } = useLocalizedSiteMetadata();
+  const { language } = useI18next();
   const { t } = useTranslation();
-  const localizedSubtitle = getLocalizedValue(subtitle, language, defaultLanguage);
 
   const notFoundTitle = t('Not found');
   const notFoundDescription =

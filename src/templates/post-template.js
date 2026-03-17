@@ -1,20 +1,16 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { useI18next } from 'gatsby-plugin-react-i18next';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
-import { useSiteMetadata } from '../hooks';
-import { getLocalizedValue } from '../utils';
+import { useLocalizedSiteMetadata } from '../hooks';
 
 const PostTemplate = ({ data }) => {
-  const { title: siteTitle, subtitle } = useSiteMetadata();
-  const { language, defaultLanguage } = useI18next();
-  const siteSubtitle = getLocalizedValue(subtitle, language, defaultLanguage);
+  const { title: siteTitle, localizedSubtitle } = useLocalizedSiteMetadata();
   const { html: postBody } = data.markdownRemark;
   const { title: postTitle, description: postDescription } =
     data.markdownRemark.frontmatter;
   const metaDescription =
-    postDescription !== null ? postDescription : siteSubtitle;
+    postDescription !== null ? postDescription : localizedSubtitle;
 
   return (
     <Layout title={`${siteTitle} - ${postTitle}`} description={metaDescription}>
