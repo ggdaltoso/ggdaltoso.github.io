@@ -4,29 +4,37 @@ import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
 import Content from '../components/Post/Content';
-import { useLocalizedSiteMetadata } from '../hooks';
-import { buildDocumentTitle } from '../utils';
+import SEO from '../components/SEO';
+import siteConfig from '../../config.js';
+import { buildDocumentTitle, getLocalizedValue } from '../utils';
 
 const PageTemplate = ({ data }) => {
-  const { localizedSubtitle } = useLocalizedSiteMetadata();
   const { html: pageBody } = data.markdownRemark;
-  const {
-    title: pageTitle,
-    description: pageDescription,
-  } = data.markdownRemark.frontmatter;
-  const metaDescription =
-    pageDescription !== null ? pageDescription : localizedSubtitle;
+  const { title: pageTitle } = data.markdownRemark.frontmatter;
 
   return (
-    <Layout
-      title={buildDocumentTitle(pageTitle)}
-      description={metaDescription}
-    >
+    <Layout>
       <Sidebar />
       <Page>
         <Content title={pageTitle} body={pageBody} />
       </Page>
     </Layout>
+  );
+};
+
+export const Head = ({ data, pageContext }) => {
+  const defaultLocale = siteConfig.i18n?.defaultLocale || 'pt';
+  const locale = pageContext.locale || defaultLocale;
+  const { title, description } = data.markdownRemark.frontmatter;
+
+  return (
+    <SEO
+      locale={locale}
+      title={buildDocumentTitle(title)}
+      description={
+        description || getLocalizedValue(siteConfig.subtitle, locale, defaultLocale)
+      }
+    />
   );
 };
 
