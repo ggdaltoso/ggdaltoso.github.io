@@ -3,9 +3,10 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
 import { useLocalizedSiteMetadata } from '../hooks';
+import { buildDocumentTitle } from '../utils';
 
 const PostTemplate = ({ data }) => {
-  const { title: siteTitle, localizedSubtitle } = useLocalizedSiteMetadata();
+  const { localizedSubtitle } = useLocalizedSiteMetadata();
   const { html: postBody } = data.markdownRemark;
   const { title: postTitle, description: postDescription } =
     data.markdownRemark.frontmatter;
@@ -13,7 +14,10 @@ const PostTemplate = ({ data }) => {
     postDescription !== null ? postDescription : localizedSubtitle;
 
   return (
-    <Layout title={`${siteTitle} - ${postTitle}`} description={metaDescription}>
+    <Layout
+      title={buildDocumentTitle(postTitle)}
+      description={metaDescription}
+    >
       <Post post={data.markdownRemark} html={postBody} />
     </Layout>
   );

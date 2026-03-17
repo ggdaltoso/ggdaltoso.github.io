@@ -5,9 +5,10 @@ import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
 import Content from '../components/Post/Content';
 import { useLocalizedSiteMetadata } from '../hooks';
+import { buildDocumentTitle } from '../utils';
 
 const PageTemplate = ({ data }) => {
-  const { title: siteTitle, localizedSubtitle } = useLocalizedSiteMetadata();
+  const { localizedSubtitle } = useLocalizedSiteMetadata();
   const { html: pageBody } = data.markdownRemark;
   const {
     title: pageTitle,
@@ -17,7 +18,10 @@ const PageTemplate = ({ data }) => {
     pageDescription !== null ? pageDescription : localizedSubtitle;
 
   return (
-    <Layout title={`${siteTitle} - ${pageTitle}`} description={metaDescription}>
+    <Layout
+      title={buildDocumentTitle(pageTitle)}
+      description={metaDescription}
+    >
       <Sidebar />
       <Page>
         <Content title={pageTitle} body={pageBody} />

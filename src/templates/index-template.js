@@ -6,9 +6,10 @@ import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import { useLocalizedSiteMetadata } from '../hooks';
+import { buildDocumentTitle } from '../utils';
 
 const IndexTemplate = ({ data, pageContext }) => {
-  const { title: siteTitle, localizedSubtitle } = useLocalizedSiteMetadata();
+  const { localizedSubtitle } = useLocalizedSiteMetadata();
 
   const {
     currentPage,
@@ -19,8 +20,9 @@ const IndexTemplate = ({ data, pageContext }) => {
   } = pageContext;
 
   const { edges } = data.allMarkdownRemark;
-  const pageTitle =
-    currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
+  const pageTitle = buildDocumentTitle(
+    currentPage > 0 ? `Posts - Page ${currentPage}` : '',
+  );
 
   return (
     <Layout title={pageTitle} description={localizedSubtitle}>

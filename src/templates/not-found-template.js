@@ -4,9 +4,10 @@ import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
 import Page from '../components/Page';
 import { useLocalizedSiteMetadata } from '../hooks';
+import { buildDocumentTitle } from '../utils';
 
 const NotFoundTemplate = () => {
-  const { title, localizedSubtitle } = useLocalizedSiteMetadata();
+  const { localizedSubtitle } = useLocalizedSiteMetadata();
   const { language } = useI18next();
   const { t } = useTranslation();
 
@@ -17,7 +18,10 @@ const NotFoundTemplate = () => {
       : 'A rota que voce tentou acessar nao existe.';
 
   return (
-    <Layout title={`${notFoundTitle} - ${title}`} description={localizedSubtitle}>
+    <Layout
+      title={buildDocumentTitle(notFoundTitle)}
+      description={localizedSubtitle}
+    >
       <Sidebar />
       <Page title={notFoundTitle}>
         <p>{notFoundDescription}</p>
