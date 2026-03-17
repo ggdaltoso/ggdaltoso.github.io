@@ -1,13 +1,12 @@
 import React from 'react';
 import { withPrefix } from 'gatsby';
-import { Link, useI18next } from 'gatsby-plugin-react-i18next';
+import { Link } from 'gatsby-plugin-react-i18next';
 import * as styles from './Author.module.scss';
 import { Avatar } from '@react95/core';
-import { getLocalizedValue } from '../../../utils';
+import { useLocalizedValue } from '../../../hooks';
 
 const Author = ({ author, isIndex }) => {
-  const { language, defaultLanguage } = useI18next();
-  const authorBio = getLocalizedValue(author.bio, language, defaultLanguage);
+  const authorBio = useLocalizedValue(author.bio);
 
   return (
     <div>
