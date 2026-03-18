@@ -1,11 +1,12 @@
 import React from 'react';
-import moment from 'moment';
 import { Link } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { formatLocalizedDate } from '../../utils';
 import * as styles from './Feed.module.scss';
 
 const Feed = ({ edges }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
 
   return (
     <div>
@@ -14,11 +15,17 @@ const Feed = ({ edges }) => {
           <div>
             <time
               className={styles['feed__itemMetaTime']}
-              dateTime={moment(edge.node.frontmatter.date).format(
-                'MMMM D, YYYY',
+              dateTime={formatLocalizedDate(
+                edge.node.frontmatter.date,
+                'MMMM d, yyyy',
+                language,
               )}
             >
-              {moment(edge.node.frontmatter.date).format('MMMM YYYY')}
+              {formatLocalizedDate(
+                edge.node.frontmatter.date,
+                'MMMM yyyy',
+                language,
+              )}
             </time>
           </div>
           <h2 className={styles['feed__itemTitle']}>
