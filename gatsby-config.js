@@ -187,7 +187,14 @@ module.exports = {
         icon: 'static/photo.jpg',
       },
     },
-    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        workboxConfig: {
+          maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+        },
+      },
+    },
     'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-plugin-sass',
