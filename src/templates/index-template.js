@@ -1,13 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
-import SEO from '../components/SEO';
-import Feed from '../components/Feed';
-import Page from '../components/Page';
-import Pagination from '../components/Pagination';
-import siteConfig from '../../config.js';
-import { buildDocumentTitle, getLocalizedValue } from '../utils';
+import Layout from '@components/Layout';
+import Sidebar from '@components/Sidebar';
+import SEO from '@components/SEO';
+import Feed from '@components/Feed';
+import Page from '@components/Page';
+import Pagination from '@components/Pagination';
+import siteConfig from '@config';
+import { buildDocumentTitle, getLocalizedValue } from '@utils';
 
 const IndexTemplate = ({ data, pageContext }) => {
   const {

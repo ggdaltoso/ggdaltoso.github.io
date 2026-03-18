@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Post from '../components/Post';
-import SEO from '../components/SEO';
-import siteConfig from '../../config.js';
-import { buildDocumentTitle, getLocalizedValue } from '../utils';
+import Layout from '@components/Layout';
+import Post from '@components/Post';
+import SEO from '@components/SEO';
+import siteConfig from '@config';
+import { buildDocumentTitle, getLocalizedValue } from '@utils';
 
 const PostTemplate = ({ data }) => {
   const { html: postBody } = data.markdownRemark;

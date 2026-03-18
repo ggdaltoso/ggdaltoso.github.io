@@ -1,12 +1,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
-import Page from '../components/Page';
-import Content from '../components/Post/Content';
-import SEO from '../components/SEO';
-import siteConfig from '../../config.js';
-import { buildDocumentTitle, getLocalizedValue } from '../utils';
+import Layout from '@components/Layout';
+import Sidebar from '@components/Sidebar';
+import Page from '@components/Page';
+import Content from '@components/Post/Content';
+import SEO from '@components/SEO';
+import siteConfig from '@config';
+import { buildDocumentTitle, getLocalizedValue } from '@utils';
 
 const PageTemplate = ({ data }) => {
   const { html: pageBody } = data.markdownRemark;
