@@ -1,7 +1,7 @@
 import React from 'react';
-import { getContactHref } from '../../../utils';
+import { getContactHref } from '@utils';
 import * as styles from './Author.module.scss';
-import { useLocalizedSiteMetadata, useLocalizedValue } from '../../../hooks';
+import { useLocalizedSiteMetadata, useLocalizedValue } from '@hooks';
 
 const Author = () => {
   const { author } = useLocalizedSiteMetadata();

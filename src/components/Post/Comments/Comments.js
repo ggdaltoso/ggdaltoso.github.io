@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Giscus } from '../../../../plugins/gatsby-plugin-giscus';
+import { Giscus } from '@plugins/gatsby-plugin-giscus';
 
 const Comments = () => {
   const { site } = useStaticQuery(

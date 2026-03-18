@@ -36,6 +36,7 @@
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "gatsby": "^5.15.0",
+    "gatsby-alias-imports": "^1.0.6",
     "gatsby-link": "^5.15.0",
     "gatsby-plugin-catch-links": "^5.15.0",
     "gatsby-plugin-feed": "^5.15.0",

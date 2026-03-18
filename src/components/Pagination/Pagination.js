@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { PAGINATION } from '../../constants';
+import { PAGINATION } from '@constants';
 import * as styles from './Pagination.module.scss';
 
 const cx = classNames.bind(styles);

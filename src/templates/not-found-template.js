@@ -1,11 +1,11 @@
 import React from 'react';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-import Sidebar from '../components/Sidebar';
-import Layout from '../components/Layout';
-import Page from '../components/Page';
-import SEO from '../components/SEO';
-import siteConfig from '../../config.js';
-import { buildDocumentTitle } from '../utils';
+import Sidebar from '@components/Sidebar';
+import Layout from '@components/Layout';
+import Page from '@components/Page';
+import SEO from '@components/SEO';
+import siteConfig from '@config';
+import { buildDocumentTitle } from '@utils';
 
 const NotFoundTemplate = () => {
   const { language } = useI18next();

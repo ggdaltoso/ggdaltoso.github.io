@@ -44,6 +44,19 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-alias-imports',
+      options: {
+        aliases: {
+          '@components': 'src/components',
+          '@constants': 'src/constants',
+          '@hooks': 'src/hooks',
+          '@utils': 'src/utils',
+          '@config': 'config.js',
+          '@plugins': 'plugins',
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-feed',
       options: {
         query: `

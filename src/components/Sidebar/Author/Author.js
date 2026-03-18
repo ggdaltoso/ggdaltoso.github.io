@@ -3,7 +3,7 @@ import { withPrefix } from 'gatsby';
 import { Link } from 'gatsby-plugin-react-i18next';
 import * as styles from './Author.module.scss';
 import { Avatar } from '@react95/core';
-import { useLocalizedValue } from '../../../hooks';
+import { useLocalizedValue } from '@hooks';
 
 const Author = ({ author, isIndex }) => {
   const authorBio = useLocalizedValue(author.bio);
