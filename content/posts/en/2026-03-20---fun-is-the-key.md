@@ -4,7 +4,7 @@ date: '2026-03-20T01:36:36.000Z'
 template: 'post'
 draft: false
 slug: '/fun-is-the-key'
-description: 'When the process is fun, learning stops feeling heavy and starts becoming something you want to return to.'
+description: '“Fun is the key” sums up a pattern I’ve experienced in practice: when the process is fun, I go deeper and grow in a more sustainable way. In the end, fun isn’t a distraction, it’s fuel.'
 ---
 
 A few years ago, [I was on a live coding show with Jason](https://codetv.dev/series/learn-with-jason/s6/build-a-custom-code-editor-using-the-webcontainer-api). The idea was to build a small code editor while talking about WebContainers, the kind of technology that makes you stop for a second and think, "this is actually really cool."

@@ -4,7 +4,7 @@ date: '2026-03-20T01:36:36.000Z'
 template: 'post'
 draft: false
 slug: '/fun-is-the-key'
-description: 'Quando o processo é divertido, aprender deixa de ser peso e ganha ritmo.'
+description: '“Fun is the key” resume um padrão que vivi na prática: quando o processo é divertido, eu vou mais fundo e cresço de forma mais sustentável. No fim, diversão não é distração, é combustível.'
 ---
 
 Há alguns anos, [eu participei de uma live coding com o Jason](https://codetv.dev/series/learn-with-jason/s6/build-a-custom-code-editor-using-the-webcontainer-api). A ideia era construir um pequeno editor de código enquanto falávamos sobre WebContainers, aquele tipo de tecnologia que faz você parar por um segundo e pensar: "isso aqui é muito legal."
