@@ -151,6 +151,14 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-readingtime',
+      options: {
+        types: {
+          MarkdownRemark: (source) => source.rawMarkdownBody,
+        },
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
