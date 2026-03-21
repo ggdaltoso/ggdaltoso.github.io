@@ -30,8 +30,17 @@
     }
 
     &-meta {
+      margin-bottom: calc(var(--typographic-leading) * 0.25);
+
       &-time {
         font-size: var(--typographic-small-font-size);
+        color: var(--color-secondary);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      &-reading-time {
+        font-size: var(--typographic-tiny-font-size);
         color: var(--color-secondary);
         font-weight: 600;
         text-transform: uppercase;

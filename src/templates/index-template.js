@@ -80,6 +80,9 @@ export const query = graphql`
     ) {
       edges {
         node {
+          readingTime {
+            minutes
+          }
           fields {
             slug
           }

@@ -15,6 +15,17 @@
     margin-bottom: 0;
   }
 
+  &__reading-time {
+    max-width: var(--layout-post-width);
+    margin: calc(var(--typographic-leading) * 0.25) auto
+      calc(var(--typographic-leading) * 1.25);
+    font-size: var(--typographic-small-font-size);
+    color: var(--color-gray);
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
   &__body {
     & figure,
     & .figure {
@@ -67,6 +78,11 @@
       font-size: calc(var(--typographic-base-font-size) * 3);
       line-height: calc(2.25 * var(--typographic-leading));
       margin-top: calc(var(--typographic-leading) * 2.25);
+      margin-bottom: 0;
+    }
+
+    &__reading-time {
+      margin-top: calc(var(--typographic-leading) * 0.25);
       margin-bottom: calc(var(--typographic-leading) * 1.5);
     }
 

@@ -1,6 +1,8 @@
 {
   "Read": "Ler",
   "Published": "Publicado",
+  "min read_one": "{{count}} min de leitura",
+  "min read_other": "{{count}} min de leitura",
   "All posts": "Todos os artigos",
   "Not found": "PAGINA NAO ENCONTRADA",
   "< PREV": "< ANTERIOR",
