@@ -4,75 +4,150 @@ date: '2026-03-20T01:36:36.000Z'
 template: 'post'
 draft: false
 slug: '/fun-is-the-key'
-description: 'Quando o processo é divertido, aprender deixa de ser peso e vira constância.'
+description: 'Quando o processo é divertido, aprender deixa de ser peso e ganha ritmo.'
 ---
 
-# Fun is the key
+Há alguns anos, [eu participei de uma live coding com o Jason](https://codetv.dev/series/learn-with-jason/s6/build-a-custom-code-editor-using-the-webcontainer-api). A ideia era construir um pequeno editor de código enquanto falávamos sobre WebContainers, aquele tipo de tecnologia que faz você parar por um segundo e pensar: "isso aqui é muito legal."
 
-A few years ago, [I was on a live coding show with Jason](https://codetv.dev/series/learn-with-jason/s6/build-a-custom-code-editor-using-the-webcontainer-api), building a small code editor while exploring WebContainers, a technology from StackBlitz, a company I worked at the time. The episode was about running Node.js directly in the browser and showing what that unlocks. But as we were building and talking, the conversation drifted into learning, side projects, and why some things feel effortless while others feel like a struggle.
+Em algum momento, a conversa saiu da tecnologia em si e foi para outro lugar: aprendizado, projetos pessoais e por que algumas coisas fazem você querer continuar enquanto outras já parecem pesadas quase de imediato.
 
-At some point, trying to put that feeling into words, I said something without really thinking about it:
+No meio disso tudo, eu falei uma coisa sem pensar muito:
 
 > **Fun is the key.**
 
-It wasn’t planned. It wasn’t something I had prepared.
+Não foi planejado. Não era uma frase que eu tinha preparado. Simplesmente saiu.
 
-It just came out naturally.
+Mas, olhando para trás, essa frase capturava algo que eu já vinha praticando há muito tempo, mesmo antes de conseguir colocar isso em palavras.
 
-But looking back, that sentence captured something I had already been practicing for a long time, even if I hadn’t put it into words yet.
+## A percepção
 
-## The Realization
+Na hora, aquele momento não pareceu especialmente importante. Foi só uma frase no meio de uma live, algo que eu falei e logo deixei para trás.
 
-That moment didn’t feel important at the time. It was just a sentence in the middle of a live session.
+Mas depois eu continuei voltando nela. Não porque parecia inteligente, mas porque parecia **verdadeira**.
 
-But later on, I kept coming back to it. Not because it sounded good but because it was true.
+Quando comecei a prestar atenção, percebi um padrão no meu trabalho e na minha vida. As coisas em que eu mais evoluí, as coisas nas quais eu permaneci e as coisas das quais eu realmente senti orgulho quase sempre tinham uma coisa em comum: elas eram divertidas.
 
-I started noticing a pattern in my own work and life: the things I improved the most at, the things I stuck with, the things I was proud of… they all had one thing in common.
+Não necessariamente fáceis e nem sempre empolgantes o tempo todo mas interessantes, instigantes ou significativas o bastante para me fazer querer voltar.
 
-They were fun.
+E o contrário também era verdade. Sempre que alguma coisa parecia mais desgaste do que vontade, daquelas das quais eu precisava me arrastar de volta várias e várias vezes, o progresso ficava mais lento. Às vezes ele parava por completo.
 
-Not necessarily easy. Not always exciting. But engaging enough to keep me coming back.
+Foi aí que a frase deixou de ser só algo que eu tinha dito e passou a ser algo em que eu realmente acreditava.
 
-And the opposite was also true.
+## Estamos fazendo isso errado
 
-Whenever something felt like a constant struggle, something I had to force myself to do over and over again, progress was slower or it didn’t happen at all.
+Eu acho que existe uma forma padrão que muita gente aprende a usar para encarar trabalho e vida: otimizar para resultado.
 
-That’s when the phrase stopped being just something I said and started becoming something I paid attention to.
+A gente corre atrás de produtividade, eficiência e entrega. Tenta remover atrito, evitar distrações e fazer tudo o mais rápido possível. E, para ser justo, no papel isso parece certo. Parece maduro. Parece responsável, até.
 
-## We’re Doing It Wrong
+Mas, no meio desse processo, a experiência de fazer a própria coisa acaba passando despercebida.
 
-There’s a default way most of us approach work and life.
+Quando tudo vira sobre terminar, quase nada sobra sobre gostar do processo e isso muda completamente a sensação do trabalho. As coisas começam a ficar mais pesadas, as tarefas passam a exigir mais energia do que deveriam, a motivação deixa de ser algo natural e começa a parecer algo que você precisa fabricar à força.
 
-We optimize for output.
+É geralmente aí que a disciplina assume o controle. E disciplina importa.
 
-We think about productivity, efficiency, results.
+Eu não sou contra ela mas disciplina sozinha é cara. Se a obrigação é a única coisa te empurrando para frente, então o progresso fica frágil. Você até consegue continuar por um tempo, mas está sempre mais perto de parar do que imagina.
 
-We try to minimize friction, remove distractions, and get things done as fast as possible.
+Essa é a parte que eu sempre volto:
 
-And on paper, that makes sense.
+> Nem tudo que é produtivo é sustentável, e nem tudo que é eficiente é prazeroso.
 
-But in practice, something gets lost.
+Se não existe espaço para diversão no que você faz, cedo ou tarde isso cobra um preço.
 
-The experience of doing the thing.
+## A mudança
 
-When everything becomes about finishing, very little is about enjoying. And over time, that starts to show.
+Em algum momento, eu parei de perguntar:
 
-Work feels heavier.
-Tasks feel longer.
-Motivation becomes something you have to manufacture.
+> Como eu termino isso?
 
-We start relying on discipline just to keep going.
+E passei a perguntar:
 
-And discipline works — for a while.
+> Como eu posso tornar isso divertido?
 
-But it’s expensive.
+Parece uma mudança pequena e talvez até ingênua mas ela altera a forma como você se relaciona com o trabalho. Você para de enxergar tarefas como coisas para completar e começa a enxergá-las como coisas que você pode moldar. É uma postura completamente diferente.
 
-Because if the only thing pushing you forward is obligation, you’re always one bad day away from stopping.
+Às vezes a resposta é simples: colocar uma limitação criativa, transformar em um pequeno desafio, experimentar uma abordagem diferente ou deixar mais bonito, mesmo que ninguém tenha pedido. Em outras, isso significa repensar tudo mas o ponto é que você deixa de ser passivo no processo. Você passa a desenhar ativamente a experiência do que está fazendo.
 
-That’s the part we don’t talk about enough.
+E, quando isso acontece, o trabalho começa a parecer diferente.
 
-Not everything that is productive is sustainable.
+## Exemplos reais
 
-And not everything that is efficient is enjoyable.
+Essa ideia só ficou concreta para mim quando eu olhei para as coisas às quais eu sempre voltava.
 
-If there’s no space for fun in what you do, eventually, you pay for it.
+### React95
+
+Eu construí uma interface de Windows 95 para React. Ninguém me pediu isso. Não fazia parte de _roadmap_ nenhum e não resolvia um problema de negócio. Eu fiz porque isso me fazia sorrir.
+
+E justamente porque era divertido, eu permaneci ali. Eu me importei com os detalhes, explorei casos específicos, compartilhei com outras pessoas e em algum ponto no meio disso tudo, eu também estava aprendendo sobre design systems, arquitetura de componentes, _packaging_ e _developer experience_.
+
+O que começou como um projeto pessoal engraçado acabou moldando uma parte importante da minha carreira.
+
+### Relógios
+
+Eu também personalizo relógios com a minha própria identidade: meu logo, "GG", e a frase "Fun is the Key."
+
+Olhando de longe, isso parece um hobby totalmente diferente mas o impulso por trás dele é o mesmo. Não é só sobre o objeto. É sobre pegar algo padrão e torná-lo pessoal, transformar aquilo em algo com que eu me conecto toda vez que olho.
+
+### Pixel art com miçangas
+
+A mesma coisa acontece com _pixel art_ e miçangas. No papel, pode parecer repetitivo mas, quando a curiosidade entra em cena, a repetição muda de sentido. Você não está só encaixando peças, está transformando pixel art em algo físico, e isso muda a experiência inteira.
+
+---
+
+Domínios diferentes, mesmo padrão
+
+> Se é divertido, eu vou mais fundo. E, se eu vou mais fundo, eu fico melhor.
+
+---
+
+## Diversão como combustível
+
+Diversão muda a equação.
+
+Quando alguma coisa é divertida, você começa mais rápido, permanece por mais tempo, vai mais fundo e se importa mais com o que está fazendo.
+
+Você não precisa depender só de disciplina, porque o embalo começa a se construir sozinho e com o tempo essa consistência vai se acumulando.
+
+É por isso que eu não vejo diversão como distração.
+
+Eu vejo como **combustível**.
+
+### A parte difícil
+
+Nem tudo vai ser divertido.
+
+Existem partes chatas, tarefas repetitivas e coisas que simplesmente precisam ser feitas.
+
+Mas, mesmo assim, quase sempre existe uma forma de mudar a experiência:
+
+- transformar em um pequeno desafio
+- impor limites criativos
+- mudar o ambiente
+- conectar aquilo a algo de que você gosta
+
+Diversão não é sobre evitar esforço. É sobre mudar a sua relação com ele.
+
+### Fechando
+
+Então, em vez de perguntar:
+
+> Isso é produtivo?
+>
+> Isso é eficiente?
+
+Tente perguntar:
+
+> Onde está a diversão nisso?
+
+E, se ela não estiver lá:
+
+> Como eu posso trazer ela para cá?
+
+Porque, no fim, as coisas nas quais você permanece...
+
+As coisas nas quais você fica bom...
+
+As coisas que você realmente gosta de fazer...
+
+Elas quase sempre têm algo em comum.
+
+**Fun is the key**.
