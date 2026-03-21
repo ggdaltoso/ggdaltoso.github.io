@@ -1,6 +1,8 @@
 {
   "Read": "Read",
   "Published": "Published",
+  "min read_one": "{{count}} min read",
+  "min read_other": "{{count}} min read",
   "All posts": "All posts",
   "Not found": "NOT FOUND",
   "< PREV": "< PREV",
