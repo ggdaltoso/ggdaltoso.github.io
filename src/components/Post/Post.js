@@ -11,6 +11,7 @@ const Post = ({ post, html }) => {
   const { t } = useTranslation();
   const { slug } = post.fields || {};
   const { title, date } = post.frontmatter;
+  const { readingTime } = post;
 
   return (
     <div className={styles['post']}>
@@ -19,7 +20,7 @@ const Post = ({ post, html }) => {
       </Link>
 
       <div>
-        <Content title={title} body={html} />
+        <Content title={title} body={html} readingTime={readingTime} />
       </div>
 
       <div className={styles['post__footer']}>
