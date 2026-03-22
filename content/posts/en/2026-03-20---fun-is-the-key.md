@@ -110,7 +110,7 @@ Fun changes the equation.
 
 When something is fun, you start faster, stay with it longer, go deeper, and care more about what you're making.
 
-You don't have to rely on discipline alone, because momentum starts building on its own end over time that consistency compounds.
+You don't have to rely on discipline alone, because momentum starts building on its own, and over time that consistency compounds.
 
 That's why fun isn't a distraction.
 
