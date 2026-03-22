@@ -19,6 +19,16 @@ Não foi planejado. Não era uma frase que eu tinha preparado. Simplesmente saiu
 
 Mas, olhando para trás, essa frase capturava algo que eu já vinha praticando há muito tempo, mesmo antes de conseguir colocar isso em palavras.
 
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/ePhLo_VofFg?si=98RJ9OhGYvCwNw-S"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+
 ## A percepção
 
 Na hora, aquele momento não pareceu especialmente importante. Foi só uma frase no meio de uma live, algo que eu falei e logo deixei para trás.
@@ -87,17 +97,20 @@ Eu também personalizo relógios com a minha própria identidade: meu logo, "GG"
 
 Olhando de longe, isso parece um hobby totalmente diferente mas o impulso por trás dele é o mesmo. Não é só sobre o objeto. É sobre pegar algo padrão e torná-lo pessoal, transformar aquilo em algo com que eu me conecto toda vez que olho.
 
+![Relógio com o logo "GG" e a frase "Fun is the key"](/media/fun-is-the-key/relogio.png "Multirepo.png | 280")
+
 ### Pixel art com miçangas
 
 A mesma coisa acontece com _pixel art_ e miçangas. No papel, pode parecer repetitivo mas, quando a curiosidade entra em cena, a repetição muda de sentido. Você não está só encaixando peças, está transformando pixel art em algo físico, e isso muda a experiência inteira.
 
----
+![Cidade em pixel art com miçanga](/media/fun-is-the-key/pixel-art.png "Cidade.png | 400")
+
+<br />
 
 Domínios diferentes, mesmo padrão
 
 > Se é divertido, eu vou mais fundo. E, se eu vou mais fundo, eu fico melhor.
 
----
 
 ## Diversão como combustível
 

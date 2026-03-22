@@ -19,6 +19,8 @@ It wasn't planned. It wasn't something I had prepared. It just came out naturall
 
 But looking back, that sentence captured something I had already been practicing for a long time, even before I had the words for it.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ePhLo_VofFg?si=98RJ9OhGYvCwNw-S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## The Realization
 
 At the time, that moment didn't feel especially important. It was just a sentence in the middle of a live session, something I said and then moved on from.
@@ -87,17 +89,20 @@ I also customize watches with my own identity: my logo, "GG", and the phrase "Fu
 
 On the surface, that's a completely different kind of hobby but the instinct behind it feels the same. It's not just about the object. It's about taking something standard and making it personal, turning it into something I feel connected to every time I look at it.
 
+![Watch with "GG" logo and "Fun is the key"](/media/fun-is-the-key/relogio.png "Multirepo.png | 280")
+
 ### Pixel art with beads
 
 The same thing happens with pixel art and beads. On paper, it can look repetitive. But once curiosity enters the picture, repetition changes meaning. You're not just placing pieces together. You're turning pixel art into something physical, and that changes the whole experience.
 
----
+
+![Picel art landscape view made with beads](/media/fun-is-the-key/pixel-art.png "City Landscape.png | 400")
+
+<br />
 
 Different domains, same pattern
 
 > If it's fun, I go deeper. And if I go deeper, I get better.
-
----
 
 ## Fun as Fuel
 
