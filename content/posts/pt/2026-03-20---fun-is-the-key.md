@@ -126,16 +126,15 @@ Eu vejo como **combustível**.
 
 ### A parte difícil
 
-Nem tudo vai ser divertido.
+Nem tudo vai ser divertido. Existem partes chatas, tarefas repetitivas e coisas que simplesmente precisam ser feitas.
 
-Existem partes chatas, tarefas repetitivas e coisas que simplesmente precisam ser feitas.
+O React95 é um bom exemplo disso. Ele não nasceu de uma tarde livre e inspirada. Nasceu de um problema real: a empresa em que eu trabalhava precisava de um design system, e eu não fazia a menor ideia de como construir um.
 
-Mas, mesmo assim, quase sempre existe uma forma de mudar a experiência:
+Eu poderia ter encarado aquilo como uma tarefa complicada e, honestamente, era isso mesmo. Mas, em vez de tentar me forçar a aprender da forma mais direta e eficiente possível, eu me perguntei: como eu posso tornar isso legal?
 
-- transformar em um pequeno desafio
-- impor limites criativos
-- mudar o ambiente
-- conectar aquilo a algo de que você gosta
+A resposta foi uma interface de Windows 95. Ridícula? Talvez. Mas foi o que me fez querer pesquisar, experimentar e entender de verdade como aquilo funcionava.
+
+O problema não sumiu. O esforço não diminuiu. O que mudou foi a minha relação com ele.
 
 Diversão não é sobre evitar esforço. É sobre mudar a sua relação com ele.
 

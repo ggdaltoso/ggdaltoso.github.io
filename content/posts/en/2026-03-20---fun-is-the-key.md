@@ -118,16 +118,15 @@ It's **fuel**.
 
 ### The Hard Truth
 
-Not everything will be fun.
+Not everything will be fun. There are boring parts, repetitive tasks, and things you simply have to do.
 
-There are boring parts, repetitive tasks, and things you simply have to do.
+React95 is a good example of that. It didn't come from a free, inspired afternoon. It came from a real problem: the company I worked for needed a design system, and I had no idea how to build one.
 
-But even then, there's usually a way to shift the experience:
+I could have treated that as a difficult task, and honestly, it was. But instead of forcing myself to learn in the most direct and efficient way possible, I asked: how can I make this fun?
 
-- turn it into a small challenge
-- add constraints
-- change the environment
-- connect it to something you enjoy
+The answer was a Windows 95 interface. Ridiculous? Maybe. But it was what made me want to research, experiment, and truly understand how all of it worked.
+
+The problem didn't disappear. The effort didn't get smaller. What changed was my relationship with it.
 
 Fun isn't about avoiding effort.
 
