@@ -8,7 +8,6 @@ import { buildDocumentTitle, getLocalizedValue } from '@utils';
 
 const PostTemplate = ({ data }) => {
   const { html: postBody } = data.markdownRemark;
-  const { title: postTitle } = data.markdownRemark.frontmatter;
 
   return (
     <Layout>
@@ -20,15 +19,17 @@ const PostTemplate = ({ data }) => {
 export const Head = ({ data, pageContext }) => {
   const defaultLocale = siteConfig.i18n?.defaultLocale || 'pt';
   const locale = pageContext.locale || defaultLocale;
-  const { title, description } = data.markdownRemark.frontmatter;
+  const { title, description, slug } = data.markdownRemark.frontmatter;
 
   return (
     <SEO
       locale={locale}
       title={buildDocumentTitle(title)}
       description={
-        description || getLocalizedValue(siteConfig.subtitle, locale, defaultLocale)
+        description ||
+        getLocalizedValue(siteConfig.subtitle, locale, defaultLocale)
       }
+      slug={slug}
     />
   );
 };
@@ -50,13 +51,11 @@ export const query = graphql`
       readingTime {
         minutes
       }
-      fields {
-        slug
-      }
       frontmatter {
         date
         description
         title
+        slug
       }
     }
   }
