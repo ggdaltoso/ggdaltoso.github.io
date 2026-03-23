@@ -3,13 +3,16 @@ import siteConfig from '@config';
 
 const SEO = ({ locale, title, description, slug }) => {
   const siteUrl = siteConfig.url;
+  const localeFolder = locale || siteConfig.i18n?.defaultLocale || 'pt';
   const normalizedSlug = slug
     ? slug.replace(/^\//, '').replace(/\/$/, '').replace(/\//g, '-')
     : undefined;
   const isHomeSlug =
     slug === '/' || slug === `/${locale}` || slug === `/${locale}/`;
-  const homeImageSlug = isHomeSlug ? `home-${locale || 'pt'}` : normalizedSlug;
-  const imageUrl = homeImageSlug ? `${siteUrl}/og-images/${homeImageSlug}.png` : undefined;
+  const homeImageSlug = isHomeSlug ? 'home' : normalizedSlug;
+  const imageUrl = homeImageSlug
+    ? `${siteUrl}/og-images/${localeFolder}/${homeImageSlug}.png`
+    : undefined;
   const pagePath = slug ? (slug.startsWith('/') ? slug : `/${slug}`) : undefined;
   const pageUrl = pagePath ? `${siteUrl}${pagePath}` : undefined;
 

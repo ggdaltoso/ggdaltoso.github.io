@@ -10,6 +10,7 @@ const OG_IMAGE_WIDTH = 1200;
 const OG_IMAGE_HEIGHT = 630;
 const TEMPLATE_PATH = path.join(__dirname, '../static/og-image/template.png');
 const OUTPUT_DIR = path.join(__dirname, '../public/og-images');
+const DEFAULT_LOCALE = siteConfig.i18n?.defaultLocale || 'pt';
 
 // Ensure output directory exists
 if (!fs.existsSync(OUTPUT_DIR)) {
@@ -132,18 +133,24 @@ async function generateOGImage(data) {
     ctx.font = '20px Roboto';
     ctx.fillText(footerText, contentX, OG_IMAGE_HEIGHT - 40);
 
-    // Save image
+    // Save image in locale-specific folder
     const cleanSlug = slug
       .replace(/^\//g, '')
       .replace(/\/$/, '')
       .replace(/\//g, '-');
-    const imagePath = path.join(OUTPUT_DIR, `${cleanSlug}.png`);
+    const localeFolder = locale || DEFAULT_LOCALE;
+    const localeOutputDir = path.join(OUTPUT_DIR, localeFolder);
+    if (!fs.existsSync(localeOutputDir)) {
+      fs.mkdirSync(localeOutputDir, { recursive: true });
+    }
+
+    const imagePath = path.join(localeOutputDir, `${cleanSlug}.png`);
     const buffer = canvas.toBuffer('image/png');
     fs.writeFileSync(imagePath, buffer);
 
     return {
       slug,
-      imagePath: `/og-images/${cleanSlug}.png`,
+      imagePath: `/og-images/${localeFolder}/${cleanSlug}.png`,
       success: true,
     };
   } catch (error) {
@@ -216,7 +223,7 @@ async function generateAllOGImages(graphql, reporter) {
           date,
           readingTime,
           locale: locale || 'pt',
-          template: 'post',
+          template,
         });
         results.push(result);
       }
@@ -234,7 +241,7 @@ async function generateAllOGImages(graphql, reporter) {
         '';
 
       const homeResult = await generateOGImage({
-        slug: `home-${locale}`,
+        slug: 'home',
         title: homeTitle,
         description: homeDescription,
         locale,
