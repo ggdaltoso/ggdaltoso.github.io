@@ -54,6 +54,13 @@ export const Head = ({ pageContext }) => {
       locale={locale}
       title={buildDocumentTitle(pageTitle)}
       description={getLocalizedValue(siteConfig.subtitle, locale, defaultLocale)}
+      slug={
+        pageContext.currentPage === 0
+          ? locale === defaultLocale
+            ? '/'
+            : `/${locale}/`
+          : undefined
+      }
     />
   );
 };

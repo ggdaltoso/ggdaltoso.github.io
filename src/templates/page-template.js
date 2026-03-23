@@ -25,15 +25,17 @@ const PageTemplate = ({ data }) => {
 export const Head = ({ data, pageContext }) => {
   const defaultLocale = siteConfig.i18n?.defaultLocale || 'pt';
   const locale = pageContext.locale || defaultLocale;
-  const { title, description } = data.markdownRemark.frontmatter;
+  const { title, description, slug } = data.markdownRemark.frontmatter;
 
   return (
     <SEO
       locale={locale}
       title={buildDocumentTitle(title)}
       description={
-        description || getLocalizedValue(siteConfig.subtitle, locale, defaultLocale)
+        description ||
+        getLocalizedValue(siteConfig.subtitle, locale, defaultLocale)
       }
+      slug={slug}
     />
   );
 };
@@ -47,6 +49,7 @@ export const query = graphql`
         title
         date
         description
+        slug
       }
     }
   }

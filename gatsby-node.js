@@ -18,5 +18,8 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
 
 exports.onPostBuild = async ({ graphql, reporter }) => {
   const generateLlmsTxt = require('./gatsby/generate-llms-txt');
+  const generateAllOGImages = require('./gatsby/generate-og-images');
+
   await generateLlmsTxt(graphql, reporter);
+  await generateAllOGImages(graphql, reporter);
 };
