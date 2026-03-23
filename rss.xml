@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog do GG - RSS Feed]]></title><description><![CDATA[O que fiz, o que faço e o que vou fazer]]></description><link>https://ggdaltoso.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 21 Mar 2026 19:52:34 GMT</lastBuildDate><item><title><![CDATA[Monolito, Multirepo ou Monorepo?]]></title><description><![CDATA[Monolito é fácil para começar um projeto. Multirepo pode ser bom quando o problema é espaço. Monorepo tem vários projetos que compartilham o mesmo repositório. Qual deles é bom pra mim?]]></description><link>https://ggdaltoso.dev/monolito-multirepo-ou-monorepo</link><guid isPermaLink="false">https://ggdaltoso.dev/monolito-multirepo-ou-monorepo</guid><pubDate>Fri, 10 Jul 2020 03:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Muitos projetos adotam o modelo de monorepo para estruturar seu repositório.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog do GG - RSS Feed]]></title><description><![CDATA[O que fiz, o que faço e o que vou fazer]]></description><link>https://ggdaltoso.dev</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 23 Mar 2026 11:06:24 GMT</lastBuildDate><item><title><![CDATA[Monolito, Multirepo ou Monorepo?]]></title><description><![CDATA[Monolito é fácil para começar um projeto. Multirepo pode ser bom quando o problema é espaço. Monorepo tem vários projetos que compartilham o mesmo repositório. Qual deles é bom pra mim?]]></description><link>https://ggdaltoso.dev/monolito-multirepo-ou-monorepo</link><guid isPermaLink="false">https://ggdaltoso.dev/monolito-multirepo-ou-monorepo</guid><pubDate>Fri, 10 Jul 2020 03:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Muitos projetos adotam o modelo de monorepo para estruturar seu repositório.
 Grandes nomes como &lt;a href=&quot;https://github.com/angular/angular&quot;&gt;Angular&lt;/a&gt;,
 &lt;a href=&quot;https://github.com/babel/babel&quot;&gt;Babel&lt;/a&gt; e
 &lt;a href=&quot;https://github.com/facebook/react&quot;&gt;React&lt;/a&gt;, por exemplo, utilizam essa
@@ -199,129 +199,7 @@ understand each project&apos;s steps and keep repository automation healthy.&lt;
 &lt;p&gt;Personally, I would choose monorepo because I have worked with similar setups,
 and I even implemented a transition from
 &lt;a href=&quot;https://github.com/React95/React95/pull/117&quot;&gt;monolith to monorepo&lt;/a&gt; in React95.&lt;/p&gt;
-&lt;p&gt;Which one would you choose?&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React95: fun side project of the year]]></title><description><![CDATA[React95 is a React component library written with styled-components. In April 2019, it won the 'Fun side project of the year' award at the largest React conference in the world, in Amsterdam.]]></description><link>https://ggdaltoso.dev/en/react95-fun-side-project-of-the-year</link><guid isPermaLink="false">https://ggdaltoso.dev/en/react95-fun-side-project-of-the-year</guid><pubDate>Fri, 17 May 2019 10:46:37 GMT</pubDate><content:encoded>&lt;p&gt;I should have written this story a long time ago, but since it is only really
-sinking in now, I want to tell you what it felt like to win Fun Side Project of
-the Year at the biggest React conference in the world, in Amsterdam, because of
-React95.&lt;/p&gt;
-&lt;h3&gt;Who was involved&lt;/h3&gt;
-&lt;p&gt;I joined Catho in November 2017, on the Front End platform team. Since my first
-day, I heard many hallway conversations about layout &quot;problems&quot; on the main
-site and across products. Among many complaints, these two stood out:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;There was no defined visual standard and no clear way to communicate patterns.&lt;/li&gt;
-&lt;li&gt;There was no place where people could find those patterns.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;That is when our team had the brilliant idea to build a design system. Great!&lt;/p&gt;
-&lt;p&gt;But as soon as we had that insight, we realized that together with a solution,
-a new problem also came.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-o-que-queremos.jpeg&quot; alt=&quot;Platform team deciding what to do&quot; title=&quot;Time.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;At first, we only knew what a design system was because we had heard about it.
-We had never implemented one.&lt;/p&gt;
-&lt;p&gt;So we started studying how to build a React component library, since React was
-already defined as our project standard.&lt;/p&gt;
-&lt;p&gt;How do you implement a design system? How do you build a component library? How
-do you automate build and deploy? NPM? Tree shaking?&lt;/p&gt;
-&lt;p&gt;Those questions took over our daily routine. Discussions were so frequent and so
-intense that we could not even go home without thinking about it.&lt;/p&gt;
-&lt;p&gt;That was when I decided to start a personal project to learn all those things in
-practice. &lt;a href=&quot;https://allysson.me/&quot;&gt;Allysson dos Santos&lt;/a&gt; joined me in this.&lt;/p&gt;
-&lt;p&gt;I thought: if I am going to build a personal component library, it has to be
-something fun enough to keep me motivated at home. So why not recreate Windows
-95 components?&lt;/p&gt;
-&lt;p&gt;And that is how &lt;strong&gt;React95&lt;/strong&gt; was born.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-v1.0.0.jpeg&quot; alt=&quot;First version of React95&quot; title=&quot;React95-v1.0.0.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;In parallel, everything we were learning was applied to
-&lt;a href=&quot;https://github.com/catho/quantum&quot;&gt;Quantum&lt;/a&gt;, Catho&apos;s component library.&lt;/p&gt;
-&lt;h3&gt;Getting known&lt;/h3&gt;
-&lt;p&gt;The more I built components for React95, the more excited I got. I spent hours
-looking at old photos and talking to friends about Windows 95 memories.&lt;/p&gt;
-&lt;p&gt;With those conversations, React95 started spreading in the community and getting
-stars on GitHub. I still remember pressing F5 on the repository page waiting for
-+1 star (and at that time I am talking about going from 7 to 8).&lt;/p&gt;
-&lt;p&gt;Commit after commit, pull requests opened and merged. Then suddenly the
-&lt;a href=&quot;https://github.com/React95/React95/pull/69&quot;&gt;first external contribution&lt;/a&gt;
-appeared. I was so happy that I did not even know what to do. It also solved an
-existing &lt;a href=&quot;https://github.com/React95/React95/pull/69&quot;&gt;issue&lt;/a&gt;, because we kept
-our roadmap as issues from day one.&lt;/p&gt;
-&lt;p&gt;Everything was really cool: friends discussing changes, sharing ideas, and
-contributing code. It finally felt like one of those GitHub projects we admire.&lt;/p&gt;
-&lt;h3&gt;The nomination&lt;/h3&gt;
-&lt;p&gt;As I said, I kept monitoring the repo stars. I saw it go from 0 to 10, then 30,
-then 100. When it hit that number, I could not believe it.&lt;/p&gt;
-&lt;p&gt;Around that same time, I received an email from
-&lt;a href=&quot;https://twitter.com/operatino&quot;&gt;Robert Haritonov&lt;/a&gt; saying:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Hey Gabriel,&lt;/p&gt;
-&lt;p&gt;React ecosystem success is entirely built on top of it’s open source community
-and all the enthusiastic developers contributing with their code, ideas, and
-projects. To give an extra credit to hard working open source developers,
-together with React Amsterdam Conference, we continue running our annual Open
-Source Awards ceremony — &lt;a href=&quot;https://osawards.com/react&quot;&gt;https://osawards.com/react&lt;/a&gt; (think Oscars, but for OS).&lt;/p&gt;
-&lt;p&gt;With open submission form on OS Awards website and our programme committee,
-including active React open source contributors, we’ve came up with 5 award
-groups, and up to 4 selected nominees per each group, where your project
-“React95” is nominated for “Fun side project of the year”.&lt;/p&gt;
-&lt;p&gt;Before announcing the nominees, ...&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I was reading calmly, and then stopped when I saw:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&quot;React95&quot; is nominated for &quot;Fun side project of the year&quot;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/U6MlaIe1ljs&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
-&lt;p&gt;I read it many times. Again and again. I barely slept that night.&lt;/p&gt;
-&lt;p&gt;And do you know what impressed me the most?&lt;/p&gt;
-&lt;p&gt;I STILL DO NOT KNOW WHO SUBMITTED REACT95 TO THAT CONFERENCE!&lt;/p&gt;
-&lt;p&gt;Community is powerful.&lt;/p&gt;
-&lt;p&gt;I had to stop for a moment to process it:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;React95 had been nominated as a finalist in one category of what looked like
-the Open Source Oscars.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Okay.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The ceremony would happen in Amsterdam one month later.
-&quot;How am I supposed to go there?&quot; I thought.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;The trip&lt;/h3&gt;
-&lt;p&gt;When I got Robert&apos;s email, I was very excited. I showed it to my wife and to
-people at work.&lt;/p&gt;
-&lt;p&gt;My wife encouraged me a lot and said I should go somehow. At work, people got
-even more excited than I did. I remember hearing them talk about creating a
-crowdfunding to pay for the trip.&lt;/p&gt;
-&lt;p&gt;Then Catho stepped in:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;You are going. We will pay for everything.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/vSqkwpFA4ZwAM/giphy.gif&quot; alt=&quot;Animation showing my reaction&quot; title=&quot;WTF.gif&quot;&gt;&lt;/p&gt;
-&lt;p&gt;I was very surprised because React95 had no direct relation to Catho. It was a
-personal project. The company did not have to do that, but they did. They even
-said we could work remotely from there, which was one of the company benefits.
-We were impressed and we went.&lt;/p&gt;
-&lt;h3&gt;The award&lt;/h3&gt;
-&lt;p&gt;We arrived in Amsterdam and the conference was amazing. We met people we usually
-only saw on Twitter, like &lt;a href=&quot;https://twitter.com/peggyrayzis&quot;&gt;Peggy Rayzis&lt;/a&gt;,
-&lt;a href=&quot;https://twitter.com/kentcdodds&quot;&gt;Kent C. Dodds&lt;/a&gt;, and I had the pleasure of
-meeting &lt;a href=&quot;https://twitter.com/markdalgleish&quot;&gt;Mark Dalgleish&lt;/a&gt;, who worked at Seek
-(Catho&apos;s parent company) and was one of the people behind
-&lt;a href=&quot;https://github.com/seek-oss/braid-design-system&quot;&gt;Braid&lt;/a&gt;, a design system used
-across multiple Seek companies.&lt;/p&gt;
-&lt;p&gt;Later in the day, the &lt;em&gt;Open Source Awards&lt;/em&gt; ceremony started, and React95 was a
-finalist in one of the five categories.&lt;/p&gt;
-&lt;p&gt;The category we were waiting for was &quot;Fun side project of the year&quot;, the third
-one presented. We were anxious, sitting in one of the first rows, and then we
-saw this projected on the screen:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-winner-announcement.jpeg&quot; alt=&quot;React95 winner announcement&quot; title=&quot;Fun side project of the Year.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;WE WON THE AWARD. FOR REAL. And of course, we were called on stage to receive
-it.&lt;/p&gt;
-&lt;p&gt;To this day, this is still the peak moment of my professional life.&lt;/p&gt;
-&lt;p&gt;Everything happening there was hard to believe, not because of the trophy
-itself, but because of everything that happened to get us there.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-winner-trophy.jpeg&quot; alt=&quot;Many emotions during the award&quot; title=&quot;Receiving the award.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;React95 did not win because it is a &quot;funny&quot; project.
-It won because of the community.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;And that is what motivates me to keep doing what I do. I love being a developer
-and I plan to keep doing this for a long time.&lt;/p&gt;
-&lt;p&gt;I hope this experience motivates everyone.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React95: fun side project of the year]]></title><description><![CDATA[React95 é uma biblioteca de componentes escrita em React usando  styled-components. Em abril de 2019, ganhou o prêmio de “Fun side project of  the year” na maior conferência de React do mundo, em Amsterdã.]]></description><link>https://ggdaltoso.dev/react95-fun-side-project-of-the-year</link><guid isPermaLink="false">https://ggdaltoso.dev/react95-fun-side-project-of-the-year</guid><pubDate>Fri, 17 May 2019 10:46:37 GMT</pubDate><content:encoded>&lt;p&gt;Já faz um tempo que deveria ter escrito essa história mas como a ficha está
+&lt;p&gt;Which one would you choose?&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React95: fun side project of the year]]></title><description><![CDATA[React95 é uma biblioteca de componentes escrita em React usando  styled-components. Em abril de 2019, ganhou o prêmio de “Fun side project of  the year” na maior conferência de React do mundo, em Amsterdã.]]></description><link>https://ggdaltoso.dev/react95-fun-side-project-of-the-year</link><guid isPermaLink="false">https://ggdaltoso.dev/react95-fun-side-project-of-the-year</guid><pubDate>Fri, 17 May 2019 10:46:37 GMT</pubDate><content:encoded>&lt;p&gt;Já faz um tempo que deveria ter escrito essa história mas como a ficha está
 caindo só agora, vou contar pra vocês como foi ter ganhado o prêmio de Fun
 Project of the Year, na maior conferência de React, em Amsterdã, por causa do
 React95.&lt;/p&gt;
@@ -458,7 +336,129 @@ engraçado. Ele ganhou por causa da comunidade.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;E é isso que me motiva a continuar fazendo o que eu faço. Amo ser desenvolvedor
 e pretendo continuar por muito tempo ainda.&lt;/p&gt;
-&lt;p&gt;Espero que minha experiência sirva de motivação para todo mundo!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hoisting. Quê?]]></title><description><![CDATA[O que é hoisting?]]></description><link>https://ggdaltoso.dev/hoisting-que</link><guid isPermaLink="false">https://ggdaltoso.dev/hoisting-que</guid><pubDate>Thu, 03 Aug 2017 00:35:06 GMT</pubDate><content:encoded>&lt;p&gt;&quot;Quê?&quot; mesmo. Eu falei exatamente isso na primeira vez que ouvi essa palavra:
+&lt;p&gt;Espero que minha experiência sirva de motivação para todo mundo!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React95: fun side project of the year]]></title><description><![CDATA[React95 is a React component library written with styled-components. In April 2019, it won the 'Fun side project of the year' award at the largest React conference in the world, in Amsterdam.]]></description><link>https://ggdaltoso.dev/en/react95-fun-side-project-of-the-year</link><guid isPermaLink="false">https://ggdaltoso.dev/en/react95-fun-side-project-of-the-year</guid><pubDate>Fri, 17 May 2019 10:46:37 GMT</pubDate><content:encoded>&lt;p&gt;I should have written this story a long time ago, but since it is only really
+sinking in now, I want to tell you what it felt like to win Fun Side Project of
+the Year at the biggest React conference in the world, in Amsterdam, because of
+React95.&lt;/p&gt;
+&lt;h3&gt;Who was involved&lt;/h3&gt;
+&lt;p&gt;I joined Catho in November 2017, on the Front End platform team. Since my first
+day, I heard many hallway conversations about layout &quot;problems&quot; on the main
+site and across products. Among many complaints, these two stood out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There was no defined visual standard and no clear way to communicate patterns.&lt;/li&gt;
+&lt;li&gt;There was no place where people could find those patterns.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That is when our team had the brilliant idea to build a design system. Great!&lt;/p&gt;
+&lt;p&gt;But as soon as we had that insight, we realized that together with a solution,
+a new problem also came.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-o-que-queremos.jpeg&quot; alt=&quot;Platform team deciding what to do&quot; title=&quot;Time.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;At first, we only knew what a design system was because we had heard about it.
+We had never implemented one.&lt;/p&gt;
+&lt;p&gt;So we started studying how to build a React component library, since React was
+already defined as our project standard.&lt;/p&gt;
+&lt;p&gt;How do you implement a design system? How do you build a component library? How
+do you automate build and deploy? NPM? Tree shaking?&lt;/p&gt;
+&lt;p&gt;Those questions took over our daily routine. Discussions were so frequent and so
+intense that we could not even go home without thinking about it.&lt;/p&gt;
+&lt;p&gt;That was when I decided to start a personal project to learn all those things in
+practice. &lt;a href=&quot;https://allysson.me/&quot;&gt;Allysson dos Santos&lt;/a&gt; joined me in this.&lt;/p&gt;
+&lt;p&gt;I thought: if I am going to build a personal component library, it has to be
+something fun enough to keep me motivated at home. So why not recreate Windows
+95 components?&lt;/p&gt;
+&lt;p&gt;And that is how &lt;strong&gt;React95&lt;/strong&gt; was born.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-v1.0.0.jpeg&quot; alt=&quot;First version of React95&quot; title=&quot;React95-v1.0.0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;In parallel, everything we were learning was applied to
+&lt;a href=&quot;https://github.com/catho/quantum&quot;&gt;Quantum&lt;/a&gt;, Catho&apos;s component library.&lt;/p&gt;
+&lt;h3&gt;Getting known&lt;/h3&gt;
+&lt;p&gt;The more I built components for React95, the more excited I got. I spent hours
+looking at old photos and talking to friends about Windows 95 memories.&lt;/p&gt;
+&lt;p&gt;With those conversations, React95 started spreading in the community and getting
+stars on GitHub. I still remember pressing F5 on the repository page waiting for
++1 star (and at that time I am talking about going from 7 to 8).&lt;/p&gt;
+&lt;p&gt;Commit after commit, pull requests opened and merged. Then suddenly the
+&lt;a href=&quot;https://github.com/React95/React95/pull/69&quot;&gt;first external contribution&lt;/a&gt;
+appeared. I was so happy that I did not even know what to do. It also solved an
+existing &lt;a href=&quot;https://github.com/React95/React95/pull/69&quot;&gt;issue&lt;/a&gt;, because we kept
+our roadmap as issues from day one.&lt;/p&gt;
+&lt;p&gt;Everything was really cool: friends discussing changes, sharing ideas, and
+contributing code. It finally felt like one of those GitHub projects we admire.&lt;/p&gt;
+&lt;h3&gt;The nomination&lt;/h3&gt;
+&lt;p&gt;As I said, I kept monitoring the repo stars. I saw it go from 0 to 10, then 30,
+then 100. When it hit that number, I could not believe it.&lt;/p&gt;
+&lt;p&gt;Around that same time, I received an email from
+&lt;a href=&quot;https://twitter.com/operatino&quot;&gt;Robert Haritonov&lt;/a&gt; saying:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hey Gabriel,&lt;/p&gt;
+&lt;p&gt;React ecosystem success is entirely built on top of it’s open source community
+and all the enthusiastic developers contributing with their code, ideas, and
+projects. To give an extra credit to hard working open source developers,
+together with React Amsterdam Conference, we continue running our annual Open
+Source Awards ceremony — &lt;a href=&quot;https://osawards.com/react&quot;&gt;https://osawards.com/react&lt;/a&gt; (think Oscars, but for OS).&lt;/p&gt;
+&lt;p&gt;With open submission form on OS Awards website and our programme committee,
+including active React open source contributors, we’ve came up with 5 award
+groups, and up to 4 selected nominees per each group, where your project
+“React95” is nominated for “Fun side project of the year”.&lt;/p&gt;
+&lt;p&gt;Before announcing the nominees, ...&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I was reading calmly, and then stopped when I saw:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&quot;React95&quot; is nominated for &quot;Fun side project of the year&quot;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/U6MlaIe1ljs&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
+&lt;p&gt;I read it many times. Again and again. I barely slept that night.&lt;/p&gt;
+&lt;p&gt;And do you know what impressed me the most?&lt;/p&gt;
+&lt;p&gt;I STILL DO NOT KNOW WHO SUBMITTED REACT95 TO THAT CONFERENCE!&lt;/p&gt;
+&lt;p&gt;Community is powerful.&lt;/p&gt;
+&lt;p&gt;I had to stop for a moment to process it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;React95 had been nominated as a finalist in one category of what looked like
+the Open Source Oscars.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Okay.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The ceremony would happen in Amsterdam one month later.
+&quot;How am I supposed to go there?&quot; I thought.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;The trip&lt;/h3&gt;
+&lt;p&gt;When I got Robert&apos;s email, I was very excited. I showed it to my wife and to
+people at work.&lt;/p&gt;
+&lt;p&gt;My wife encouraged me a lot and said I should go somehow. At work, people got
+even more excited than I did. I remember hearing them talk about creating a
+crowdfunding to pay for the trip.&lt;/p&gt;
+&lt;p&gt;Then Catho stepped in:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You are going. We will pay for everything.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/vSqkwpFA4ZwAM/giphy.gif&quot; alt=&quot;Animation showing my reaction&quot; title=&quot;WTF.gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I was very surprised because React95 had no direct relation to Catho. It was a
+personal project. The company did not have to do that, but they did. They even
+said we could work remotely from there, which was one of the company benefits.
+We were impressed and we went.&lt;/p&gt;
+&lt;h3&gt;The award&lt;/h3&gt;
+&lt;p&gt;We arrived in Amsterdam and the conference was amazing. We met people we usually
+only saw on Twitter, like &lt;a href=&quot;https://twitter.com/peggyrayzis&quot;&gt;Peggy Rayzis&lt;/a&gt;,
+&lt;a href=&quot;https://twitter.com/kentcdodds&quot;&gt;Kent C. Dodds&lt;/a&gt;, and I had the pleasure of
+meeting &lt;a href=&quot;https://twitter.com/markdalgleish&quot;&gt;Mark Dalgleish&lt;/a&gt;, who worked at Seek
+(Catho&apos;s parent company) and was one of the people behind
+&lt;a href=&quot;https://github.com/seek-oss/braid-design-system&quot;&gt;Braid&lt;/a&gt;, a design system used
+across multiple Seek companies.&lt;/p&gt;
+&lt;p&gt;Later in the day, the &lt;em&gt;Open Source Awards&lt;/em&gt; ceremony started, and React95 was a
+finalist in one of the five categories.&lt;/p&gt;
+&lt;p&gt;The category we were waiting for was &quot;Fun side project of the year&quot;, the third
+one presented. We were anxious, sitting in one of the first rows, and then we
+saw this projected on the screen:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-winner-announcement.jpeg&quot; alt=&quot;React95 winner announcement&quot; title=&quot;Fun side project of the Year.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;WE WON THE AWARD. FOR REAL. And of course, we were called on stage to receive
+it.&lt;/p&gt;
+&lt;p&gt;To this day, this is still the peak moment of my professional life.&lt;/p&gt;
+&lt;p&gt;Everything happening there was hard to believe, not because of the trophy
+itself, but because of everything that happened to get us there.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/react95-fun-side-project-of-the-year/React95-winner-trophy.jpeg&quot; alt=&quot;Many emotions during the award&quot; title=&quot;Receiving the award.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;React95 did not win because it is a &quot;funny&quot; project.
+It won because of the community.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And that is what motivates me to keep doing what I do. I love being a developer
+and I plan to keep doing this for a long time.&lt;/p&gt;
+&lt;p&gt;I hope this experience motivates everyone.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hoisting. Quê?]]></title><description><![CDATA[O que é hoisting?]]></description><link>https://ggdaltoso.dev/hoisting-que</link><guid isPermaLink="false">https://ggdaltoso.dev/hoisting-que</guid><pubDate>Thu, 03 Aug 2017 00:35:06 GMT</pubDate><content:encoded>&lt;p&gt;&quot;Quê?&quot; mesmo. Eu falei exatamente isso na primeira vez que ouvi essa palavra:
 Housing? Routing? Ahn? Quê?&lt;/p&gt;
 &lt;p&gt;Esses dias me deparei com esse tweet:&lt;/p&gt;
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;
