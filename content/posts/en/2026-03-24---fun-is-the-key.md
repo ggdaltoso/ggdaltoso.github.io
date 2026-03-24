@@ -1,6 +1,6 @@
 ---
 title: 'Fun is the key'
-date: '2026-03-20T01:36:36.000Z'
+date: '2026-03-24T01:36:36.000Z'
 template: 'post'
 draft: false
 slug: '/fun-is-the-key'
