@@ -4,7 +4,7 @@ date: '2026-03-20T01:36:36.000Z'
 template: 'post'
 draft: false
 slug: '/fun-is-the-key'
-description: '“Fun is the key” sums up a pattern I’ve experienced in practice: when the process is fun, I go deeper and grow in a more sustainable way. In the end, fun isn’t a distraction, it’s fuel.'
+description: '“Fun is the key” was born in a live stream but became a principle. Fun does not eliminate effort, but it changes our relationship with it, and that can be the difference between giving up and evolving.'
 ---
 
 A few years ago, [I was on a live coding show with Jason](https://codetv.dev/series/learn-with-jason/s6/build-a-custom-code-editor-using-the-webcontainer-api). The idea was to build a small code editor while talking about WebContainers, the kind of technology that makes you stop for a second and think, "this is actually really cool."
@@ -29,9 +29,9 @@ But later, I kept coming back to it. Not because it sounded clever, but because 
 
 Once I started paying attention, I noticed a pattern in my own work and life. The things I improved at the most, the things I stayed with, and the things I felt genuinely proud of usually had one thing in common: they were fun.
 
-Not always easy and not always exciting every second but interesting enough, playful enough, or meaningful enough to make me want to return to them.
+Not necessarily easy and not always exciting all the time but interesting, challenging, or meaningful enough to make me want to come back.
 
-And the opposite was true too. Whenever something felt more draining than compelling, the kind of thing I had to drag myself back to again and again, progress got slower. Sometimes it stopped altogether.
+And the opposite was also true. Whenever something felt boring, or just thinking about it already brought a bad feeling, progress got slower. Sometimes it stopped completely.
 
 That's when the phrase stopped being just something I had said and started becoming something I actually believed.
 
@@ -43,13 +43,13 @@ We chase productivity, efficiency, results. We try to remove friction, avoid dis
 
 But somewhere in that process, the experience of doing the thing can quietly fade into the background.
 
-When everything becomes about finishing, very little is about enjoying and that changes how the work feels. Things start to get heavier, tasks take more energy than they should, and motivation stops being something natural and starts feeling like something you have to force into existence.
+When everything becomes about finishing, almost nothing is left about enjoying the process and that completely changes how work feels. Things start to get heavier, tasks begin to require more energy than they should, motivation stops being something natural and starts feeling like something you need to force.
 
 That's usually when discipline takes over. And discipline matters.
 
 I'm not against it but discipline by itself is expensive. If obligation is the only thing carrying you forward, then progress becomes fragile. You can even keep going for a while, but you're always closer to stopping than you think.
 
-I guess that's the part I keep coming back to:
+This is the part I always come back to:
 
 > Not everything that is productive is sustainable, and not everything that is efficient is enjoyable.
 
@@ -65,9 +65,9 @@ And started asking:
 
 > How can I make this fun?
 
-It sounds like a small change and maybe even a naive one but it shifts how you relate to the work itself. You stop seeing tasks as things to complete and start seeing them as things you can shape. That's a different posture entirely.
+It sounds like a small change and maybe even a naive one but it shifts how you relate to work itself. You stop seeing tasks as things to complete and start seeing them as things you can shape. It's a completely different posture.
 
-Sometimes the answer is straightforward: add a constraint, turn it into a small challenge, explore a different approach, or make it look better even if nobody asked. Other times it means rethinking the whole thing but the point is that you're no longer passive in the process. You're actively designing the experience of what you're doing.
+Sometimes the answer is simple: turn it into a small challenge, try a different approach, or make it look better even if nobody asked for it. Other times, it means rethinking everything but the point is that you stop being passive in the process. You start actively designing the experience of what you're doing.
 
 And once you start doing that, the work starts to feel different.
 
@@ -89,14 +89,13 @@ I also customize watches with my own identity: my logo, "GG", and the phrase "Fu
 
 On the surface, that's a completely different kind of hobby but the instinct behind it feels the same. It's not just about the object. It's about taking something standard and making it personal, turning it into something I feel connected to every time I look at it.
 
-![Watch with "GG" logo and "Fun is the key"](/media/fun-is-the-key/relogio.png "Multirepo.png | 280")
+![Watch with "GG" logo and "Fun is the key"](/media/fun-is-the-key/relogio.png "Watch.png | 280")
 
 ### Pixel art with beads
 
-The same thing happens with pixel art and beads. On paper, it can look repetitive. But once curiosity enters the picture, repetition changes meaning. You're not just placing pieces together. You're turning pixel art into something physical, and that changes the whole experience.
+The same thing happens with pixel art and beads. It can look repetitive but when curiosity enters the scene, repetition changes meaning. You're not just placing pieces together, you're turning pixel art into something physical, and that changes the whole experience.
 
-
-![Picel art landscape view made with beads](/media/fun-is-the-key/pixel-art.png "City Landscape.png | 400")
+![City pixel art made with beads](/media/fun-is-the-key/pixel-art.png "City.png | 400")
 
 <br />
 
@@ -112,7 +111,7 @@ When something is fun, you start faster, stay with it longer, go deeper, and car
 
 You don't have to rely on discipline alone, because momentum starts building on its own, and over time that consistency compounds.
 
-That's why fun isn't a distraction.
+That's why I don't see fun as a distraction.
 
 It's **fuel**.
 
@@ -128,9 +127,7 @@ The answer was a Windows 95 interface. Ridiculous? Maybe. But it was what made m
 
 The problem didn't disappear. The effort didn't get smaller. What changed was my relationship with it.
 
-Fun isn't about avoiding effort.
-
-It's about changing your relationship with it.
+Fun isn't about avoiding effort. It's about changing your relationship with it.
 
 ### Closing
 

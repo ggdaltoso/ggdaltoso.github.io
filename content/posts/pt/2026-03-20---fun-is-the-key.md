@@ -4,7 +4,7 @@ date: '2026-03-20T01:36:36.000Z'
 template: 'post'
 draft: false
 slug: '/fun-is-the-key'
-description: '“Fun is the key” resume um padrão que vivi na prática: quando o processo é divertido, eu vou mais fundo e cresço de forma mais sustentável. No fim, diversão não é distração, é combustível.'
+description: '“Fun is the key” nasceu numa live, mas virou princípio. Diversão não elimina esforço, mas muda nossa relação com ele e isso pode ser a diferença entre desistir e evoluir.'
 ---
 
 Há alguns anos, [eu participei de uma live coding com o Jason](https://codetv.dev/series/learn-with-jason/s6/build-a-custom-code-editor-using-the-webcontainer-api). A ideia era construir um pequeno editor de código enquanto falávamos sobre WebContainers, aquele tipo de tecnologia que faz você parar por um segundo e pensar: "isso aqui é muito legal."
@@ -39,7 +39,7 @@ Quando comecei a prestar atenção, percebi um padrão no meu trabalho e na minh
 
 Não necessariamente fáceis e nem sempre empolgantes o tempo todo mas interessantes, instigantes ou significativas o bastante para me fazer querer voltar.
 
-E o contrário também era verdade. Sempre que alguma coisa parecia mais desgaste do que vontade, daquelas das quais eu precisava me arrastar de volta várias e várias vezes, o progresso ficava mais lento. Às vezes ele parava por completo.
+E o contrário também era verdade. Sempre que alguma coisa parecia chata, ou só de pensar nela já vinha um sentimento ruim, o progresso ficava mais lento. Às vezes ele parava por completo.
 
 Foi aí que a frase deixou de ser só algo que eu tinha dito e passou a ser algo em que eu realmente acreditava.
 
@@ -73,9 +73,9 @@ E passei a perguntar:
 
 > Como eu posso tornar isso divertido?
 
-Parece uma mudança pequena e talvez até ingênua mas ela altera a forma como você se relaciona com o trabalho. Você para de enxergar tarefas como coisas para completar e começa a enxergá-las como coisas que você pode moldar. É uma postura completamente diferente.
+Parece uma mudança pequena e talvez até ingênua mas ela altera a forma como você se relaciona com o trabalho. Você para de enxergar tarefas como coisas para completar e começa a enxergá-las como coisas que você pode moldar. É uma **postura** completamente diferente.
 
-Às vezes a resposta é simples: colocar uma limitação criativa, transformar em um pequeno desafio, experimentar uma abordagem diferente ou deixar mais bonito, mesmo que ninguém tenha pedido. Em outras, isso significa repensar tudo mas o ponto é que você deixa de ser passivo no processo. Você passa a desenhar ativamente a experiência do que está fazendo.
+Às vezes a resposta é simples: transformar em um pequeno desafio, experimentar uma abordagem diferente ou deixar mais bonito, mesmo que ninguém tenha pedido. Em outras, isso significa repensar tudo mas o ponto é que você deixa de ser passivo no processo. Você passa a desenhar ativamente a experiência do que está fazendo.
 
 E, quando isso acontece, o trabalho começa a parecer diferente.
 
@@ -97,11 +97,11 @@ Eu também personalizo relógios com a minha própria identidade: meu logo, "GG"
 
 Olhando de longe, isso parece um hobby totalmente diferente mas o impulso por trás dele é o mesmo. Não é só sobre o objeto. É sobre pegar algo padrão e torná-lo pessoal, transformar aquilo em algo com que eu me conecto toda vez que olho.
 
-![Relógio com o logo "GG" e a frase "Fun is the key"](/media/fun-is-the-key/relogio.png "Multirepo.png | 280")
+![Relógio com o logo "GG" e a frase "Fun is the key"](/media/fun-is-the-key/relogio.png "Relógio.png | 280")
 
 ### Pixel art com miçangas
 
-A mesma coisa acontece com _pixel art_ e miçangas. No papel, pode parecer repetitivo mas, quando a curiosidade entra em cena, a repetição muda de sentido. Você não está só encaixando peças, está transformando pixel art em algo físico, e isso muda a experiência inteira.
+A mesma coisa acontece com _pixel art_ e miçangas. É uma atividade que pode parecer repetitiva mas, quando a curiosidade entra em cena, a repetição muda de sentido. Você não está só encaixando peças, está transformando pixel art em algo físico, e isso muda a experiência inteira.
 
 ![Cidade em pixel art com miçanga](/media/fun-is-the-key/pixel-art.png "Cidade.png | 400")
 
@@ -128,7 +128,7 @@ Eu vejo como **combustível**.
 
 Nem tudo vai ser divertido. Existem partes chatas, tarefas repetitivas e coisas que simplesmente precisam ser feitas.
 
-O React95 é um bom exemplo disso. Ele não nasceu de uma tarde livre e inspirada. Nasceu de um problema real: a empresa em que eu trabalhava precisava de um design system, e eu não fazia a menor ideia de como construir um.
+O React95 é um bom exemplo disso. Ele não nasceu de uma tarde livre e inspirada. Nasceu de um problema real onde a empresa em que eu trabalhava precisava de um design system, e eu não fazia a menor ideia de como construir um.
 
 Eu poderia ter encarado aquilo como uma tarefa complicada e, honestamente, era isso mesmo. Mas, em vez de tentar me forçar a aprender da forma mais direta e eficiente possível, eu me perguntei: como eu posso tornar isso legal?
 
