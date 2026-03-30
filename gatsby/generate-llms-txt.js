@@ -152,6 +152,7 @@ function generateLlmsTxt(posts, locale, reporter) {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
+      timeZone: 'UTC',
     });
 
     if (description) {
