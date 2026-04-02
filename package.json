@@ -61,7 +61,7 @@
     "html-react-parser": "^5.2.11",
     "i18next": "^22.5.1",
     "invariant": "^2.2.4",
-    "lodash": "^4.17.21",
+    "lodash": "^4.18.1",
     "prism-react-renderer": "^2.4.1",
     "prismjs": "^1.30.0",
     "react": "^18.3.1",
