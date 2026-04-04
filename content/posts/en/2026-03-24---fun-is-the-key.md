@@ -95,7 +95,7 @@ On the surface, that's a completely different kind of hobby but the instinct beh
 
 The same thing happens with pixel art and beads. It can look repetitive but when curiosity enters the scene, repetition changes meaning. You're not just placing pieces together, you're turning pixel art into something physical, and that changes the whole experience.
 
-![City pixel art made with beads](/media/fun-is-the-key/pixel-art.png "City.png | 400")
+![City pixel art made with beads](/media/fun-is-the-key/pixel-art.png "City.png | 340")
 
 <br />
 

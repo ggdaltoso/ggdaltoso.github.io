@@ -103,7 +103,7 @@ Olhando de longe, isso parece um hobby totalmente diferente mas o impulso por tr
 
 A mesma coisa acontece com _pixel art_ e miçangas. É uma atividade que pode parecer repetitiva mas, quando a curiosidade entra em cena, a repetição muda de sentido. Você não está só encaixando peças, está transformando pixel art em algo físico, e isso muda a experiência inteira.
 
-![Cidade em pixel art com miçanga](/media/fun-is-the-key/pixel-art.png "Cidade.png | 400")
+![Cidade em pixel art com miçanga](/media/fun-is-the-key/pixel-art.png "Cidade.png | 340")
 
 <br />
 
