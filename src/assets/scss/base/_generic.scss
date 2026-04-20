@@ -120,6 +120,15 @@ strong {
   font-weight: 600;
 }
 
+code {
+  font-family: var(--typographic-monospace-font-family) !important;
+  font-size: 0.875em;
+  background-color: rgba(var(--color-primary-rgb), 0.08);
+  color: var(--color-primary);
+  border: 2px solid rgba(var(--color-primary-rgb), 0.2);
+  padding: 0.15em 0.4em;
+}
+
 ul {
   list-style: square;
   margin-bottom: var(--typographic-leading);
