@@ -9,6 +9,10 @@ const siteConfig = require('../config.js');
 const OG_IMAGE_WIDTH = 1200;
 const OG_IMAGE_HEIGHT = 630;
 const TEMPLATE_PATH = path.join(__dirname, '../static/og-image/template.png');
+const LIGHT_TEMPLATE_PATH = path.join(
+  __dirname,
+  '../static/og-image/template-light.png',
+);
 const OUTPUT_DIR = path.join(__dirname, '../public/og-images');
 const DEFAULT_LOCALE = siteConfig.i18n?.defaultLocale || 'pt';
 const REACT95_GLOBAL_STYLE_CSS_PATH = path.join(
@@ -17,6 +21,8 @@ const REACT95_GLOBAL_STYLE_CSS_PATH = path.join(
 );
 const OG_FONT_FAMILY = 'MS Sans Serif';
 const OG_FONT_FAMILY_CSS = '"MS Sans Serif"';
+
+const DARK_MODE = false; // Set to true if you want to use the dark template and colors
 
 let ogFontsLoaded = false;
 
@@ -94,16 +100,18 @@ async function generateOGImage(data) {
     const ctx = canvas.getContext('2d');
 
     // Load and draw template
-    const templateImage = await loadImage(TEMPLATE_PATH);
+    const templateImage = await loadImage(
+      DARK_MODE ? TEMPLATE_PATH : LIGHT_TEMPLATE_PATH,
+    );
     ctx.drawImage(templateImage, 0, 0, OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT);
 
     // Define content area (left side black area)
     const contentPadding = 24;
     const contentX = contentPadding;
-    const contentMaxWidth = 600;
+    const contentMaxWidth = 720;
 
     // TITLE AND DESCRIPTION (Top-left)
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = DARK_MODE ? '#ffffff' : '#000000';
     ctx.font = isPage
       ? `bold 72px ${OG_FONT_FAMILY_CSS}`
       : `bold 60px ${OG_FONT_FAMILY_CSS}`;
@@ -135,7 +143,7 @@ async function generateOGImage(data) {
 
     // Draw description with proper wrapping
     if (description) {
-      ctx.fillStyle = '#d0d0d0';
+      ctx.fillStyle = DARK_MODE ? '#d0d0d0' : '#606060';
       ctx.font = `28px ${OG_FONT_FAMILY_CSS}`;
 
       // Wrap description text properly
@@ -169,8 +177,8 @@ async function generateOGImage(data) {
     ctx.strokeStyle = '#5e35b1';
     ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.moveTo(20, OG_IMAGE_HEIGHT - 110);
-    ctx.lineTo(200, OG_IMAGE_HEIGHT - 110);
+    ctx.moveTo(20, OG_IMAGE_HEIGHT - 130);
+    ctx.lineTo(200, OG_IMAGE_HEIGHT - 130);
     ctx.stroke();
 
     const formattedDate = date
@@ -188,16 +196,16 @@ async function generateOGImage(data) {
         : `${Math.ceil(readingTime)} min read`
       : '';
 
-    ctx.fillStyle = '#e0e0e0';
-    ctx.font = `bold 24px ${OG_FONT_FAMILY_CSS}`;
-    ctx.fillText(siteConfig.title, contentX, OG_IMAGE_HEIGHT - 104);
+    ctx.fillStyle = DARK_MODE ? '#e0e0e0' : '#000000';
+    ctx.font = `bold 30px ${OG_FONT_FAMILY_CSS}`;
+    ctx.fillText(siteConfig.title, contentX, OG_IMAGE_HEIGHT - 124);
 
     const footerItems = [formattedDate, readingTimeText].filter(Boolean);
     const footerText = footerItems.join(' • ');
 
-    ctx.fillStyle = '#e0e0e0';
-    ctx.font = `20px ${OG_FONT_FAMILY_CSS}`;
-    ctx.fillText(footerText, contentX, OG_IMAGE_HEIGHT - 50);
+    ctx.fillStyle = DARK_MODE ? '#e0e0e0' : '#000000';
+    ctx.font = `24px ${OG_FONT_FAMILY_CSS}`;
+    ctx.fillText(footerText, contentX, OG_IMAGE_HEIGHT - 60);
 
     // Save image in locale-specific folder
     const cleanSlug = slug
