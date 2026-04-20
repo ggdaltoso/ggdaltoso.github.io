@@ -26,7 +26,7 @@ module.exports = {
     },
   },
   postsPerPage: 4,
-  googleAnalyticsId: 'UA-64834505-1',
+  googleAnalyticsId: 'G-N0Z6Q2SFLR',
   menu: {
     pt: [
       {
