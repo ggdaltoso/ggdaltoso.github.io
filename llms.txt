@@ -12,6 +12,7 @@ Contatos: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltos
 
 ## Artigos
 
+- [JavaScripto: aprendendo JavaScript em português](https://ggdaltoso.dev/javascripto): JavaScripto é uma plataforma de ensino de JavaScript onde você escreve código em português. Nasceu da vontade de tornar o aprendizado de programação mais acessível para brasileiros. (20 de abril de 2026)
 - [Fun is the key](https://ggdaltoso.dev/fun-is-the-key): “Fun is the key” nasceu numa live, mas virou princípio. Diversão não elimina esforço, mas muda nossa relação com ele e isso pode ser a diferença entre desistir e evoluir. (24 de março de 2026)
 - [Monolito, Multirepo ou Monorepo?](https://ggdaltoso.dev/monolito-multirepo-ou-monorepo): Monolito é fácil para começar um projeto. Multirepo pode ser bom quando o problema é espaço. Monorepo tem vários projetos que compartilham o mesmo repositório. Qual deles é bom pra mim? (10 de julho de 2020)
 - [React95: fun side project of the year](https://ggdaltoso.dev/react95-fun-side-project-of-the-year): React95 é uma biblioteca de componentes escrita em React usando  styled-components. Em abril de 2019, ganhou o prêmio de “Fun side project of  the year” na maior conferência de React do mundo, em Amsterdã. (17 de maio de 2019)
