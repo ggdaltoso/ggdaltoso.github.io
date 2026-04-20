@@ -1,6 +1,6 @@
 ---
 title: 'JavaScripto: aprendendo JavaScript em português'
-date: '2026-04-17T00:00:00.000Z'
+date: '2026-04-20T01:36:36.000Z'
 template: 'post'
 draft: false
 slug: '/javascripto'
