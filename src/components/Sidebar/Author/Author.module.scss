@@ -1,4 +1,19 @@
 .author {
+  &__avatar {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: default;
+  }
+
+  &__avatarRing {
+    background: none;
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  }
+
   &__photo {
     display: inline-block;
     margin-bottom: 0;

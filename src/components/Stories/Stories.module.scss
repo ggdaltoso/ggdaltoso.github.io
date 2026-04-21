@@ -1,0 +1,48 @@
+.stories {
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  &__window {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    width: 360px;
+    height: 540px;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+
+  &__progressRow {
+    display: flex;
+    gap: 2px;
+  }
+
+  &__bar {
+    flex: 1;
+    width: 100%;
+
+    div:first-child {
+      color: transparent;
+      width: 100%;
+    }
+  }
+}
