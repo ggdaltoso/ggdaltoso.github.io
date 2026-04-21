@@ -3,7 +3,7 @@ title: 'JavaScripto: aprendendo JavaScript em português'
 date: '2026-04-20T01:36:36.000Z'
 template: 'post'
 draft: false
-slug: '/javascripto'
+slug: '/javascripto-aprendendo-javascript-em-portugues'
 description: 'JavaScripto é uma plataforma de ensino de JavaScript onde você escreve código em português. Nasceu da vontade de tornar o aprendizado de programação mais acessível para brasileiros.'
 ---
 

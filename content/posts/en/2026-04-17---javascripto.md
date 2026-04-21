@@ -3,7 +3,7 @@ title: 'JavaScripto: learning JavaScript in Portuguese'
 date: '2026-04-20T01:36:36.000Z'
 template: 'post'
 draft: false
-slug: '/javascripto'
+slug: '/javascripto-learning-javascript-in-portuguese'
 description: 'JavaScripto is a JavaScript learning platform where you write code in Portuguese. It was born from a desire to make programming more accessible for Brazilians.'
 ---
 
