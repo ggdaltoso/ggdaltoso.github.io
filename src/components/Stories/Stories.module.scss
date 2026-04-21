@@ -7,17 +7,26 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
+
+    > div {
+      top: 2.5vh;
+    }
+
+    @media (max-width: 768px) {
+      > div {
+        top: 10vh;
+      }
+    }
   }
 
   &__window {
-    width: 360px;
+    width: min(90vw, calc(90vh * 2 / 3));
     display: flex;
     flex-direction: column;
   }
 
   &__content {
-    width: 360px;
-    height: 540px;
+    width: 100%;
     overflow: hidden;
     cursor: pointer;
     user-select: none;
