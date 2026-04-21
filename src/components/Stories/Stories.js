@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Frame, TitleBar, ProgressBar, Modal } from '@react95/core';
+import { formatDistanceToNow } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import { useStories } from '@hooks';
 import * as styles from './Stories.module.scss';
+
+const formatStoryDate = (date) => {
+  if (!date) return '';
+  return formatDistanceToNow(date, { addSuffix: true, locale: ptBR });
+};
 
 const TICK_MS = 100;
 
@@ -84,7 +91,7 @@ const Stories = ({ isOpen, onClose }) => {
       className={styles['stories__overlay']}
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <Modal title="Stories">
+      <Modal title={`Stories ${formatStoryDate(stories[currentIdx]?.date)}`}>
         <Frame className={styles['stories__window']}>
           <Frame
             boxShadow="$in"
