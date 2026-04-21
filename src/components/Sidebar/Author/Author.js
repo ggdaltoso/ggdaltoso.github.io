@@ -9,7 +9,7 @@ import Stories from '@components/Stories';
 const Author = ({ author, isIndex }) => {
   const authorBio = useLocalizedValue(author.bio);
   const { hasStories } = useStories();
-  const [storiesOpen, setStoriesOpen] = useState(true);
+  const [storiesOpen, setStoriesOpen] = useState(false);
 
   const handleAvatarClick = (e) => {
     if (!hasStories) return;
