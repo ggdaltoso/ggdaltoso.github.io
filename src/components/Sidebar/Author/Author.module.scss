@@ -1,3 +1,15 @@
+@property --ring-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes ring-rotate {
+  0% { --ring-angle: 0deg; }
+  35% { --ring-angle: 360deg; }
+  100% { --ring-angle: 360deg; }
+}
+
 .author {
   &__avatar {
     background: none;
@@ -7,11 +19,19 @@
   }
 
   &__avatarRing {
-    background: none;
     border: none;
     padding: 3px;
     cursor: pointer;
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    background: conic-gradient(
+      from var(--ring-angle),
+      #f09433,
+      #e6683c,
+      #dc2743,
+      #cc2366,
+      #bc1888,
+      #f09433
+    );
+    animation: ring-rotate 4s ease-in-out infinite;
   }
 
   &__photo {
