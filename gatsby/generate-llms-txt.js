@@ -35,7 +35,7 @@ module.exports = async (graphql, reporter) => {
 
   const result = await graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: { frontmatter: { date: DESC } }
         filter: {
           frontmatter: { template: { eq: "post" }, draft: { ne: true } }
@@ -63,7 +63,7 @@ module.exports = async (graphql, reporter) => {
     throw result.errors;
   }
 
-  const posts = result.data.allMarkdownRemark.edges;
+  const posts = result.data.allMdx.edges;
   reporter.info(`Found ${posts.length} posts to include in llms.txt`);
 
   locales.forEach((locale) => {

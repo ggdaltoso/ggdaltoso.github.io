@@ -12,7 +12,7 @@ module.exports = async (graphql, actions) => {
   for (const locale of locales) {
     const result = await graphql(`
       {
-        allMarkdownRemark(
+        allMdx(
           filter: {
             frontmatter: { template: { eq: "post" }, draft: { ne: true } }
             fields: { locale: { eq: "${locale}" } }
@@ -23,7 +23,7 @@ module.exports = async (graphql, actions) => {
       }
     `);
 
-    const totalCount = result.data.allMarkdownRemark.totalCount;
+    const totalCount = result.data.allMdx.totalCount;
     const numPages = Math.max(1, Math.ceil(totalCount / postsPerPage));
     const pageSegment = getPagePathSegment(locale);
 
