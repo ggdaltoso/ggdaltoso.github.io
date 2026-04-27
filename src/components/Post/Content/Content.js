@@ -1,11 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { getReadingTimeMinutes } from '../../../utils';
-import HtmlContent from './HtmlContent';
 
 import * as styles from './Content.module.scss';
 
-const Content = ({ body, title, readingTime }) => {
+const Content = ({ title, readingTime, children }) => {
   const { t } = useTranslation();
   const readingTimeMinutes = getReadingTimeMinutes(readingTime);
 
@@ -17,9 +16,7 @@ const Content = ({ body, title, readingTime }) => {
           {t('min read', { count: readingTimeMinutes })}
         </p>
       ) : null}
-      <div className={styles['content__body']}>
-        <HtmlContent html={body} />
-      </div>
+      <div className={styles['content__body']}>{children}</div>
     </div>
   );
 };

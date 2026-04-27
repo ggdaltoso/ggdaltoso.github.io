@@ -71,6 +71,13 @@
       display: block;
       opacity: 0.6;
     }
+
+    & iframe {
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      height: auto;
+    }
   }
 }
 

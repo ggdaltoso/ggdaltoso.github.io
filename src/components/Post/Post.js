@@ -7,7 +7,7 @@ import Content from './Content';
 import Meta from './Meta';
 import * as styles from './Post.module.scss';
 
-const Post = ({ post, html }) => {
+const Post = ({ post, mdxContent }) => {
   const { t } = useTranslation();
   const { slug } = post.fields || {};
   const { title, date } = post.frontmatter;
@@ -20,7 +20,9 @@ const Post = ({ post, html }) => {
       </Link>
 
       <div>
-        <Content title={title} body={html} readingTime={readingTime} />
+        <Content title={title} readingTime={readingTime}>
+          {mdxContent}
+        </Content>
       </div>
 
       <div className={styles['post__footer']}>
