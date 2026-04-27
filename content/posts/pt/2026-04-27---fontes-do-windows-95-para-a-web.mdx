@@ -1,0 +1,102 @@
+---
+title: 'As fontes do Windows 95 na web moderna'
+date: '2026-04-27T00:00:00.000Z'
+template: 'post'
+draft: false
+slug: '/fontes-do-windows-95-para-a-web'
+description: 'MS Sans Serif e MS Serif estão presas dentro de arquivos .FON desde 1987. Essa é a história de como tiramos elas de lá e transformamos num pacote npm que qualquer um pode instalar.'
+---
+
+import FontDemo from '@components/FontDemo';
+
+Tem uma fonte que qualquer pessoa que tocou num computador nos anos 90 reconhece na hora.
+
+MS Sans Serif. Aquela tipografia pequenininha, quadrada, com pixels visíveis, que aparecia em tudo no Windows 95: menus, botões, caixas de diálogo, barras de título.
+
+O React95 já tinha os componentes. Já tinha os estilos. Mas quando você rodava a demo no browser, as fontes não eram aquelas. Eram as do sistema. E isso quebrava o encanto.
+
+Existem várias fontes por aí que se parecem com a MS Sans Serif. A [W95FA](https://www.dafont.com/w95fa.font) é uma delas. Fontes feitas pra nos lembrar aquela época, pra dar aquela sensação de nostalgia. E elas funcionam, do longe.
+
+De perto, não são ela. Não são pixel perfect.
+
+Eu queria exatamente aquela.
+
+## O problema
+
+As fontes originais do Windows 95 vivem dentro de arquivos `.FON`. É um formato binário da Microsoft de 1987, feito pra fontes de bitmap na época do DOS. Não tem caminho direto entre um `.FON` e um `@font-face` moderno.
+
+Ninguém vai simplesmente "importar" isso no CSS.
+
+Então a pergunta virou: será que dá?
+
+## A extração
+
+A resposta foi Python. Não é a linguagem que eu uso no dia a dia, mas sabia que era a ferramenta certa pra isso. Com um empurrãozinho da IA pra não travar nas partes que não dominava, consegui seguir em frente.
+
+Tem uma biblioteca chamada [`monobit`](https://pypi.org/project/monobit/) que consegue ler arquivos `.FON` antigos e extrair os dados dos glifos. A partir daí, usamos [`fontTools`](https://pypi.org/project/FONtools/) pra reconstruir cada tamanho como uma fonte TTF de verdade, com as métricas corretas, com a tabela `gasp` configurada pra o browser não aplicar antialiasing e estragar os pixels.
+
+Depois, [`brotli`](https://pypi.org/project/brotli/) pra comprimir em WOFF2 e embutir o resultado como base64 direto no CSS.
+
+Cada fonte, cada tamanho, virou um arquivo CSS independente com o `@font-face` já pronto.
+
+## A parte estranha de fontes bitmap
+
+Fontes vetoriais escalam. Você define `font-size: 32px` e a fonte se adapta. Simples.
+
+Fontes bitmap não funcionam assim. Cada tamanho é um conjunto fixo de pixels. Se você aumentar, os pixels ficam borrados, fora do lugar, errados. Não tem como "escalar" aqui. Ou você renderiza na resolução certa ou não.
+
+Isso significa que `R95 Sans Serif 14pt` e `R95 Sans Serif 18pt` não são tamanhos da mesma família. São famílias diferentes. Cada uma tem seu nome, sua altura nativa em pixels, e precisa ser usada na escala certa.
+
+```css
+body {
+  font-family: 'R95 Sans Serif 14pt';
+  font-size: 24px; /* altura nativa do 14pt em 96 dpi */
+}
+```
+
+Parece estranho no começo. Faz todo sentido depois.
+
+## O pacote
+
+O resultado foi `@react95/fonts`.
+
+Quatro variantes: MS Sans Serif e MS Serif, em 96 dpi e 120 dpi, seis tamanhos cada. Vinte e oito arquivos CSS gerados automaticamente pelo script Python, com base64 embutido, sem requisições extras.
+
+```bash
+npm install @react95/fonts
+```
+
+E você escolhe o quanto quer importar:
+
+```js
+// Tudo
+import '@react95/fonts';
+
+// Só uma variante
+import '@react95/fonts/sans-serif';
+
+// Um tamanho específico
+import '@react95/fonts/sans-serif/14pt';
+```
+
+O script Python, no final de cada execução, ainda imprime o bloco `exports` pronto pra colar no `package.json`. Nada é editado à mão.
+
+Experimente aqui:
+
+<FontDemo />
+
+## A demo
+
+A página usa o React95 — os próprios componentes do projeto — pra montar uma janela estilo Windows 95. E tem o Clippy lá, animado, pedindo pra você dar uma estrela no repositório.
+
+Não dava pra lançar de outro jeito.
+
+## Utilidade de mercado: nenhuma
+
+Ninguém precisa da MS Sans Serif pra construir um produto.
+
+Mas tem uma diferença entre "parecido" e "correto". Essa diferença me incomodava.
+
+O React95 existe porque eu quis aprender fazendo algo divertido. O `@react95/fonts` existe pelo mesmo motivo: a fonte certa, no pixel certo.
+
+E às vezes isso vira um pacote que outras pessoas instalam.

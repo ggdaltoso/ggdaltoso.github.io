@@ -1,0 +1,102 @@
+---
+title: 'Windows 95 fonts for the modern web'
+date: '2026-04-27T00:00:00.000Z'
+template: 'post'
+draft: false
+slug: '/windows-95-fonts-for-the-web'
+description: 'MS Sans Serif and MS Serif have been locked inside .FON binary files since 1987. This is the story of getting them out and shipping them as an npm package anyone can install.'
+---
+
+import FontDemo from '@components/FontDemo';
+
+There's a font that anyone who touched a computer in the 90s recognizes immediately.
+
+MS Sans Serif. That small, square, pixel-visible font that showed up everywhere in Windows 95: menus, buttons, dialog boxes, title bars.
+
+React95 already had the components. Already had the styles. But when you ran the demo in a browser, the fonts weren't those. They were the system fonts. And that broke the whole spell.
+
+There are plenty of fonts out there that look like MS Sans Serif. [W95FA](https://www.dafont.com/w95fa.font) is one of them. Fonts made to remember that era, to give that nostalgic feeling. And they work, from a distance.
+
+Up close, they're not it. They're not pixel perfect.
+
+I wanted exactly that one.
+
+## The problem
+
+The original Windows 95 fonts live inside `.FON` files. A Microsoft binary format from 1987, built for bitmap fonts in the DOS era. There's no direct path from a `.FON` to a modern `@font-face`.
+
+Nobody's going to just "import" this in CSS.
+
+So the question became: can it be done?
+
+## The extraction
+
+The answer was Python. Not the language I use day to day, but the right tool for this. With a little help from AI to get unstuck on the parts I didn't know well, I was able to keep moving.
+
+A library called [`monobit`](https://pypi.org/project/monobit/) can read old `.FON` files and extract the glyph data. From there, we used [`fontTools`](https://pypi.org/project/FONtools/) to rebuild each size as a proper TTF, with correct metrics and the `gasp` table configured so browsers wouldn't apply antialiasing and ruin the pixels.
+
+Then [`brotli`](https://pypi.org/project/brotli/) to compress to WOFF2 and embed the result as base64 directly in the CSS.
+
+Each font, each size, became a standalone CSS file with a ready-to-use `@font-face`.
+
+## The strange thing about bitmap fonts
+
+Vector fonts scale. You set `font-size: 32px` and the font adapts. Simple.
+
+Bitmap fonts don't work that way. Each size is a fixed grid of pixels. Scale it up and the pixels fall apart: blurred, misaligned, wrong. There's no "scaling" here. You either render at the right resolution or you don't.
+
+This means `R95 Sans Serif 14pt` and `R95 Sans Serif 18pt` aren't sizes of the same family. They're different families. Each has its own name, its own native pixel height, and needs to be used at the right scale.
+
+```css
+body {
+  font-family: 'R95 Sans Serif 14pt';
+  font-size: 24px; /* native height of 14pt at 96 dpi */
+}
+```
+
+Strange at first. Makes sense after.
+
+## The package
+
+The result was `@react95/fonts`.
+
+Four variants: MS Sans Serif and MS Serif, at 96 dpi and 120 dpi, six sizes each. Twenty-eight CSS files generated automatically by the Python script, with base64 embedded, no extra network requests.
+
+```bash
+npm install @react95/fonts
+```
+
+Pick how much you want:
+
+```js
+// Everything
+import '@react95/fonts';
+
+// One full variant
+import '@react95/fonts/sans-serif';
+
+// One specific size
+import '@react95/fonts/sans-serif/14pt';
+```
+
+The Python script, at the end of each run, prints a ready-to-paste `exports` block for `package.json`. Nothing's edited by hand.
+
+Try it here:
+
+<FontDemo />
+
+## The demo
+
+The page uses React95 itself — the project's own components — to build a Windows 95-style window. Clippy's there, animated, asking you to star the repository.
+
+There was no other way to ship this.
+
+## No market case
+
+Nobody needs MS Sans Serif to ship a product.
+
+But there's a difference between "close enough" and "correct." That difference bothered me.
+
+React95 exists because I wanted to learn by building something fun. `@react95/fonts` exists for the same reason: the right font, at the right pixel.
+
+Sometimes that turns into a package other people install.
