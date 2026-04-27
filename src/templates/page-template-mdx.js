@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
 import Layout from '@components/Layout';
 import Sidebar from '@components/Sidebar';
 import Page from '@components/Page';
@@ -8,15 +9,14 @@ import SEO from '@components/SEO';
 import siteConfig from '@config';
 import { buildDocumentTitle, getLocalizedValue } from '@utils';
 
-const PageTemplate = ({ data }) => {
-  const { html: pageBody } = data.markdownRemark;
-  const { title: pageTitle } = data.markdownRemark.frontmatter;
-
+const PageTemplateMDX = ({ data, children }) => {
   return (
     <Layout>
       <Sidebar />
       <Page>
-        <Content title={pageTitle} body={pageBody} />
+        <Content title={data.mdx.frontmatter.title}>
+          <MDXProvider>{children}</MDXProvider>
+        </Content>
       </Page>
     </Layout>
   );
@@ -25,34 +25,37 @@ const PageTemplate = ({ data }) => {
 export const Head = ({ data, pageContext }) => {
   const defaultLocale = siteConfig.i18n?.defaultLocale || 'pt';
   const locale = pageContext.locale || defaultLocale;
-  const { title, description, slug } = data.markdownRemark.frontmatter;
+  const { title, slug } = data.mdx.frontmatter;
 
   return (
     <SEO
       locale={locale}
       title={buildDocumentTitle(title)}
-      description={
-        description ||
-        getLocalizedValue(siteConfig.subtitle, locale, defaultLocale)
-      }
+      description={getLocalizedValue(siteConfig.subtitle, locale, defaultLocale)}
       slug={slug}
     />
   );
 };
 
 export const query = graphql`
-  query PageById($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query PageByIdMDX($id: String!, $locale: String!) {
+    locales: allLocale(filter: { language: { eq: $locale } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    mdx(id: { eq: $id }) {
       id
-      html
       frontmatter {
         title
-        date
-        description
         slug
       }
     }
   }
 `;
 
-export default PageTemplate;
+export default PageTemplateMDX;

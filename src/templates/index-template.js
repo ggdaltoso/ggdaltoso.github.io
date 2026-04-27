@@ -16,9 +16,16 @@ const IndexTemplate = ({ data, pageContext }) => {
     hasPrevPage,
     prevPagePath,
     nextPagePath,
+    postsLimit,
+    postsOffset,
   } = pageContext;
 
-  const { edges } = data.allMarkdownRemark;
+  const edges = [...data.allMdx.edges]
+    .sort(
+      (a, b) =>
+        new Date(b.node.frontmatter.date) - new Date(a.node.frontmatter.date),
+    )
+    .slice(postsOffset, postsOffset + postsLimit);
   const pageTitle = buildDocumentTitle(
     currentPage > 0 ? `Posts - Page ${currentPage}` : '',
   );
@@ -66,7 +73,7 @@ export const Head = ({ pageContext }) => {
 };
 
 export const query = graphql`
-  query IndexTemplate($locale: String!, $postsLimit: Int!, $postsOffset: Int!) {
+  query IndexTemplate($locale: String!) {
     locales: allLocale(filter: { language: { eq: $locale } }) {
       edges {
         node {
@@ -76,9 +83,7 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      limit: $postsLimit
-      skip: $postsOffset
+    allMdx(
       filter: {
         frontmatter: { template: { eq: "post" }, draft: { ne: true } }
         fields: { locale: { eq: $locale } }

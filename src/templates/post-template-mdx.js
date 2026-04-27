@@ -1,17 +1,35 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
 import Layout from '@components/Layout';
 import Post from '@components/Post';
 import SEO from '@components/SEO';
+import GGImage from '@components/Layout/Image';
+import GGHighlight from '@components/Layout/Highlight';
 import siteConfig from '@config';
 import { buildDocumentTitle, getLocalizedValue } from '@utils';
 
-const PostTemplate = ({ data }) => {
-  const { html: postBody } = data.markdownRemark;
+const mdxComponents = {
+  img: ({ src, alt, title }) => (
+    <GGImage src={src} alt={alt} title={title || alt} />
+  ),
+  pre: ({ children }) => {
+    const code = children?.props?.children || '';
+    const className = children?.props?.className || '';
+    const language = className.replace('language-', '') || 'text';
+    return (
+      <GGHighlight
+        code={typeof code === 'string' ? code.trimEnd() : ''}
+        language={language}
+      />
+    );
+  },
+};
 
+const PostTemplateMDX = ({ data, children }) => {
   return (
     <Layout>
-      <Post post={data.markdownRemark} html={postBody} />
+      <Post post={data.mdx} mdxContent={<MDXProvider components={mdxComponents}>{children}</MDXProvider>} />
     </Layout>
   );
 };
@@ -19,7 +37,7 @@ const PostTemplate = ({ data }) => {
 export const Head = ({ data, pageContext }) => {
   const defaultLocale = siteConfig.i18n?.defaultLocale || 'pt';
   const locale = pageContext.locale || defaultLocale;
-  const { title, description, slug } = data.markdownRemark.frontmatter;
+  const { title, description, slug } = data.mdx.frontmatter;
 
   return (
     <SEO
@@ -35,7 +53,7 @@ export const Head = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query PostById($id: String!, $locale: String!) {
+  query PostByIdMDX($id: String!, $locale: String!) {
     locales: allLocale(filter: { language: { eq: $locale } }) {
       edges {
         node {
@@ -45,9 +63,8 @@ export const query = graphql`
         }
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       id
-      html
       readingTime {
         minutes
       }
@@ -61,4 +78,4 @@ export const query = graphql`
   }
 `;
 
-export default PostTemplate;
+export default PostTemplateMDX;
