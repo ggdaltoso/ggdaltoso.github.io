@@ -6,7 +6,7 @@ const { defaultLocale, locales, getLocalePrefix } = require('./i18n');
 const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx') {
+  if (node.internal.type === 'Mdx') {
     const parentNode = getNode(node.parent);
     const directorySegments = (parentNode?.relativeDirectory || '')
       .split('/')

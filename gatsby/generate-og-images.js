@@ -247,7 +247,7 @@ async function generateAllOGImages(graphql, reporter) {
   try {
     const result = await graphql(`
       {
-        allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
+        allMdx(filter: { frontmatter: { draft: { ne: true } } }) {
           nodes {
             fields {
               locale
@@ -272,7 +272,7 @@ async function generateAllOGImages(graphql, reporter) {
       return;
     }
 
-    const { nodes } = result.data.allMarkdownRemark;
+    const { nodes } = result.data.allMdx;
     const results = [];
 
     // Generate images for posts and pages

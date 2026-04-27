@@ -15,10 +15,10 @@ const createPages = async ({ graphql, actions }) => {
     context: { locale: defaultLocale },
   });
 
-  // Posts and pages from markdown
-  const result = await graphql(`
+  // Pages and posts from MDX
+  const mdxResult = await graphql(`
     {
-      allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
+      allMdx {
         nodes {
           id
           fields {
@@ -27,42 +27,37 @@ const createPages = async ({ graphql, actions }) => {
           }
           frontmatter {
             template
+            draft
             slug
+          }
+          internal {
+            contentFilePath
           }
         }
       }
     }
   `);
 
-  const { nodes } = result.data.allMarkdownRemark;
+  const mdxNodes = mdxResult.data.allMdx.nodes;
+  const postTemplateMdx = path.resolve('./src/templates/post-template-mdx.js');
+  const pageTemplateMdx = path.resolve('./src/templates/page-template-mdx.js');
 
-  _.each(nodes, (node) => {
+  _.each(mdxNodes, (node) => {
     const frontmatter = node.frontmatter || {};
     const template = frontmatter.template || 'page';
     const slug = node.fields?.slug || frontmatter.slug;
     const id = node.id;
 
-    if (!slug) {
+    if (!slug || frontmatter.draft) {
       return;
     }
 
-    if (template === 'page') {
-      const pageTemplate = path.resolve('./src/templates/page-template.js');
-
-      createPage({
-        path: slug,
-        component: pageTemplate,
-        context: { slug, id, locale: node.fields?.locale || defaultLocale },
-      });
-    } else if (template === 'post') {
-      const postTemplate = path.resolve('./src/templates/post-template.js');
-
-      createPage({
-        path: slug,
-        component: postTemplate,
-        context: { slug, id, locale: node.fields?.locale || defaultLocale },
-      });
-    }
+    const component = template === 'post' ? postTemplateMdx : pageTemplateMdx;
+    createPage({
+      path: slug,
+      component: `${component}?__contentFilePath=${node.internal.contentFilePath}`,
+      context: { slug, id, locale: node.fields?.locale || defaultLocale },
+    });
   });
 
   // Feeds
