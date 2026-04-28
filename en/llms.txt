@@ -12,6 +12,7 @@ Contact: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltoso
 
 ## Articles
 
+- [Windows 95 fonts for the modern web](https://ggdaltoso.dev/en/windows-95-fonts-for-the-web): MS Sans Serif and MS Serif have been locked inside .FON binary files since 1987. This is the story of getting them out and shipping them as an npm package anyone can install. (April 28, 2026)
 - [JavaScripto: learning JavaScript in Portuguese](https://ggdaltoso.dev/en/javascripto-learning-javascript-in-portuguese): JavaScripto is a JavaScript learning platform where you write code in Portuguese. It was born from a desire to make programming more accessible for Brazilians. (April 20, 2026)
 - [Fun is the key!](https://ggdaltoso.dev/en/fun-is-the-key): “Fun is the key” was born in a live stream but became a principle. Fun does not eliminate effort, but it changes our relationship with it, and that can be the difference between giving up and evolving. (March 24, 2026)
 - [Monolith, Multirepo or Monorepo?](https://ggdaltoso.dev/en/monolith-multirepo-or-monorepo): Monolith is easy for getting started. Multirepo can be useful when the challenge is scale and separation. Monorepo keeps multiple projects in the same repository. Which one is right for me? (July 10, 2020)
