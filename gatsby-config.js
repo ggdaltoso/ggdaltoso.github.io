@@ -86,7 +86,10 @@ module.exports = {
                 allMdx(
                   limit: 1000,
                   sort: { frontmatter: { date: DESC } },
-                  filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
+                  filter: {
+                    frontmatter: { template: { eq: "post" }, draft: { ne: true } }
+                    fields: { locale: { eq: "pt" } }
+                  }
                 ) {
                   edges {
                     node {
@@ -106,6 +109,46 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
+            title: 'Blog do GG - RSS Feed',
+          },
+          {
+            serialize: ({ query: { site, allMdx } }) =>
+              allMdx.edges.map((edge) =>
+                Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.frontmatter.description,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.site_url + edge.node.fields.slug,
+                  guid: site.siteMetadata.site_url + edge.node.fields.slug,
+                }),
+              ),
+            query: `
+              {
+                allMdx(
+                  limit: 1000,
+                  sort: { frontmatter: { date: DESC } },
+                  filter: {
+                    frontmatter: { template: { eq: "post" }, draft: { ne: true } }
+                    fields: { locale: { eq: "en" } }
+                  }
+                ) {
+                  edges {
+                    node {
+                      fields {
+                        slug
+                      }
+                      frontmatter {
+                        title
+                        date
+                        template
+                        draft
+                        description
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/en/rss.xml',
             title: 'Blog do GG - RSS Feed',
           },
         ],

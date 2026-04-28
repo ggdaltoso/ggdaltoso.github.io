@@ -12,6 +12,11 @@ const Sidebar = ({ isIndex }) => {
   const { author, menu } = useSiteMetadata();
   const { language, defaultLanguage } = useI18next();
   const localizedMenu = getLocalizedMenu(menu, language, defaultLanguage);
+  const rssPrefix = language !== defaultLanguage ? `/${language}` : '';
+  const contacts = {
+    ...author.contacts,
+    rss: `${rssPrefix}/rss.xml`,
+  };
 
   return (
     <div className={styles['sidebar']}>
@@ -22,7 +27,7 @@ const Sidebar = ({ isIndex }) => {
         <Author author={author} isIndex={isIndex} />
         <div className={styles['sidebar__content']}>
           <Menu menu={localizedMenu} />
-          <Contacts contacts={author.contacts} />
+          <Contacts contacts={contacts} />
         </div>
       </div>
     </div>
