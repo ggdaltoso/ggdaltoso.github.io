@@ -4,40 +4,66 @@ date: '2026-04-27T00:00:00.000Z'
 template: 'post'
 draft: false
 slug: '/windows-95-fonts-for-the-web'
-description: 'MS Sans Serif and MS Serif have been locked inside .FON binary files since 1987. This is the story of getting them out and shipping them as an npm package anyone can install.'
+description: 'MS Sans Serif and MS Serif have been locked inside .FON binary
+files since 1987. This is the story of getting them out and shipping them as an
+npm package anyone can install.'
 ---
 
 import FontDemo from '@components/FontDemo';
 
-There's a font that anyone who touched a computer in the 90s recognizes immediately.
+There's a font that anyone who touched a computer in the 90s recognizes
+immediately.
 
-MS Sans Serif. That small, square, pixel-visible font that showed up everywhere in Windows 95: menus, buttons, dialog boxes, title bars.
+MS Sans Serif. That small, square, pixel-visible font that showed up everywhere
+in Windows 95: menus, buttons, dialog boxes, title bars.
 
-React95 already had the components and the styles. The fonts, no. In the browser, you'd get the system fonts. I felt like something was missing. React95 was built to be pixel perfect, and using the wrong font broke that.
+React95 already had the components and the styles. The fonts, no. In the
+browser, you'd get the system fonts. I felt like something was missing. React95
+was built to be pixel perfect, and using the wrong font broke that.
 
-There are plenty of fonts out there that look like MS Sans Serif. [W95FA](https://www.dafont.com/w95fa.font) is one of them, made to remember that era. And they work, from a distance. Up close, they're not it. They're not pixel perfect.
+There are plenty of fonts out there that look like MS Sans Serif.
+[W95FA](https://www.dafont.com/w95fa.font) is one of them, made to remember that
+era. And they work, from a distance. Up close, they're not the same. They're not
+pixel perfect.
 
 I wanted exactly that one.
 
 ## The problem
 
-The original Windows 95 fonts live inside `.FON` files, a Microsoft binary format from 1987, built for bitmap fonts in the DOS era. There's no direct path from a `.FON` to a modern `@font-face`. Nobody's going to just "import" this in CSS.
+The original Windows 95 fonts live inside `.FON` files, a Microsoft binary
+format from 1987, built for bitmap fonts in the DOS era. There's no direct path
+from a `.FON` to a modern `@font-face`. Nobody's going to just "import" this in
+CSS.
 
 So the question became: can it be done?
 
 ## The extraction
 
-The answer was Python. Not the language I use day to day, but what I needed. With a little help from AI to get unstuck on the parts I didn't know well, I was able to keep moving.
+The answer was Python. Not the language I use day to day, but what I needed.
+With a little help from AI to get unstuck on the parts I didn't know well, I was
+able to keep moving.
 
-A library called [`monobit`](https://pypi.org/project/monobit/) reads old `.FON` files and extracts the glyph data. From there, [`fontTools`](https://pypi.org/project/FONtools/) rebuilds each size as a proper TTF, with correct metrics and the `gasp` table configured so browsers wouldn't apply antialiasing and ruin the pixels. Then [`brotli`](https://pypi.org/project/brotli/) compresses to WOFF2 and embeds the result as base64 directly in the CSS.
+A library called [`monobit`](https://pypi.org/project/monobit/) reads old `.FON`
+files and extracts the glyph data. From there,
+[`fontTools`](https://pypi.org/project/FONtools/) rebuilds each size as a proper
+TTF, with correct metrics and the `gasp` table configured so browsers wouldn't
+apply antialiasing and ruin the pixels. Then
+[`brotli`](https://pypi.org/project/brotli/) compresses to WOFF2 and embeds the
+result as base64 directly in the CSS.
 
-Each font, each size, became a standalone CSS file with a ready-to-use `@font-face`.
+Each font, each size, became a standalone CSS file with a ready-to-use
+`@font-face`.
 
 ## The strange thing about bitmap fonts
 
-Vector fonts scale: you set `font-size: 32px` and the font adapts. Bitmap fonts don't work that way. Each size is a fixed grid of pixels — scale it up and the pixels fall apart: blurred, misaligned, wrong. You either render at the right resolution or you don't.
+Vector fonts scale: you set `font-size: 32px` and the font adapts. Bitmap fonts
+don't work that way. Each size is a fixed grid of pixels — scale it up and the
+pixels fall apart: blurred, misaligned, wrong. You either render at the right
+resolution or you don't.
 
-This means `R95 Sans Serif 14pt` and `R95 Sans Serif 18pt` aren't sizes of the same family. They're different families. Each has its own name, its own native pixel height, and needs to be used at the right scale.
+This means `R95 Sans Serif 14pt` and `R95 Sans Serif 18pt` aren't sizes of the
+same family. They're different families. Each has its own name, its own native
+pixel height, and needs to be used at the right scale.
 
 ```css
 body {
@@ -46,11 +72,15 @@ body {
 }
 ```
 
-At first it seems strange. Then there's no other way to think about it.
+It's counterintuitive until it clicks: each size is a different font because
+every pixel was drawn by hand for that exact scale.
 
 ## The package
 
-The result was `@react95/fonts`: four variants, MS Sans Serif and MS Serif, at 96 dpi and 120 dpi, six sizes each. Twenty-eight CSS files generated automatically by the Python script, with base64 embedded, no extra network requests.
+The result was `@react95/fonts`: four variants, MS Sans Serif and MS Serif, at
+96 dpi and 120 dpi, with six sizes each. Twenty-eight CSS files generated
+automatically by the Python script, with base64 embedded, no extra network
+requests.
 
 ```bash
 npm install @react95/fonts
@@ -69,9 +99,10 @@ import '@react95/fonts/sans-serif';
 import '@react95/fonts/sans-serif/14pt';
 ```
 
-The script still prints a ready-to-paste `exports` block for `package.json` at the end of each run. Nothing's edited by hand.
-
-The code is on [GitHub](https://github.com/React95/R95-fonts). The package is on [npm](https://www.npmjs.com/package/@react95/fonts). And if you want to see the fonts before installing, there's a [demo](https://react95.github.io/R95-fonts/) built with React95 itself.
+The code is on [GitHub](https://github.com/React95/R95-fonts). The package is on
+[npm](https://www.npmjs.com/package/@react95/fonts). And if you want to see the
+fonts before installing, there's a [demo](https://react95.github.io/R95-fonts/)
+built with React95 itself.
 
 Try it here:
 
@@ -79,6 +110,9 @@ Try it here:
 
 ## No market case
 
-Nobody needs MS Sans Serif to ship a product. But there's a difference between "close enough" and "correct," and that difference bothered me.
+Nobody needs MS Sans Serif to ship a product. But there's a difference between
+"close enough" and "correct," and that difference bothered me.
 
-React95 exists because I wanted to learn by building something fun. `@react95/fonts` exists for the same reason: the right font, at the right pixel. Sometimes that turns into a package other people install.
+React95 exists because I wanted to learn by building something fun.
+`@react95/fonts` exists for the same reason: the right font, at the right pixel.
+Sometimes that turns into a package other people install.
