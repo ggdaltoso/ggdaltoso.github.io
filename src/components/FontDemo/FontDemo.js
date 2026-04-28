@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Frame, Fieldset, Dropdown, Input, Checkbox, TextArea } from '@react95/core';
 
-import '@react95/fonts';
-
 const SIZES = [8, 10, 12, 14, 18, 24];
 
 const families = [
@@ -27,13 +25,7 @@ const FontDemo = () => {
       backgroundColor="$material"
       p="$4"
     >
-      <Frame
-        width="250px"
-        minWidth="250px"
-        overflow="auto"
-        p="$4"
-        borderRight="2px solid #dfdfdf"
-      >
+      <Frame width="250px" minWidth="250px" overflow="auto" p="$4">
         {families.map((family) => (
           <Frame
             key={family}
@@ -58,9 +50,9 @@ const FontDemo = () => {
       <Frame
         display="flex"
         flexDirection="column"
+        flexGrow="1"
         overflow="hidden"
         p="$4"
-        w="100%"
       >
         <Fieldset legend="Config">
           <Frame display="flex" gap="$4" alignItems="center" flexWrap="wrap">
