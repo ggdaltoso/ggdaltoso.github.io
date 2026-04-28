@@ -30,6 +30,7 @@
     "@giscus/react": "^3.1.0",
     "@mdx-js/react": "^2.0.0",
     "@react95/core": "^9.7.1",
+    "@react95/fonts": "^1.0.1",
     "@react95/icons": "^2.4.0",
     "canvas": "^3.2.3",
     "classnames": "^2.5.1",

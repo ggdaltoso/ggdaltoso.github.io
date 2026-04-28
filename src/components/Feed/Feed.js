@@ -23,14 +23,17 @@ const Feed = ({ edges }) => {
             >
               {formatLocalizedDate(
                 edge.node.frontmatter.date,
-                'MMMM yyyy',
+                'dd MMMM yyyy',
                 language,
               )}
             </time>
             {getReadingTimeMinutes(edge.node.readingTime) ? (
               <span className={styles['feed__itemMetaReadingTime']}>
                 {' '}
-                • {t('min read', { count: getReadingTimeMinutes(edge.node.readingTime) })}
+                -{' '}
+                {t('min read', {
+                  count: getReadingTimeMinutes(edge.node.readingTime),
+                })}
               </span>
             ) : null}
           </div>
