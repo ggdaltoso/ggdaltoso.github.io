@@ -6,8 +6,15 @@ import Sidebar from '@components/Sidebar';
 import Page from '@components/Page';
 import Content from '@components/Post/Content';
 import SEO from '@components/SEO';
+import GGImage from '@components/Layout/Image';
 import siteConfig from '@config';
 import { buildDocumentTitle, getLocalizedValue } from '@utils';
+
+const mdxComponents = {
+  img: ({ src, alt, title }) => (
+    <GGImage src={src} alt={alt} title={title || alt} />
+  ),
+};
 
 const PageTemplateMDX = ({ data, children }) => {
   return (
@@ -15,7 +22,7 @@ const PageTemplateMDX = ({ data, children }) => {
       <Sidebar />
       <Page>
         <Content title={data.mdx.frontmatter.title}>
-          <MDXProvider>{children}</MDXProvider>
+          <MDXProvider components={mdxComponents}>{children}</MDXProvider>
         </Content>
       </Page>
     </Layout>
