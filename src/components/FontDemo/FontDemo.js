@@ -19,13 +19,36 @@ const FontDemo = () => {
   return (
     <Frame
       display="flex"
-      h="320px"
+      flexDirection={{
+        mobile: 'column',
+        tablet: 'row',
+        desktop: 'row',
+      }}
+      h={{
+        mobile: 'auto',
+        tablet: '400px',
+        desktop: '400px',
+      }}
       overflow="hidden"
       boxShadow="$out"
       backgroundColor="$material"
       p="$4"
     >
-      <Frame width="250px" minWidth="250px" overflow="auto" p="$4">
+      <Frame
+        width={{
+          mobile: '100%',
+          tablet: '250px',
+          desktop: '250px',
+        }}
+        minWidth="250px"
+        h={{
+          mobile: '200px',
+          tablet: '100%',
+          desktop: '100%',
+        }}
+        overflow="auto"
+        p="$4"
+      >
         {families.map((family) => (
           <Frame
             key={family}
@@ -70,6 +93,7 @@ const FontDemo = () => {
                   if (!isNaN(v) && v > 0) setFontSize(v);
                 }}
                 defaultValue={fontSize}
+                w="80px"
               />
             </Frame>
             <Frame
