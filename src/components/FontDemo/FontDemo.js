@@ -55,30 +55,37 @@ const FontDemo = () => {
         p="$4"
       >
         <Fieldset legend="Config">
-          <Frame display="flex" gap="$4" alignItems="center" flexWrap="wrap">
-            <Dropdown
-              key={fontFamily}
-              onChange={({ target }) => setFontFamily(target.value)}
-              defaultValue={fontFamily}
-              options={families}
-            />
-            <Input
-              type="number"
-              onChange={({ target }) => {
-                const v = parseInt(target.value);
-                if (!isNaN(v) && v > 0) setFontSize(v);
-              }}
-              defaultValue={fontSize}
-              style={{ height: '26px', width: '60px' }}
-            />
-          </Frame>
-          <Frame display="flex" gap="$4" alignItems="center" flexWrap="wrap">
-            <Checkbox checked={italic} onChange={() => setItalic(!italic)}>
-              Italic
-            </Checkbox>
-            <Checkbox checked={bold} onChange={() => setBold(!bold)}>
-              Bold
-            </Checkbox>
+          <Frame display="flex" flexDirection="column" gap="$4">
+            <Frame display="flex" gap="$4" flexWrap="wrap">
+              <Dropdown
+                key={fontFamily}
+                onChange={({ target }) => setFontFamily(target.value)}
+                defaultValue={fontFamily}
+                options={families}
+              />
+              <Input
+                type="number"
+                onChange={({ target }) => {
+                  const v = parseInt(target.value);
+                  if (!isNaN(v) && v > 0) setFontSize(v);
+                }}
+                defaultValue={fontSize}
+              />
+            </Frame>
+            <Frame
+              display="flex"
+              gap="$4"
+              alignItems="center"
+              flexWrap="wrap"
+              fontSize="12px"
+            >
+              <Checkbox checked={italic} onChange={() => setItalic(!italic)}>
+                Italic
+              </Checkbox>
+              <Checkbox checked={bold} onChange={() => setBold(!bold)}>
+                Bold
+              </Checkbox>
+            </Frame>
           </Frame>
         </Fieldset>
 
