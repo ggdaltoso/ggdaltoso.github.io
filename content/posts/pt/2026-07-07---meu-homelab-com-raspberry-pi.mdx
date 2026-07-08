@@ -1,0 +1,195 @@
+---
+title: 'Meu Homelab'
+date: '2026-07-07T00:00:00.000Z'
+template: 'post'
+draft: false
+slug: '/meu-homelab'
+description: 'Como montei um homelab com Raspberry Pi 4 para ter controle total
+dos meus dados: fotos, documentos e DNS. Sem depender de Google, iCloud ou
+qualquer outro serviço que cobra pelo que já é seu.'
+---
+
+Você já parou pra pensar em quantos serviços guardam seus dados? Google Photos
+com suas fotos, Google Drive com seus documentos, iCloud com seus backups.
+Funciona, ninguém discorda. Mas me incomoda que esses serviços cobram pelo
+armazenamento de coisas que já são suas. E pior: nos últimos anos, cada vez mais
+empresas vendem _o direito de acesso_ ao invés de propriedade. Você não é dono,
+é inquilino.
+
+Eu queria mudar isso. Queria meus arquivos rodando dentro da minha casa, no meu
+hardware. E consegui fazer tudo com um Raspberry Pi 4.
+
+![Foto do meu Raspberry Pi 4 com o SSD conectado](/media/homelab/rasp_e_SSD.jpg "Homelab | 250")
+
+### O que eu queria
+
+Uma alternativa ao Google Photos pras minhas fotos. Um Drive próprio pra meus
+documentos. Um sistema que fizesse
+[OCR](https://pt.wikipedia.org/wiki/Reconhecimento_óptico_de_caracteres) nos
+meus PDFs e contratos pra eu poder buscar por conteúdo. E um bloqueador de
+anúncios na rede inteira, porque não?
+
+Parece muita coisa pra um computador do tamanho de um cartão de crédito. E é.
+Mas roda.
+
+### O hardware
+
+<p>
+  <table>
+    <thead>
+      <tr><th>Componente</th><th style={{ textAlign: 'right' }}>Função</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Raspberry Pi 4 (8 GB)</td>
+        <td style={{ textAlign: 'right' }}>Servidor</td>
+      </tr>
+      <tr>
+        <td>MicroSD 128 GB</td>
+        <td style={{ textAlign: 'right' }}>Sistema + Apps</td>
+      </tr>
+      <tr>
+        <td>SSD 128 GB (USB)</td>
+        <td style={{ textAlign: 'right' }}>Dados</td>
+      </tr>
+      <tr>
+        <td>Fonte oficial Raspberry Pi</td>
+        <td style={{ textAlign: 'right' }}>Alimentação</td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+
+Uma coisa que aprendi da pior forma possível: separe o sistema dos dados. O
+MicroSD fica com o sistema operacional e as aplicações, o SSD fica com tudo que
+importa (fotos, documentos, bancos de dados). Se o sistema corromper, é só
+gravar uma nova imagem. Os dados ficam intactos.
+
+### A saga do cartão falsificado
+
+Antes de chegar nesse setup, perdi dias debugando um problema que parecia ser de
+software.
+
+O cartão MicroSD que eu usava dizia ter 256 GB. Na verdade, tinha 8 GB. Sim,
+falsificado. O sistema cabia nos 8 GB reais, então tudo funcionava. Instalei o
+CasaOS, o Pi-Hole, tranquilo. Quando instalei o NextCloud e comecei a subir
+arquivos, os dados ultrapassaram os 8 GB e o cartão começou a sobrescrever dados
+do sistema, silenciosamente.
+
+O resultado: binários do Docker corrompidos, banco de dados destruído, kernel
+panics. Eu reinstalava, funcionava por um tempo, corrompia de novo. Achei que
+era o NextCloud, achei que era o Docker, achei que era o sistema de arquivos.
+Era o cartão.
+
+Uma ferramenta chamada [`f3probe`](https://github.com/AltraMayor/f3) acabou com
+o mistério:
+
+```
+Bad news: The device is a counterfeit of type limbo
+Usable size: 7.95 GB
+Announced size: 256.00 GB
+```
+
+Se você compra cartões SD pela internet, teste antes de usar. Sério.
+
+### A arquitetura
+
+![Diagrama mostrando a arquitetura do homelab](/media/homelab/arch.png "Arquitetura do homelab | 360")
+
+Tudo roda em cima do [CasaOS](https://casaos.io/), que é basicamente uma
+interface web para gerenciar containers Docker. Você instala aplicações por uma
+loja parecida com a de um celular. Cada serviço fica em seu próprio container e
+os dados de todos vão pro SSD.
+
+### Os serviços
+
+#### Pi-Hole
+
+O [Pi-Hole](https://pi-hole.net/) bloqueia anúncios no nível de DNS. Configurei
+meu roteador pra usar o Pi como DNS primário e pronto: celulares, TVs,
+computadores, tudo passou a ter anúncios bloqueados. Sem instalar nada em cada
+dispositivo.
+
+#### NextCloud
+
+O [NextCloud](https://nextcloud.com/) virou meu Drive. Acesso pelo browser,
+sincronizo pastas do celular, compartilho links quando preciso. Os arquivos ficam
+no SSD, dentro de casa.
+
+![Interface do NextCloud. Web na esquerda e app na direita](/media/homelab/nextcloud.png "NextCloud")
+
+#### Immich
+
+O [Immich](https://immich.app/) é o substituto do Google Photos. Faz backup
+automático das fotos do celular, organiza por data, reconhece rostos e faz busca
+por conteúdo. A interface é muito parecida com a do Google Photos, o que ajuda na
+transição. Tenho uns 24 GB de fotos e vídeos rodando nele sem problemas.
+
+![Interface do Immich mostrando a timeline de fotos. Web na esquerda e app na direita](/media/homelab/immich.png "Immich")
+
+#### Paperless-ngx
+
+O [Paperless-ngx](https://docs.paperless-ngx.com/) talvez seja o mais legal de
+todos. Você joga documentos nele (PDFs, fotos de recibos, contratos) e ele faz
+OCR, indexa tudo e permite busca por conteúdo. Joguei mais de 500 documentos e
+agora acho qualquer contrato pesquisando por uma palavra.
+
+
+#### Tailscale
+
+O [Tailscale](https://tailscale.com/) cria uma VPN entre meus dispositivos. Com
+ele acesso tudo de qualquer lugar, como se estivesse em casa. Sem abrir portas no
+roteador.
+
+#### Portainer
+
+O [Portainer](https://www.portainer.io/) é a dashboard de monitoramento. Mostra
+logs, status e uso de recursos de todos os containers. Quando algo quebra (e
+quebra), é a primeira coisa que eu abro.
+
+### O protetor de tela acidental
+
+O Pi tem uma telinha conectada. Pequena, mas suficiente pra mostrar alguma coisa.
+No começo ficava ali desligada, sem uso. Aí pensei: já que o Immich tem todas as
+minhas fotos, por que não rodar uma apresentação nelas?
+
+Montei um script que puxa fotos aleatórias e exibe em tela cheia, tipo um
+slideshow. Depois, com o que aprendi no projeto do
+[Alexo](https://github.com/ggdaltoso/alexo), descobri como fazer o script rodar
+automaticamente quando o Pi liga. Quando o Pi fica ocioso, a apresentação dispara
+sozinha, como um protetor de tela.
+
+Agora tenho um porta-retrato digital no canto da mesa o dia inteiro, com minhas
+próprias fotos. Não estava no plano original, mas acabou sendo a parte que mais
+gosto do setup.
+
+### O que aprendi
+
+Teste seu hardware. Eu gastei dias achando que o problema era software quando o
+cartão SD era falso.
+
+Não puxe o cabo da tomada. Desligue o Pi pelo sistema. Cortar energia num Linux
+com cartão SD é pedir pra corromper alguma coisa.
+
+Comece devagar. Instale um serviço por vez, teste, e só depois vá pro próximo.
+A tentação de instalar tudo de uma vez é grande, mas quando dá problema você não
+sabe o que quebrou o quê.
+
+E uma coisa que eu não esperava: cada problema que eu resolvia me dava vontade de
+resolver o próximo. O cartão falso me ensinou a testar hardware. O boot que
+travou me ensinou sobre `fstab`. O container que não subia me fez entender como
+Docker monta volumes. Nenhuma dessas coisas estava no plano quando comecei. Eu
+só queria guardar umas fotos.
+
+Acabou que o homelab virou um hobby por si só. Gosto do processo de montar,
+quebrar, consertar e ir melhorando.
+
+### Vale a pena?
+
+Depende do que te motiva. Se você quer algo que funciona sem pensar, paga o
+Google One e segue a vida. Não tem vergonha nisso.
+
+Agora, se te incomoda que suas fotos, documentos e dados pessoais moram em
+servidores de empresas que podem mudar os termos quando quiserem, um homelab
+resolve isso. Dá trabalho? Sim. Coisas quebram, containers travam, cartões SD
+corrompem. Mas no final do dia, é tudo seu.
