@@ -122,10 +122,15 @@ strong {
 
 code {
   font-family: var(--typographic-monospace-font-family) !important;
-  font-size: 0.875em;
   box-shadow: var(--r95-shadow-input);
   border: 2px solid transparent;
   padding: 0.15em 0.4em;
+}
+
+pre,
+pre * {
+  font-family: var(--typographic-monospace-font-family) !important;
+  font-size: var(--typographic-root-font-size);
 }
 
 ul {
@@ -141,6 +146,51 @@ ul {
 p {
   line-height: var(--typographic-leading);
   margin-bottom: var(--typographic-leading);
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: var(--r95-color-inputBackground);
+  color: var(--r95-color-materialText);
+  padding: 0;
+  margin: 1px;
+  font-size: var(--typographic-small-font-size);
+  width: 100%;
+}
+
+thead {
+  background-color: var(--r95-color-inputBackground);
+}
+
+tbody {
+  padding: 1px;
+}
+
+th {
+  padding: var(--r95-space-4) var(--r95-space-6);
+  text-align: left;
+  font-weight: bold;
+  line-height: 1;
+
+  background-color: var(--r95-color-material);
+
+  border: 1px solid var(--r95-color-borderDark);
+  border-bottom: 0;
+
+  color: var(--r95-color-materialText);
+}
+
+tr:hover {
+  background-color: var(--r95-color-headerBackground);
+  color: var(--r95-color-materialTextInvert);
+}
+
+td {
+  padding: var(--r95-space-4) var(--r95-space-6);
+  text-align: left;
+  line-height: 1;
+  border: 1px solid var(--r95-color-borderDark);
 }
 
 blockquote {
