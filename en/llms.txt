@@ -12,6 +12,7 @@ Contact: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltoso
 
 ## Articles
 
+- [My Homelab](https://ggdaltoso.dev/en/my-homelab): How I built a homelab with a Raspberry Pi 4 to take full control of my data: photos, documents, and DNS. No Google, no third-party service charging me for what is already mine. (July 9, 2026)
 - [Windows 95 fonts for the modern web](https://ggdaltoso.dev/en/windows-95-fonts-for-the-web): MS Sans Serif and MS Serif have been locked inside .FON binary files since 1987. This is the story of getting them out and shipping them as an npm package anyone can install. (April 28, 2026)
 - [JavaScripto: learning JavaScript in Portuguese](https://ggdaltoso.dev/en/javascripto-learning-javascript-in-portuguese): JavaScripto is a JavaScript learning platform where you write code in Portuguese. It was born from a desire to make programming more accessible for Brazilians. (April 20, 2026)
 - [Fun is the key!](https://ggdaltoso.dev/en/fun-is-the-key): “Fun is the key” was born in a live stream but became a principle. Fun does not eliminate effort, but it changes our relationship with it, and that can be the difference between giving up and evolving. (March 24, 2026)
