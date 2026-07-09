@@ -2,6 +2,9 @@
 
 require("./src/assets/scss/init.scss");
 
+// Import Fixedsys font (used for monospace/code content)
+require('fixedsys-css/css/fixedsys.css');
+
 // Import React95 core styles and theme
 require('@react95/core/themes/win95.css');
 require('@react95/core/GlobalStyle');
