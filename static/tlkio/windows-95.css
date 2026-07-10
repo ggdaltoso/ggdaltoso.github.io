@@ -44,9 +44,15 @@ a {
   color: var(--tlkio-anchor);
 }
 
-/* Sunken bevel, like an inset field or status bar */
+/* The outer react95 TitleBar already shows "Chat" + who it is, so the
+   in-app header (avatar, channel name, participant count) is redundant
+   chrome that just eats vertical space in a narrow sidebar widget. */
 .header,
-.header-bar,
+.header-bar {
+  display: none !important;
+}
+
+/* Sunken bevel, like an inset field or status bar */
 .input-text,
 .message-input,
 .settings-input-text,
