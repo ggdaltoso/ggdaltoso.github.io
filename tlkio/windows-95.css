@@ -1,0 +1,178 @@
+/*
+ * Windows 95 skin for the embedded tlk.io chat (iframe body), matching the
+ * @react95/core "win95" theme tokens used across the rest of the site.
+ * Class names come from inspecting the live embed.tlk.io markup, which is
+ * undocumented, so this may need small updates if tlk.io changes its DOM.
+ */
+
+@import url('https://cdn.jsdelivr.net/npm/@react95/fonts/css/sans-serif/10pt.css');
+@import url('https://cdn.jsdelivr.net/npm/@react95/fonts/css/sans-serif-hires/8pt.css');
+
+:root {
+  --tlkio-material: #c3c7cb;
+  --tlkio-material-text: #000000;
+  --tlkio-header-bg: #000e7a;
+  --tlkio-header-text: #fefefe;
+  --tlkio-border-darkest: #000000;
+  --tlkio-border-dark: #868a8e;
+  --tlkio-border-light: #d2d2d2;
+  --tlkio-border-lightest: #ffffff;
+  --tlkio-input-bg: #ffffff;
+  --tlkio-anchor: #000e7a;
+  --tlkio-font: 'R95 Sans Serif 10pt', Tahoma, Arial, sans-serif;
+  --tlkio-font-mono: 'R95 Sans Serif HiRes 8pt', Tahoma, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+  text-shadow: none !important;
+  box-shadow: none;
+  font-family: var(--tlkio-font);
+}
+
+html,
+body,
+.chat {
+  background: var(--tlkio-material);
+  color: var(--tlkio-material-text);
+  font-size: 12px;
+}
+
+a {
+  color: var(--tlkio-anchor);
+}
+
+/* Sunken bevel, like an inset field or status bar */
+.header,
+.header-bar,
+.input-text,
+.message-input,
+.settings-input-text,
+.aside,
+.participants,
+.list--participant {
+  border: none;
+  box-shadow:
+    inset -1px -1px 0 0 var(--tlkio-border-lightest),
+    inset 1px 1px 0 0 var(--tlkio-border-darkest),
+    inset -2px -2px 0 0 var(--tlkio-border-light),
+    inset 2px 2px 0 0 var(--tlkio-border-dark);
+}
+
+.header,
+.header-bar {
+  background: var(--tlkio-material);
+}
+
+.header-channel {
+  color: var(--tlkio-material-text);
+  font-weight: bold;
+}
+
+.header-status {
+  color: var(--tlkio-border-dark);
+  font-family: var(--tlkio-font-mono);
+  font-size: 11px;
+}
+
+.input-text,
+.message-input,
+.settings-input-text {
+  background: var(--tlkio-input-bg);
+  color: var(--tlkio-material-text);
+}
+
+.aside,
+.participants,
+.list--participant {
+  background: var(--tlkio-input-bg);
+}
+
+/* Raised bevel, like a button */
+.button,
+.join-button,
+.join-toggleButton,
+.message-button--submit,
+.settings-button,
+.counter-button,
+.popup-button,
+.menu-item,
+.scrollButton {
+  background: var(--tlkio-material);
+  color: var(--tlkio-material-text);
+  border: none;
+  box-shadow:
+    inset -1px -1px 0 0 var(--tlkio-border-darkest),
+    inset 1px 1px 0 0 var(--tlkio-border-lightest),
+    inset -2px -2px 0 0 var(--tlkio-border-dark),
+    inset 2px 2px 0 0 var(--tlkio-border-light);
+}
+
+.button:active,
+.join-button:active,
+.message-button--submit:active,
+.settings-button:active {
+  box-shadow:
+    inset -1px -1px 0 0 var(--tlkio-border-lightest),
+    inset 1px 1px 0 0 var(--tlkio-border-darkest),
+    inset -2px -2px 0 0 var(--tlkio-border-light),
+    inset 2px 2px 0 0 var(--tlkio-border-dark);
+}
+
+.post-name {
+  color: var(--tlkio-anchor);
+  font-weight: bold;
+}
+
+.post-time,
+.post-time-label,
+.post-time-tag {
+  font-family: var(--tlkio-font-mono);
+  color: var(--tlkio-border-dark);
+  font-size: 10px;
+}
+
+.post-avatar,
+.message-avatar,
+.list-item-avatar,
+.header-avatar {
+  box-shadow:
+    inset -1px -1px 0 0 var(--tlkio-border-darkest),
+    inset 1px 1px 0 0 var(--tlkio-border-lightest);
+}
+
+.popup-box,
+.settings {
+  background: var(--tlkio-material);
+  box-shadow:
+    inset -1px -1px 0 0 var(--tlkio-border-darkest),
+    inset 1px 1px 0 0 var(--tlkio-border-lightest),
+    inset -2px -2px 0 0 var(--tlkio-border-dark),
+    inset 2px 2px 0 0 var(--tlkio-border-light);
+}
+
+.popup-header {
+  background: var(--tlkio-header-bg);
+  color: var(--tlkio-header-text);
+  font-weight: bold;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--tlkio-material);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tlkio-material);
+  box-shadow:
+    inset -1px -1px 0 0 var(--tlkio-border-darkest),
+    inset 1px 1px 0 0 var(--tlkio-border-lightest),
+    inset -2px -2px 0 0 var(--tlkio-border-dark),
+    inset 2px 2px 0 0 var(--tlkio-border-light);
+}
