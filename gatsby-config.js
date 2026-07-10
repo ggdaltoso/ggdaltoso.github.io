@@ -12,6 +12,7 @@ module.exports = {
     i18n: siteConfig.i18n,
     menu: siteConfig.menu,
     author: siteConfig.author,
+    liveChat: siteConfig.liveChat,
     giscus: siteConfig.giscus,
   },
   plugins: [
