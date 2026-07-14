@@ -33,21 +33,15 @@ const LiveChat = () => {
   const src = `https://embed.tlk.io/${channel}${query ? `?${query}` : ''}`;
 
   return (
-    <Frame className={styles['liveChat']} p="$1" boxShadow="$out">
-      <TitleBar
-        title={t('Chat')}
-        icon={<Textchat2 variant="16x16_4" />}
-        style={{ fontSize: 'var(--typographic-small-font-size)' }}
-      />
-      <Frame p="$1" bgColor="$material">
-        <iframe
-          title={t('Chat')}
-          src={src}
-          frameBorder="0"
-          className={styles['liveChat__iframe']}
-        />
-      </Frame>
-    </Frame>
+    <Frame
+      as="iframe"
+      h="360px"
+      w="100%"
+      title={t('Chat')}
+      src={src}
+      frameBorder="0"
+      boxShadow="$out"
+    />
   );
 };
 
