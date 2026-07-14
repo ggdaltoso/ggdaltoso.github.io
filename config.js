@@ -64,7 +64,7 @@ module.exports = {
     },
   },
   liveChat: {
-    enabled: false,
+    enabled: true,
     channel: 'ggdaltoso',
     theme: 'minimal',
     customCssPath: 'https://ggdaltoso.dev/tlkio/windows-95.css',

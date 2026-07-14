@@ -30,7 +30,7 @@ const Sidebar = ({ isIndex }) => {
           <Menu menu={localizedMenu} />
           <Contacts contacts={contacts} />
         </div>
-        <LiveChat />
+        {isIndex && <LiveChat />}
       </div>
     </div>
   );
