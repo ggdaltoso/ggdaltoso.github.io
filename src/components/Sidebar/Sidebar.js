@@ -2,6 +2,7 @@ import React from 'react';
 import Author from './Author';
 import Contacts from './Contacts';
 import LanguageSwitcher from './LanguageSwitcher';
+import LiveChat from './LiveChat';
 import Menu from './Menu';
 import * as styles from './Sidebar.module.scss';
 import { useI18next } from 'gatsby-plugin-react-i18next';
@@ -29,6 +30,7 @@ const Sidebar = ({ isIndex }) => {
           <Menu menu={localizedMenu} />
           <Contacts contacts={contacts} />
         </div>
+        {isIndex && <LiveChat />}
       </div>
     </div>
   );

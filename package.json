@@ -4,7 +4,7 @@
   "description": "Blog pessoal do Gabriel Daltoso",
   "main": "n/a",
   "scripts": {
-    "develop": "npm run clean && gatsby develop",
+    "develop": "npm run clean && gatsby develop -H 0.0.0.0",
     "build": "npm run clean && gatsby build",
     "deploy": "npm run clean && gatsby build --prefix-paths && gh-pages -d public -b master",
     "clean": "rimraf .cache public",

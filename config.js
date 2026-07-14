@@ -63,6 +63,12 @@ module.exports = {
       rss: '/rss.xml',
     },
   },
+  liveChat: {
+    enabled: true,
+    channel: 'ggdaltoso',
+    theme: 'minimal',
+    customCssPath: 'https://ggdaltoso.dev/tlkio/windows-95.css',
+  },
   giscus: {
     repo: 'ggdaltoso/ggdaltoso.github.io',
     repoId: 'MDEwOlJlcG9zaXRvcnkzODc3ODMxOQ==',
