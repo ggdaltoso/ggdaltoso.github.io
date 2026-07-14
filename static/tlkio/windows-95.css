@@ -143,12 +143,19 @@ a {
 
 .header-channel {
   height: 100%;
-  color: var(--tlkio-header-text);
+  color: transparent;
   font-weight: bold;
   margin-left: unset;
   margin-right: unset;
   font: inherit;
   font-size: 24px;
+}
+
+.header-channel:after {
+    content: "chat";
+    position: absolute;
+    left: 42px;
+    color: var(--tlkio-header-text);
 }
 
 .header-status {
