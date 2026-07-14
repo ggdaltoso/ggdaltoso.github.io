@@ -68,6 +68,7 @@ body,
 }
 
 .chat {
+  min-height: 140px;
   padding: 10px;
   background: var(--tlkio-input-bg);
   margin-top: 50px;
@@ -143,7 +144,7 @@ a {
 
 .header-channel {
   height: 100%;
-  color: var(--tlkio-header-text);
+  color: transparent;
   font-weight: bold;
   margin-left: unset;
   margin-right: unset;
@@ -151,10 +152,18 @@ a {
   font-size: 24px;
 }
 
+.header-channel:after {
+  content: "chat";
+  position: absolute;
+  left: 42px;
+  color: var(--tlkio-header-text);
+}
+
 .header-status {
   color: var(--tlkio-border-dark);
   font-family: var(--tlkio-font-mono);
   font-size: 11px;
+  left: 7.5rem;
 }
 
 .input-text,
@@ -278,10 +287,6 @@ a {
   font-weight: bold;
 }
 
-.nav {
-  top: -4px;
-}
-
 .tooltip-item.owner {
   padding-bottom: 10px;
 }
@@ -292,6 +297,16 @@ a {
 
 .settings, .settings-label {
   color: inherit;
+}
+
+.nav {
+  top: -4px;
+}
+
+@media (max-width: 299px) {
+  .nav {
+    top: 0;
+  }
 }
 
 @media (max-width: 360px) {
