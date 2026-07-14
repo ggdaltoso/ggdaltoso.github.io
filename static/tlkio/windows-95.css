@@ -278,10 +278,6 @@ a {
   font-weight: bold;
 }
 
-.nav {
-  top: -4px;
-}
-
 .tooltip-item.owner {
   padding-bottom: 10px;
 }
@@ -292,6 +288,16 @@ a {
 
 .settings, .settings-label {
   color: inherit;
+}
+
+.nav {
+  top: -4px;
+}
+
+@media (max-width: 299px) {
+  .nav {
+    top: 0;
+  }
 }
 
 @media (max-width: 360px) {
