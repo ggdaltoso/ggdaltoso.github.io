@@ -68,6 +68,7 @@ body,
 }
 
 .chat {
+  min-height: 140px;
   padding: 10px;
   background: var(--tlkio-input-bg);
   margin-top: 50px;
@@ -152,16 +153,17 @@ a {
 }
 
 .header-channel:after {
-    content: "chat";
-    position: absolute;
-    left: 42px;
-    color: var(--tlkio-header-text);
+  content: "chat";
+  position: absolute;
+  left: 42px;
+  color: var(--tlkio-header-text);
 }
 
 .header-status {
   color: var(--tlkio-border-dark);
   font-family: var(--tlkio-font-mono);
   font-size: 11px;
+  left: 7.5rem;
 }
 
 .input-text,
