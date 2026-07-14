@@ -32,17 +32,7 @@ const LiveChat = () => {
   const query = params.toString();
   const src = `https://embed.tlk.io/${channel}${query ? `?${query}` : ''}`;
 
-  return (
-    <Frame
-      as="iframe"
-      h="360px"
-      w="100%"
-      title={t('Chat')}
-      src={src}
-      frameBorder="0"
-      boxShadow="$out"
-    />
-  );
+  return <Frame as="iframe" h="360px" w="100%" title={t('Chat')} src={src} />;
 };
 
 export default LiveChat;
