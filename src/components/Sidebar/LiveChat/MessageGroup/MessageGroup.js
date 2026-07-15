@@ -16,15 +16,22 @@ const MessageGroup = ({ group }) => {
   const showAvatar = group.photoURL && !avatarFailed;
 
   return (
-    <Frame display="flex" gap="$2" py="calc(var(--typographic-leading) / 4)">
-      <Frame w="32px" h="32px" flexShrink="0">
+    <Frame
+      display="flex"
+      gap="$4"
+      p="$4"
+      pb="$6"
+      borderBottomWidth="1px"
+      borderBottomStyle="solid"
+      borderBottomColor="$borderDark"
+      alignItems="flex-start"
+    >
+      <Frame w="30px" h="30px" flexShrink="0">
         {showAvatar ? (
           <Frame
             as="img"
             src={group.photoURL}
             alt={group.displayName}
-            width={32}
-            height={32}
             display="block"
             width="100%"
             height="100%"
@@ -46,19 +53,26 @@ const MessageGroup = ({ group }) => {
         )}
       </Frame>
       <Frame minW="0" flexGrow="1">
-        <Frame display="flex" gap="$2" alignItems="baseline">
+        <Frame
+          display="flex"
+          flexDirection="column"
+          gap="$2"
+          alignItems="baseline"
+          mb="$4"
+        >
           <Frame
             as="span"
-            fontSize="var(--typographic-small-font-size)"
+            fontSize="var(--typographic-root-font-size)"
             fontWeight="bold"
+            lineHeight="var(--typographic-root-font-size)"
           >
             {group.displayName}
           </Frame>
           {timestamp && (
             <Frame
               as="span"
-              color="$materialTextDisabled"
-              fontSize="var(--typographic-tiny-font-size)"
+              color="$borderDarkest"
+              fontSize="var(--typographic-small-font-size)"
             >
               {formatDistanceToNow(timestamp, {
                 addSuffix: true,
@@ -72,7 +86,8 @@ const MessageGroup = ({ group }) => {
             key={message.id}
             as="p"
             m="0"
-            fontSize="var(--typographic-small-font-size)"
+            lineHeight="var(--typographic-root-font-size)"
+            fontSize="var(--typographic-root-font-size)"
             wordBreak="break-word"
           >
             {parseChatMarkdown(message.text)}

@@ -32,11 +32,11 @@ const Composer = ({ onSend }) => {
   };
 
   return (
-    <Frame mt="var(--typographic-leading)">
+    <Frame p="$2" boxShadow="$in">
       <Frame display="flex" gap="$2" mb="$2">
         <Button
-          type="button"
           w="28px"
+          paddingInline="$0"
           fontWeight="bold"
           onClick={() => wrapSelection('**')}
           title={t('Bold')}
@@ -44,8 +44,8 @@ const Composer = ({ onSend }) => {
           B
         </Button>
         <Button
-          type="button"
           w="28px"
+          paddingInline="$0"
           fontStyle="italic"
           onClick={() => wrapSelection('*')}
           title={t('Italic')}
@@ -53,8 +53,8 @@ const Composer = ({ onSend }) => {
           I
         </Button>
         <Button
-          type="button"
           w="28px"
+          paddingInline="$0"
           fontFamily="var(--typographic-monospace-font-family)"
           onClick={() => wrapSelection('`')}
           title={t('Code')}
@@ -62,7 +62,8 @@ const Composer = ({ onSend }) => {
           {'</>'}
         </Button>
         <Button
-          type="button"
+          w="30px"
+          paddingInline="$0"
           onClick={() => insertLink(t('link text'))}
           title={t('Link')}
         >
@@ -84,29 +85,18 @@ const Composer = ({ onSend }) => {
       />
       <Frame
         display="flex"
-        justifyContent="space-between"
+        justifyContent="end"
         alignItems="center"
         mt="$4"
+        mb="$4"
+        gap="$4"
       >
-        <Frame
-          as="span"
-          color="$materialTextDisabled"
-          fontSize="var(--typographic-tiny-font-size)"
-        >
-          {t('Supports **bold**, *italic*, code and [links](url)')}
+        <Frame as="span" fontSize="var(--typographic-small-font-size)">
+          {text.length}/{MAX_LENGTH}
         </Frame>
-        <Frame display="flex" gap="$4" alignItems="center">
-          <Frame
-            as="span"
-            color="$materialTextDisabled"
-            fontSize="var(--typographic-tiny-font-size)"
-          >
-            {text.length}/{MAX_LENGTH}
-          </Frame>
-          <Button onClick={handleSend} disabled={!isValid}>
-            {t('Send')}
-          </Button>
-        </Frame>
+        <Button onClick={handleSend} disabled={!isValid}>
+          {t('Send')}
+        </Button>
       </Frame>
     </Frame>
   );

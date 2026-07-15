@@ -19,10 +19,7 @@ const JoinForm = ({
   };
 
   return (
-    <Fieldset
-      legend={t('Choose a nickname to join the chat')}
-      mt="var(--typographic-leading)"
-    >
+    <Fieldset legend={t('Choose a nickname to join the chat')}>
       <form onSubmit={handleSubmit}>
         <Frame display="flex" gap="$4" flexWrap="wrap" alignItems="center">
           <Input

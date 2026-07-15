@@ -47,21 +47,19 @@ const LiveChat = () => {
   };
 
   return (
-    <Frame
-      w="100%"
-      p="$1"
-      bgColor="$material"
-      mt="var(--typographic-leading)"
-      boxShadow="$out"
-    >
-      <TitleBar title={t('Chat')} icon={<Textchat2 variant="16x16_4" />} />
+    <Frame w="100%" p="$1" bgColor="$material" boxShadow="$out">
+      <TitleBar
+        fontSize="var(--typographic-root-font-size)"
+        title={t('Chat')}
+        icon={<Textchat2 variant="16x16_4" />}
+      />
       <Frame
         p="$2"
-        pb="$4"
         bg="$material"
         h="300px"
         display="flex"
         flexDirection="column"
+        gap="$4"
       >
         <MessageList messages={messages} loading={loading} />
         {hasJoined ? (

@@ -58,7 +58,9 @@ const MessageList = ({ messages, loading }) => {
       bg="white"
       overflow="auto"
       h="220px"
-      px="$4"
+      display="flex"
+      flexDirection="column"
+      pl="$1"
     >
       {isEmpty ? (
         <Frame
