@@ -17,5 +17,10 @@
   "Send": "Send",
   "Supports **bold**, *italic*, code and [links](url)": "Supports **bold**, *italic*, `code` and [links](url)",
   "No messages yet — be the first to say something!": "No messages yet — be the first to say something!",
-  "Sign-in failed, please try again": "Sign-in failed, please try again"
+  "Sign-in failed, please try again": "Sign-in failed, please try again",
+  "Bold": "Bold",
+  "Italic": "Italic",
+  "Code": "Code",
+  "Link": "Link",
+  "link text": "link text"
 }
