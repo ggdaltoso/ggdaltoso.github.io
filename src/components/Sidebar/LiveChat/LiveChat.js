@@ -3,7 +3,10 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Frame, TitleBar } from '@react95/core';
 import { Textchat2 } from '@react95/icons';
-import * as styles from './LiveChat.module.scss';
+import { useChatAuth, useChatMessages } from '@hooks';
+import MessageList from './MessageList';
+import JoinForm from './JoinForm';
+import Composer from './Composer';
 
 const LiveChat = () => {
   const { t } = useTranslation();
@@ -13,26 +16,68 @@ const LiveChat = () => {
         siteMetadata {
           liveChat {
             enabled
-            channel
-            theme
-            customCssPath
           }
         }
       }
     }
   `);
-  const { enabled, channel, theme, customCssPath } =
-    site.siteMetadata.liveChat || {};
+  const { enabled } = site.siteMetadata.liveChat || {};
 
-  if (!enabled || !channel) return null;
+  const {
+    user,
+    authReady,
+    hasJoined,
+    setNickname,
+    signInWithGoogle,
+    signInWithGithub,
+    authError,
+  } = useChatAuth();
+  const { messages, loading, sendMessage } = useChatMessages();
 
-  const params = new URLSearchParams();
-  if (theme) params.set('theme', theme);
-  if (customCssPath) params.set('custom_css_path', customCssPath);
-  const query = params.toString();
-  const src = `https://embed.tlk.io/${channel}${query ? `?${query}` : ''}`;
+  if (typeof window === 'undefined' || !enabled) return null;
 
-  return <Frame as="iframe" h="360px" w="100%" title={t('Chat')} src={src} />;
+  const handleSend = (text) => {
+    if (!user) return;
+    sendMessage({
+      uid: user.uid,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      text,
+    });
+  };
+
+  return (
+    <Frame
+      w="100%"
+      p="$1"
+      bgColor="$material"
+      mt="var(--typographic-leading)"
+      boxShadow="$out"
+    >
+      <TitleBar title={t('Chat')} icon={<Textchat2 variant="16x16_4" />} />
+      <Frame
+        p="$2"
+        pb="$4"
+        bg="$material"
+        h="300px"
+        display="flex"
+        flexDirection="column"
+      >
+        <MessageList messages={messages} loading={loading} />
+        {hasJoined ? (
+          <Composer onSend={handleSend} />
+        ) : (
+          <JoinForm
+            ready={authReady}
+            onSubmitNickname={setNickname}
+            onSignInWithGoogle={signInWithGoogle}
+            onSignInWithGithub={signInWithGithub}
+            error={authError}
+          />
+        )}
+      </Frame>
+    </Frame>
+  );
 };
 
 export default LiveChat;

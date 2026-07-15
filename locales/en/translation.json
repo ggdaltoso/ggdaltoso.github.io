@@ -7,5 +7,15 @@
   "Not found": "NOT FOUND",
   "Chat": "Chat",
   "< PREV": "< PREV",
-  "NEXT >": "NEXT >"
+  "NEXT >": "NEXT >",
+  "Nickname": "Nickname",
+  "Choose a nickname to join the chat": "Choose a nickname to join the chat",
+  "Join chat": "Join chat",
+  "Continue with Google": "Continue with Google",
+  "Continue with GitHub": "Continue with GitHub",
+  "Type a message": "Type a message…",
+  "Send": "Send",
+  "Supports **bold**, *italic*, code and [links](url)": "Supports **bold**, *italic*, `code` and [links](url)",
+  "No messages yet — be the first to say something!": "No messages yet — be the first to say something!",
+  "Sign-in failed, please try again": "Sign-in failed, please try again"
 }
