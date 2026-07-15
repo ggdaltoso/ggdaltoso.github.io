@@ -9,12 +9,17 @@ const GGImage = (props) => {
   const [description, width] = title.split('|').map((s) => s.trim());
 
   return (
-    <Frame p="$1" boxShadow="$out" width={width ? `${width}px` : undefined} mh="auto">
+    <Frame
+      p="$1"
+      boxShadow="$out"
+      width={width ? `${width}px` : undefined}
+      mh="auto"
+    >
       <TitleBar
         title={description}
         icon={<Wangimg128 variant="16x16_4" />}
         style={{
-          fontSize: 'var(--typographic-small-font-size)',
+          fontSize: 'var(--typographic-root-font-size)',
         }}
       />
 
