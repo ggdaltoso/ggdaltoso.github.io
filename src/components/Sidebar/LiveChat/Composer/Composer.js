@@ -1,21 +1,27 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Frame, TextArea, Button } from '@react95/core';
+import { useMarkdownComposer } from '@hooks';
 
 const MAX_LENGTH = 500;
 
 const Composer = ({ onSend }) => {
   const { t } = useTranslation();
-  const [text, setText] = useState('');
-  const textareaRef = useRef(null);
-
-  const trimmed = text.trim();
-  const canSend = trimmed.length > 0 && text.length <= MAX_LENGTH;
+  const {
+    text,
+    setText,
+    textareaRef,
+    trimmed,
+    isValid,
+    reset,
+    wrapSelection,
+    insertLink,
+  } = useMarkdownComposer(MAX_LENGTH);
 
   const handleSend = () => {
-    if (!canSend) return;
+    if (!isValid) return;
     onSend(trimmed);
-    setText('');
+    reset();
   };
 
   const handleKeyDown = (event) => {
@@ -23,52 +29,6 @@ const Composer = ({ onSend }) => {
       event.preventDefault();
       handleSend();
     }
-  };
-
-  const focusSelection = (start, end) => {
-    requestAnimationFrame(() => {
-      const textarea = textareaRef.current;
-      if (!textarea) return;
-      textarea.focus();
-      textarea.setSelectionRange(start, end);
-    });
-  };
-
-  const wrapSelection = (before, after = before) => {
-    const textarea = textareaRef.current;
-    if (!textarea) return;
-
-    const { selectionStart, selectionEnd, value } = textarea;
-    const selected = value.slice(selectionStart, selectionEnd);
-    const nextValue =
-      value.slice(0, selectionStart) +
-      before +
-      selected +
-      after +
-      value.slice(selectionEnd);
-
-    setText(nextValue);
-    focusSelection(
-      selectionStart + before.length,
-      selectionStart + before.length + selected.length,
-    );
-  };
-
-  const insertLink = () => {
-    const textarea = textareaRef.current;
-    if (!textarea) return;
-
-    const { selectionStart, selectionEnd, value } = textarea;
-    const label = value.slice(selectionStart, selectionEnd) || t('link text');
-    const before = `[${label}](`;
-    const nextValue =
-      value.slice(0, selectionStart) + before + ')' + value.slice(selectionEnd);
-
-    setText(nextValue);
-    focusSelection(
-      selectionStart + before.length,
-      selectionStart + before.length,
-    );
   };
 
   return (
@@ -101,7 +61,11 @@ const Composer = ({ onSend }) => {
         >
           {'</>'}
         </Button>
-        <Button type="button" onClick={insertLink} title={t('Link')}>
+        <Button
+          type="button"
+          onClick={() => insertLink(t('link text'))}
+          title={t('Link')}
+        >
           {t('Link')}
         </Button>
       </Frame>
@@ -139,7 +103,7 @@ const Composer = ({ onSend }) => {
           >
             {text.length}/{MAX_LENGTH}
           </Frame>
-          <Button onClick={handleSend} disabled={!canSend}>
+          <Button onClick={handleSend} disabled={!isValid}>
             {t('Send')}
           </Button>
         </Frame>
