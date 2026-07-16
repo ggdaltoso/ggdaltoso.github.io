@@ -16,16 +16,7 @@ const MessageGroup = ({ group }) => {
   const showAvatar = group.photoURL && !avatarFailed;
 
   return (
-    <Frame
-      display="flex"
-      gap="$4"
-      p="$4"
-      pb="$6"
-      borderBottomWidth="1px"
-      borderBottomStyle="solid"
-      borderBottomColor="$borderDark"
-      alignItems="flex-start"
-    >
+    <Frame display="flex" gap="$4" p="$4" pb="$6" alignItems="flex-start">
       <Frame w="30px" h="30px" flexShrink="0">
         {showAvatar ? (
           <Frame
@@ -88,7 +79,7 @@ const MessageGroup = ({ group }) => {
             key={message.id}
             as="p"
             m="0"
-            lineHeight="var(--typographic-root-font-size)"
+            lineHeight="var(--typographic-base-font-size)"
             fontSize="var(--typographic-root-font-size)"
             wordBreak="break-word"
           >
