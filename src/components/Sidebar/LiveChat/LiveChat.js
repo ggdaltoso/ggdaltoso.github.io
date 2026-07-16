@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Frame, List, TaskBar, TitleBar } from '@react95/core';
 import { Textchat2, ReaderNoshared } from '@react95/icons';
-import { useChatAuth, useChatMessages } from '@hooks';
+import { useChatAuth, useChatMessages, useChatPresence } from '@hooks';
 import MessageList from './MessageList';
 import JoinForm from './JoinForm';
 import Composer from './Composer';
@@ -52,6 +52,8 @@ const LiveChat = () => {
     authError,
   } = useChatAuth({ onJoin: handleJoin, onLeave: handleLeave });
 
+  const { onlineCount } = useChatPresence(hasJoined ? user : null);
+
   if (typeof window === 'undefined' || !enabled) return null;
 
   const handleSend = (text) => {
@@ -70,7 +72,19 @@ const LiveChat = () => {
         fontSize="var(--typographic-root-font-size)"
         title={t('Chat')}
         icon={<Textchat2 variant="16x16_4" />}
-      />
+      >
+        {onlineCount > 0 && (
+          <Frame
+            as="span"
+            alignSelf="center"
+            mr="$4"
+            fontSize="var(--typographic-small-font-size)"
+            fontWeight="bold"
+          >
+            {t('online', { count: onlineCount })}
+          </Frame>
+        )}
+      </TitleBar>
       <Frame
         p="$2"
         bg="$material"

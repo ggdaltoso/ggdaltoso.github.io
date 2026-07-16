@@ -21,6 +21,8 @@
   "Sign out": "Sair",
   "{{name}} joined the chat": "{{name}} entrou no chat",
   "{{name}} left the chat": "{{name}} saiu do chat",
+  "online_one": "{{count}} online",
+  "online_other": "{{count}} online",
   "Bold": "Negrito",
   "Italic": "Itálico",
   "Code": "Código",
