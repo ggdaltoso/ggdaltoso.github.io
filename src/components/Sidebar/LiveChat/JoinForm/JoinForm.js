@@ -19,9 +19,13 @@ const JoinForm = ({
   };
 
   return (
-    <Fieldset legend={t('Choose a nickname to join the chat')}>
-      <form onSubmit={handleSubmit}>
-        <Frame display="flex" gap="$4" flexWrap="wrap" alignItems="center">
+    <Fieldset
+      legend={t('Choose a nickname to join the chat')}
+      mb="$2"
+      minH="130px"
+    >
+      <Frame as="form" onSubmit={handleSubmit} mt="$15" gap="$4">
+        <Frame display="grid" gap="$4" gridTemplateColumns="1fr 1fr">
           <Input
             type="text"
             placeholder={t('Nickname')}
@@ -34,11 +38,11 @@ const JoinForm = ({
             {t('Join chat')}
           </Button>
         </Frame>
-        <Frame display="flex" gap="$4" mt="$4" flexWrap="wrap">
-          <Button type="button" disabled={!ready} onClick={onSignInWithGoogle}>
+        <Frame display="grid" gap="$4" gridTemplateColumns="1fr 1fr" mt="$4">
+          <Button disabled={!ready} onClick={onSignInWithGoogle}>
             {t('Continue with Google')}
           </Button>
-          <Button type="button" disabled={!ready} onClick={onSignInWithGithub}>
+          <Button disabled={!ready} onClick={onSignInWithGithub}>
             {t('Continue with GitHub')}
           </Button>
         </Frame>
@@ -52,7 +56,7 @@ const JoinForm = ({
             {t(error)}
           </Frame>
         )}
-      </form>
+      </Frame>
     </Fieldset>
   );
 };

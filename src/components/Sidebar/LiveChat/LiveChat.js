@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Frame, List, TaskBar, TitleBar } from '@react95/core';
-import { PowerOff, Textchat2 } from '@react95/icons';
+import { Textchat2, ReaderNoshared } from '@react95/icons';
 import { useChatAuth, useChatMessages } from '@hooks';
 import MessageList from './MessageList';
 import JoinForm from './JoinForm';
@@ -58,7 +58,6 @@ const LiveChat = () => {
       <Frame
         p="$2"
         bg="$material"
-        h="300px"
         display="flex"
         flexDirection="column"
         gap="$4"
@@ -82,7 +81,7 @@ const LiveChat = () => {
           list={
             <List>
               <List.Item
-                icon={<PowerOff variant="16x16_4" />}
+                icon={<ReaderNoshared variant="16x16_4" />}
                 onClick={signOutUser}
               >
                 {t('Sign out')}

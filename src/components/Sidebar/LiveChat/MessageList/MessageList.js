@@ -61,13 +61,16 @@ const MessageList = ({ messages, loading }) => {
       display="flex"
       flexDirection="column"
       pl="$1"
+      minH="190px"
     >
       {isEmpty ? (
         <Frame
           as="p"
           m="$0"
           color="$materialTextDisabled"
-          fontSize="var(--typographic-small-font-size)"
+          p="$4"
+          lineHeight="var(--typographic-root-font-size)"
+          fontSize="var(--typographic-root-font-size)"
         >
           {t('No messages yet — be the first to say something!')}
         </Frame>
