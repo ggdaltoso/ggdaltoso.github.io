@@ -33,9 +33,9 @@ const MessageGroup = ({ group }) => {
             src={group.photoURL}
             alt={group.displayName}
             display="block"
-            width="100%"
-            height="100%"
             objectFit="cover"
+            boxShadow="$in"
+            p="$1"
             onError={() => setAvatarFailed(true)}
           />
         ) : (
@@ -58,13 +58,14 @@ const MessageGroup = ({ group }) => {
           flexDirection="column"
           gap="$2"
           alignItems="baseline"
-          mb="$4"
+          mb="$8"
+          p="$2"
         >
           <Frame
             as="span"
             fontSize="var(--typographic-root-font-size)"
-            fontWeight="bold"
             lineHeight="var(--typographic-root-font-size)"
+            fontWeight="bold"
           >
             {group.displayName}
           </Frame>
@@ -72,7 +73,8 @@ const MessageGroup = ({ group }) => {
             <Frame
               as="span"
               color="$borderDarkest"
-              fontSize="var(--typographic-small-font-size)"
+              fontSize="var(--typographic-tiny-font-size)"
+              lineHeight="var(--typographic-tiny-font-size)"
             >
               {formatDistanceToNow(timestamp, {
                 addSuffix: true,

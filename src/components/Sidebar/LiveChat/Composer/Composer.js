@@ -32,73 +32,82 @@ const Composer = ({ onSend }) => {
   };
 
   return (
-    <Frame p="$2" boxShadow="$in">
-      <Frame display="flex" gap="$2" mb="$2">
-        <Button
-          w="28px"
-          paddingInline="$0"
-          fontWeight="bold"
-          onClick={() => wrapSelection('**')}
-          title={t('Bold')}
-        >
-          B
-        </Button>
-        <Button
-          w="28px"
-          paddingInline="$0"
-          fontStyle="italic"
-          onClick={() => wrapSelection('*')}
-          title={t('Italic')}
-        >
-          I
-        </Button>
-        <Button
-          w="28px"
-          paddingInline="$0"
-          fontFamily="var(--typographic-monospace-font-family)"
-          onClick={() => wrapSelection('`')}
-          title={t('Code')}
-        >
-          {'</>'}
-        </Button>
-        <Button
-          w="30px"
-          paddingInline="$0"
-          onClick={() => insertLink(t('link text'))}
-          title={t('Link')}
-        >
-          {t('Link')}
-        </Button>
-      </Frame>
-      <TextArea
-        ref={textareaRef}
-        boxShadow="in"
-        bg="white"
-        width="100%"
-        p="$8"
-        value={text}
-        placeholder={t('Type a message')}
-        onChange={({ target }) => setText(target.value)}
-        onKeyDown={handleKeyDown}
-        style={{ resize: 'none' }}
-        rows={2}
-      />
+    <>
       <Frame
+        p="$4"
+        boxShadow="$in"
         display="flex"
-        justifyContent="end"
-        alignItems="center"
-        mt="$4"
-        mb="$4"
+        flexDirection="column"
         gap="$4"
       >
-        <Frame as="span" fontSize="var(--typographic-small-font-size)">
-          {text.length}/{MAX_LENGTH}
+        <Frame display="flex" gap="$2">
+          <Button
+            w="28px"
+            paddingInline="$0"
+            fontWeight="bold"
+            onClick={() => wrapSelection('**')}
+            title={t('Bold')}
+          >
+            B
+          </Button>
+          <Button
+            w="28px"
+            paddingInline="$0"
+            fontStyle="italic"
+            onClick={() => wrapSelection('*')}
+            title={t('Italic')}
+          >
+            I
+          </Button>
+          <Button
+            w="28px"
+            paddingInline="$0"
+            fontFamily="var(--typographic-monospace-font-family)"
+            onClick={() => wrapSelection('`')}
+            title={t('Code')}
+          >
+            {'</>'}
+          </Button>
+          <Button
+            w="30px"
+            paddingInline="$0"
+            onClick={() => insertLink(t('link text'))}
+            title={t('Link')}
+          >
+            {t('Link')}
+          </Button>
+
+          <Frame
+            as="span"
+            display="block"
+            alignSelf="end"
+            ml="auto"
+            fontSize="var(--typographic-small-font-size)"
+            lineHeight="var(--typographic-small-font-size)"
+          >
+            {text.length}/{MAX_LENGTH}
+          </Frame>
         </Frame>
-        <Button onClick={handleSend} disabled={!isValid}>
-          {t('Send')}
-        </Button>
+        <TextArea
+          ref={textareaRef}
+          boxShadow="in"
+          bg="white"
+          width="100%"
+          p="$8"
+          value={text}
+          placeholder={t('Type a message')}
+          onChange={({ target }) => setText(target.value)}
+          onKeyDown={handleKeyDown}
+          style={{ resize: 'none' }}
+          rows={2}
+        />
+        <Frame display="flex" justifyContent="end" alignItems="center" mt="$4">
+          <Button onClick={handleSend} disabled={!isValid}>
+            {t('Send')}
+          </Button>
+        </Frame>
       </Frame>
-    </Frame>
+    </>
   );
 };
 
