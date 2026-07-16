@@ -3,3 +3,7 @@ export { default as useLocalizedSiteMetadata } from './use-localized-site-metada
 export { default as useLocalizedValue } from './use-localized-value';
 export { default as useLanguageSwitcher } from './use-language-switcher';
 export { default as useStories } from './use-stories';
+export { default as useChatAuth } from './use-chat-auth';
+export { default as useChatMessages } from './use-chat-messages';
+export { default as useChatPresence } from './use-chat-presence';
+export { default as useMarkdownComposer } from './use-markdown-composer';

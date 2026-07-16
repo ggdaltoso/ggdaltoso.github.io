@@ -35,6 +35,7 @@
     "canvas": "^3.2.3",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
+    "firebase": "^12.16.0",
     "fixedsys-css": "^0.0.6",
     "gatsby": "^5.16.1",
     "gatsby-alias-imports": "^1.0.6",

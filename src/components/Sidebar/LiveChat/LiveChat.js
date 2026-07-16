@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Frame, TitleBar } from '@react95/core';
-import { Textchat2 } from '@react95/icons';
+import { Frame, List, TaskBar, TitleBar } from '@react95/core';
+import { Textchat2, ReaderNoshared } from '@react95/icons';
+import { useChatAuth, useChatMessages, useChatPresence } from '@hooks';
+import MessageList from './MessageList';
+import JoinForm from './JoinForm';
+import Composer from './Composer';
 import * as styles from './LiveChat.module.scss';
+
+const toChatUser = ({ uid, displayName, photoURL }) => ({
+  uid,
+  displayName,
+  photoURL,
+});
 
 const LiveChat = () => {
   const { t } = useTranslation();
@@ -13,26 +23,109 @@ const LiveChat = () => {
         siteMetadata {
           liveChat {
             enabled
-            channel
-            theme
-            customCssPath
           }
         }
       }
     }
   `);
-  const { enabled, channel, theme, customCssPath } =
-    site.siteMetadata.liveChat || {};
+  const { enabled } = site.siteMetadata.liveChat || {};
 
-  if (!enabled || !channel) return null;
+  const { messages, loading, sendMessage, sendJoinMessage, sendLeaveMessage } =
+    useChatMessages();
+  const handleJoin = useCallback(
+    (joinedUser) => sendJoinMessage(toChatUser(joinedUser)),
+    [sendJoinMessage],
+  );
+  const handleLeave = useCallback(
+    (leftUser) => sendLeaveMessage(toChatUser(leftUser)),
+    [sendLeaveMessage],
+  );
 
-  const params = new URLSearchParams();
-  if (theme) params.set('theme', theme);
-  if (customCssPath) params.set('custom_css_path', customCssPath);
-  const query = params.toString();
-  const src = `https://embed.tlk.io/${channel}${query ? `?${query}` : ''}`;
+  const {
+    user,
+    authReady,
+    hasJoined,
+    setNickname,
+    signInWithGoogle,
+    signInWithGithub,
+    signOutUser,
+    authError,
+  } = useChatAuth({ onJoin: handleJoin, onLeave: handleLeave });
 
-  return <Frame as="iframe" h="360px" w="100%" title={t('Chat')} src={src} />;
+  const { onlineCount } = useChatPresence(hasJoined ? user : null);
+
+  if (typeof window === 'undefined' || !enabled) return null;
+
+  const handleSend = (text) => {
+    if (!user) return;
+    sendMessage({
+      uid: user.uid,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      text,
+    });
+  };
+
+  return (
+    <Frame w="100%" p="$1" bgColor="$material" boxShadow="$out">
+      <TitleBar
+        fontSize="var(--typographic-root-font-size)"
+        title={t('Chat')}
+        icon={<Textchat2 variant="16x16_4" />}
+      >
+        {onlineCount > 0 && (
+          <Frame
+            as="span"
+            alignSelf="center"
+            mr="$4"
+            fontSize="var(--typographic-small-font-size)"
+            fontWeight="bold"
+          >
+            {t('online', { count: onlineCount })}
+          </Frame>
+        )}
+      </TitleBar>
+      <Frame
+        p="$2"
+        bg="$material"
+        display="flex"
+        flexDirection={{
+          mobile: 'column',
+          tablet: 'row',
+          desktop: 'column',
+        }}
+        gap="$4"
+      >
+        <MessageList messages={messages} loading={loading} />
+        {hasJoined ? (
+          <Composer onSend={handleSend} />
+        ) : (
+          <JoinForm
+            ready={authReady}
+            onSubmitNickname={setNickname}
+            onSignInWithGoogle={signInWithGoogle}
+            onSignInWithGithub={signInWithGithub}
+            error={authError}
+          />
+        )}
+      </Frame>
+      {hasJoined && (
+        <TaskBar
+          className={styles.taskBar}
+          list={
+            <List>
+              <List.Item
+                icon={<ReaderNoshared variant="16x16_4" />}
+                onClick={signOutUser}
+              >
+                {t('Sign out')}
+              </List.Item>
+            </List>
+          }
+        />
+      )}
+    </Frame>
+  );
 };
 
 export default LiveChat;

@@ -26,4 +26,6 @@ const formatLocalizedDate = (value, pattern, language = 'pt') => {
   return format(parseDate(value), pattern, { locale });
 };
 
-export { formatLocalizedDate };
+const getDateFnsLocale = (language = 'pt') => localeByLanguage[language] || ptBR;
+
+export { formatLocalizedDate, getDateFnsLocale };
