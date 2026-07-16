@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Frame } from '@react95/core';
 import MessageGroup from '../MessageGroup';
-import JoinNotice from '../JoinNotice';
+import SystemNotice from '../SystemNotice';
 
 const GROUP_WINDOW_MS = 5 * 60 * 1000;
+const SYSTEM_MESSAGE_TYPES = ['join', 'leave'];
 
 const toDate = (timestamp) => (timestamp?.toDate ? timestamp.toDate() : null);
 
@@ -20,8 +21,8 @@ const isSameGroup = (current, previous) => {
 
 const groupMessages = (messages) =>
   messages.reduce((groups, message) => {
-    if (message.type === 'join') {
-      groups.push({ type: 'join', key: message.id, message });
+    if (SYSTEM_MESSAGE_TYPES.includes(message.type)) {
+      groups.push({ type: 'system', key: message.id, message });
       return groups;
     }
 
@@ -85,8 +86,8 @@ const MessageList = ({ messages, loading }) => {
         </Frame>
       ) : (
         groups.map((group) =>
-          group.type === 'join' ? (
-            <JoinNotice key={group.key} message={group.message} />
+          group.type === 'system' ? (
+            <SystemNotice key={group.key} message={group.message} />
           ) : (
             <MessageGroup key={group.key} group={group} />
           ),

@@ -1,1 +1,1 @@
-export { default } from './JoinNotice';
+export { default } from './SystemNotice';

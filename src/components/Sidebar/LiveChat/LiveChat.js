@@ -9,6 +9,12 @@ import JoinForm from './JoinForm';
 import Composer from './Composer';
 import * as styles from './LiveChat.module.scss';
 
+const toChatUser = ({ uid, displayName, photoURL }) => ({
+  uid,
+  displayName,
+  photoURL,
+});
+
 const LiveChat = () => {
   const { t } = useTranslation();
   const { site } = useStaticQuery(graphql`
@@ -24,16 +30,15 @@ const LiveChat = () => {
   `);
   const { enabled } = site.siteMetadata.liveChat || {};
 
-  const { messages, loading, sendMessage, sendJoinMessage } = useChatMessages();
+  const { messages, loading, sendMessage, sendJoinMessage, sendLeaveMessage } =
+    useChatMessages();
   const handleJoin = useCallback(
-    (joinedUser) => {
-      sendJoinMessage({
-        uid: joinedUser.uid,
-        displayName: joinedUser.displayName,
-        photoURL: joinedUser.photoURL,
-      });
-    },
+    (joinedUser) => sendJoinMessage(toChatUser(joinedUser)),
     [sendJoinMessage],
+  );
+  const handleLeave = useCallback(
+    (leftUser) => sendLeaveMessage(toChatUser(leftUser)),
+    [sendLeaveMessage],
   );
 
   const {
@@ -45,7 +50,7 @@ const LiveChat = () => {
     signInWithGithub,
     signOutUser,
     authError,
-  } = useChatAuth({ onJoin: handleJoin });
+  } = useChatAuth({ onJoin: handleJoin, onLeave: handleLeave });
 
   if (typeof window === 'undefined' || !enabled) return null;
 

@@ -12,7 +12,7 @@ import { getFirebaseAuth } from '../utils';
 
 const AUTH_ERROR_MESSAGE = 'Sign-in failed, please try again';
 
-const useChatAuth = ({ onJoin } = {}) => {
+const useChatAuth = ({ onJoin, onLeave } = {}) => {
   const [user, setUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
   const [authError, setAuthError] = useState(null);
@@ -72,14 +72,17 @@ const useChatAuth = ({ onJoin } = {}) => {
 
   const signOutUser = useCallback(async () => {
     const auth = getFirebaseAuth();
-    if (!auth) return;
+    if (!auth?.currentUser) return;
+
+    const leavingUser = { ...auth.currentUser };
 
     try {
+      if (leavingUser.displayName) await onLeave?.(leavingUser);
       await signOut(auth);
     } catch {
       setAuthError(AUTH_ERROR_MESSAGE);
     }
-  }, []);
+  }, [onLeave]);
 
   return {
     user,

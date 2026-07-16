@@ -52,20 +52,38 @@ const useChatMessages = () => {
     });
   }, []);
 
-  const sendJoinMessage = useCallback(async ({ uid, displayName, photoURL }) => {
-    const db = getFirebaseFirestore();
-    if (!db) return;
+  const sendSystemMessage = useCallback(
+    async (type, { uid, displayName, photoURL }) => {
+      const db = getFirebaseFirestore();
+      if (!db) return;
 
-    await addDoc(collection(db, MESSAGES_COLLECTION), {
-      uid,
-      displayName,
-      photoURL: photoURL ?? null,
-      type: 'join',
-      createdAt: serverTimestamp(),
-    });
-  }, []);
+      await addDoc(collection(db, MESSAGES_COLLECTION), {
+        uid,
+        displayName,
+        photoURL: photoURL ?? null,
+        type,
+        createdAt: serverTimestamp(),
+      });
+    },
+    [],
+  );
 
-  return { messages, loading, sendMessage, sendJoinMessage };
+  const sendJoinMessage = useCallback(
+    (user) => sendSystemMessage('join', user),
+    [sendSystemMessage],
+  );
+  const sendLeaveMessage = useCallback(
+    (user) => sendSystemMessage('leave', user),
+    [sendSystemMessage],
+  );
+
+  return {
+    messages,
+    loading,
+    sendMessage,
+    sendJoinMessage,
+    sendLeaveMessage,
+  };
 };
 
 export default useChatMessages;

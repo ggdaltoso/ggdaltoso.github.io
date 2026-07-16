@@ -20,6 +20,7 @@
   "Sign-in failed, please try again": "Sign-in failed, please try again",
   "Sign out": "Sign out",
   "{{name}} joined the chat": "{{name}} joined the chat",
+  "{{name}} left the chat": "{{name}} left the chat",
   "Bold": "Bold",
   "Italic": "Italic",
   "Code": "Code",
