@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Frame, List, TaskBar, TitleBar } from '@react95/core';
@@ -24,6 +24,18 @@ const LiveChat = () => {
   `);
   const { enabled } = site.siteMetadata.liveChat || {};
 
+  const { messages, loading, sendMessage, sendJoinMessage } = useChatMessages();
+  const handleJoin = useCallback(
+    (joinedUser) => {
+      sendJoinMessage({
+        uid: joinedUser.uid,
+        displayName: joinedUser.displayName,
+        photoURL: joinedUser.photoURL,
+      });
+    },
+    [sendJoinMessage],
+  );
+
   const {
     user,
     authReady,
@@ -33,8 +45,7 @@ const LiveChat = () => {
     signInWithGithub,
     signOutUser,
     authError,
-  } = useChatAuth();
-  const { messages, loading, sendMessage } = useChatMessages();
+  } = useChatAuth({ onJoin: handleJoin });
 
   if (typeof window === 'undefined' || !enabled) return null;
 

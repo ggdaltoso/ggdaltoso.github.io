@@ -12,7 +12,7 @@ import { getFirebaseAuth } from '../utils';
 
 const AUTH_ERROR_MESSAGE = 'Sign-in failed, please try again';
 
-const useChatAuth = () => {
+const useChatAuth = ({ onJoin } = {}) => {
   const [user, setUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
   const [authError, setAuthError] = useState(null);
@@ -40,11 +40,13 @@ const useChatAuth = () => {
 
     try {
       await updateProfile(auth.currentUser, { displayName: displayName.trim() });
-      setUser({ ...auth.currentUser });
+      const updatedUser = { ...auth.currentUser };
+      setUser(updatedUser);
+      onJoin?.(updatedUser);
     } catch {
       setAuthError(AUTH_ERROR_MESSAGE);
     }
-  }, []);
+  }, [onJoin]);
 
   const signInWithProvider = useCallback(async (Provider) => {
     const auth = getFirebaseAuth();
@@ -52,11 +54,12 @@ const useChatAuth = () => {
 
     try {
       setAuthError(null);
-      await signInWithPopup(auth, new Provider());
+      const { user: signedInUser } = await signInWithPopup(auth, new Provider());
+      onJoin?.(signedInUser);
     } catch {
       setAuthError(AUTH_ERROR_MESSAGE);
     }
-  }, []);
+  }, [onJoin]);
 
   const signInWithGoogle = useCallback(
     () => signInWithProvider(GoogleAuthProvider),

@@ -47,11 +47,25 @@ const useChatMessages = () => {
       displayName,
       photoURL: photoURL ?? null,
       text,
+      type: 'message',
       createdAt: serverTimestamp(),
     });
   }, []);
 
-  return { messages, loading, sendMessage };
+  const sendJoinMessage = useCallback(async ({ uid, displayName, photoURL }) => {
+    const db = getFirebaseFirestore();
+    if (!db) return;
+
+    await addDoc(collection(db, MESSAGES_COLLECTION), {
+      uid,
+      displayName,
+      photoURL: photoURL ?? null,
+      type: 'join',
+      createdAt: serverTimestamp(),
+    });
+  }, []);
+
+  return { messages, loading, sendMessage, sendJoinMessage };
 };
 
 export default useChatMessages;

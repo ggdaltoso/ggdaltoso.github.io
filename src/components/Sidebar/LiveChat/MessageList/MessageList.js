@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Frame } from '@react95/core';
 import MessageGroup from '../MessageGroup';
+import JoinNotice from '../JoinNotice';
 
 const GROUP_WINDOW_MS = 5 * 60 * 1000;
 
@@ -19,13 +20,21 @@ const isSameGroup = (current, previous) => {
 
 const groupMessages = (messages) =>
   messages.reduce((groups, message) => {
-    const lastGroup = groups[groups.length - 1];
-    const lastMessage = lastGroup?.messages[lastGroup.messages.length - 1];
+    if (message.type === 'join') {
+      groups.push({ type: 'join', key: message.id, message });
+      return groups;
+    }
 
-    if (lastGroup && isSameGroup(message, lastMessage)) {
+    const lastGroup = groups[groups.length - 1];
+    const lastMessage =
+      lastGroup?.type === 'message' &&
+      lastGroup.messages[lastGroup.messages.length - 1];
+
+    if (lastGroup?.type === 'message' && isSameGroup(message, lastMessage)) {
       lastGroup.messages.push(message);
     } else {
       groups.push({
+        type: 'message',
         key: message.id,
         uid: message.uid,
         displayName: message.displayName,
@@ -75,7 +84,13 @@ const MessageList = ({ messages, loading }) => {
           {t('No messages yet — be the first to say something!')}
         </Frame>
       ) : (
-        groups.map((group) => <MessageGroup key={group.key} group={group} />)
+        groups.map((group) =>
+          group.type === 'join' ? (
+            <JoinNotice key={group.key} message={group.message} />
+          ) : (
+            <MessageGroup key={group.key} group={group} />
+          ),
+        )
       )}
     </Frame>
   );
