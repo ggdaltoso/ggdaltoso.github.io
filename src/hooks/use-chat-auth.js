@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signInAnonymously,
   signInWithPopup,
+  signOut,
   updateProfile,
 } from 'firebase/auth';
 import { getFirebaseAuth } from '../utils';
@@ -66,6 +67,17 @@ const useChatAuth = () => {
     [signInWithProvider],
   );
 
+  const signOutUser = useCallback(async () => {
+    const auth = getFirebaseAuth();
+    if (!auth) return;
+
+    try {
+      await signOut(auth);
+    } catch {
+      setAuthError(AUTH_ERROR_MESSAGE);
+    }
+  }, []);
+
   return {
     user,
     authReady,
@@ -73,6 +85,7 @@ const useChatAuth = () => {
     setNickname,
     signInWithGoogle,
     signInWithGithub,
+    signOutUser,
     authError,
   };
 };

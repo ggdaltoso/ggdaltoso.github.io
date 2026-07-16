@@ -1,0 +1,9 @@
+// The react95 TaskBar hardcodes position: fixed (anchored to the viewport)
+// with no prop to opt out of it. This override embeds it in-flow at the
+// bottom of the chat widget instead. `relative` (not `static`) keeps the
+// TaskBar as the positioning context for its own absolutely-positioned
+// Start menu list — otherwise the list floats relative to the wrong
+// ancestor and appears misaligned.
+.taskBar {
+  position: relative !important;
+}

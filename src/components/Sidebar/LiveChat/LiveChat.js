@@ -1,12 +1,13 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Frame, TitleBar } from '@react95/core';
-import { Textchat2 } from '@react95/icons';
+import { Frame, List, TaskBar, TitleBar } from '@react95/core';
+import { PowerOff, Textchat2 } from '@react95/icons';
 import { useChatAuth, useChatMessages } from '@hooks';
 import MessageList from './MessageList';
 import JoinForm from './JoinForm';
 import Composer from './Composer';
+import * as styles from './LiveChat.module.scss';
 
 const LiveChat = () => {
   const { t } = useTranslation();
@@ -30,6 +31,7 @@ const LiveChat = () => {
     setNickname,
     signInWithGoogle,
     signInWithGithub,
+    signOutUser,
     authError,
   } = useChatAuth();
   const { messages, loading, sendMessage } = useChatMessages();
@@ -74,6 +76,21 @@ const LiveChat = () => {
           />
         )}
       </Frame>
+      {hasJoined && (
+        <TaskBar
+          className={styles.taskBar}
+          list={
+            <List>
+              <List.Item
+                icon={<PowerOff variant="16x16_4" />}
+                onClick={signOutUser}
+              >
+                {t('Sign out')}
+              </List.Item>
+            </List>
+          }
+        />
+      )}
     </Frame>
   );
 };
