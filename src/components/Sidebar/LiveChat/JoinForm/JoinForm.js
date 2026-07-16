@@ -25,7 +25,15 @@ const JoinForm = ({
       minH="130px"
     >
       <Frame as="form" onSubmit={handleSubmit} mt="$15" gap="$4">
-        <Frame display="grid" gap="$4" gridTemplateColumns="1fr 1fr">
+        <Frame
+          display="grid"
+          gap="$4"
+          gridTemplateColumns={{
+            mobile: '1fr 1fr',
+            tablet: 'repeat(2, 130px)',
+          }}
+          justifyContent="center"
+        >
           <Input
             type="text"
             placeholder={t('Nickname')}
@@ -33,16 +41,34 @@ const JoinForm = ({
             disabled={!ready}
             onChange={({ target }) => setNickname(target.value)}
             maxLength={40}
+            w="100%"
           />
           <Button type="submit" disabled={!ready || !nickname.trim()}>
             {t('Join chat')}
           </Button>
         </Frame>
-        <Frame display="grid" gap="$4" gridTemplateColumns="1fr 1fr" mt="$4">
-          <Button disabled={!ready} onClick={onSignInWithGoogle}>
+        <Frame
+          display="grid"
+          gap="$4"
+          gridTemplateColumns={{
+            mobile: '1fr 1fr',
+            tablet: 'repeat(2, 130px)',
+          }}
+          justifyContent="center"
+          mt="$4"
+        >
+          <Button
+            paddingInline="$4"
+            disabled={!ready}
+            onClick={onSignInWithGoogle}
+          >
             {t('Continue with Google')}
           </Button>
-          <Button disabled={!ready} onClick={onSignInWithGithub}>
+          <Button
+            paddingInline="$4"
+            disabled={!ready}
+            onClick={onSignInWithGithub}
+          >
             {t('Continue with GitHub')}
           </Button>
         </Frame>

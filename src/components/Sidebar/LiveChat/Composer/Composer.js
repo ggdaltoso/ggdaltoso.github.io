@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Frame, TextArea, Button } from '@react95/core';
 import { useMarkdownComposer } from '@hooks';
+import { Bold, Italic } from '@react95/icons';
 
 const MAX_LENGTH = 500;
 
@@ -39,28 +40,36 @@ const Composer = ({ onSend }) => {
         display="flex"
         flexDirection="column"
         gap="$4"
+        w={{
+          tablet: '400px',
+          desktop: '100%',
+        }}
       >
         <Frame display="flex" gap="$2">
           <Button
             w="28px"
+            paddingBlock="$0"
             paddingInline="$0"
             fontWeight="bold"
             onClick={() => wrapSelection('**')}
             title={t('Bold')}
           >
-            B
+            <Bold variant="16x16_4" />
           </Button>
           <Button
             w="28px"
+            paddingTop="$0"
+            paddingBottom="$0"
             paddingInline="$0"
             fontStyle="italic"
             onClick={() => wrapSelection('*')}
             title={t('Italic')}
           >
-            I
+            <Italic variant="16x16_4" />
           </Button>
           <Button
             w="28px"
+            paddingBlock="$0"
             paddingInline="$0"
             fontFamily="var(--typographic-monospace-font-family)"
             onClick={() => wrapSelection('`')}
@@ -100,8 +109,9 @@ const Composer = ({ onSend }) => {
           onKeyDown={handleKeyDown}
           style={{ resize: 'none' }}
           rows={2}
+          flexGrow={1}
         />
-        <Frame display="flex" justifyContent="end" alignItems="center" mt="$4">
+        <Frame display="flex" justifyContent="end" alignItems="center" mt="$2">
           <Button onClick={handleSend} disabled={!isValid}>
             {t('Send')}
           </Button>

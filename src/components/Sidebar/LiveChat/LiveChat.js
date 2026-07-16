@@ -89,7 +89,11 @@ const LiveChat = () => {
         p="$2"
         bg="$material"
         display="flex"
-        flexDirection="column"
+        flexDirection={{
+          mobile: 'column',
+          tablet: 'row',
+          desktop: 'column',
+        }}
         gap="$4"
       >
         <MessageList messages={messages} loading={loading} />

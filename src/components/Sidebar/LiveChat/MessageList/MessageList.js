@@ -72,6 +72,7 @@ const MessageList = ({ messages, loading }) => {
       flexDirection="column"
       pl="$1"
       minH="190px"
+      w="100%"
     >
       {isEmpty ? (
         <Frame
