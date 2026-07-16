@@ -31,7 +31,12 @@ const useChatMessages = () => {
     );
 
     const unsubscribe = onSnapshot(messagesQuery, (snapshot) => {
-      setMessages(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      setMessages(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data({ serverTimestamps: 'estimate' }),
+        })),
+      );
       setLoading(false);
     });
 
