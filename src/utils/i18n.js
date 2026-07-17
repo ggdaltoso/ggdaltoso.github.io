@@ -30,8 +30,7 @@ const getLocalizedValue = (value, locale, defaultLocale) => {
   return fallbackKey ? value[fallbackKey] : '';
 };
 
-const buildLocalizedPageLookup = (pagesByKey = {}, defaultLocale = 'pt') => {
-  return Object.values(pagesByKey).reduce((accumulator, localizedByLocale) => {
+const buildLocalizedPageLookup = (pagesByKey = {}, defaultLocale = 'pt') => Object.values(pagesByKey).reduce((accumulator, localizedByLocale) => {
     Object.entries(localizedByLocale || {}).forEach(([locale, basePath]) => {
       const localizedPath = normalizePath(
         withLocalePath(basePath, locale, defaultLocale),
@@ -41,7 +40,6 @@ const buildLocalizedPageLookup = (pagesByKey = {}, defaultLocale = 'pt') => {
 
     return accumulator;
   }, {});
-};
 
 export {
   buildLocalizedPageLookup,

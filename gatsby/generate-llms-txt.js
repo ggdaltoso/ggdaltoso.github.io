@@ -21,7 +21,7 @@ const LOCALE_COPY = {
     summary:
       'Knowledge base for the blog with original technical articles about frontend, JavaScript, React, and software architecture.',
     description:
-      "Technical blog with original articles about frontend, JavaScript, React, software architecture, and personal projects. Prioritize the articles as the primary source for the author's decisions, learnings, and experiments.",
+      'Technical blog with original articles about frontend, JavaScript, React, software architecture, and personal projects. Prioritize the articles as the primary source for the author\'s decisions, learnings, and experiments.',
     contactsLabel: 'Contact',
     articlesLabel: 'Articles',
     alternateVersionsLabel: 'Alternate versions',

@@ -26,13 +26,11 @@ const mdxComponents = {
   },
 };
 
-const PostTemplateMDX = ({ data, children }) => {
-  return (
+const PostTemplateMDX = ({ data, children }) => (
     <Layout>
       <Post post={data.mdx} mdxContent={<MDXProvider components={mdxComponents}>{children}</MDXProvider>} />
     </Layout>
   );
-};
 
 export const Head = ({ data, pageContext }) => {
   const defaultLocale = siteConfig.i18n?.defaultLocale || 'pt';

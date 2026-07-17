@@ -16,8 +16,7 @@ const mdxComponents = {
   ),
 };
 
-const PageTemplateMDX = ({ data, children }) => {
-  return (
+const PageTemplateMDX = ({ data, children }) => (
     <Layout>
       <Sidebar />
       <Page>
@@ -27,7 +26,6 @@ const PageTemplateMDX = ({ data, children }) => {
       </Page>
     </Layout>
   );
-};
 
 export const Head = ({ data, pageContext }) => {
   const defaultLocale = siteConfig.i18n?.defaultLocale || 'pt';
