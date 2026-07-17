@@ -1,5 +1,3 @@
-'use strict';
-
 const getRawI18nConfig = (source = {}) => {
   if (source && (source.defaultLocale || source.locales || source.pages)) {
     return source;

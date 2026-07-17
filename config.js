@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   url: 'https://ggdaltoso.dev',
   title: 'Blog do GG',
