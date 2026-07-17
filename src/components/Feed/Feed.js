@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { formatFeedDate, toIsoDate } from '../../utils/date';
-import getReadingTimeMinutes from '../../utils/get-reading-time-minutes';
+import { formatFeedDate, toIsoDate } from '@utils/date';
+import getReadingTimeMinutes from '@utils/get-reading-time-minutes';
 import * as styles from './Feed.module.scss';
 
 const Feed = ({ edges }) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import getReadingTimeMinutes from '../../../utils/get-reading-time-minutes';
+import getReadingTimeMinutes from '@utils/get-reading-time-minutes';
 
 import * as styles from './Content.module.scss';
 

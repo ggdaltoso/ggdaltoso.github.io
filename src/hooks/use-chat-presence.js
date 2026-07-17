@@ -6,7 +6,7 @@ import {
   serverTimestamp,
   setDoc,
 } from 'firebase/firestore';
-import { getFirebaseFirestore } from '../utils/firebase';
+import { getFirebaseFirestore } from '@utils/firebase';
 
 const PRESENCE_COLLECTION = 'presence';
 const HEARTBEAT_INTERVAL_MS = 30 * 1000;

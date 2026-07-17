@@ -6,8 +6,8 @@ import LiveChat from './LiveChat/LiveChat';
 import Menu from './Menu/Menu';
 import * as styles from './Sidebar.module.scss';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import useSiteMetadata from '../../hooks/use-site-metadata';
-import { getLocalizedMenu } from '../../utils/i18n';
+import useSiteMetadata from '@hooks/use-site-metadata';
+import { getLocalizedMenu } from '@utils/i18n';
 
 const Sidebar = ({ isIndex }) => {
   const { author, menu } = useSiteMetadata();
