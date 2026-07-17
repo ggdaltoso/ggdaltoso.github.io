@@ -99,14 +99,27 @@
     }
 
     &__body {
-      font-size: calc(var(--typographic-base-font-size) * 1.125);
-      line-height: calc(1.125 * var(--typographic-leading));
-      margin-bottom: calc(var(--typographic-leading) * 1.125);
+      // 'R95 Sans Serif 12pt' is a bitmap font with a native height of
+      // 20px (base * 1.25); any other size distorts its pixel rows.
+      // Line-height and margin stay integer so baselines never land on
+      // half pixels. !important beats the global `* { font-family }`.
+      font-family: var(--typographic-content-font-family) !important;
+      font-size: calc(var(--typographic-base-font-size) * 1.25);
+      line-height: calc(var(--typographic-base-font-size) * 2);
+      margin-bottom: calc(var(--typographic-base-font-size) * 2);
 
       & p {
-        font-size: calc(var(--typographic-base-font-size) * 1.125);
-        line-height: calc(1.125 * var(--typographic-leading));
-        margin-bottom: calc(var(--typographic-leading) * 1.125);
+        font-family: var(--typographic-content-font-family) !important;
+        font-size: calc(var(--typographic-base-font-size) * 1.25);
+        line-height: calc(var(--typographic-base-font-size) * 2);
+        margin-bottom: calc(var(--typographic-base-font-size) * 2);
+      }
+
+      // Inline elements need the same family: the global
+      // `* { font-family } !important` resets them back to the 10pt
+      // bitmap, which distorts at the inherited 20px size.
+      & :is(a, strong, em, b, i, del, ins, li) {
+        font-family: var(--typographic-content-font-family) !important;
       }
     }
   }

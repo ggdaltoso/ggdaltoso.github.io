@@ -33,6 +33,8 @@ h6 {
 }
 
 h1 {
+  // 40px = native 20px of the 12pt bitmap at an exact 2x integer scale
+  font-family: var(--typographic-content-font-family) !important;
   font-size: calc(var(--typographic-base-font-size) * 2.5);
   line-height: calc(2 * var(--typographic-leading));
   margin-top: calc(var(--typographic-leading) * 4);
@@ -47,14 +49,18 @@ h2 {
 }
 
 h3 {
-  font-size: calc(var(--typographic-base-font-size) * 1.375);
+  // 24px, native height of the 14pt bitmap
+  font-family: var(--typographic-h3-font-family) !important;
+  font-size: calc(var(--typographic-base-font-size) * 1.5);
   line-height: var(--typographic-leading);
   margin-top: calc(var(--typographic-leading) * 2);
   margin-bottom: calc(var(--typographic-leading) * 0.5);
 }
 
 h4 {
-  font-size: calc(var(--typographic-base-font-size) * 1.2);
+  // 20px, native height of the 12pt bitmap
+  font-family: var(--typographic-content-font-family) !important;
+  font-size: calc(var(--typographic-base-font-size) * 1.25);
   line-height: var(--typographic-leading);
   margin-top: calc(var(--typographic-leading) * 1.5);
   margin-bottom: calc(var(--typographic-leading) * 0.5);
