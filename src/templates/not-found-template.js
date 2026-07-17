@@ -1,11 +1,11 @@
 import React from 'react';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-import Sidebar from '@components/Sidebar';
-import Layout from '@components/Layout';
-import Page from '@components/Page';
-import SEO from '@components/SEO';
+import Sidebar from '@components/Sidebar/Sidebar';
+import Layout from '@components/Layout/Layout';
+import Page from '@components/Page/Page';
+import Seo from '@components/SEO/SEO';
 import siteConfig from '@config';
-import { buildDocumentTitle } from '@utils';
+import buildDocumentTitle from '@utils/build-document-title';
 
 const NotFoundTemplate = () => {
   const { language } = useI18next();
@@ -36,7 +36,7 @@ export const Head = ({ pageContext }) => {
       : 'A rota que voce tentou acessar nao existe.';
 
   return (
-    <SEO
+    <Seo
       locale={locale}
       title={buildDocumentTitle(notFoundTitle)}
       description={notFoundDescription}

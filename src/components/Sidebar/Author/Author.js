@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { withPrefix } from 'gatsby';
 import { Link } from 'gatsby-plugin-react-i18next';
 import * as styles from './Author.module.scss';
 import { Avatar } from '@react95/core';
-import { useLocalizedValue, useStories } from '@hooks';
-import Stories from '@components/Stories';
+import useLocalizedValue from '@hooks/use-localized-value';
+import useStories from '@hooks/use-stories';
+import Stories from '@components/Stories/Stories';
 
 const Author = ({ author, isIndex }) => {
   const authorBio = useLocalizedValue(author.bio);
   const { hasStories } = useStories();
   const [storiesOpen, setStoriesOpen] = useState(false);
+  const closeStories = useCallback(() => setStoriesOpen(false), []);
 
   const handleAvatarClick = (e) => {
     if (!hasStories) return;
@@ -52,7 +54,7 @@ const Author = ({ author, isIndex }) => {
           <p className={styles['author__subtitle']}>{authorBio}</p>
         </div>
       </Link>
-      <Stories isOpen={storiesOpen} onClose={() => setStoriesOpen(false)} />
+      <Stories isOpen={storiesOpen} onClose={closeStories} />
     </div>
   );
 };

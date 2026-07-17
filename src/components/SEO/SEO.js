@@ -1,7 +1,7 @@
 import React from 'react';
 import siteConfig from '@config';
 
-const SEO = ({ locale, title, description, slug }) => {
+const Seo = ({ locale, title, description, slug }) => {
   const siteUrl = siteConfig.url;
   const localeFolder = locale || siteConfig.i18n?.defaultLocale || 'pt';
   const normalizedSlug = slug
@@ -45,4 +45,4 @@ const SEO = ({ locale, title, description, slug }) => {
   );
 };
 
-export default SEO;
+export default Seo;

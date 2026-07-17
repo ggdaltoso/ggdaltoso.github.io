@@ -1,12 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '@components/Layout';
-import Sidebar from '@components/Sidebar';
-import SEO from '@components/SEO';
-import Feed from '@components/Feed';
-import Page from '@components/Page';
+import Layout from '@components/Layout/Layout';
+import Sidebar from '@components/Sidebar/Sidebar';
+import Seo from '@components/SEO/SEO';
+import Feed from '@components/Feed/Feed';
+import Page from '@components/Page/Page';
 import siteConfig from '@config';
-import { buildDocumentTitle, getLocalizedValue } from '@utils';
+import buildDocumentTitle from '@utils/build-document-title';
+import { getLocalizedValue } from '@utils/i18n';
 
 const IndexTemplate = ({ data }) => (
   <Layout>
@@ -22,7 +23,7 @@ export const Head = ({ pageContext }) => {
   const locale = pageContext.locale || defaultLocale;
 
   return (
-    <SEO
+    <Seo
       locale={locale}
       title={buildDocumentTitle('')}
       description={getLocalizedValue(siteConfig.subtitle, locale, defaultLocale)}

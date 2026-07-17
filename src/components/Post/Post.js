@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useTranslation } from 'gatsby-plugin-react-i18next';
 
-import Author from './Author';
-import Comments from './Comments';
-import Content from './Content';
-import Meta from './Meta';
+import Author from './Author/Author';
+import Comments from './Comments/Comments';
+import Content from './Content/Content';
+import Meta from './Meta/Meta';
 import * as styles from './Post.module.scss';
 
 const Post = ({ post, mdxContent }) => {

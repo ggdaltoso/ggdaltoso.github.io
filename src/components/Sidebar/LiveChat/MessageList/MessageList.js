@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Frame } from '@react95/core';
-import MessageGroup from '../MessageGroup';
-import SystemNotice from '../SystemNotice';
+import MessageGroup from '../MessageGroup/MessageGroup';
+import SystemNotice from '../SystemNotice/SystemNotice';
 
 const GROUP_WINDOW_MS = 5 * 60 * 1000;
 const SYSTEM_MESSAGE_TYPES = ['join', 'leave'];

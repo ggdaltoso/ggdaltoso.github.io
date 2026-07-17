@@ -3,7 +3,8 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Frame } from '@react95/core';
 import { User } from '@react95/icons';
 import { formatDistanceToNow } from 'date-fns';
-import { getDateFnsLocale, parseChatMarkdown } from '@utils';
+import { getDateFnsLocale } from '@utils/date';
+import parseChatMarkdown from '@utils/parse-chat-markdown';
 
 const MessageGroup = ({ group }) => {
   const { language } = useI18next();

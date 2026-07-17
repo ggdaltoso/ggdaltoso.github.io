@@ -1,6 +1,7 @@
 import React from 'react';
-import { getContactHref, getIcon } from '@utils';
-import Icon from '@components/Icon';
+import getContactHref from '@utils/get-contact-href';
+import getIcon from '@utils/get-icon';
+import Icon from '@components/Icon/Icon';
 import * as styles from './Contacts.module.scss';
 
 const Contacts = ({ contacts }) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-import { formatLocalizedDate } from '../../../utils';
+import { formatLocalizedDate } from '../../../utils/date';
 import * as styles from './Meta.module.scss';
 
 const Meta = ({ date }) => {

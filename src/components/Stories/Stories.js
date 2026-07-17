@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Frame, TitleBar, ProgressBar, Modal } from '@react95/core';
+import { Frame, ProgressBar, Modal } from '@react95/core';
 import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import { useStories } from '@hooks';
+import useStories from '@hooks/use-stories';
 import * as styles from './Stories.module.scss';
 
 const formatStoryDate = (date) => {
@@ -24,39 +24,51 @@ const Stories = ({ isOpen, onClose }) => {
 
   isPausedRef.current = isPaused;
 
-  const stopTimer = () => clearInterval(timerRef.current);
+  const stopTimer = useCallback(() => clearInterval(timerRef.current), []);
 
-  const startTimer = useCallback((duration) => {
-    stopTimer();
-    progressRef.current = 0;
-    setProgress(0);
-    timerRef.current = setInterval(() => {
-      if (isPausedRef.current) return;
-      progressRef.current += (TICK_MS / duration) * 100;
-      if (progressRef.current >= 100) {
-        stopTimer();
-        setProgress(100);
-        setCurrentIdx((prev) => prev + 1);
-      } else {
-        setProgress(progressRef.current);
-      }
-    }, TICK_MS);
-  }, []);
+  const startTimer = useCallback(
+    (duration) => {
+      stopTimer();
+      progressRef.current = 0;
+      setProgress(0);
+      timerRef.current = setInterval(() => {
+        if (isPausedRef.current) return;
+        progressRef.current += (TICK_MS / duration) * 100;
+        if (progressRef.current >= 100) {
+          stopTimer();
+          setProgress(100);
+          setCurrentIdx((prev) => prev + 1);
+        } else {
+          setProgress(progressRef.current);
+        }
+      }, TICK_MS);
+    },
+    [stopTimer],
+  );
 
   useEffect(() => {
     if (!isOpen) {
       stopTimer();
       setCurrentIdx(0);
       setProgress(0);
-      return;
+      return undefined;
     }
     if (currentIdx >= stories.length) {
       onClose();
-      return;
+      return undefined;
     }
     startTimer(stories[currentIdx]?.duration ?? 5000);
     return stopTimer;
-  }, [isOpen, currentIdx]);
+  }, [isOpen, currentIdx, stories, onClose, startTimer, stopTimer]);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   const handlePointerDown = (e) => {
     pointerDownAt.current = { x: e.clientX, t: Date.now() };
@@ -88,6 +100,7 @@ const Stories = ({ isOpen, onClose }) => {
 
   return (
     <div
+      role="presentation"
       className={styles['stories__overlay']}
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
