@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const siteConfig = require('../config.js');
 const { defaultLocale, locales, getLocalePrefix } = require('./i18n');
+const { formatPostDate } = require('../date-shared');
 
 const LOCALE_COPY = {
   pt: {
@@ -15,7 +16,6 @@ const LOCALE_COPY = {
     articlesLabel: 'Artigos',
     alternateVersionsLabel: 'Outras versões',
     publishedOnLabel: 'Publicado em',
-    localeDate: 'pt-BR',
   },
   en: {
     summary:
@@ -26,7 +26,6 @@ const LOCALE_COPY = {
     articlesLabel: 'Articles',
     alternateVersionsLabel: 'Alternate versions',
     publishedOnLabel: 'Published on',
-    localeDate: 'en-US',
   },
 };
 
@@ -148,12 +147,7 @@ function generateLlmsTxt(posts, locale, reporter) {
     reporter.info(`   - Adding post: ${title}`);
 
     // Format: - [Link title](url): Optional details
-    const dateStr = new Date(date).toLocaleDateString(copy.localeDate, {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      timeZone: 'UTC',
-    });
+    const dateStr = formatPostDate(date, locale);
 
     if (description) {
       lines.push(`- [${title}](${url}): ${description} (${dateStr})`);

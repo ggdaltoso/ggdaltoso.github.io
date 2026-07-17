@@ -1,31 +1,13 @@
-import { format, parseISO, isValid } from 'date-fns';
 import { enUS, ptBR } from 'date-fns/locale';
+import dateShared from '../../date-shared';
 
 const localeByLanguage = {
   en: enUS,
   pt: ptBR,
 };
 
-const parseDate = (value) => {
-  if (value instanceof Date) {
-    return value;
-  }
-
-  if (typeof value === 'string') {
-    const parsed = parseISO(value);
-    if (isValid(parsed)) {
-      return parsed;
-    }
-  }
-
-  return new Date(value);
-};
-
-const formatLocalizedDate = (value, pattern, language = 'pt') => {
-  const locale = localeByLanguage[language] || ptBR;
-  return format(parseDate(value), pattern, { locale });
-};
+const { formatPostDate, toIsoDate } = dateShared;
 
 const getDateFnsLocale = (language = 'pt') => localeByLanguage[language] || ptBR;
 
-export { formatLocalizedDate, getDateFnsLocale };
+export { formatPostDate, toIsoDate, getDateFnsLocale };

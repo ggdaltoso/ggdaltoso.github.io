@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { formatLocalizedDate } from '../../utils/date';
+import { formatPostDate, toIsoDate } from '../../utils/date';
 import getReadingTimeMinutes from '../../utils/get-reading-time-minutes';
 import * as styles from './Feed.module.scss';
 
@@ -16,17 +16,9 @@ const Feed = ({ edges }) => {
           <div className={styles['feed__itemMeta']}>
             <time
               className={styles['feed__itemMetaTime']}
-              dateTime={formatLocalizedDate(
-                edge.node.frontmatter.date,
-                'MMMM d, yyyy',
-                language,
-              )}
+              dateTime={toIsoDate(edge.node.frontmatter.date)}
             >
-              {formatLocalizedDate(
-                edge.node.frontmatter.date,
-                'dd MMMM yyyy',
-                language,
-              )}
+              {formatPostDate(edge.node.frontmatter.date, language)}
             </time>
             {getReadingTimeMinutes(edge.node.readingTime) ? (
               <span className={styles['feed__itemMetaReadingTime']}>

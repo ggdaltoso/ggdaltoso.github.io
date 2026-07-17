@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { createCanvas, loadImage, registerFont } = require('canvas');
 const siteConfig = require('../config.js');
+const { formatPostDate } = require('../date-shared');
 
 // Configuration for OG image generation
 const OG_IMAGE_WIDTH = 1200;
@@ -181,14 +182,7 @@ async function generateOGImage(data) {
     ctx.lineTo(200, OG_IMAGE_HEIGHT - 130);
     ctx.stroke();
 
-    const formattedDate = date
-      ? new Date(date).toLocaleDateString(locale === 'pt' ? 'pt-BR' : 'en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          timeZone: 'UTC',
-        })
-      : '';
+    const formattedDate = date ? formatPostDate(date, locale) : '';
 
     const readingTimeText = readingTime
       ? locale === 'pt'
