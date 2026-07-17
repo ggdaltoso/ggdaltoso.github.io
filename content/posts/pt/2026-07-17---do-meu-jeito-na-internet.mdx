@@ -1,0 +1,124 @@
+---
+title: 'Por que eu faço as coisas do meu jeito na internet'
+date: '2026-07-17T12:00:00.000Z'
+template: 'post'
+draft: false
+slug: '/do-meu-jeito-na-internet'
+description: 'Homelab, React95, fontes do Windows 95, fun is the key. Percebi que
+tudo isso é o mesmo impulso de fazer a internet do meu jeito, com a minha
+cara, sem depender de quem já decidiu como ela deveria ser.'
+---
+
+Semana passada eu estava pensando em uns projetos antigos e comecei a ligar
+uns pontos. Homelab, React95, as fontes do Windows 95, o relógio com
+"Fun is the Key" gravado. Coisas que sempre tratei como hobbies separados, cada um com sua
+própria desculpa.
+
+Só que, olhando de fora, dá pra ver um padrão. Não é coincidência eu ter
+montado um Raspberry Pi pra guardar minhas próprias fotos e também ter perdido
+mais horas do que eu pretendo admitir extraindo fontes de um arquivo `.FON`
+de 1987. As duas coisas
+vêm do mesmo lugar.
+
+Isso se chama **indie web**.
+
+## O que é isso
+
+Eu não cheguei nesse nome sozinho. Foi um amigo que me apresentou o termo,
+junto com um vídeo que circulou bastante por aí, o _A Web Revival: the
+internet didn't die, you're just not on it_.
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/tkUgOT22F5s"
+  title="YouTube video player"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowFullScreen
+/>
+
+O título já entrega o argumento. Aquela sensação de que a internet morreu, de
+que virou só feed, anúncio e conteúdo gerado em escala industrial, não é
+paranoia. Mas ela descreve uma internet específica, a das plataformas.
+Enquanto isso, existe uma web paralela de sites pessoais, feitos à mão, com
+guestbook, webring e cara de anos 2000, que nunca deixou de existir. Ela só não
+aparece pra você porque não tem algoritmo interessado em te levar até lá.
+
+A ideia da indie web é essa. Ser dono do que você publica e de onde publica,
+em vez de alugar espaço numa plataforma que pode mudar as regras da noite pro
+dia. Tem gente que leva isso muito a sério, com protocolos e padrões próprios
+organizados no [IndieWeb.org](https://indieweb.org). E tem a versão mais
+solta, de quem só quer ter seu cantinho na internet pra fazer dele o que
+quiser. Eu tô mais nesse segundo grupo.
+
+Do jeito que eu vivo isso, são duas partes. Ter o controle sobre o que é meu,
+e fazer tudo com personalidade, com um site que tem a minha cara em vez da
+cara de um template.
+
+## A parte de ter o controle
+
+Esse lado eu já documentei [num post inteiro](/meu-homelab). Montei um
+Raspberry Pi 4 em casa pra parar de pagar
+aluguel por coisas que já são minhas. Fotos no Immich, documentos no
+Paperless-ngx, Drive no NextCloud. Nada revolucionário, mas resolve um
+incômodo bem específico. Eu não sou dono de nada que fica guardado num
+servidor de empresa que pode mudar os termos quando bem entender.
+
+![Foto do meu Raspberry Pi 4 com o SSD conectado](/media/homelab/rasp_e_SSD.jpg "Homelab | 250")
+
+Esse blog segue a mesma lógica, só que em menor escala. Fica no meu domínio,
+build estático, sem depender de uma plataforma de terceiros pra existir. Os
+posts são arquivos `.mdx` direto no repositório, não vivem em nenhum serviço
+de terceiros. Os comentários usam o Giscus, que guarda tudo em
+[Discussions de um repositório meu](https://github.com/ggdaltoso/ggdaltoso.github.io/discussions),
+então nem essa parte eu terceirizo pra uma caixinha de comentário genérica.
+
+Tem uma exceção. Recentemente coloquei um chat ao vivo aqui no blog usando
+Firebase. É Google, é de terceiro, é tudo que eu acabei de descrever contra.
+Coloquei mesmo assim porque resolvia um problema real e eu não tinha vontade
+de montar um servidor de WebSocket só pra isso. Contradição? Talvez. Mas foi
+uma troca que eu fiz sabendo o preço.
+
+## A parte de ser divertido
+
+Essa é a parte que quase ninguém comenta, mas que pra mim pesa tanto quanto a
+primeira.
+
+Fazer as coisas com personalidade é também resistir a um tipo de padronização.
+A internet ficou cheia de sites que se parecem entre si, porque saíram do
+mesmo template, do mesmo design system, da mesma paleta de cores "segura". Um
+site esquisito, com a cara de quem fez, é uma forma de dizer "isso aqui sou
+eu" numa internet que empurra todo mundo pra parecer igual.
+
+Foi basicamente isso que eu já descrevi no post [Fun is the
+key](/fun-is-the-key). As coisas em que eu mais evoluí quase sempre eram
+divertidas antes de serem produtivas. O React95 é o exemplo mais claro. Virou
+uma [interface inteira de Windows 95 pro
+React](/react95-fun-side-project-of-the-year) porque foi a forma que eu
+encontrei de aprender design system sem me entediar no processo. Não resolveu
+nenhum problema de negócio direto. Resolveu o problema de eu continuar
+interessado o suficiente pra aprender.
+
+![Primeira versão do React95](/media/react95-fun-side-project-of-the-year/React95-v1.0.0.jpeg "React95-v1.0.0.png")
+
+E foi tão longe que, anos depois, eu estava extraindo fontes bitmap de 1987 de
+dentro de arquivos `.FON` só porque a fonte "parecida" com a MS Sans Serif não
+era pixel perfect o suficiente. [Ninguém precisava
+disso](/fontes-do-windows-95-para-a-web). Eu queria que estivesse certo, não
+só parecido.
+
+## O ponto de encontro
+
+Ter controle sem ter personalidade vira só um servidor
+em casa rodando serviço genérico. Ter personalidade sem controle vira um perfil
+bonito numa plataforma que não é sua e que pode sumir amanhã.
+
+As duas coisas juntas é que fazem sentido pra mim. Um espaço que é meu, onde
+eu decido a infraestrutura e decido a cara. O homelab guarda o que é meu. O blog
+publica o que eu quero, do jeito que eu quero, com a fonte certa se eu quiser
+gastar um fim de semana com isso.
+
+Não é sobre seguir uma lista de protocolos. É sobre não deixar que outra pessoa
+decida como e onde eu existo na internet.
+
+**Fun is the key**, de novo. Só que dessa vez, aplicado à própria internet.
