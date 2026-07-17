@@ -38,14 +38,6 @@ const useSiteMetadata = () => {
                 en
               }
             }
-            paths {
-              pt {
-                page
-              }
-              en {
-                page
-              }
-            }
           }
           url
           title
