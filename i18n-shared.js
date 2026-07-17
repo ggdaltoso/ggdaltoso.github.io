@@ -1,10 +1,7 @@
 'use strict';
 
 const getRawI18nConfig = (source = {}) => {
-  if (
-    source &&
-    (source.defaultLocale || source.locales || source.paths || source.pages)
-  ) {
+  if (source && (source.defaultLocale || source.locales || source.pages)) {
     return source;
   }
 
@@ -23,23 +20,8 @@ const getI18nConfig = (source = {}) => {
     defaultLocale,
     locales,
     pages: i18n.pages || {},
-    paths: i18n.paths || {},
   };
 };
-
-const getLocalePaths = (source, locale) => {
-  const { paths, defaultLocale } = getI18nConfig(source);
-
-  return (
-    paths[locale] ||
-    paths[defaultLocale] || {
-      page: 'page',
-    }
-  );
-};
-
-const getPagePathSegment = (source, locale) =>
-  getLocalePaths(source, locale).page || 'page';
 
 const getLocalePrefix = (source, locale) => {
   const { defaultLocale } = getI18nConfig(source);
@@ -72,8 +54,6 @@ const withLocalePath = (pathName, locale, defaultLocale) => {
 
 module.exports = {
   getI18nConfig,
-  getLocalePaths,
-  getPagePathSegment,
   getLocalePrefix,
   normalizePath,
   withLocalePath,

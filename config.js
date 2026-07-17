@@ -16,16 +16,7 @@ module.exports = {
         en: '/about',
       },
     },
-    paths: {
-      pt: {
-        page: 'page',
-      },
-      en: {
-        page: 'page',
-      },
-    },
   },
-  postsPerPage: 4,
   googleAnalyticsId: 'G-N0Z6Q2SFLR',
   menu: {
     pt: [

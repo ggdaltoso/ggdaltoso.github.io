@@ -1,9 +1,8 @@
-"use strict";
+'use strict';
 
-const path = require("path");
+const path = require('path');
 const _ = require('lodash');
-const createPostsPages = require("./pagination/create-posts-pages.js");
-const { defaultLocale } = require('./i18n');
+const { defaultLocale, locales, withLocalePath } = require('./i18n');
 
 const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -60,8 +59,14 @@ const createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // Feeds
-  await createPostsPages(graphql, actions);
+  // Index page per locale
+  for (const locale of locales) {
+    createPage({
+      path: withLocalePath(locale, '/'),
+      component: path.resolve('./src/templates/index-template.js'),
+      context: { locale },
+    });
+  }
 };
 
 module.exports = createPages;

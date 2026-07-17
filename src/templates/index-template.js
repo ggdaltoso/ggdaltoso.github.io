@@ -5,69 +5,28 @@ import Sidebar from '@components/Sidebar';
 import SEO from '@components/SEO';
 import Feed from '@components/Feed';
 import Page from '@components/Page';
-import Pagination from '@components/Pagination';
 import siteConfig from '@config';
 import { buildDocumentTitle, getLocalizedValue } from '@utils';
 
-const IndexTemplate = ({ data, pageContext }) => {
-  const {
-    currentPage,
-    hasNextPage,
-    hasPrevPage,
-    prevPagePath,
-    nextPagePath,
-    postsLimit,
-    postsOffset,
-  } = pageContext;
-
-  const edges = [...data.allMdx.edges]
-    .sort(
-      (a, b) =>
-        new Date(b.node.frontmatter.date) - new Date(a.node.frontmatter.date),
-    )
-    .slice(postsOffset, postsOffset + postsLimit);
-  const pageTitle = buildDocumentTitle(
-    currentPage > 0 ? `Posts - Page ${currentPage}` : '',
-  );
-
-  return (
-    <Layout>
-      <Sidebar isIndex />
-      <Page>
-        <Feed edges={edges} />
-        <Pagination
-          prevPagePath={prevPagePath}
-          nextPagePath={nextPagePath}
-          hasPrevPage={hasPrevPage}
-          hasNextPage={hasNextPage}
-        />
-      </Page>
-    </Layout>
-  );
-};
+const IndexTemplate = ({ data }) => (
+  <Layout>
+    <Sidebar isIndex />
+    <Page>
+      <Feed edges={data.allMdx.edges} />
+    </Page>
+  </Layout>
+);
 
 export const Head = ({ pageContext }) => {
   const defaultLocale = siteConfig.i18n?.defaultLocale || 'pt';
   const locale = pageContext.locale || defaultLocale;
-  const pageTitle =
-    pageContext.currentPage > 0
-      ? locale === 'en'
-        ? `Posts - Page ${pageContext.currentPage}`
-        : `Posts - Pagina ${pageContext.currentPage}`
-      : '';
 
   return (
     <SEO
       locale={locale}
-      title={buildDocumentTitle(pageTitle)}
+      title={buildDocumentTitle('')}
       description={getLocalizedValue(siteConfig.subtitle, locale, defaultLocale)}
-      slug={
-        pageContext.currentPage === 0
-          ? locale === defaultLocale
-            ? '/'
-            : `/${locale}/`
-          : undefined
-      }
+      slug={locale === defaultLocale ? '/' : `/${locale}/`}
     />
   );
 };
