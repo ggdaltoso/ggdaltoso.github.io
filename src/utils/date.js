@@ -6,8 +6,8 @@ const localeByLanguage = {
   pt: ptBR,
 };
 
-const { formatPostDate, toIsoDate } = dateShared;
+const { formatPostDate, formatFeedDate, toIsoDate } = dateShared;
 
 const getDateFnsLocale = (language = 'pt') => localeByLanguage[language] || ptBR;
 
-export { formatPostDate, toIsoDate, getDateFnsLocale };
+export { formatPostDate, formatFeedDate, toIsoDate, getDateFnsLocale };
