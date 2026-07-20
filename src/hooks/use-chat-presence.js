@@ -6,7 +6,7 @@ import {
   serverTimestamp,
   setDoc,
 } from 'firebase/firestore';
-import { getFirebaseFirestore } from '../utils';
+import { getFirebaseFirestore } from '@utils/firebase';
 
 const PRESENCE_COLLECTION = 'presence';
 const HEARTBEAT_INTERVAL_MS = 30 * 1000;
@@ -37,16 +37,20 @@ const useChatPresence = (user) => {
     return () => clearInterval(interval);
   }, []);
 
+  const uid = user?.uid;
+  const displayName = user?.displayName;
+  const photoURL = user?.photoURL ?? null;
+
   useEffect(() => {
-    if (!user) return undefined;
+    if (!uid) return undefined;
 
     const db = getFirebaseFirestore();
     if (!db) return undefined;
 
     const heartbeat = () => {
-      setDoc(doc(db, PRESENCE_COLLECTION, user.uid), {
-        displayName: user.displayName,
-        photoURL: user.photoURL ?? null,
+      setDoc(doc(db, PRESENCE_COLLECTION, uid), {
+        displayName,
+        photoURL,
         lastSeen: serverTimestamp(),
       });
     };
@@ -54,7 +58,7 @@ const useChatPresence = (user) => {
     heartbeat();
     const interval = setInterval(heartbeat, HEARTBEAT_INTERVAL_MS);
     return () => clearInterval(interval);
-  }, [user?.uid, user?.displayName, user?.photoURL]);
+  }, [uid, displayName, photoURL]);
 
   const onlineUsers = presenceDocs.filter((presence) => {
     const lastSeen = toDate(presence.lastSeen);

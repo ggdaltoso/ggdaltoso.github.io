@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby-plugin-react-i18next';
-import { useLanguageSwitcher } from '../../../hooks';
+import useLanguageSwitcher from '@hooks/use-language-switcher';
 import * as styles from './LanguageSwitcher.module.scss';
 
 const LanguageSwitcher = () => {
@@ -9,8 +9,7 @@ const LanguageSwitcher = () => {
   return (
     <nav aria-label="Language selector">
       <ul className={styles['languageSwitcher__list']}>
-        {links.map(({ language, isActive, to }) => {
-          return (
+        {links.map(({ language, isActive, to }) => (
             <li className={styles['languageSwitcher__listItem']} key={language}>
               <Link
                 to={to}
@@ -22,8 +21,7 @@ const LanguageSwitcher = () => {
                 {language.toUpperCase()}
               </Link>
             </li>
-          );
-        })}
+          ))}
       </ul>
     </nav>
   );

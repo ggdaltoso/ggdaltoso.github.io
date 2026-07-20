@@ -2,8 +2,7 @@ import React from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
 import { Frame } from '@react95/core';
 
-const GGHighlight = ({ code, language = 'javascript' }) => {
-  return (
+const GGHighlight = ({ code, language = 'javascript' }) => (
     <Frame boxShadow="$out" p="$4" bgColor="$material">
       <Highlight code={code} language={language} theme={themes.github}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
@@ -30,6 +29,5 @@ const GGHighlight = ({ code, language = 'javascript' }) => {
       </Highlight>
     </Frame>
   );
-};
 
 export default GGHighlight;

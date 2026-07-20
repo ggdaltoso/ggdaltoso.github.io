@@ -8,7 +8,7 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth';
-import { getFirebaseAuth } from '../utils';
+import { getFirebaseAuth } from '@utils/firebase';
 
 const AUTH_ERROR_MESSAGE = 'Sign-in failed, please try again';
 

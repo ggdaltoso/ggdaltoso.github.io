@@ -1,6 +1,4 @@
-"use strict";
-
-require("./src/assets/scss/init.scss");
+require('./src/assets/scss/init.scss');
 
 // Import Fixedsys font (used for monospace/code content)
 require('fixedsys-css/css/fixedsys.css');

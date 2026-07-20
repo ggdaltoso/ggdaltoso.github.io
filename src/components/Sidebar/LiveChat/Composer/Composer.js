@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Frame, TextArea, Button } from '@react95/core';
-import { useMarkdownComposer } from '@hooks';
+import useMarkdownComposer from '@hooks/use-markdown-composer';
 import { Bold, Italic } from '@react95/icons';
 
 const MAX_LENGTH = 500;

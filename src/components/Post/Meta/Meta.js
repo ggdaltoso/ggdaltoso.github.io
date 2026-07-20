@@ -1,6 +1,6 @@
 import React from 'react';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-import { formatLocalizedDate } from '../../../utils';
+import { formatPostDate } from '@utils/date';
 import * as styles from './Meta.module.scss';
 
 const Meta = ({ date }) => {
@@ -10,7 +10,7 @@ const Meta = ({ date }) => {
   return (
     <div>
       <p className={styles['meta__date']}>
-        {t('Published')} {formatLocalizedDate(date, 'd MMM yyyy', language)}
+        {t('Published')} {formatPostDate(date, language)}
       </p>
     </div>
   );

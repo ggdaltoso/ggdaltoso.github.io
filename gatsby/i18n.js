@@ -6,9 +6,6 @@ const sharedI18n = require('../i18n-shared');
 const i18nConfig = sharedI18n.getI18nConfig(siteConfig.i18n);
 const { defaultLocale, locales } = i18nConfig;
 
-const getPagePathSegment = (locale) =>
-  sharedI18n.getPagePathSegment(i18nConfig, locale);
-
 const getLocalePrefix = (locale) =>
   sharedI18n.getLocalePrefix(i18nConfig, locale);
 
@@ -18,7 +15,6 @@ const withLocalePath = (locale, pathName = '/') =>
 module.exports = {
   defaultLocale,
   locales,
-  getPagePathSegment,
   getLocalePrefix,
   withLocalePath,
 };

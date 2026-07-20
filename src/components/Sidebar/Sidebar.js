@@ -1,13 +1,13 @@
 import React from 'react';
-import Author from './Author';
-import Contacts from './Contacts';
-import LanguageSwitcher from './LanguageSwitcher';
-import LiveChat from './LiveChat';
-import Menu from './Menu';
+import Author from './Author/Author';
+import Contacts from './Contacts/Contacts';
+import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher';
+import LiveChat from './LiveChat/LiveChat';
+import Menu from './Menu/Menu';
 import * as styles from './Sidebar.module.scss';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { useSiteMetadata } from '../../hooks';
-import { getLocalizedMenu } from '../../utils';
+import useSiteMetadata from '@hooks/use-site-metadata';
+import { getLocalizedMenu } from '@utils/i18n';
 
 const Sidebar = ({ isIndex }) => {
   const { author, menu } = useSiteMetadata();

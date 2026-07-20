@@ -28,6 +28,17 @@
   --typographic-font-family:
     'R95 Sans Serif 10pt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  // Bitmap fonts distort outside their native pixel height, so each text
+  // role gets the family whose native height (or integer multiple) matches
+  // its font-size: content/h4 at 20px and h1 at 40px (2x) use 12pt,
+  // h3 at 24px uses 14pt. (h2 intentionally keeps the stretched base
+  // family: the native-size options looked worse.)
+  --typographic-content-font-family:
+    'R95 Sans Serif 12pt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --typographic-h3-font-family:
+    'R95 Sans Serif 14pt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   --typographic-monospace-font-family: 'fixedsys', 'R95 Sans Serif HiRes 8pt', Courier, monospace;
 
 

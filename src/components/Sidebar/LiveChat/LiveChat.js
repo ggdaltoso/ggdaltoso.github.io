@@ -3,10 +3,12 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Frame, List, TaskBar, TitleBar } from '@react95/core';
 import { Textchat2, ReaderNoshared } from '@react95/icons';
-import { useChatAuth, useChatMessages, useChatPresence } from '@hooks';
-import MessageList from './MessageList';
-import JoinForm from './JoinForm';
-import Composer from './Composer';
+import useChatAuth from '@hooks/use-chat-auth';
+import useChatMessages from '@hooks/use-chat-messages';
+import useChatPresence from '@hooks/use-chat-presence';
+import MessageList from './MessageList/MessageList';
+import JoinForm from './JoinForm/JoinForm';
+import Composer from './Composer/Composer';
 import * as styles from './LiveChat.module.scss';
 
 const toChatUser = ({ uid, displayName, photoURL }) => ({

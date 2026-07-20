@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { parse, isValid } from 'date-fns';
 
@@ -28,11 +29,15 @@ const useStories = () => {
     }
   `);
 
-  const stories = data.allFile.nodes.map(({ publicURL, name }) => ({
-    url: publicURL,
-    date: parseDateFromName(name),
-    duration: 5000,
-  }));
+  const stories = useMemo(
+    () =>
+      data.allFile.nodes.map(({ publicURL, name }) => ({
+        url: publicURL,
+        date: parseDateFromName(name),
+        duration: 5000,
+      })),
+    [data],
+  );
 
   return { stories, hasStories: stories.length > 0 };
 };

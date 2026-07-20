@@ -1,7 +1,7 @@
 import { useLocation } from '@reach/router';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import useSiteMetadata from './use-site-metadata';
-import { buildLocalizedPageLookup, normalizePath } from '../utils';
+import { buildLocalizedPageLookup, normalizePath } from '@utils/i18n';
 
 const useLanguageSwitcher = () => {
   const { i18n } = useSiteMetadata();

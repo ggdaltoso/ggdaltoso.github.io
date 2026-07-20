@@ -1,13 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
-import Layout from '@components/Layout';
-import Post from '@components/Post';
-import SEO from '@components/SEO';
+import Layout from '@components/Layout/Layout';
+import Post from '@components/Post/Post';
+import Seo from '@components/SEO/SEO';
 import GGImage from '@components/Layout/Image';
 import GGHighlight from '@components/Layout/Highlight';
 import siteConfig from '@config';
-import { buildDocumentTitle, getLocalizedValue } from '@utils';
+import buildDocumentTitle from '@utils/build-document-title';
+import { getLocalizedValue } from '@utils/i18n';
 
 const mdxComponents = {
   img: ({ src, alt, title }) => (
@@ -26,13 +27,11 @@ const mdxComponents = {
   },
 };
 
-const PostTemplateMDX = ({ data, children }) => {
-  return (
+const PostTemplateMDX = ({ data, children }) => (
     <Layout>
       <Post post={data.mdx} mdxContent={<MDXProvider components={mdxComponents}>{children}</MDXProvider>} />
     </Layout>
   );
-};
 
 export const Head = ({ data, pageContext }) => {
   const defaultLocale = siteConfig.i18n?.defaultLocale || 'pt';
@@ -40,7 +39,7 @@ export const Head = ({ data, pageContext }) => {
   const { title, description, slug } = data.mdx.frontmatter;
 
   return (
-    <SEO
+    <Seo
       locale={locale}
       title={buildDocumentTitle(title)}
       description={

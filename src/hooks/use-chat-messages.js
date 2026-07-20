@@ -8,7 +8,7 @@ import {
   query,
   serverTimestamp,
 } from 'firebase/firestore';
-import { getFirebaseFirestore } from '../utils';
+import { getFirebaseFirestore } from '@utils/firebase';
 
 const MESSAGES_COLLECTION = 'chatMessages';
 const MAX_MESSAGES = 200;

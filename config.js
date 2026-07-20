@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   url: 'https://ggdaltoso.dev',
   title: 'Blog do GG',
@@ -16,16 +14,7 @@ module.exports = {
         en: '/about',
       },
     },
-    paths: {
-      pt: {
-        page: 'page',
-      },
-      en: {
-        page: 'page',
-      },
-    },
   },
-  postsPerPage: 4,
   googleAnalyticsId: 'G-N0Z6Q2SFLR',
   menu: {
     pt: [
