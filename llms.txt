@@ -12,6 +12,7 @@ Contatos: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltos
 
 ## Artigos
 
+- [Por que eu faço as coisas do meu jeito na internet](https://ggdaltoso.dev/do-meu-jeito-na-internet): Homelab, React95, fontes do Windows 95, fun is the key. Percebi que tudo isso é o mesmo impulso de fazer a internet do meu jeito, com a minha cara, sem depender de quem já decidiu como ela deveria ser. (20 de julho de 2026)
 - [Meu Homelab](https://ggdaltoso.dev/meu-homelab): Como montei um homelab com Raspberry Pi 4 para ter controle total dos meus dados: fotos, documentos e DNS. Sem depender do Google ou de qualquer outro serviço que cobra pelo que já é seu. (9 de julho de 2026)
 - [As fontes do Windows 95 na web moderna](https://ggdaltoso.dev/fontes-do-windows-95-para-a-web): MS Sans Serif e MS Serif estão presas dentro de arquivos .FON desde 1987. Essa é a história de como tiramos elas de lá e transformamos num pacote npm que qualquer um pode instalar. (28 de abril de 2026)
 - [JavaScripto: aprendendo JavaScript em português](https://ggdaltoso.dev/javascripto-aprendendo-javascript-em-portugues): JavaScripto é uma plataforma de ensino de JavaScript onde você escreve código em português. Nasceu da vontade de tornar o aprendizado de programação mais acessível para brasileiros. (20 de abril de 2026)

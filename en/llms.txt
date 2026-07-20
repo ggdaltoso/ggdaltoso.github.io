@@ -12,6 +12,7 @@ Contact: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltoso
 
 ## Articles
 
+- [Why I do things my own way on the internet](https://ggdaltoso.dev/en/my-own-way-on-the-internet): Homelab, React95, Windows 95 fonts, fun is the key. I realized all of it is the same impulse of making the internet my way, with my own face on it, without depending on whoever already decided what it should look like. (July 20, 2026)
 - [My Homelab](https://ggdaltoso.dev/en/my-homelab): How I built a homelab with a Raspberry Pi 4 to take full control of my data: photos, documents, and DNS. No Google, no third-party service charging me for what is already mine. (July 9, 2026)
 - [Windows 95 fonts for the modern web](https://ggdaltoso.dev/en/windows-95-fonts-for-the-web): MS Sans Serif and MS Serif have been locked inside .FON binary files since 1987. This is the story of getting them out and shipping them as an npm package anyone can install. (April 28, 2026)
 - [JavaScripto: learning JavaScript in Portuguese](https://ggdaltoso.dev/en/javascripto-learning-javascript-in-portuguese): JavaScripto is a JavaScript learning platform where you write code in Portuguese. It was born from a desire to make programming more accessible for Brazilians. (April 20, 2026)
