@@ -37,6 +37,10 @@ const useSiteMetadata = () => {
                 pt
                 en
               }
+              cv {
+                pt
+                en
+              }
             }
           }
           url
