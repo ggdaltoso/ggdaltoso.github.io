@@ -5,6 +5,7 @@ const path = require('path');
 const siteConfig = require('../config.js');
 const { defaultLocale, locales, getLocalePrefix } = require('./i18n');
 const { formatPostDate } = require('../date-shared');
+const { listContacts } = require('../contacts-shared');
 
 const LOCALE_COPY = {
   pt: {
@@ -99,21 +100,17 @@ function generateLlmsTxt(posts, locale, reporter) {
   lines.push(copy.description);
   lines.push('');
 
-  // Contact information
-  const contacts = [];
-  if (siteConfig.author.contacts.email) {
-    contacts.push(`email: ${siteConfig.author.contacts.email}`);
-  }
-  if (siteConfig.author.contacts.bluesky) {
-    const blueskyUrl = siteConfig.author.contacts.bluesky.startsWith('http')
-      ? siteConfig.author.contacts.bluesky
-      : `https://bsky.app/profile/${siteConfig.author.contacts.bluesky}`;
+  // Contact information. Driven by the config rather than named one by one,
+  // so a new entry there shows up here without touching this file. `rss` has
+  // no label in contacts-shared and is dropped: it is a feed, not a contact.
+  //
+  // The address itself reads better here than `mailto:`, which only earns its
+  // keep as an href.
+  const contacts = listContacts(siteConfig.author.contacts).map(
+    ({ name, label, value, href }) =>
+      `${label}: ${name === 'email' ? value : href}`,
+  );
 
-    contacts.push(`Bluesky: ${blueskyUrl}`);
-  }
-  if (siteConfig.author.contacts.github) {
-    contacts.push(`GitHub: ${siteConfig.author.contacts.github}`);
-  }
   if (contacts.length > 0) {
     lines.push(`${copy.contactsLabel}: ${contacts.join(', ')}`);
     lines.push('');
