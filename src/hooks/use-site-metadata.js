@@ -16,6 +16,7 @@ const useSiteMetadata = () => {
               email
               bluesky
               github
+              linkedin
               rss
             }
           }

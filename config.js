@@ -61,6 +61,7 @@ module.exports = {
       email: 'ggdaltoso@gmail.com',
       bluesky: 'ggdaltoso.bsky.social',
       github: 'ggdaltoso',
+      linkedin: 'ggdaltoso',
       rss: '/rss.xml',
     },
   },
