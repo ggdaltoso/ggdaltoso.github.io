@@ -37,6 +37,12 @@
   }
 }
 
+@media print {
+  .sidebar {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 960px) {
   .sidebar {
     width: 33.333%;
