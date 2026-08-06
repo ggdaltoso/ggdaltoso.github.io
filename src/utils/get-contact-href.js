@@ -1,33 +1,8 @@
-const getContactHref = (name, contact) => {
-  let href;
+import sharedContacts from '../../contacts-shared';
 
-  switch (name) {
-    case 'bluesky':
-      href = contact.startsWith('http')
-        ? contact
-        : `https://bsky.app/profile/${contact}`;
-      break;
-    case 'github':
-      href = `https://github.com/${contact}`;
-      break;
-    case 'linkedin':
-      href = `https://www.linkedin.com/in/${contact}`;
-      break;
-    case 'vkontakte':
-      href = `https://vk.com/${contact}`;
-      break;
-    case 'telegram':
-      href = `telegram:${contact}`;
-      break;
-    case 'email':
-      href = `mailto:${contact}`;
-      break;
-    default:
-      href = contact;
-      break;
-  }
-
-  return href;
-};
+// The switch lives in contacts-shared.js so the sidebar and the build
+// (llms.txt) resolve a contact to the same URL. Kept as a module of its own
+// because components import it through the @utils alias.
+const getContactHref = sharedContacts.getContactHref;
 
 export default getContactHref;
