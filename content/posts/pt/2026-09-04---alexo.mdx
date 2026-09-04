@@ -94,15 +94,26 @@ Escrito assim parece que foi tranquilo. Não foi.
 
 ### A tela não nasceu pra isso
 
-A tela do Alexo é uma tela de câmera de ré de carro. E carro trabalha em 12V,
-enquanto o Pi entrega 5V.
+A tela do Alexo é a mesma que eu tinha comprado lá atrás pro videogame. Tela de
+câmera de ré de carro, dessas baratas, que é o que muita gente usa nesse tipo de
+projeto. Ela sai por AV, vídeo composto, e não por HDMI, o que por si só já pede
+uma série de ajustes no Pi pra imagem aparecer.
 
-Eu não fazia ideia de como resolver isso. Software eu sei debugar, mas ali era
-eletrônica de verdade, então fui pedir ajuda no
+O outro problema é a alimentação. Carro trabalha em 12V e o Pi entrega 5V. Eu já
+tinha feito essa conversão uma vez, anos atrás, mas essa tela era um modelo mais
+novo e nenhum tutorial que eu achei servia: os drivers eram todos diferentes do
+meu.
+
+Fui pedir ajuda no
 [r/eletronica](https://www.reddit.com/r/eletronica/comments/1vj9q9k/ajuda_para_identificarmodificar_tela_de_r%C3%A9_de/).
-E ajudaram.
+A primeira resposta foi a óbvia, uma placa step-up de 5V pra 12V, que resolveria.
+Mas veio junto uma observação bem melhor: muita tela automotiva barata anunciada
+como 12V já tem um regulador logo na entrada e roda em 5V por dentro. Era medir a
+tensão num capacitor específico da placa e, se desse 5V ali, alimentar direto
+naquele ponto.
 
-{/* TODO: o que foi feito pra tela rodar em 5V */}
+Era exatamente o caso. Não precisou de conversor nenhum, só pular a entrada de
+12V e entregar os 5V onde a própria tela já trabalhava.
 
 ### As quatro vezes em que quem estava errado era eu
 
