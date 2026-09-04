@@ -51,8 +51,7 @@ Foi aí que pensei em usar meus conhecimentos de desenvolvimento para me ajudar.
 E assim nasceu o Alexo.
 
 Um dispositivo que fica do lado do meu PC exibindo algumas fotos, o horário, a
-previsão do tempo e a cotação do dólar e do euro. Um dashboard meu, com o meu
-controle, e com cara de [Windows
+previsão do tempo e a cotação do dólar e do euro. Com cara de [Windows
 95](/react95-fun-side-project-of-the-year), porque nessa altura já era difícil
 eu fazer diferente.
 
@@ -126,7 +125,7 @@ A causa era o meu script. Ele pedia 12 bytes na resposta do `SAMConfiguration`,
 que tem 9. Os 3 bytes a mais eram consumidos do barramento e dessincronizavam
 todos os comandos seguintes. O hardware estava perfeito o tempo inteiro.
 
-E o sinal estava na mesa desde o começo: outro script meu, com os tamanhos
+E eu tinha a resposta na mesa desde o começo: outro script meu, com os tamanhos
 certos, funcionava na mesma sessão em que a minha medição dava 2%. Eu desconfiei
 do rádio, do posicionamento da antena e do protocolo antes de desconfiar da
 ferramenta.
@@ -162,10 +161,10 @@ tamanho do painel      = 240 × 230 pixels
 
 Eu estava decodificando 16 milhões de pixels pra mostrar 48 mil.
 
-E aqui está a parte que eu não sabia: no BCM2835, o cartão SD e o rádio Wi-Fi
-dividem o mesmo controlador SDIO. A memória estoura, o kernel começa a usar swap
-no cartão, o barramento satura, o rádio não é atendido e perde a associação com
-o roteador.
+Eu não sabia disso na época: no BCM2835, o cartão SD e o rádio Wi-Fi dividem o
+mesmo controlador SDIO. A memória estoura, o kernel começa a usar swap no
+cartão, o barramento satura, o rádio não é atendido e perde a associação com o
+roteador.
 
 Uma foto do meu cachorro derrubava a rede da casa.
 
@@ -182,9 +181,9 @@ falhou em 5 segundos e assumiu um endereço de link-local.
 O que veio depois foram 387 pings falhos ao gateway em 1h54, com sinal de -27
 dBm e link 70/70. E zero tentativa do `dhcpcd` de pedir DHCP de novo nessas duas
 horas. Não era problema de rádio, era problema de IPv4: o aparelho estava
-lindamente conectado a uma rede na qual ele não tinha endereço válido, e o mDNS
-continuava anunciando alegremente um endereço que não existia. É exatamente por
-isso que o roteador mostrava ele lá e nada respondia.
+perfeitamente conectado a uma rede na qual ele não tinha endereço válido, e o
+mDNS continuava anunciando um endereço que não existia. É exatamente por isso
+que o roteador mostrava ele lá e nada respondia.
 
 #### 13 °C de um player pausado
 
@@ -193,7 +192,7 @@ do nada.
 
 Minha primeira hipótese foi o ambiente. Ele tinha saído de um powerbank e ido
 pra USB do PC, e a pilha de módulos (Pi, amplificador, driver da tela) vive toda
-encostada. Refutada na mesma tarde: o aparelho estabilizou em 60 °C no mesmo
+encostada. Refutei ela na mesma tarde: o aparelho estabilizou em 60 °C no mesmo
 lugar, no mesmo cabo, sem eu mudar nada.
 
 Eram duas causas, e as duas eram software.
@@ -205,7 +204,7 @@ um registro novo no journal. Treze minutos de música produziram 10.096 linhas,
 78% de todo o journal do dia. Isso é escrita constante no cartão SD, o mesmo
 barramento da história da foto do cachorro. Um `--quiet` na unit resolveu.
 
-A segunda é a boa: pausar não solta a placa de som.
+A segunda: pausar não solta a placa de som.
 
 <p>
   <table>
