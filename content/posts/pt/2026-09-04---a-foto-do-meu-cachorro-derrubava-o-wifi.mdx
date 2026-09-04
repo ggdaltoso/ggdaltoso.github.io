@@ -1,0 +1,273 @@
+---
+title: 'A foto do meu cachorro derrubava o Wi-Fi'
+date: '2026-09-04T13:20:00.000Z'
+template: 'post'
+draft: false
+slug: '/a-foto-do-meu-cachorro-derrubava-o-wifi'
+description: 'Coloquei um player de música por tag NFC no Alexo, meu dashboard
+com cara de Windows 95 rodando num Raspberry Pi Zero. Levei uma semana
+descobrindo que, quase sempre, quem estava errado era a minha medição.'
+---
+
+Lá pra 2017 comprei um Raspberry Pi Zero depois de ver vários vídeos na internet
+de coisas legais que dava pra fazer com ele. Uma dessas coisas me chamou muito a
+atenção e me fez pensar por muito tempo sobre isso: retrogaming.
+
+Quanto mais eu pesquisava sobre o assunto, mais interesse eu tinha. Não era só
+pelos jogos antigos que eu queria jogar de novo, era pela ideia de fazer um
+aparelho e ter algo 100% customizado.
+
+Foi numa dessas que encontrei canais como o do
+[Wermy/Sudomod](https://www.youtube.com/@wermy) e o do
+[GreatScott](https://www.youtube.com/watch?v=_MtN_s4tVK0). Referências que uso
+até hoje.
+
+Construir coisas que eu não sei sempre me motivou a pesquisar e a estudar
+tópicos que eu nunca imaginaria que um dia eu seria capaz de desenvolver.
+
+Muito do que sei de software eu sei pela minha carreira em desenvolvimento, mas
+o universo do hardware sempre me chamou a atenção também. E então eu decidi
+fazer meu próprio videogame.
+
+A parte de software eu já tinha resolvido antes, inclusive escrevi aqui [como
+montar uma central de emulação com Raspberry
+Pi](/crie-um-videogame-com-raspberry-pi). O que faltava era o aparelho: a tela, a
+bateria, os botões, a carcaça.
+
+{/* TODO: foto do protótipo do videogame */}
+
+Não deu muito certo.
+
+A ideia de ter algo pra mim sempre ficou na minha cabeça e era reforçada a cada
+vídeo que assistia e post que lia. O tempo foi passando e o projeto parado. As
+peças lá, só juntando poeira.
+
+Um belo dia eu resolvi fazer algo simples, algo que envolvia só o Pi e a tela.
+Foi aí que pensei em usar meus conhecimentos de desenvolvimento para me ajudar.
+
+E assim nasceu o Alexo.
+
+Um "companion" que fica do lado do meu PC exibindo algumas fotos, o horário, a
+previsão do tempo e alguns outros dados. Um dashboard meu, com o meu controle, e
+com cara de [Windows 95](/react95-fun-side-project-of-the-year), porque nessa
+altura já era difícil eu fazer diferente.
+
+{/* TODO: foto do Alexo em cima da mesa, do lado do PC */}
+
+![A tela do Alexo mostrando o relógio](/media/alexo/clock.png "Alexo | 320")
+
+### A caixinha
+
+Em paralelo, eu tinha umas tags NFC que um dia eu comprei com a intenção de
+automatizar a casa: ao dormir, quando eu colocasse o celular na mesa de
+cabeceira, ele leria uma dessas tags e desligaria todas as luzes. Nunca fiz.
+
+Aí veio a ideia de usar as tags pra colocar um player de música no Alexo.
+
+Encosta a tag, toca um álbum. Tira, pausa. Recoloca a mesma, retoma de onde
+parou. Encosta outra, troca de álbum. É o efeito daquelas caixinhas tipo
+[Tonie](https://tonies.com/) ou [Yoto](https://yotoplay.com/), em que a criança
+escolhe a história colocando um bonequinho em cima.
+
+![O painel de música do Alexo tocando um álbum](/media/alexo/music-player.png "O player | 320")
+
+O plano original era uma tag por faixa. Mudei no meio do caminho, porque são 404
+faixas em 6 álbuns e cadastrar uma tag pra cada uma seria insuportável. Uma tag
+virou um álbum inteiro, e de quebra isso deu alvo real pro "próxima" e
+"anterior", que no escopo antigo não tinham pra onde ir e tinham virado
+"reiniciar a faixa atual".
+
+Também pensei em gravar o álbum na própria tag, já que o PN532 escreve. Não
+gravo. O leitor precisa cair pra trás no UID quando a tag vem ilegível, então o
+mapeamento em JSON existe de qualquer jeito, e gravar criaria uma segunda cópia
+do mesmo fato, com as duas podendo divergir e nenhuma regra de qual vence.
+
+E o player não tem controle nenhum na tela. Quem comanda é a tag. Um botão de
+pause criaria estados contraditórios, tipo "pausado" na interface com a tag
+ainda encostada no leitor.
+
+![A tela de administração onde as tags são associadas aos álbuns](/media/alexo/admin-music.png "Cadastro das tags | 320")
+
+Escrito assim parece que foi tranquilo. Não foi.
+
+### As quatro vezes em que quem estava errado era eu
+
+#### O módulo que estava bom o tempo todo
+
+O PN532 ficou mudo por UART. Eu tinha duas hipóteses e defendi as duas: que ele
+precisava de 5V, porque o regulador de 3,3V do Pi não daria conta, e que o TX
+precisava de um resistor de 1kΩ em série pra não danificar o GPIO.
+
+As duas eram falsas. O módulo roda em 3,3V sem problema, e o resistor nunca foi
+necessário, porque I2C é open-drain com pull-ups fixos no próprio Pi.
+
+O que resolveu foi trocar de protocolo, mas o módulo estava soldado direto nos
+pinos da UART, sem jumper. Mover pros pinos de I2C de hardware exigiria
+dessoldar. A saída foi o `i2c-gpio`, um driver que cria um barramento I2C por
+software, bit-banged, em qualquer par de GPIOs. Zero mudança física.
+
+Funcionou de primeira. Um `i2cdetect -y 3` teria dado essa resposta no primeiro
+dia.
+
+#### O bug era o meu script de teste
+
+Com o leitor funcionando, a leitura parecia instável. Com a tag parada na
+antena, ele lia uma vez e sumia. Testei três estratégias de varredura contínua,
+todas com uns 2% de acerto. Passei um bom tempo segurando uma tag em cima do
+módulo pra medir.
+
+A causa era o meu script. Ele pedia 12 bytes na resposta do `SAMConfiguration`,
+que tem 9. Os 3 bytes a mais eram consumidos do barramento e dessincronizavam
+todos os comandos seguintes. O hardware estava perfeito o tempo inteiro.
+
+E o sinal estava na mesa desde o começo: outro script meu, com os tamanhos
+certos, funcionava na mesma sessão em que a minha medição dava 2%. Eu desconfiei
+do rádio, do posicionamento da antena e do protocolo antes de desconfiar da
+ferramenta.
+
+Com o tamanho corrigido, 100% de leitura com a tag parada, na primeira
+tentativa.
+
+#### A foto do cachorro
+
+Esse é o melhor.
+
+O Pi começou a cair da rede a cada poucas horas. O sintoma era estranho: o
+roteador mostrava o aparelho conectado, e nada respondia. Nem SSH, nem ARP. E a
+tela continuava funcionando normalmente, porque tudo que ela mostra vem de
+`localhost`.
+
+Testei e descartei três hipóteses. Subtensão da fonte, já que o amplificador
+divide trilho com o rádio, mas o `vcgencmd get_throttled` deu `0x0` e o dmesg
+não tinha uma ocorrência sequer. O túnel de depuração remota que eu tinha
+montado, mas as quedas continuaram depois de removido. A varredura I2C do NFC,
+que tinha efeito real e medido, só que reduzi ela em 10x e não resolveu.
+
+A causa real: as fotos da galeria eram fotos de celular em resolução plena,
+3468×4624. O arquivo é pequeno, 344 KB, porque JPEG comprime muito bem. Mas pra
+desenhar na tela o navegador precisa descomprimir, e aí cada pixel vira 4 bytes.
+
+```
+3468 × 4624 × 4 bytes  =  61 MB de RAM   para uma foto
+5 fotos                = 190 MB
+RAM total do aparelho  = 430 MB
+tamanho do painel      = 240 × 230 pixels
+```
+
+Eu estava decodificando 16 milhões de pixels pra mostrar 48 mil.
+
+E aqui está a parte que eu não sabia: no BCM2835, o cartão SD e o rádio Wi-Fi
+dividem o mesmo controlador SDIO. A memória estoura, o kernel começa a usar swap
+no cartão, o barramento satura, o rádio não é atendido e perde a associação com
+o roteador.
+
+Uma foto do meu cachorro derrubava a rede da casa.
+
+Depois de reduzir as fotos pra 800px no lado maior, os 190 MB decodificados
+viraram 8,2 MB, a memória disponível saiu de 80 MB pra uns 250 MB e as quedas
+pararam.
+
+Quase todas. Duas semanas depois o Pi sumiu de novo, e dessa vez eu tinha um
+monitor rodando a bordo com o registro inteiro do momento. Às 12:39:57 ele trocou
+de rede sozinho, saiu de uma a -27 dBm e foi pra outra da mesma casa a -67 dBm,
+ficou 65 segundos lá e voltou. Na volta o `dhcpcd` tentou renovar o lease,
+falhou em 5 segundos e assumiu um endereço de link-local.
+
+O que veio depois foram 387 pings falhos ao gateway em 1h54, com sinal de -27
+dBm e link 70/70. E zero tentativa do `dhcpcd` de pedir DHCP de novo nessas duas
+horas. Não era problema de rádio, era problema de IPv4: o aparelho estava
+lindamente conectado a uma rede na qual ele não tinha endereço válido, e o mDNS
+continuava anunciando alegremente um endereço que não existia. É exatamente por
+isso que o roteador mostrava ele lá e nada respondia.
+
+#### 13 °C de um player pausado
+
+Dois dias depois de tudo funcionando, o Pi ficou extremamente quente, meio que
+do nada.
+
+Minha primeira hipótese foi o ambiente. Ele tinha saído de um powerbank e ido
+pra USB do PC, e a pilha de módulos (Pi, amplificador, driver da tela) vive toda
+encostada. Refutada na mesma tarde: o aparelho estabilizou em 60 °C no mesmo
+lugar, no mesmo cabo, sem eu mudar nada.
+
+Eram duas causas, e as duas eram software.
+
+A primeira era o mpv escrevendo treze linhas de log por segundo. Aquela linha de
+status dele (`AV: 00:01:23 / 00:04:10`) se reescreve sozinha com `\r` num
+terminal. Debaixo do systemd não existe terminal, então cada atualização virava
+um registro novo no journal. Treze minutos de música produziram 10.096 linhas,
+78% de todo o journal do dia. Isso é escrita constante no cartão SD, o mesmo
+barramento da história da foto do cachorro. Um `--quiet` na unit resolveu.
+
+A segunda é a boa: pausar não solta a placa de som.
+
+<p>
+  <table>
+    <thead>
+      <tr><th>Momento</th><th style={{ textAlign: 'right' }}>Temperatura</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ocioso, tudo parado</td>
+        <td style={{ textAlign: 'right' }}>60,5 °C</td>
+      </tr>
+      <tr>
+        <td>19 min de música</td>
+        <td style={{ textAlign: 'right' }}>64,3 °C</td>
+      </tr>
+      <tr>
+        <td>27 min depois de pausar</td>
+        <td style={{ textAlign: 'right' }}>70,8 °C</td>
+      </tr>
+      <tr>
+        <td>22 min depois de dar stop</td>
+        <td style={{ textAlign: 'right' }}>64,8 °C</td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+
+A temperatura continuou subindo *depois* que a música parou. Pausado, o mpv
+segura o `/dev/snd`, o I2S segue clocando e o amplificador segue ligado. Um
+player esquecido em pause custa 13 °C.
+
+A correção tinha uma versão em hardware, no pino `SD` do MAX98357A, e uma em
+software. Ganhou a de software, e o detalhe é bonito: o mpv 0.29.1 do Raspbian
+buster não tem `--audio-keep-open`, mas aceita trocar o `audio-device` em tempo
+de execução. Definir o dispositivo como `null` fecha o ALSA preservando a
+playlist, o índice da faixa e a posição. Devolver o valor reabre. Um timer de 60
+segundos de ociosidade e o problema some sem ninguém saber que ele existiu.
+
+### O padrão
+
+Eu só reparei nisso quando fui reler as minhas próprias anotações da semana. O
+erro estava sempre mais perto de casa do que a hipótese sugeria.
+
+Era o meu script de teste e não o rádio, a foto na galeria e não a fonte de
+alimentação, o `dhcpcd` estacionado e não o sinal, o player pausado e não o
+calor do PC. Duas vezes foi o meu próprio `awk` lendo a coluna errada de um log
+que eu mesmo tinha escrito, e numa delas eu cheguei a reportar 60 ms de latência
+média que eram, na verdade, a coluna de temperatura.
+
+A hipótese era sempre mais interessante que a causa. Subtensão, interferência,
+roteador ruim, hardware defeituoso. E a causa era sempre alguma coisa mundana
+que eu mesmo tinha construído duas horas antes.
+
+O que eu levo desse projeto não tem nada a ver com NFC. É que quando a minha
+medição briga com outro teste meu, feito na mesma tarde, a chance de o problema
+estar no instrumento é bem maior do que a de estar no rádio. Eu perdi uns três
+dias aprendendo isso e ainda assim caí de novo depois.
+
+### O que ficou faltando
+
+O áudio distorce acima do volume 60 e eu suspeito do ganho fixo do MAX98357A, o
+que se resolve com um jumper. Os álbuns ainda têm vinhetas de 2 a 10 segundos que
+eu preciso limpar. A tela do Todoist parou de renderizar tarefas e eu nem
+diagnostiquei ainda. E o `dhcpcd` continua podendo estacionar em link-local se o
+lease falhar, porque eu não endureci nada ali.
+
+O aparelho que eu queria em 2017 nunca existiu. Mas tem uma tela de 3,5
+polegadas do lado do meu PC que começa a tocar um álbum porque eu encostei um
+adesivo nela. Gosto bem mais dessa do que da que eu tinha planejado.
+
+O código está todo no [ggdaltoso/alexo](https://github.com/ggdaltoso/alexo).
