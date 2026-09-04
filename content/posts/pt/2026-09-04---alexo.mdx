@@ -117,22 +117,32 @@ Era exatamente o caso. Não precisou de conversor nenhum, só pular a entrada de
 
 ### As quatro vezes em que quem estava errado era eu
 
-#### O módulo que estava bom o tempo todo
+#### O leitor que estava bom o tempo todo
 
-O PN532 ficou mudo por UART. Eu tinha duas hipóteses e defendi as duas: que ele
-precisava de 5V, porque o regulador de 3,3V do Pi não daria conta, e que o TX
-precisava de um resistor de 1kΩ em série pra não danificar o GPIO.
+O leitor de NFC não respondia. Encostava a tag nele e o Pi não dava o menor
+sinal de ter percebido alguma coisa.
 
-As duas eram falsas. O módulo roda em 3,3V sem problema, e o resistor nunca foi
-necessário, porque I2C é open-drain com pull-ups fixos no próprio Pi.
+Duas explicações me pareceram óbvias, e eu defendi as duas com convicção: que o
+leitor não estava recebendo energia suficiente, e que faltava uma peça no meio
+do caminho pra proteger o Pi.
 
-O que resolveu foi trocar de protocolo, mas o módulo estava soldado direto nos
-pinos da UART, sem jumper. Mover pros pinos de I2C de hardware exigiria
-dessoldar. A saída foi o `i2c-gpio`, um driver que cria um barramento I2C por
-software, bit-banged, em qualquer par de GPIOs. Zero mudança física.
+As duas estavam erradas. A energia sempre foi suficiente e a peça nunca foi
+necessária.
 
-Funcionou de primeira. Um `i2cdetect -y 3` teria dado essa resposta no primeiro
-dia.
+O problema não era elétrico, era de conversa. O Pi e o leitor podem se falar por
+caminhos diferentes, como dois idiomas, e o que eu tinha escolhido não estava
+funcionando ali. Bastava trocar de idioma.
+
+Só que o leitor estava soldado direto nos pinos do primeiro. Trocar significava
+dessoldar tudo e refazer a ligação em outro canto da placa.
+
+Foi aí que eu descobri que o Linux resolve isso sozinho: existe um recurso que
+faz qualquer par de pinos falar o segundo idioma por software. Sem encostar no
+ferro de solda, sem mudar um fio de lugar.
+
+Funcionou de primeira. E um comando de uma linha, se eu tivesse rodado no
+primeiro dia, já teria me dito qual dos dois idiomas o leitor estava disposto a
+falar.
 
 #### O bug era o meu script de teste
 
@@ -165,7 +175,7 @@ tela continuava funcionando normalmente, porque tudo que ela mostra vem de
 Testei e descartei três hipóteses. Subtensão da fonte, já que o amplificador
 divide trilho com o rádio, mas o `vcgencmd get_throttled` deu `0x0` e o dmesg
 não tinha uma ocorrência sequer. O túnel de depuração remota que eu tinha
-montado, mas as quedas continuaram depois de removido. A varredura I2C do NFC,
+montado, mas as quedas continuaram depois de removido. A varredura do leitor,
 que tinha efeito real e medido, só que reduzi ela em 10x e não resolveu.
 
 A causa real: as fotos da galeria eram fotos de celular em resolução plena,
