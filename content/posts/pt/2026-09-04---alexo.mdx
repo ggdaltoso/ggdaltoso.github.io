@@ -161,9 +161,10 @@ antena, ele lia uma vez e sumia. Testei três estratégias de varredura contínu
 todas com uns 2% de acerto. Passei um bom tempo segurando uma tag em cima do
 módulo pra medir.
 
-A causa era o meu script. Ele pedia 12 bytes na resposta do `SAMConfiguration`,
-que tem 9. Os 3 bytes a mais eram consumidos do barramento e dessincronizavam
-todos os comandos seguintes. O hardware estava perfeito o tempo inteiro.
+A causa era o meu script. Ele pedia uma quantidade maior de bytes do que a
+resposta realmente tinha. Os bytes que sobravam eram consumidos do barramento e
+dessincronizavam todos os comandos seguintes. O hardware estava perfeito o tempo
+inteiro.
 
 E eu tinha a resposta na mesa desde o começo: outro script meu, com os tamanhos
 certos, funcionava na mesma sessão em que a minha medição dava 2%. Eu desconfiei
