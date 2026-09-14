@@ -35,9 +35,9 @@ montar uma central de emulação com Raspberry
 Pi](/crie-um-videogame-com-raspberry-pi). O que faltava era o aparelho: a tela, a
 bateria, os botões, a carcaça.
 
-{/* TODO: subir a foto e trocar por:
-![O protótipo do videogame que eu nunca terminei](/media/alexo/prototipo-videogame.jpg "O protótipo | 320")
-*/}
+{/_ TODO: subir a foto e trocar por:
+![O protótipo do videogame que eu nunca terminei](/media/alexo/prototipo-videogame.jpg 'O protótipo | 320')
+_/}
 
 Não deu muito certo.
 
@@ -55,11 +55,11 @@ previsão do tempo e a cotação do dólar e do euro. Com cara de [Windows
 95](/react95-fun-side-project-of-the-year), porque nessa altura já era difícil
 eu fazer diferente.
 
-{/* TODO: subir a foto e trocar por:
-![O Alexo ligado em cima da mesa, do lado do PC](/media/alexo/alexo-na-mesa.jpg "O Alexo | 320")
-*/}
+{/_ TODO: subir a foto e trocar por:
+![O Alexo ligado em cima da mesa, do lado do PC](/media/alexo/alexo-na-mesa.jpg 'O Alexo | 320')
+_/}
 
-![A tela do Alexo mostrando o relógio](/media/alexo/clock.png "Alexo | 320")
+![A tela do Alexo mostrando o relógio](/media/alexo/clock.png 'Alexo | 320')
 
 ### O player
 
@@ -78,7 +78,7 @@ mesa e que ganhou um leitor.
 Encosta a tag, toca um álbum. Tira, pausa. Recoloca a mesma, retoma de onde
 parou. Encosta outra, troca de álbum.
 
-![O painel de música do Alexo tocando um álbum](/media/alexo/music-player.png "O player | 320")
+![O painel de música do Alexo tocando um álbum](/media/alexo/music-player.png 'O player | 320')
 
 Cada tag é um álbum inteiro, nunca uma faixa solta. E entre os álbuns eu botei
 algumas trilhas de jogos antigos, que combinam com a cara de Windows 95 do
@@ -88,7 +88,7 @@ O player não tem controle nenhum na tela, e nem faria sentido ter. A tela não 
 touch e o aparelho não tem um botão sequer, então ela é 100% read-only: só
 exibe. Quem comanda é a tag.
 
-![A tela de administração onde as tags são associadas aos álbuns](/media/alexo/admin-music.png "Cadastro das tags | 320")
+![A tela de administração onde as tags são associadas aos álbuns](/media/alexo/admin-music.png 'Cadastro das tags | 320')
 
 Escrito assim parece que foi tranquilo. Não foi.
 
@@ -187,12 +187,12 @@ roteador mostrava o aparelho conectado, e nada respondia. Nem SSH, nem ARP. E a
 tela continuava funcionando normalmente, até porque tudo que ela mostra vem de
 `localhost`.
 
-Testei e descartei três explicações:
+Testei e descartei três causas:
 
-1. A energia. Eu tinha acabado de adicionar um amplificador de som e achei que o
-   jeito como eu ligava o Pi não desse conta: era uma porta USB comum ou um power
-   bank. Minha sorte é que o Pi anota sozinho toda vez que a energia cai abaixo
-   do mínimo, e a anotação estava zerada.
+1. A energia. Eu tinha acabado de adicionar um amplificador de som e suspeitei
+   que o jeito como eu ligava o Pi não desse conta (era uma porta USB comum ou
+   um power bank). Minha sorte é que o Pi anota sozinho toda vez que a energia
+   cai abaixo do mínimo, e a anotação estava zerada.
 2. O túnel de acesso remoto que eu tinha montado pra desenvolver na minha própria
    máquina, em vez de ficar refém do Pi pra debugar. Tirei o túnel e as quedas
    continuaram.
@@ -200,18 +200,19 @@ Testei e descartei três explicações:
    efeito real e medido, só que eu reduzi a varredura em dez vezes e o Pi
    continuou caindo.
 
-A causa real: as fotos da galeria eram fotos de celular em resolução plena,
-3468×4624. O arquivo é pequeno, 344 KB, porque JPEG comprime muito bem. Mas pra
-desenhar na tela o navegador precisa descomprimir, e aí cada pixel vira 4 bytes.
+A causa real: as fotos da galeria eram fotos de celular em resolução plena, a
+maior delas 3468×4624. O arquivo é pequeno, 344 KB, porque JPEG comprime muito
+bem. Mas pra desenhar na tela o navegador precisa descomprimir, e aí cada pixel
+vira 4 bytes.
 
 ```
-3468 × 4624 × 4 bytes  =  61 MB de RAM   para uma foto
-5 fotos                = 190 MB
+3468 × 4624 × 4 bytes  =  61 MB de RAM   só a maior foto
+as 5 fotos da galeria  = 190 MB
 RAM total do aparelho  = 430 MB
 tamanho do painel      = 240 × 230 pixels
 ```
 
-Eu estava decodificando 16 milhões de pixels pra mostrar 48 mil.
+Eu estava decodificando 16 milhões de pixels pra mostrar 55 mil.
 
 Eu não sabia disso na época: no BCM2835, o cartão SD e o rádio Wi-Fi dividem o
 mesmo controlador SDIO. A memória estoura, o kernel começa a usar swap no
@@ -248,7 +249,10 @@ A segunda: pausar não solta a placa de som.
 <p>
   <table>
     <thead>
-      <tr><th>Momento</th><th style={{ textAlign: 'right' }}>Temperatura</th></tr>
+      <tr>
+        <th>Momento</th>
+        <th style={{ textAlign: 'right' }}>Temperatura</th>
+      </tr>
     </thead>
     <tbody>
       <tr>
@@ -271,7 +275,7 @@ A segunda: pausar não solta a placa de som.
   </table>
 </p>
 
-A temperatura continuou subindo *depois* que a música parou. Pausado, o mpv
+A temperatura continuou subindo _depois_ que a música parou. Pausado, o mpv
 segura o `/dev/snd`, o I2S segue clocando e o amplificador segue ligado. Um
 player esquecido em pause custa 13 °C.
 
