@@ -184,14 +184,17 @@ Esse é o melhor.
 
 O Pi começou a cair da rede a cada poucas horas. O sintoma era estranho: o
 roteador mostrava o aparelho conectado, e nada respondia. Nem SSH, nem ARP. E a
-tela continuava funcionando normalmente, porque tudo que ela mostra vem de
+tela continuava funcionando normalmente, até porque tudo que ela mostra vem de
 `localhost`.
 
-Testei e descartei três hipóteses. Subtensão da fonte, já que o amplificador
-divide trilho com o rádio, mas o `vcgencmd get_throttled` deu `0x0` e o dmesg
-não tinha uma ocorrência sequer. O túnel de depuração remota que eu tinha
-montado, mas as quedas continuaram depois de removido. A varredura do leitor,
-que tinha efeito real e medido, só que reduzi ela em 10x e não resolveu.
+Testei e descartei três explicações. A primeira era a fonte, porque o
+amplificador de som e o Wi-Fi bebem da mesma energia e eu achei que estivesse
+faltando pra todo mundo. Só que o Pi anota sozinho toda vez que a energia cai
+abaixo do mínimo, e a anotação estava zerada. A segunda era um túnel de acesso
+remoto que eu tinha montado pra depurar de longe, mas tirei o túnel e as quedas
+continuaram. A terceira era o leitor de NFC, que fica varrendo atrás de tag o
+tempo todo: essa tinha efeito real e medido, só que eu reduzi a varredura em dez
+vezes e o Pi continuou caindo.
 
 A causa real: as fotos da galeria eram fotos de celular em resolução plena,
 3468×4624. O arquivo é pequeno, 344 KB, porque JPEG comprime muito bem. Mas pra
