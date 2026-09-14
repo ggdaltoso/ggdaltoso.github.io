@@ -220,9 +220,10 @@ o painel da galeria    = 223 × 271 pixels
 
 Eu estava decodificando 16 milhões de pixels pra mostrar 60 mil.
 
-O navegador comia tanta memória processando as fotos que o sistema começava a
-despejar o excesso no cartão SD. O que eu não sabia é que, no Pi Zero, o cartão
-e o Wi-Fi dividem o mesmo caminho. Com o cartão ocupado o tempo todo, o Wi-Fi
+O navegador comia tanta memória processando as fotos que a RAM acabava, e aí o
+sistema passava a guardar no cartão SD o que não cabia mais nela, indo buscar de
+volta toda vez que precisava. O que eu não sabia é que, no Pi Zero, o cartão e o
+Wi-Fi dividem o mesmo caminho. Com o cartão ocupado o tempo todo, o Wi-Fi
 ficava sem vez e largava a conexão com o roteador.
 
 Uma foto do meu cachorro derrubava o Pi da rede.
