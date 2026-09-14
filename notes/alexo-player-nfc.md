@@ -342,3 +342,16 @@ Resolvidos desde a primeira versão desta nota:
 - ~~70,8 °C com tudo rodando; não medido se o calor contribuía para as quedas de rede~~ — eram duas
   causas de software (log do mpv e player pausado segurando o `/dev/snd`), ambas corrigidas; o
   aparelho estabiliza em ~60 °C ocioso e ~64 °C tocando
+
+---
+
+## Reservado para a seção "Aprendizados" do post
+
+Material tirado do corpo do post por pesar demais no meio da narrativa. O plano é juntar tudo
+numa seção própria no fim, onde o tecniquês é bem-vindo. A cada corte novo, anotar aqui.
+
+- **O `dhcpcd` estacionado em link-local** (cortado da seção "A foto do cachorro" em 14/09).
+  Era o epílogo de 27 de agosto: roaming pra uma rede fraca, lease não renovado, endereço
+  169.254.x, 387 pings falhos em 1h54 com o sinal em -27 dBm e zero tentativa de pedir DHCP de
+  novo. O texto completo está na seção "Epílogo (27 de agosto)" acima. Junto sai o item de
+  "O que ficou faltando" que dizia que o `dhcpcd` continua sem endurecimento.

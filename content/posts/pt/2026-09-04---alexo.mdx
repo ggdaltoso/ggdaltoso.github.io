@@ -217,19 +217,6 @@ Depois de reduzir as fotos pra 800px no lado maior, os 190 MB decodificados
 viraram 8,2 MB, a memória disponível saiu de 80 MB pra uns 250 MB e as quedas
 pararam.
 
-Quase todas. Duas semanas depois o Pi sumiu de novo, e dessa vez eu tinha um
-monitor rodando a bordo com o registro inteiro do momento. Às 12:39:57 ele trocou
-de rede sozinho, saiu de uma a -27 dBm e foi pra outra da mesma casa a -67 dBm,
-ficou 65 segundos lá e voltou. Na volta o `dhcpcd` tentou renovar o lease,
-falhou em 5 segundos e assumiu um endereço de link-local.
-
-O que veio depois foram 387 pings falhos ao gateway em 1h54, com sinal de -27
-dBm e link 70/70. E zero tentativa do `dhcpcd` de pedir DHCP de novo nessas duas
-horas. Não era problema de rádio, era problema de IPv4: o aparelho estava
-perfeitamente conectado a uma rede na qual ele não tinha endereço válido, e o
-mDNS continuava anunciando um endereço que não existia. É exatamente por isso
-que o roteador mostrava ele lá e nada respondia.
-
 #### 13 °C de um player pausado
 
 Dois dias depois de tudo funcionando, o Pi ficou extremamente quente, meio que
@@ -293,11 +280,11 @@ segundos de ociosidade e o problema some sem ninguém saber que ele existiu.
 Eu só reparei nisso quando fui reler as minhas próprias anotações da semana. O
 erro estava sempre mais perto de casa do que a hipótese sugeria.
 
-Era o meu medidor e não o leitor, a foto na galeria e não a fonte de
-alimentação, o `dhcpcd` estacionado e não o sinal, o player pausado e não o
-calor do PC. Duas vezes foi o meu próprio `awk` lendo a coluna errada de um log
-que eu mesmo tinha escrito, e numa delas eu cheguei a reportar 60 ms de latência
-média que eram, na verdade, a coluna de temperatura.
+Era o idioma errado e não a falta de energia, o meu medidor e não o leitor, a
+foto na galeria e não a fonte de alimentação, o player pausado e não o calor do
+PC. Duas vezes foi o meu próprio `awk` lendo a coluna errada de um log que eu
+mesmo tinha escrito pra monitorar o aparelho, e numa delas eu cheguei a reportar
+60 ms de latência média que eram, na verdade, a coluna de temperatura.
 
 A hipótese era sempre mais interessante que a causa. Subtensão, interferência,
 roteador ruim, hardware defeituoso. E a causa era sempre alguma coisa mundana
@@ -312,9 +299,8 @@ dias aprendendo isso e ainda assim caí de novo depois.
 
 O áudio distorce acima do volume 60 e eu suspeito do ganho fixo do MAX98357A, o
 que se resolve com um jumper. Os álbuns ainda têm vinhetas de 2 a 10 segundos que
-eu preciso limpar. A tela do Todoist parou de renderizar tarefas e eu nem
-diagnostiquei ainda. E o `dhcpcd` continua podendo estacionar em link-local se o
-lease falhar, porque eu não endureci nada ali.
+eu preciso limpar. E a tela do Todoist parou de renderizar tarefas e eu nem
+diagnostiquei ainda.
 
 O aparelho que eu queria em 2017 nunca existiu. Mas tem uma tela de 3,5
 polegadas do lado do meu PC que começa a tocar um álbum porque eu encostei um
