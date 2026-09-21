@@ -51,15 +51,14 @@ Foi aí que pensei em usar meus conhecimentos de desenvolvimento para me ajudar.
 E assim nasceu o Alexo.
 
 Um dispositivo que fica do lado do meu PC exibindo algumas fotos, o horário, a
-previsão do tempo e a cotação do dólar e do euro. Com cara de [Windows
-95](/react95-fun-side-project-of-the-year), porque nessa altura já era difícil
-eu fazer diferente.
+previsão do tempo e a cotação do dólar e do euro. E claro que usando o
+[React95](/react95-fun-side-project-of-the-year).
 
 {/* TODO: subir a foto e trocar por:
 ![O Alexo ligado em cima da mesa, do lado do PC](/media/alexo/alexo-na-mesa.jpg 'O Alexo | 320')
 */}
 
-![A tela do Alexo mostrando o relógio](/media/alexo/clock.png 'Alexo | 320')
+![A tela do Alexo mostrando o horário](/media/alexo/clock.png 'Alexo | 320')
 
 ### O player
 
@@ -129,7 +128,7 @@ do caminho pra proteger o Pi.
 As duas estavam erradas. A energia sempre foi suficiente e a peça nunca foi
 necessária.
 
-O problema não era elétrico, era de conversa. O Pi e o leitor podem se falar por
+O problema não era elétrico, era de comunicação. O Pi e o leitor podem se falar por
 caminhos diferentes, como dois idiomas, e o que eu tinha escolhido não estava
 funcionando ali.
 
@@ -139,7 +138,7 @@ com quem está do outro. O I2C é um barramento: vários dispositivos dividem os
 mesmos dois fios, cada um atende por um endereço próprio, e o Pi chama pelo
 endereço de quem ele quer.
 
-Essa diferença muda tudo na hora de depurar. No I2C dá pra varrer o barramento e
+Essa diferença muda tudo na hora de implementar. No I2C dá pra varrer o barramento e
 perguntar "quem está aí?", e cada endereço que responde é um aparelho vivo e
 ligado direito. Na UART essa pergunta não existe. Você fala e torce.
 
