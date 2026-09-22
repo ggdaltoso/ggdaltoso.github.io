@@ -330,9 +330,10 @@ tag, pausar. É a coisa que texto nenhum comunica bem.
 
 ## Fica em aberto (verificar antes de publicar)
 
-- A tela do Todoist parou de renderizar tarefas e não foi diagnosticada
-- Os álbuns ainda têm vinhetas de 2 a 10 segundos
-- O áudio distorce acima do volume ~60 — suspeita no ganho fixo do MAX98357A, correção é jumper
+- ~~A tela do Todoist parou de renderizar tarefas~~ — resolvido, segundo o usuário (22/09/2026)
+- ~~Os álbuns ainda têm vinhetas de 2 a 10 segundos~~ — resolvido, segundo o usuário (22/09/2026)
+- ~~O áudio distorce acima do volume ~60~~ — FALSO. Verificado em 22/09/2026: o usuário diz que
+  a distorção não existe e provavelmente nunca existiu, foi teste mal feito na época
 - O `dhcpcd` continua sem endurecimento: ele ainda pode estacionar em link-local se o lease falhar
 - A rede `GAMA` continua no `wpa_supplicant.conf`, e é ela que dispara o roaming ruim
 - A estabilidade do Wi-Fi só foi verificada por horas, não por dias
