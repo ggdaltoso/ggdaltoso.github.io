@@ -320,12 +320,17 @@ fica acordado esquentando à toa. Só o stop solta tudo.
 
 Esquecer o player pausado deixa o Pi 10 °C mais quente.
 
-A correção tinha uma versão em hardware, no pino `SD` do MAX98357A, e uma em
-software. Ganhou a de software, e o detalhe é bonito: o mpv 0.29.1 do Raspbian
-buster não tem `--audio-keep-open`, mas aceita trocar o `audio-device` em tempo
-de execução. Definir o dispositivo como `null` fecha o ALSA preservando a
-playlist, o índice da faixa e a posição. Devolver o valor reabre. Um timer de 60
-segundos de ociosidade e o problema some sem ninguém saber que ele existiu.
+Dava pra resolver no hardware, mexendo num pino do amplificador que manda ele
+dormir. Fui pelo software, e a saída foi meio torta. A versão do mpv que roda no
+Alexo é antiga e não tem opção nenhuma de soltar a placa de som. Mas ela deixa
+trocar a saída de áudio com o player já rodando.
+
+Então eu troco a saída por nenhuma. O mpv larga a placa e, mesmo assim, guarda a
+fila de músicas, a faixa e o segundo exato onde parou. Na hora de voltar, devolvo
+a saída e ele segue de onde estava, como se nada tivesse acontecido.
+
+Um cronômetro de 60 segundos sem uso faz isso sozinho, e o problema some sem
+ninguém saber que existiu.
 
 ### O padrão
 
