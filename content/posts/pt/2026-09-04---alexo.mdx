@@ -253,11 +253,24 @@ lugar, no mesmo cabo, sem eu mudar nada.
 
 Eram duas causas, e as duas eram software.
 
-A primeira era o mpv escrevendo treze linhas de log por segundo. Aquela linha de
-status dele (`AV: 00:01:23 / 00:04:10`) se reescreve sozinha com `\r` num terminal. Debaixo
-do systemd não existe terminal, então cada atualização virava um registro novo
-no journal. Treze minutos de música produziram 10.096 linhas,
-78% de todo o journal do dia. Isso é escrita constante no cartão SD, o mesmo
+A primeira era o mpv escrevendo treze linhas de log por segundo. Rodando num
+terminal, ele mostra isso:
+
+```
+Playing: 04 Northern Kremisphere.mp3
+ (+) Audio --aid=1 (mp3 2ch 44100Hz)
+File tags:
+ Artist: Eveline Fischer
+ Album: Donkey Kong Country 3
+ Title: Northern Kremisphere
+A: 00:00:03 / 00:02:46 (1%)
+```
+
+A última linha, a do tempo, não desce a tela: ela se reescreve por cima de si
+mesma, e o que faz isso é um `\r` no fim de cada atualização. Debaixo do systemd
+não existe terminal pra reescrever, então cada atualização virava um registro
+novo no journal. Treze minutos de música produziram 10.096 linhas, 78% de todo
+o journal do dia. Isso é escrita constante no cartão SD, o mesmo
 caminho da história da foto do cachorro. Um `--quiet` na unit resolveu.
 
 A segunda: pausar não solta a placa de som.
