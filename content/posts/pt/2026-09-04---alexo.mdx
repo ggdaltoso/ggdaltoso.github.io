@@ -90,6 +90,10 @@ Cada tag é um álbum inteiro, nunca uma faixa solta. E entre os álbuns eu bote
 algumas trilhas de jogos antigos, que combinam com a cara de Windows 95 do
 aparelho e puxam a mesma nostalgia.
 
+Quem toca a música não é o meu código: é o [mpv](https://mpv.io/), um tocador de
+linha de comando que fica rodando como serviço em segundo plano. O backend do
+Alexo só manda comandos pra ele, tipo "toca esse álbum" ou "pausa".
+
 O player não tem controle nenhum na tela, e nem faria sentido ter. A tela não é
 touch e o aparelho não tem um botão sequer, então ela é 100% read-only: só
 exibe. Quem comanda é a tag.
@@ -153,12 +157,15 @@ Bastava trocar de idioma. Só que o leitor estava soldado direto nos pinos da
 UART, sem jumper nenhum. Trocar significava dessoldar tudo e refazer a ligação
 em outro canto da placa.
 
-Foi aí que eu descobri o `i2c-gpio`, um driver do Linux que monta um barramento
-I2C por software em qualquer par de pinos. Sem encostar no ferro de solda, sem
-mudar um fio de lugar.
+Foi aí que eu descobri o
+[`i2c-gpio`](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README),
+um driver do Linux que monta um barramento I2C por software em qualquer par de
+pinos. Sem encostar no ferro de solda, sem mudar um fio de lugar.
 
-Funcionou de primeira. E o `i2cdetect`, aquele "quem está aí?" de uma linha só,
-teria me dado essa resposta no primeiro dia.
+Funcionou de primeira. E o
+[`i2cdetect`](https://manpages.debian.org/stable/i2c-tools/i2cdetect.8.en.html),
+aquele "quem está aí?" de uma linha só, teria me dado essa resposta no primeiro
+dia.
 
 #### O medidor que media errado
 
@@ -247,9 +254,9 @@ lugar, no mesmo cabo, sem eu mudar nada.
 Eram duas causas, e as duas eram software.
 
 A primeira era o mpv escrevendo treze linhas de log por segundo. Aquela linha de
-status dele (`AV: 00:01:23 / 00:04:10`) se reescreve sozinha com `\r` num
-terminal. Debaixo do systemd não existe terminal, então cada atualização virava
-um registro novo no journal. Treze minutos de música produziram 10.096 linhas,
+status dele (`AV: 00:01:23 / 00:04:10`) se reescreve sozinha com `\r` num terminal. Debaixo
+do systemd não existe terminal, então cada atualização virava um registro novo
+no journal. Treze minutos de música produziram 10.096 linhas,
 78% de todo o journal do dia. Isso é escrita constante no cartão SD, o mesmo
 caminho da história da foto do cachorro. Um `--quiet` na unit resolveu.
 
