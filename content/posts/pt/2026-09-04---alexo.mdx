@@ -241,14 +241,14 @@ Depois de reduzir as fotos para no máximo 800 pixels, os 190 MB decodificados
 viraram 8,2 MB, a memória disponível saiu de 80 MB pra uns 250 MB e as quedas
 pararam.
 
-#### 13 °C de um player pausado
+#### 10 °C de um player pausado
 
 Dois dias depois de tudo funcionando, o Pi ficou extremamente quente, meio que
 do nada.
 
 Minha primeira hipótese foi o ambiente. Ele tinha saído de um powerbank e ido
 pra USB do PC, e a pilha de módulos (Pi, amplificador, driver da tela) vive toda
-encostada. Refutei ela na mesma tarde: o aparelho estabilizou em 60 °C no mesmo
+encostada. Descartei ela na mesma tarde: o aparelho estabilizou em 60 °C no mesmo
 lugar, no mesmo cabo, sem eu mudar nada.
 
 Eram duas causas, e as duas eram software.
@@ -313,15 +313,15 @@ A segunda: pausar não solta a placa de som.
 
 A temperatura continuou subindo _depois_ que a música parou.
 
-Pausar não fecha a placa de som: o mpv continua segurando ela. E enquanto ela
-está aberta, o Pi segue mandando sinal pro amplificador sem parar, mesmo que o
-que esteja passando seja silêncio. O amplificador vê esse sinal e não desliga,
+O mpv continua segurando a placa mesmo pausado. E enquanto ela está aberta, o
+Pi segue mandando sinal pro amplificador sem parar, ainda que o que passe por
+ali seja só silêncio. O amplificador vê esse sinal e não desliga,
 fica acordado esquentando à toa. Só o stop solta tudo.
 
-Esquecer o player pausado deixa o Pi 10 °C mais quente.
+Deixar o player pausado mantém o Pi 10 °C mais quente.
 
 Dava pra resolver no hardware, mexendo num pino do amplificador que manda ele
-dormir. Fui pelo software, e a saída foi meio torta. A versão do mpv que roda no
+dormir. Fui pelo software, e o jeito foi meio torto. A versão do mpv que roda no
 Alexo é antiga e não tem opção nenhuma de soltar a placa de som. Mas ela deixa
 trocar a saída de áudio com o player já rodando.
 
