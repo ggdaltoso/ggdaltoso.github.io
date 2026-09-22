@@ -268,12 +268,17 @@ File tags:
 A: 00:00:03 / 00:02:46 (1%)
 ```
 
-A última linha, a do tempo, não desce a tela: ela se reescreve por cima de si
-mesma, e o que faz isso é um `\r` no fim de cada atualização. Debaixo do systemd
-não existe terminal pra reescrever, então cada atualização virava um registro
-novo no journal. Treze minutos de música produziram 10.096 linhas, 78% de todo
-o journal do dia. Isso é escrita constante no cartão SD, o mesmo
-caminho da história da foto do cachorro. Um `--quiet` na unit resolveu.
+No terminal tudo fica lindo: a linha da duração se atualiza sempre no mesmo
+lugar, porque o mpv manda um `\r` no fim de cada atualização e o terminal
+devolve o cursor pro começo da linha. O que não funciona muito bem se você está
+rodando o player em background, como serviço do systemd. Ali não existe terminal
+nenhum, então a saída vai pro journal, que é onde o systemd guarda o log dos
+serviços. E o journal não reescreve nada, só anexa: cada atualização virava uma
+linha nova.
+
+Treze minutos de música produziram 10.096 linhas, 78% de todo o journal do dia.
+Isso é escrita constante no cartão SD, o mesmo caminho da história da foto do
+cachorro. Um `--quiet` na unit resolveu.
 
 A segunda: pausar não solta a placa de som.
 
