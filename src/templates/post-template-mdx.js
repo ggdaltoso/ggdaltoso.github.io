@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
-import { Video } from '@react95/core';
+import GGVideo from '@components/Layout/Video';
 import Layout from '@components/Layout/Layout';
 import Post from '@components/Post/Post';
 import Seo from '@components/SEO/SEO';
@@ -26,7 +26,7 @@ const mdxComponents = {
       />
     );
   },
-  Video,
+  Video: GGVideo,
 };
 
 const PostTemplateMDX = ({ data, children }) => (
