@@ -311,9 +311,14 @@ A segunda: pausar não solta a placa de som.
   </table>
 </p>
 
-A temperatura continuou subindo _depois_ que a música parou. Pausado, o mpv
-segura o `/dev/snd`, o I2S segue clocando e o amplificador segue ligado. Um
-player esquecido em pause custa 13 °C.
+A temperatura continuou subindo _depois_ que a música parou.
+
+Pausar não fecha a placa de som: o mpv continua segurando ela. E enquanto ela
+está aberta, o Pi segue mandando sinal pro amplificador sem parar, mesmo que o
+que esteja passando seja silêncio. O amplificador vê esse sinal e não desliga,
+fica acordado esquentando à toa. Só o stop solta tudo.
+
+Esquecer o player pausado deixa o Pi 10 °C mais quente.
 
 A correção tinha uma versão em hardware, no pino `SD` do MAX98357A, e uma em
 software. Ganhou a de software, e o detalhe é bonito: o mpv 0.29.1 do Raspbian
