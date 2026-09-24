@@ -250,9 +250,9 @@ Eu estava decodificando 16 milhões de pixels pra mostrar 60 mil.
 
 O navegador comia tanta memória processando as fotos que a RAM acabava. Quando
 isso acontece, o sistema começa a guardar no cartão SD o que não cabe mais, e
-vai buscar de volta toda vez que precisa.
+vai buscar de volta sempre que precisa.
 
-E foi assim que descobri o que é swap 🫠.
+E foi assim que descobri na prática o que é swap 🫠.
 
 O problema é que esse vaivém não para. O navegador fica pedindo aquela memória o
 tempo inteiro, então o cartão fica ocupado o tempo inteiro. E no Pi Zero o
@@ -261,7 +261,7 @@ cartão e o Wi-Fi dividem o mesmo caminho.
 Com o cartão sempre ocupado, o Wi-Fi ficava sem vez e largava a conexão com o
 roteador.
 
-Uma foto do meu cachorro derrubava o Pi da rede.
+E foi assim que a foto do meu cachorro derrubava o Pi da rede.
 
 Depois de reduzir as fotos para no máximo 800 pixels, os 190 MB decodificados
 viraram 8,2 MB, a memória disponível saiu de 80 MB pra uns 250 MB e as quedas
