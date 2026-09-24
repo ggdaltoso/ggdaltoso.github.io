@@ -150,40 +150,26 @@ Era exatamente o caso. Não precisou de conversor nenhum, só pular a entrada de
 O leitor de NFC não respondia. Encostava a tag nele e o Pi não dava o menor
 sinal de ter percebido alguma coisa.
 
-Duas explicações me pareceram óbvias, e eu defendi as duas com convicção. Que o
-leitor não estava recebendo energia suficiente, e que faltava uma peça no meio
-do caminho pra proteger o Pi.
+Duas explicações me pareceram óbvias, e eu defendi as duas com convicção:
+
+1. O leitor não estava recebendo energia suficiente
+2. Faltava uma peça no meio do caminho pra proteger o Pi
 
 As duas estavam erradas. A energia sempre foi suficiente e a peça nunca foi
 necessária.
 
-O problema não era elétrico, era de comunicação. O Pi e o leitor podem se falar por
-caminhos diferentes, como dois idiomas, e o que eu tinha escolhido não estava
-funcionando ali.
+O problema não era elétrico, era de comunicação. O Pi e o leitor podem conversar
+por dois caminhos diferentes, como dois idiomas, e o que eu tinha escolhido é o
+único dos dois em que não existe como perguntar "tem alguém aí?". Você fala e
+torce.
 
-Os dois idiomas são UART e I2C. A UART é uma linha direta, dois fios ligando um
-aparelho no outro, sem endereço nem cerimônia, e quem está de um lado só fala
-com quem está do outro. O I2C é um barramento: vários dispositivos dividem os
-mesmos dois fios, cada um atende por um endereço próprio, e o Pi chama pelo
-endereço de quem ele quer.
+Bastava trocar de idioma. Só que o leitor estava soldado direto nos pinos do
+primeiro, sem jumper nenhum, e trocar significava dessoldar tudo e refazer a
+ligação em outro canto da placa. Foi aí que eu descobri que o Linux faz essa
+troca por software, sem encostar no ferro de solda.
 
-Essa diferença muda tudo na hora de implementar. No I2C dá pra varrer o barramento e
-perguntar "quem está aí?", e cada endereço que responde é um aparelho vivo e
-ligado direito. Na UART essa pergunta não existe. Você fala e torce.
-
-Bastava trocar de idioma. Só que o leitor estava soldado direto nos pinos da
-UART, sem jumper nenhum. Trocar significava dessoldar tudo e refazer a ligação
-em outro canto da placa.
-
-Foi aí que eu descobri o
-[`i2c-gpio`](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README),
-um driver do Linux que monta um barramento I2C por software em qualquer par de
-pinos. Sem encostar no ferro de solda, sem mudar um fio de lugar.
-
-Funcionou de primeira. E o
-[`i2cdetect`](https://manpages.debian.org/stable/i2c-tools/i2cdetect.8.en.html),
-aquele "quem está aí?" de uma linha só, teria me dado essa resposta no primeiro
-dia.
+Funcionou de primeira. E uma linha de comando, se eu tivesse rodado no primeiro
+dia, teria me dito qual dos dois idiomas o leitor estava disposto a falar.
 
 #### O medidor que media errado
 
