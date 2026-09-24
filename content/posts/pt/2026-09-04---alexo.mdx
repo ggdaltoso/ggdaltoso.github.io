@@ -166,10 +166,14 @@ torce.
 Bastava trocar de idioma. Só que o leitor estava soldado direto nos pinos do
 primeiro, sem jumper nenhum, e trocar significava dessoldar tudo e refazer a
 ligação em outro canto da placa. Foi aí que eu descobri que o Linux faz essa
-troca por software, sem encostar no ferro de solda.
+troca por software, com um driver chamado
+[`i2c-gpio`](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README),
+sem encostar no ferro de solda.
 
-Funcionou de primeira. E uma linha de comando, se eu tivesse rodado no primeiro
-dia, teria me dito qual dos dois idiomas o leitor estava disposto a falar.
+Funcionou de primeira. E o
+[`i2cdetect`](https://manpages.debian.org/stable/i2c-tools/i2cdetect.8.en.html),
+uma linha de comando só, teria me dito no primeiro dia qual dos dois idiomas o
+leitor estava disposto a falar.
 
 #### O medidor que media errado
 
