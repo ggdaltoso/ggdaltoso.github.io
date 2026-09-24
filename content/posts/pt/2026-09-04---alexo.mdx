@@ -298,11 +298,11 @@ No terminal tudo fica lindo. A linha da duração se atualiza sempre no mesmo
 lugar, porque o mpv manda um `\r` no fim de cada atualização e o terminal
 devolve o cursor pro começo da linha. O que não funciona muito bem se você está
 rodando o player em background, como serviço do systemd. Ali não existe terminal
-nenhum, então a saída vai pro journal, que é onde o systemd guarda o log dos
-serviços. E o journal não reescreve nada, só anexa. Cada atualização virava uma
+nenhum, então a saída vai pro _journal_, que é onde o systemd guarda o log dos
+serviços. E o _journal_ não reescreve nada, só anexa. Cada atualização virava uma
 linha nova.
 
-Treze minutos de música produziram 10.096 linhas, 78% de todo o journal do dia.
+Treze minutos de música produziram 10.096 linhas, 78% de todo o _journal_ do dia.
 Isso é escrita constante no cartão SD, o mesmo caminho da história da foto do
 cachorro. Um `--quiet` na linha que sobe o mpv resolveu.
 
@@ -347,13 +347,17 @@ esquentando à toa. Só o stop solta tudo.
 Esquecer o player pausado faz com que o Pi fique 10 °C mais quente.
 
 Dava pra resolver no hardware, mexendo num pino do amplificador que manda ele
-dormir. Fui pelo software, e o jeito foi meio torto. A versão do mpv que roda no
-Alexo é antiga e não tem opção nenhuma de soltar a placa de som. Mas ela deixa
-trocar a saída de áudio com o player já rodando.
+dormir. Como não queria mais mexer nas peças porque já estava tudo soldado,
+tentei resolver via software mesmo sabendo que não seria a melhor opção.
 
-Então eu troco a saída por nenhuma. O mpv larga a placa e, mesmo assim, guarda a
-fila de músicas, a faixa e o segundo exato onde parou. Na hora de voltar, devolvo
-a saída e ele segue de onde estava, como se nada tivesse acontecido.
+A versão do mpv que roda no Alexo é antiga e não tem opção nenhuma de soltar a
+placa de som. O que dá pra fazer é trocar a saída de áudio com o player já
+rodando.
+
+O que eu fiz foi trocar a saída de áudio para nenhuma. O mpv larga a placa e,
+mesmo assim, guarda a fila de músicas, a faixa e o segundo exato onde parou. Na
+hora de voltar, devolvo a saída de verdade e ele segue de onde estava, como se
+nada tivesse acontecido.
 
 Um cronômetro de 60 segundos sem uso faz isso sozinho, e o problema some sem
 ninguém saber que existiu.
