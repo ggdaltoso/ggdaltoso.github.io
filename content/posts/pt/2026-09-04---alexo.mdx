@@ -232,7 +232,7 @@ Testei e descartei três causas:
    falha em cinco minutos. Mas eu reduzi a varredura em dez vezes e o Pi
    continuou caindo.
 
-A causa real eram as fotos da galeria. Fotos de celular em resolução plena, a
+A causa real eram as fotos da galeria. Fotos de celular em resolução original, a
 maior delas 3468×4624. O arquivo é pequeno, 344 KB, porque JPEG comprime muito
 bem. Mas pra desenhar na tela o navegador precisa descomprimir, e aí cada pixel
 vira 4 bytes.
@@ -248,11 +248,18 @@ Eu estava decodificando 16 milhões de pixels pra mostrar 60 mil.
 
 ![O painel da galeria medido na tela do Alexo: 223 pixels de largura por 271 de altura](/media/alexo/gallery-size.png "O tamanho real do painel | 320")
 
-O navegador comia tanta memória processando as fotos que a RAM acabava, e aí o
-sistema passava a guardar no cartão SD o que não cabia mais nela, indo buscar de
-volta toda vez que precisava. E foi assim que descobri o que é swap 🫠. Só que no
-Pi Zero o cartão e o Wi-Fi dividem o mesmo caminho. Com o cartão ocupado o tempo
-todo, o Wi-Fi ficava sem vez e largava a conexão com o roteador.
+O navegador comia tanta memória processando as fotos que a RAM acabava. Quando
+isso acontece, o sistema começa a guardar no cartão SD o que não cabe mais, e
+vai buscar de volta toda vez que precisa.
+
+E foi assim que descobri o que é swap 🫠.
+
+O problema é que esse vaivém não para. O navegador fica pedindo aquela memória o
+tempo inteiro, então o cartão fica ocupado o tempo inteiro. E no Pi Zero o
+cartão e o Wi-Fi dividem o mesmo caminho.
+
+Com o cartão sempre ocupado, o Wi-Fi ficava sem vez e largava a conexão com o
+roteador.
 
 Uma foto do meu cachorro derrubava o Pi da rede.
 
