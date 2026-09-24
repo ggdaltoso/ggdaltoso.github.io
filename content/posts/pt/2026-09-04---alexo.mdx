@@ -54,6 +54,16 @@ previsão do tempo e a cotação do dólar e do euro. E claro que usando o
 
 ![Duas telas do Alexo: em cima a galeria com o relógio, embaixo a previsão do tempo com o player tocando](/media/alexo/alexo-telas.png 'Alexo | 320')
 
+### O que roda dentro
+
+O Alexo é uma aplicação web, e a montagem é menos nobre do que parece. O Pi roda
+um servidor Node e, na mesma máquina, sobe um Chromium em tela cheia apontado
+pra ele mesmo. O que aparece na telinha de 3,5 polegadas é um navegador aberto
+em `localhost`.
+
+A interface é React. O servidor por trás entrega essa página, guarda as fotos e
+as músicas, e conversa com o leitor de NFC.
+
 ### O player
 
 Em paralelo, eu tinha umas tags NFC que um dia eu comprei com a intenção de
