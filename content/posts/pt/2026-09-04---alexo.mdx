@@ -165,10 +165,19 @@ torce.
 
 Bastava trocar de idioma. Só que o leitor estava soldado direto nos pinos do
 primeiro, sem jumper nenhum, e trocar significava dessoldar tudo e refazer a
-ligação em outro canto da placa. Foi aí que eu descobri que o Linux faz essa
-troca por software, com um driver chamado
-[`i2c-gpio`](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README),
-sem encostar no ferro de solda.
+ligação em outro canto da placa.
+
+Foi aí que eu descobri que o Linux faz essa troca por software, com um driver
+chamado
+[`i2c-gpio`](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README).
+A correção inteira é uma linha no arquivo de configuração do Pi:
+
+```
+dtoverlay=i2c-gpio,i2c_gpio_sda=15,i2c_gpio_scl=14,bus=3
+```
+
+Ela monta um barramento novo nos mesmos dois pinos onde o leitor já estava
+soldado. Nenhum fio mudou de lugar.
 
 Funcionou de primeira. E o
 [`i2cdetect`](https://manpages.debian.org/stable/i2c-tools/i2cdetect.8.en.html),
