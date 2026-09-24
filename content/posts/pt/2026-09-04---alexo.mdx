@@ -226,8 +226,10 @@ Testei e descartei três causas:
 2. O túnel de acesso remoto que eu tinha montado pra desenvolver na minha própria
    máquina, em vez de ficar refém do Pi pra debugar. Tirei o túnel e as quedas
    continuaram.
-3. O leitor de NFC, que fica varrendo atrás de tag sem parar. Essa tinha
-   efeito real e medido, só que eu reduzi a varredura em dez vezes e o Pi
+3. O leitor de NFC, que fica varrendo atrás de tag sem parar. Essa tinha efeito
+   real e medido: com a varredura ligada, o Wi-Fi caía de 43 para 6,5 Mbps e os
+   pings chegavam a 433ms ou falhavam. Desligando só ela, 52 Mbps e nenhuma
+   falha em cinco minutos. Mas eu reduzi a varredura em dez vezes e o Pi
    continuou caindo.
 
 A causa real eram as fotos da galeria. Fotos de celular em resolução plena, a
