@@ -62,7 +62,7 @@ cabeceira, ele leria uma dessas tags e desligaria todas as luzes. Nunca fiz.
 
 Aí eu vi um [vídeo do Nvkv
 Makes](https://www.youtube.com/watch?v=hf311daZqMk), que construiu um player de
-música sem tela pros filhos: um ESP32 com cartões NFC em formato de fita
+música sem tela pros filhos, com um ESP32 e cartões NFC em formato de fita
 cassete, cada um apontando pra uma pasta de músicas. Foi o empurrão que faltava
 pras minhas tags saírem da gaveta. O dele é um aparelho dedicado, feito do zero
 e sem tela nenhuma. O meu é quase o contrário, uma tela que já estava na minha
@@ -89,7 +89,7 @@ linha de comando que fica rodando como serviço em segundo plano. O backend do
 Alexo só manda comandos pra ele, tipo "toca esse álbum" ou "pausa".
 
 O player não tem controle nenhum na tela, e nem faria sentido ter. A tela não é
-touch e o aparelho não tem um botão sequer, então ela é 100% read-only: só
+touch e o aparelho não tem um botão sequer, então ela é 100% read-only. Só
 exibe. Quem comanda é a tag.
 
 ### Onde eu configuro tudo
@@ -101,7 +101,7 @@ De outro aparelho. O Alexo serve uma página de administração na rede de casa,
 eu abro ela do PC ou do celular.
 
 É de lá que eu subo foto pra galeria e adiciono álbum. E é de lá que sai a parte
-que eu mais gosto: pra cadastrar uma tag, eu encosto ela no leitor e a página
+que eu mais gosto. Pra cadastrar uma tag, eu encosto ela no leitor e a página
 mostra o código dela na hora. Escolho o álbum numa lista, clico em mapear, e
 aquela tag passa a tocar aquele disco.
 
@@ -109,8 +109,6 @@ aquela tag passa a tocar aquele disco.
 
 Tem também o lado de máquina: memória, disco, temperatura, e os serviços do
 Alexo com botão de parar e subir.
-
-Escrito assim parece que foi tranquilo. Não foi.
 
 ### A tela não nasceu pra isso
 
@@ -121,13 +119,13 @@ uma série de ajustes no Pi pra imagem aparecer.
 
 O outro problema é a alimentação. Carro trabalha em 12V e o Pi entrega 5V. Eu já
 tinha feito essa conversão uma vez, anos atrás, mas essa tela era um modelo mais
-novo e nenhum tutorial que eu achei servia: os drivers eram todos diferentes do
-meu.
+novo e nenhum tutorial que eu achei servia, porque os drivers eram todos
+diferentes do meu.
 
 Fui pedir ajuda no
 [r/eletronica](https://www.reddit.com/r/eletronica/comments/1vj9q9k/ajuda_para_identificarmodificar_tela_de_r%C3%A9_de/).
 A primeira resposta foi a óbvia, uma placa step-up de 5V pra 12V, que resolveria.
-Mas veio junto uma observação bem melhor: muita tela automotiva barata anunciada
+Mas veio junto uma observação bem melhor. Muita tela automotiva barata anunciada
 como 12V já tem um regulador logo na entrada e roda em 5V por dentro. Era medir a
 tensão num capacitor específico da placa e, se desse 5V ali, alimentar direto
 naquele ponto.
@@ -142,7 +140,7 @@ Era exatamente o caso. Não precisou de conversor nenhum, só pular a entrada de
 O leitor de NFC não respondia. Encostava a tag nele e o Pi não dava o menor
 sinal de ter percebido alguma coisa.
 
-Duas explicações me pareceram óbvias, e eu defendi as duas com convicção: que o
+Duas explicações me pareceram óbvias, e eu defendi as duas com convicção. Que o
 leitor não estava recebendo energia suficiente, e que faltava uma peça no meio
 do caminho pra proteger o Pi.
 
@@ -153,7 +151,7 @@ O problema não era elétrico, era de comunicação. O Pi e o leitor podem se fa
 caminhos diferentes, como dois idiomas, e o que eu tinha escolhido não estava
 funcionando ali.
 
-Os dois idiomas são UART e I2C. A UART é uma linha direta: dois fios ligando um
+Os dois idiomas são UART e I2C. A UART é uma linha direta, dois fios ligando um
 aparelho no outro, sem endereço nem cerimônia, e quem está de um lado só fala
 com quem está do outro. O I2C é um barramento: vários dispositivos dividem os
 mesmos dois fios, cada um atende por um endereço próprio, e o Pi chama pelo
@@ -205,7 +203,7 @@ tentativa.
 
 Esse é o melhor.
 
-O Pi começou a cair da rede a cada poucas horas. O sintoma era estranho: o
+O Pi começou a cair da rede a cada poucas horas. O sintoma era estranho. O
 roteador mostrava o aparelho conectado, e nada respondia. Nem SSH, nem ARP. E a
 tela continuava funcionando normalmente, até porque tudo que ela mostra vem de
 `localhost`.
@@ -223,7 +221,7 @@ Testei e descartei três causas:
    efeito real e medido, só que eu reduzi a varredura em dez vezes e o Pi
    continuou caindo.
 
-A causa real: as fotos da galeria eram fotos de celular em resolução plena, a
+A causa real eram as fotos da galeria. Fotos de celular em resolução plena, a
 maior delas 3468×4624. O arquivo é pequeno, 344 KB, porque JPEG comprime muito
 bem. Mas pra desenhar na tela o navegador precisa descomprimir, e aí cada pixel
 vira 4 bytes.
@@ -258,7 +256,7 @@ do nada.
 
 Minha primeira hipótese foi o ambiente. Ele tinha saído de um powerbank e ido
 pra USB do PC, e a pilha de módulos (Pi, amplificador, driver da tela) vive toda
-encostada. Descartei ela na mesma tarde: o aparelho estabilizou em 60 °C no mesmo
+encostada. Descartei ela na mesma tarde. O aparelho estabilizou em 60 °C no mesmo
 lugar, no mesmo cabo, sem eu mudar nada.
 
 Eram duas causas, e as duas eram software.
@@ -278,19 +276,19 @@ File tags:
 A: 00:00:03 / 00:02:46 (1%)
 ```
 
-No terminal tudo fica lindo: a linha da duração se atualiza sempre no mesmo
+No terminal tudo fica lindo. A linha da duração se atualiza sempre no mesmo
 lugar, porque o mpv manda um `\r` no fim de cada atualização e o terminal
 devolve o cursor pro começo da linha. O que não funciona muito bem se você está
 rodando o player em background, como serviço do systemd. Ali não existe terminal
 nenhum, então a saída vai pro journal, que é onde o systemd guarda o log dos
-serviços. E o journal não reescreve nada, só anexa: cada atualização virava uma
+serviços. E o journal não reescreve nada, só anexa. Cada atualização virava uma
 linha nova.
 
 Treze minutos de música produziram 10.096 linhas, 78% de todo o journal do dia.
 Isso é escrita constante no cartão SD, o mesmo caminho da história da foto do
 cachorro. Um `--quiet` na linha que sobe o mpv resolveu.
 
-A segunda: pausar não solta a placa de som.
+A segunda era que pausar não solta a placa de som.
 
 <p>
   <table>
