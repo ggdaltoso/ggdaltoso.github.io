@@ -69,6 +69,9 @@ export const query = graphql`
       readingTime {
         minutes
       }
+      fields {
+        locale
+      }
       frontmatter {
         date
         description

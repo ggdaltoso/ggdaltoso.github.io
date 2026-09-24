@@ -9,7 +9,7 @@ import * as styles from './Post.module.scss';
 
 const Post = ({ post, mdxContent }) => {
   const { t } = useTranslation();
-  const { slug } = post.fields || {};
+  const { locale } = post.fields || {};
   const { title, date } = post.frontmatter;
   const { readingTime } = post;
 
@@ -31,7 +31,7 @@ const Post = ({ post, mdxContent }) => {
       </div>
 
       <div className={styles['post__comments']}>
-        <Comments postSlug={slug} postTitle={post.frontmatter.title} />
+        <Comments postTitle={title} postLocale={locale} />
       </div>
     </div>
   );
