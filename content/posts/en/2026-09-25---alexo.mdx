@@ -54,13 +54,14 @@ the dollar and euro rates. Dressed as
 
 ### What runs in there
 
-Alexo is a web app, and the setup is less dignified than that sounds. The Pi
-runs a Node server and, on the same machine, opens a fullscreen Chromium
-pointed back at itself. What you see on that 3.5 inch screen is a browser
-sitting on `localhost`.
+Under the hood, Alexo is a website. The Pi runs a Node server and, on the same
+machine, opens a fullscreen Chromium pointed back at itself. What you see on
+that 3.5 inch screen is a browser sitting on `localhost`.
 
 The interface is React. The server behind it serves that page, holds the photos
 and the music, and talks to the NFC reader.
+
+![Alexo opened up: the Pi Zero, the purple audio board, the red NFC reader and the speaker in the corner](/media/alexo/alexo-por-dentro.jpg 'Inside | 480')
 
 ### The player
 
@@ -99,6 +100,8 @@ orders, like "play this album" or "pause".
 The player has no controls on screen, and it wouldn't make sense for it to have
 any. The screen isn't a touchscreen and the device doesn't have a single button,
 so it's 100% read-only. It only shows. The tag is what gives orders.
+
+![Alexo taken apart, with the screen face down beside it and the tags spread across the desk, each with its name handwritten](/media/alexo/alexo-tags.jpg 'The tags | 320')
 
 ### Where I set it all up
 

@@ -55,13 +55,14 @@ previsão do tempo e a cotação do dólar e do euro. E claro que usando o
 
 ### O que roda dentro
 
-O Alexo é uma aplicação web, e a montagem é menos nobre do que parece. O Pi roda
-um servidor Node e, na mesma máquina, sobe um Chromium em tela cheia apontado
-pra ele mesmo. O que aparece na telinha de 3,5 polegadas é um navegador aberto
-em `localhost`.
+No fundo, o Alexo é um site. O Pi roda um servidor Node e, na mesma máquina,
+sobe um Chromium em tela cheia apontado pra ele mesmo. O que aparece na telinha
+de 3,5 polegadas é um navegador aberto em `localhost`.
 
 A interface é React. O servidor por trás entrega essa página, guarda as fotos e
 as músicas, e conversa com o leitor de NFC.
+
+![O Alexo aberto: o Pi Zero, a placa de áudio roxa, o leitor NFC vermelho e o alto-falante no canto](/media/alexo/alexo-por-dentro.jpg 'Por dentro | 480')
 
 ### O player
 
@@ -100,6 +101,8 @@ Alexo só manda comandos pra ele, tipo "toca esse álbum" ou "pausa".
 O player não tem controle nenhum na tela, e nem faria sentido ter. A tela não é
 touch e o aparelho não tem um botão sequer, então ela é 100% read-only. Só
 exibe. Quem comanda é a tag.
+
+![O Alexo desmontado, com a tela virada ao lado e as tags espalhadas pela mesa, cada uma com o nome escrito à mão](/media/alexo/alexo-tags.jpg 'As tags | 320')
 
 ### Onde eu configuro tudo
 
