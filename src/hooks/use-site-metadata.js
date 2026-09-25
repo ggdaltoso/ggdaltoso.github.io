@@ -16,6 +16,7 @@ const useSiteMetadata = () => {
               email
               bluesky
               github
+              linkedin
               rss
             }
           }
@@ -34,6 +35,10 @@ const useSiteMetadata = () => {
             locales
             pages {
               about {
+                pt
+                en
+              }
+              cv {
                 pt
                 en
               }
