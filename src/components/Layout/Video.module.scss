@@ -1,0 +1,15 @@
+.video {
+  // O corpo do post centraliza os filhos diretos dele. Com o wrapper no meio,
+  // o Frame do player deixa de ser filho direto e perde isso, então a
+  // centralização passa a ser responsabilidade daqui.
+  display: flex;
+  justify-content: center;
+
+  // O TitleBar é o primeiro filho do Frame raiz do Video. A lib não aceita
+  // className nem style nele, e o texto do título usa font-size: 1em, então
+  // definir aqui no container é o que chega lá. Mirar por posição em vez de
+  // pela classe hasheada do vanilla-extract, que muda a cada release.
+  > div > div:first-child {
+    font-size: var(--typographic-root-font-size);
+  }
+}

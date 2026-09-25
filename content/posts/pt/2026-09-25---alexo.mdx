@@ -1,0 +1,396 @@
+---
+title: 'Alexo'
+date: '2026-09-25T13:20:00.000Z'
+template: 'post'
+draft: false
+slug: '/alexo'
+description: 'O Alexo é um dispositivo que eu construí num Raspberry Pi Zero:
+numa tela de 3,5 polegadas ele mostra minhas fotos, o horário, o tempo e a
+cotação do dólar e do euro, e agora também toca música por tag NFC.'
+---
+
+Lá pra 2017 comprei um Raspberry Pi Zero depois de ver vários vídeos na internet
+de coisas legais que dava pra fazer com ele. Uma dessas coisas me chamou muito a
+atenção e me fez pensar por muito tempo sobre isso: retrogaming.
+
+Quanto mais eu pesquisava sobre o assunto, mais interesse eu tinha. Não era só
+pelos jogos antigos que eu queria jogar de novo, era pela ideia de fazer um
+aparelho e ter algo 100% customizado.
+
+Foi numa dessas que encontrei canais como o do
+[Wermy/Sudomod](https://www.youtube.com/@wermy) e o do
+[GreatScott](https://www.youtube.com/watch?v=_MtN_s4tVK0). Referências que uso
+até hoje.
+
+Construir coisas que eu não sei sempre me motivou a pesquisar e a estudar
+tópicos que eu nunca imaginaria que um dia eu seria capaz de desenvolver.
+
+Muito do que sei de software eu sei pela minha carreira em desenvolvimento, mas
+o universo do hardware sempre me chamou a atenção também. E então eu decidi
+fazer meu próprio videogame.
+
+A parte de software eu já tinha resolvido antes, inclusive escrevi aqui [como
+montar uma central de emulação com Raspberry
+Pi](/crie-um-videogame-com-raspberry-pi). O que faltava era o aparelho: a tela, a
+bateria, os botões, a carcaça.
+
+![A mesa no meio da montagem: o molde riscado no PVC, a carcaça já furada, a placa do Pi e a telinha](/media/alexo/videogame-diy.jpg 'A montagem | 640')
+
+Não deu muito certo.
+
+A ideia de ter algo pra mim sempre ficou na minha cabeça e era reforçada a cada
+vídeo que assistia e post que lia. O tempo foi passando e o projeto parado. As
+peças lá, só juntando poeira.
+
+Um belo dia eu resolvi fazer algo simples, algo que envolvia só o Pi e a tela.
+Foi aí que pensei em usar meus conhecimentos de desenvolvimento para me ajudar.
+
+E assim nasceu o Alexo.
+
+Um dispositivo que fica do lado do meu PC exibindo algumas fotos, o horário, a
+previsão do tempo e a cotação do dólar e do euro. E claro que usando o
+[React95](/react95-fun-side-project-of-the-year).
+
+![Duas telas do Alexo: em cima a galeria com o relógio, embaixo a previsão do tempo com o player tocando](/media/alexo/alexo-telas.png 'Alexo | 496')
+
+### O que roda dentro
+
+No fundo, o Alexo é um site. O Pi roda um servidor Node e, na mesma máquina,
+sobe um Chromium em tela cheia apontado pra ele mesmo. O que aparece na telinha
+de 3,5 polegadas é um navegador aberto em `localhost`.
+
+A interface é React. O servidor por trás entrega essa página, guarda as fotos e
+as músicas, e conversa com o leitor de NFC.
+
+![O Alexo aberto: o Pi Zero, a placa de áudio roxa, o leitor NFC vermelho e o alto-falante no canto](/media/alexo/alexo-por-dentro.jpg 'Por dentro | 640')
+
+### O player
+
+Eu tinha umas tags NFC que um dia eu comprei com a intenção de automatizar a
+casa: ao dormir, quando eu colocasse o celular na mesa de cabeceira, ele leria
+uma dessas tags e desligaria todas as luzes. Nunca fiz.
+
+Aí eu vi um [vídeo do Nvkv
+Makes](https://www.youtube.com/watch?v=hf311daZqMk), que construiu um player de
+música sem tela pros filhos, com um ESP32 e cartões NFC em formato de fita
+cassete, cada um apontando pra uma pasta de músicas. Foi o empurrão que faltava
+pras minhas tags saírem da gaveta. O dele é um aparelho dedicado, feito do zero
+e sem tela nenhuma. O meu é quase o contrário, uma tela que já estava na minha
+mesa e que ganhou um leitor.
+
+Encosta a tag, toca um álbum. Tira, pausa. Recoloca a mesma, retoma de onde
+parou. Encosta outra, troca de álbum.
+
+<Video
+  name="Alexo.mp4"
+  src="/media/alexo/Alexo.mp4"
+  videoProps={{
+    preload: 'metadata',
+    poster: '/media/alexo/alexo-demo-poster.jpg',
+  }}
+/>
+
+Cada tag é um álbum inteiro, nunca uma faixa solta. E entre os álbuns eu botei
+algumas trilhas de jogos antigos, que combinam com a cara de Windows 95 do
+aparelho e puxam a mesma nostalgia.
+
+Quem toca a música não é o meu código: é o [mpv](https://mpv.io/), um tocador de
+linha de comando que fica rodando como serviço em segundo plano. O backend do
+Alexo só manda comandos pra ele, tipo "toca esse álbum" ou "pausa".
+
+O player não tem controle nenhum na tela, e nem faria sentido ter. A tela não é
+touch e o aparelho não tem um botão sequer, então ela é 100% read-only. Só
+exibe. Quem comanda é a tag.
+
+![O Alexo desmontado, com a tela virada ao lado e as tags espalhadas pela mesa, cada uma com o nome escrito à mão](/media/alexo/alexo-tags.jpg 'As tags | 480')
+
+### Onde eu configuro tudo
+
+Se a tela não aceita toque e o aparelho não tem botão nenhum, como é que eu
+cadastro um álbum novo ou troco as fotos da galeria?
+
+De outro aparelho. O Alexo serve uma página de administração na rede de casa, e
+eu abro ela do PC ou do celular.
+
+É de lá que eu subo foto pra galeria e adiciono álbum. E é de lá que sai a parte
+que eu mais gosto. Pra cadastrar uma tag, eu encosto ela no leitor e a página
+mostra o código dela na hora. Escolho o álbum numa lista, clico em mapear, e
+aquela tag passa a tocar aquele disco.
+
+![A tela de administração onde as tags são associadas aos álbuns](/media/alexo/admin-music.png 'Cadastro das tags | 640')
+
+Tem também o lado de máquina: memória, disco, temperatura, e os serviços do
+Alexo com botão de parar e subir.
+
+### A tela não nasceu pra isso
+
+A tela do Alexo é a mesma que eu tinha comprado lá atrás pro videogame. Tela de
+câmera de ré de carro, dessas baratas, que é o que muita gente usa nesse tipo de
+projeto. Ela sai por AV, vídeo composto, e não por HDMI, o que por si só já pede
+uma série de ajustes no Pi pra imagem aparecer.
+
+![A tela como ela veio, vista de trás: os botões de menu e o suporte de colar no painel do carro](/media/alexo/alexo-tela-carro.jpg 'A tela original | 480')
+
+O outro problema é a alimentação. Carro trabalha em 12V e o Pi entrega 5V. Eu já
+tinha feito essa conversão uma vez, anos atrás, mas essa tela era um modelo mais
+novo e nenhum tutorial que eu achei servia, porque os drivers eram todos
+diferentes do meu.
+
+Fui pedir ajuda no
+[r/eletronica](https://www.reddit.com/r/eletronica/comments/1vj9q9k/ajuda_para_identificarmodificar_tela_de_r%C3%A9_de/).
+A primeira resposta foi a óbvia, uma placa step-up de 5V pra 12V, que resolveria.
+Mas veio junto uma observação bem melhor. Muita tela automotiva barata anunciada
+como 12V já tem um regulador logo na entrada e roda em 5V por dentro. Era medir a
+tensão num capacitor específico da placa e, se desse 5V ali, alimentar direto
+naquele ponto.
+
+Era exatamente o caso. Não precisou de conversor nenhum, só pular a entrada de
+12V e entregar os 5V onde a própria tela já trabalhava.
+
+### As quatro vezes em que quem estava errado era eu
+
+#### O leitor que estava bom o tempo todo
+
+O leitor de NFC não respondia. Encostava a tag nele e o Pi não dava o menor
+sinal de ter percebido alguma coisa.
+
+Duas explicações me pareceram óbvias, e eu defendi as duas com convicção:
+
+1. O leitor não estava recebendo energia suficiente
+2. Faltava uma peça no meio do caminho pra proteger o Pi
+
+As duas estavam erradas. A energia sempre foi suficiente e a peça nunca foi
+necessária.
+
+O problema não era elétrico, era de comunicação. O Pi e o leitor podem conversar
+por dois caminhos diferentes, como dois idiomas, e o que eu tinha escolhido é o
+único dos dois em que não existe como perguntar "tem alguém aí?". Você fala e
+torce.
+
+Bastava trocar de idioma. Só que o leitor estava soldado direto nos pinos do
+primeiro, sem jumper nenhum, e trocar significava dessoldar tudo e refazer a
+ligação em outro canto da placa.
+
+Foi aí que eu descobri que o Linux faz essa troca por software, com um driver
+chamado
+[`i2c-gpio`](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README).
+A correção inteira é uma linha no arquivo de configuração do Pi:
+
+```
+dtoverlay=i2c-gpio,i2c_gpio_sda=15,i2c_gpio_scl=14,bus=3
+```
+
+Ela monta um barramento novo nos mesmos dois pinos onde o leitor já estava
+soldado. Nenhum fio mudou de lugar.
+
+Funcionou de primeira. E o
+[`i2cdetect`](https://manpages.debian.org/stable/i2c-tools/i2cdetect.8.en.html),
+uma linha de comando só, teria me dito no primeiro dia qual dos dois idiomas o
+leitor estava disposto a falar.
+
+#### O medidor que media errado
+
+Com o leitor já funcionando, a leitura parecia instável. Eu deixava a tag parada
+em cima dele e ele lia uma vez, depois nunca mais.
+
+Pra medir isso direito eu escrevi um script à parte, que ficava lendo em loop e
+contando quantas tentativas davam certo. Testei três jeitos diferentes de ficar
+procurando a tag e todos batiam nos mesmos 2% de acerto. Passei um bom tempo com
+o dedo segurando a tag no lugar, olhando aquele número não subir.
+
+O problema era o script que media, não o leitor. Ele pedia mais bytes do que a
+resposta tinha, e a diferença ele tirava da resposta seguinte. Daí em diante
+cada comando lia a sobra do anterior e tudo saía embaralhado. O hardware estava
+perfeito o tempo inteiro.
+
+E o pior é que a resposta estava na minha frente desde o começo. Um outro script
+meu, esse com os tamanhos certos, lia a tag sem falhar na mesma tarde em que o
+meu medidor insistia nos 2%. Eu desconfiei do sinal, da posição da antena e do
+protocolo antes de desconfiar da ferramenta que eu mesmo tinha escrito pra
+medir.
+
+Com o tamanho corrigido, ele passou a ler 100% das vezes, na primeira
+tentativa.
+
+#### A foto do cachorro
+
+Esse é o melhor.
+
+O Pi começou a cair da rede a cada poucas horas. O sintoma era estranho. O
+roteador mostrava o aparelho conectado, e nada respondia. Nem SSH, nem ARP. E a
+tela continuava funcionando normalmente, até porque tudo que ela mostra vem de
+`localhost`.
+
+Testei e descartei três causas:
+
+1. A energia. Eu tinha acabado de adicionar um amplificador de som e suspeitei
+   que o jeito como eu ligava o Pi não desse conta (era uma porta USB comum ou
+   um power bank). Minha sorte é que o Pi anota sozinho toda vez que a energia
+   cai abaixo do mínimo, e a anotação estava zerada.
+2. O túnel de acesso remoto que eu tinha montado pra desenvolver na minha própria
+   máquina, em vez de ficar refém do Pi pra debugar. Tirei o túnel e as quedas
+   continuaram.
+3. O leitor de NFC, que fica varrendo atrás de tag sem parar. Essa tinha efeito
+   real e medido: com a varredura ligada, o Wi-Fi caía de 43 para 6,5 Mbps e os
+   pings chegavam a 433ms ou falhavam. Desligando só ela, 52 Mbps e nenhuma
+   falha em cinco minutos. Mas eu reduzi a varredura em dez vezes e o Pi
+   continuou caindo.
+
+A causa real eram as fotos da galeria. Fotos de celular em resolução original, a
+maior delas 3468×4624. O arquivo é pequeno, 344 KB, porque JPEG comprime muito
+bem. Mas pra desenhar na tela o navegador precisa descomprimir, e aí cada pixel
+vira 4 bytes.
+
+```
+3468 × 4624 × 4 bytes  =  61 MB de RAM   só a maior foto
+as 5 fotos da galeria  = 190 MB
+RAM total do aparelho  = 430 MB
+o painel da galeria    = 223 × 271 pixels
+```
+
+Eu estava decodificando 16 milhões de pixels pra mostrar 60 mil.
+
+![O painel da galeria medido na tela do Alexo: 223 pixels de largura por 271 de altura](/media/alexo/gallery-size.png "O tamanho real do painel | 496")
+
+O navegador comia tanta memória processando as fotos que a RAM acabava. Quando
+isso acontece, o sistema começa a guardar no cartão SD o que não cabe mais, e
+vai buscar de volta sempre que precisa.
+
+E foi assim que descobri na prática o que é swap 🫠.
+
+O problema é que esse vaivém não para. O navegador fica pedindo aquela memória o
+tempo inteiro, então o cartão fica ocupado o tempo inteiro. E no Pi Zero o
+cartão e o Wi-Fi dividem o mesmo caminho.
+
+Com o cartão sempre ocupado, o Wi-Fi ficava sem vez e largava a conexão com o
+roteador.
+
+Uma foto do meu cachorro derrubava o Pi da rede.
+
+Depois de reduzir as fotos para no máximo 800 pixels, os 190 MB decodificados
+viraram 8,2 MB, a memória disponível saiu de 80 MB pra uns 250 MB e as quedas
+pararam.
+
+#### 10 °C de um player pausado
+
+Dois dias depois de tudo funcionando, o Pi ficou extremamente quente, meio que
+do nada.
+
+Minha primeira hipótese foi o ambiente. Ele tinha saído de um powerbank e ido
+pra USB do PC, e a pilha de módulos (Pi, amplificador, driver da tela) vive toda
+encostada. Descartei ela na mesma tarde. O aparelho estabilizou em 60 °C no mesmo
+lugar, no mesmo cabo, sem eu mudar nada.
+
+Eram duas causas, e as duas eram software.
+
+A primeira era o mpv escrevendo treze linhas de log por segundo. Rodando num
+terminal, ele mostra isso:
+
+```
+$ mpv "04 Northern Kremisphere.mp3"
+
+Playing: 04 Northern Kremisphere.mp3
+ (+) Audio --aid=1 (mp3 2ch 44100Hz)
+File tags:
+ Artist: Eveline Fischer
+ Album: Donkey Kong Country 3
+ Title: Northern Kremisphere
+A: 00:00:03 / 00:02:46 (1%)
+```
+
+No terminal tudo fica lindo. A linha da duração se atualiza sempre no mesmo
+lugar, porque o mpv manda um `\r` no fim de cada atualização e o terminal
+devolve o cursor pro começo da linha. O que não funciona muito bem se você está
+rodando o player em background, como serviço do systemd. Ali não existe terminal
+nenhum, então a saída vai pro _journal_, que é onde o systemd guarda o log dos
+serviços. E o _journal_ não reescreve nada, só anexa. Cada atualização virava uma
+linha nova.
+
+Treze minutos de música produziram 10.096 linhas, 78% de todo o _journal_ do dia.
+Isso é escrita constante no cartão SD, o mesmo caminho da história da foto do
+cachorro. Um `--quiet` na linha que sobe o mpv resolveu.
+
+A segunda era que pausar não solta a placa de som.
+
+<p>
+  <table>
+    <thead>
+      <tr>
+        <th>Momento</th>
+        <th style={{ textAlign: 'right' }}>Temperatura</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ocioso, tudo parado</td>
+        <td style={{ textAlign: 'right' }}>60,5 °C</td>
+      </tr>
+      <tr>
+        <td>19 min de música</td>
+        <td style={{ textAlign: 'right' }}>64,3 °C</td>
+      </tr>
+      <tr>
+        <td>27 min depois de pausar</td>
+        <td style={{ textAlign: 'right' }}>70,8 °C</td>
+      </tr>
+      <tr>
+        <td>22 min depois de dar stop</td>
+        <td style={{ textAlign: 'right' }}>64,8 °C</td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+
+A temperatura continuou subindo _depois_ que a música parou.
+
+O mpv continua segurando a placa mesmo pausado. E enquanto ela está aberta, o
+Pi segue mandando sinal pro amplificador sem parar, ainda que o que passe por
+ali seja só silêncio. O amplificador vê esse sinal e não desliga, fica acordado
+esquentando à toa. Só o stop solta tudo.
+
+Esquecer o player pausado faz com que o Pi fique 10 °C mais quente.
+
+Dava pra resolver no hardware, mexendo num pino do amplificador que manda ele
+dormir. Mas já estava tudo soldado e eu não queria mexer nas peças de novo,
+então fui pro software achando que ia sair gambiarra.
+
+A versão do mpv que roda no Alexo é antiga e não tem opção nenhuma de soltar a
+placa de som. O que dá pra fazer é trocar a saída de áudio com o player já
+rodando.
+
+O que eu fiz foi trocar a saída de áudio para nenhuma. O mpv larga a placa e,
+mesmo assim, guarda a fila de músicas, a faixa e o segundo exato onde parou. Na
+hora de voltar, devolvo a saída de verdade e ele segue de onde estava, como se
+nada tivesse acontecido.
+
+Um cronômetro de 60 segundos sem uso faz isso sozinho, e o problema some sem
+ninguém saber que existiu. De gambiarra não teve nada. Ficou melhor do que se eu
+tivesse mexido no pino.
+
+### O padrão
+
+O erro estava sempre mais perto do que eu imaginava. Só fui reparar nisso
+relendo as minhas próprias anotações da semana.
+
+Era o idioma errado e não a falta de energia, o meu medidor e não o leitor, a
+foto na galeria e não a fonte de alimentação, o player pausado e não o calor do
+PC. A energia levou a culpa duas vezes, em dois problemas que não tinham nada a
+ver um com o outro.
+
+A hipótese era sempre mais interessante que a causa. E a causa era sempre alguma
+bobagem que eu mesmo tinha feito duas horas antes.
+
+O que eu levo desse projeto não tem nada a ver com NFC. Quando a minha medição
+diz uma coisa e outro teste meu diz outra, o errado costuma ser o que eu escrevi
+pra medir. Aprendi isso no meio do caminho e ainda assim caí de novo depois.
+
+### Sempre tem mais uma coisa
+
+O Alexo nunca está terminado. Toda hora surge uma ideia nova do que colocar
+nele, e ter ele ligado ali na mesa é o que me faz voltar.
+
+O videogame que eu queria em 2017 nunca existiu. Mas tem uma tela de 3,5
+polegadas do lado do meu PC que começa a tocar um álbum porque eu encostei uma
+tag nela. Não é o que eu tinha planejado, e eu gosto mais assim.
+
+O código está todo no [ggdaltoso/alexo](https://github.com/ggdaltoso/alexo).

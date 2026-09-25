@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
+import GGVideo from '@components/Layout/Video';
 import Layout from '@components/Layout/Layout';
 import Post from '@components/Post/Post';
 import Seo from '@components/SEO/SEO';
@@ -25,6 +26,7 @@ const mdxComponents = {
       />
     );
   },
+  Video: GGVideo,
 };
 
 const PostTemplateMDX = ({ data, children }) => (
@@ -66,6 +68,9 @@ export const query = graphql`
       id
       readingTime {
         minutes
+      }
+      fields {
+        locale
       }
       frontmatter {
         date

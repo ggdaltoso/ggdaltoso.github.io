@@ -60,7 +60,7 @@ module.exports = {
     repoId: 'MDEwOlJlcG9zaXRvcnkzODc3ODMxOQ==',
     category: 'Ideas',
     categoryId: 'DIC_kwDOAk-1z84C3rCH',
-    mapping: 'title',
+    mapping: 'specific',
     reactionsEnabled: '1',
     emitMetadata: '0',
     inputPosition: 'bottom',

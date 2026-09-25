@@ -12,7 +12,10 @@ const GGImage = (props) => {
     <Frame
       p="$1"
       boxShadow="$out"
-      width={width ? `${width}px` : undefined}
+      width={{
+        mobile: '100%',
+        tablet: width ? `${width}px` : undefined,
+      }}
       mh="auto"
     >
       <TitleBar

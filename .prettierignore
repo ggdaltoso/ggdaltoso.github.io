@@ -1,0 +1,5 @@
+# Os posts usam comentários MDX ({/* ... */}) como marcadores de imagem pendente.
+# O Prettier normaliza *ênfase* para _ênfase_ em markdown e leva os asteriscos do
+# comentário junto, virando {/_ ... _/} — que não é comentário em MDX e vaza como
+# texto na página publicada.
+content/posts/**/*.mdx

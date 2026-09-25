@@ -15,6 +15,7 @@ import GiscusComponent from '@giscus/react';
  * @param {boolean} [props.emitMetadata='0'] - Emit discussion metadata
  * @param {string} [props.inputPosition='bottom'] - Comment input position
  * @param {string} [props.theme='light'] - Giscus theme
+ * @param {string} [props.term] - Discussion term, used when mapping is 'specific'
  * @param {string} [props.lang='pt'] - Language
  * @param {boolean} [props.loading='lazy'] - Loading mode
  */
@@ -24,6 +25,7 @@ const Giscus = ({
   category,
   categoryId,
   mapping = 'pathname',
+  term,
   strict = '0',
   reactionsEnabled = '1',
   emitMetadata = '0',
@@ -44,6 +46,7 @@ const Giscus = ({
       category={category}
       categoryId={categoryId}
       mapping={mapping}
+      term={term}
       strict={strict}
       reactionsEnabled={reactionsEnabled}
       emitMetadata={emitMetadata}

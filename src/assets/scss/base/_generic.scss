@@ -22,6 +22,19 @@ body {
   font-family: var(--typographic-font-family) !important;
 }
 
+// O seletor universal acima usa !important, então ele atropela até a fonte que
+// o player de vídeo do @react95/core aplica nos próprios números. Sem esta
+// exceção a @font-face fica registrada e nunca é usada, e o contador do player
+// sai na fonte do blog.
+//
+// A classe é gerada pelo vanilla-extract e o hash muda quando o @react95/core
+// for atualizado. Se os números do player voltarem a sair errados, o hash novo
+// se acha assim: no devtools, a regra que declara font-family
+// React95Video-Numbers.
+.r95_13gnpv05 {
+  font-family: 'React95Video-Numbers' !important;
+}
+
 h1,
 h2,
 h3,
@@ -161,7 +174,7 @@ table {
   color: var(--r95-color-materialText);
   padding: 0;
   margin: 1px;
-  font-size: var(--typographic-small-font-size);
+  font-size: var(--typographic-root-font-size);
   width: 100%;
 }
 
