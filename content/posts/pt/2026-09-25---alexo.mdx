@@ -34,7 +34,7 @@ montar uma central de emulação com Raspberry
 Pi](/crie-um-videogame-com-raspberry-pi). O que faltava era o aparelho: a tela, a
 bateria, os botões, a carcaça.
 
-![A mesa no meio da montagem: o molde riscado no PVC, a carcaça já furada, a placa do Pi e a telinha](/media/alexo/videogame-diy.jpg 'A montagem | 320')
+![A mesa no meio da montagem: o molde riscado no PVC, a carcaça já furada, a placa do Pi e a telinha](/media/alexo/videogame-diy.jpg 'A montagem | 640')
 
 Não deu muito certo.
 
@@ -51,7 +51,7 @@ Um dispositivo que fica do lado do meu PC exibindo algumas fotos, o horário, a
 previsão do tempo e a cotação do dólar e do euro. E claro que usando o
 [React95](/react95-fun-side-project-of-the-year).
 
-![Duas telas do Alexo: em cima a galeria com o relógio, embaixo a previsão do tempo com o player tocando](/media/alexo/alexo-telas.png 'Alexo | 320')
+![Duas telas do Alexo: em cima a galeria com o relógio, embaixo a previsão do tempo com o player tocando](/media/alexo/alexo-telas.png 'Alexo | 496')
 
 ### O que roda dentro
 
@@ -62,7 +62,7 @@ de 3,5 polegadas é um navegador aberto em `localhost`.
 A interface é React. O servidor por trás entrega essa página, guarda as fotos e
 as músicas, e conversa com o leitor de NFC.
 
-![O Alexo aberto: o Pi Zero, a placa de áudio roxa, o leitor NFC vermelho e o alto-falante no canto](/media/alexo/alexo-por-dentro.jpg 'Por dentro | 480')
+![O Alexo aberto: o Pi Zero, a placa de áudio roxa, o leitor NFC vermelho e o alto-falante no canto](/media/alexo/alexo-por-dentro.jpg 'Por dentro | 640')
 
 ### O player
 
@@ -102,7 +102,7 @@ O player não tem controle nenhum na tela, e nem faria sentido ter. A tela não 
 touch e o aparelho não tem um botão sequer, então ela é 100% read-only. Só
 exibe. Quem comanda é a tag.
 
-![O Alexo desmontado, com a tela virada ao lado e as tags espalhadas pela mesa, cada uma com o nome escrito à mão](/media/alexo/alexo-tags.jpg 'As tags | 320')
+![O Alexo desmontado, com a tela virada ao lado e as tags espalhadas pela mesa, cada uma com o nome escrito à mão](/media/alexo/alexo-tags.jpg 'As tags | 480')
 
 ### Onde eu configuro tudo
 
@@ -117,7 +117,7 @@ que eu mais gosto. Pra cadastrar uma tag, eu encosto ela no leitor e a página
 mostra o código dela na hora. Escolho o álbum numa lista, clico em mapear, e
 aquela tag passa a tocar aquele disco.
 
-![A tela de administração onde as tags são associadas aos álbuns](/media/alexo/admin-music.png 'Cadastro das tags | 320')
+![A tela de administração onde as tags são associadas aos álbuns](/media/alexo/admin-music.png 'Cadastro das tags | 640')
 
 Tem também o lado de máquina: memória, disco, temperatura, e os serviços do
 Alexo com botão de parar e subir.
@@ -129,7 +129,7 @@ câmera de ré de carro, dessas baratas, que é o que muita gente usa nesse tipo
 projeto. Ela sai por AV, vídeo composto, e não por HDMI, o que por si só já pede
 uma série de ajustes no Pi pra imagem aparecer.
 
-![A tela como ela veio, vista de trás: os botões de menu e o suporte de colar no painel do carro](/media/alexo/alexo-tela-carro.jpg 'A tela original | 320')
+![A tela como ela veio, vista de trás: os botões de menu e o suporte de colar no painel do carro](/media/alexo/alexo-tela-carro.jpg 'A tela original | 480')
 
 O outro problema é a alimentação. Carro trabalha em 12V e o Pi entrega 5V. Eu já
 tinha feito essa conversão uma vez, anos atrás, mas essa tela era um modelo mais
@@ -250,7 +250,7 @@ o painel da galeria    = 223 × 271 pixels
 
 Eu estava decodificando 16 milhões de pixels pra mostrar 60 mil.
 
-![O painel da galeria medido na tela do Alexo: 223 pixels de largura por 271 de altura](/media/alexo/gallery-size.png "O tamanho real do painel | 320")
+![O painel da galeria medido na tela do Alexo: 223 pixels de largura por 271 de altura](/media/alexo/gallery-size.png "O tamanho real do painel | 496")
 
 O navegador comia tanta memória processando as fotos que a RAM acabava. Quando
 isso acontece, o sistema começa a guardar no cartão SD o que não cabe mais, e

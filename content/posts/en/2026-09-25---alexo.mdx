@@ -32,7 +32,7 @@ an emulation station with a Raspberry
 Pi](/en/build-a-videogame-with-raspberry-pi). What I was missing was the device
 itself: the screen, the battery, the buttons, the shell.
 
-![The bench mid-build: the outline scored into the PVC, the shell already drilled, the Pi board and the little screen](/media/alexo/videogame-diy.jpg 'The build | 320')
+![The bench mid-build: the outline scored into the PVC, the shell already drilled, the Pi board and the little screen](/media/alexo/videogame-diy.jpg 'The build | 640')
 
 It didn't go well.
 
@@ -50,7 +50,7 @@ A device that sits next to my PC showing some photos, the time, the forecast and
 the dollar and euro rates. Dressed as
 [React95](/en/react95-fun-side-project-of-the-year), of course.
 
-![Two Alexo screens: the gallery with the clock on top, the forecast with the player running below](/media/alexo/alexo-telas.png 'Alexo | 320')
+![Two Alexo screens: the gallery with the clock on top, the forecast with the player running below](/media/alexo/alexo-telas.png 'Alexo | 496')
 
 ### What runs in there
 
@@ -61,7 +61,7 @@ that 3.5 inch screen is a browser sitting on `localhost`.
 The interface is React. The server behind it serves that page, holds the photos
 and the music, and talks to the NFC reader.
 
-![Alexo opened up: the Pi Zero, the purple audio board, the red NFC reader and the speaker in the corner](/media/alexo/alexo-por-dentro.jpg 'Inside | 480')
+![Alexo opened up: the Pi Zero, the purple audio board, the red NFC reader and the speaker in the corner](/media/alexo/alexo-por-dentro.jpg 'Inside | 640')
 
 ### The player
 
@@ -101,7 +101,7 @@ The player has no controls on screen, and it wouldn't make sense for it to have
 any. The screen isn't a touchscreen and the device doesn't have a single button,
 so it's 100% read-only. It only shows. The tag is what gives orders.
 
-![Alexo taken apart, with the screen face down beside it and the tags spread across the desk, each with its name handwritten](/media/alexo/alexo-tags.jpg 'The tags | 320')
+![Alexo taken apart, with the screen face down beside it and the tags spread across the desk, each with its name handwritten](/media/alexo/alexo-tags.jpg 'The tags | 480')
 
 ### Where I set it all up
 
@@ -116,7 +116,7 @@ lives. To register a tag, I touch it to the reader and the page shows its code
 right away. I pick an album from a list, click map, and that tag now plays that
 record.
 
-![The admin screen where tags are paired with albums](/media/alexo/admin-music.png 'Registering tags | 320')
+![The admin screen where tags are paired with albums](/media/alexo/admin-music.png 'Registering tags | 640')
 
 There's a machine side too: memory, disk, temperature, and Alexo's services with
 buttons to stop and start them.
@@ -128,7 +128,7 @@ car reversing camera display, which is what a lot of people use for this kind of
 project. It takes composite AV rather than HDMI, which on its own means a series
 of adjustments on the Pi before anything shows up.
 
-![The screen as it came, seen from behind: the menu buttons and the mount meant to stick on a car dashboard](/media/alexo/alexo-tela-carro.jpg 'The original screen | 320')
+![The screen as it came, seen from behind: the menu buttons and the mount meant to stick on a car dashboard](/media/alexo/alexo-tela-carro.jpg 'The original screen | 480')
 
 The other problem is power. Cars run on 12V and the Pi gives you 5V. I had done
 that conversion once before, years ago, but this screen was a newer model and
@@ -246,7 +246,7 @@ the gallery panel      = 223 × 271 pixels
 
 I was decoding 16 million pixels to show 60 thousand.
 
-![The gallery panel measured on Alexo's screen: 223 pixels wide by 271 tall](/media/alexo/gallery-size.png "The panel's real size | 320")
+![The gallery panel measured on Alexo's screen: 223 pixels wide by 271 tall](/media/alexo/gallery-size.png "The panel's real size | 496")
 
 The browser ate so much memory processing those photos that the RAM ran out.
 When that happens, the system starts parking on the SD card whatever no longer
