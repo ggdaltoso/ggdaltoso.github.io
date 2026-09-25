@@ -4,7 +4,7 @@
 
 Technical blog with original articles about frontend, JavaScript, React, software architecture, and personal projects. Prioritize the articles as the primary source for the author's decisions, learnings, and experiments.
 
-Contact: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltoso.bsky.social, GitHub: ggdaltoso
+Contact: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltoso.bsky.social, GitHub: https://github.com/ggdaltoso
 
 ## Alternate versions
 
@@ -12,6 +12,7 @@ Contact: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltoso
 
 ## Articles
 
+- [Alexo](https://ggdaltoso.dev/en/alexo): Alexo is a device I built on a Raspberry Pi Zero. On a 3.5 inch screen it shows my photos, the time, the weather and the exchange rates, and now it plays music from an NFC tag too. (September 25, 2026)
 - [Why I do things my own way on the internet](https://ggdaltoso.dev/en/my-own-way-on-the-internet): Homelab, React95, Windows 95 fonts, fun is the key. I realized all of it is the same impulse of making the internet my way, with my own face on it, without depending on whoever already decided what it should look like. (July 20, 2026)
 - [My Homelab](https://ggdaltoso.dev/en/my-homelab): How I built a homelab with a Raspberry Pi 4 to take full control of my data: photos, documents, and DNS. No Google, no third-party service charging me for what is already mine. (July 9, 2026)
 - [Windows 95 fonts for the modern web](https://ggdaltoso.dev/en/windows-95-fonts-for-the-web): MS Sans Serif and MS Serif have been locked inside .FON binary files since 1987. This is the story of getting them out and shipping them as an npm package anyone can install. (April 28, 2026)
@@ -21,3 +22,7 @@ Contact: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltoso
 - [React95: fun side project of the year](https://ggdaltoso.dev/en/react95-fun-side-project-of-the-year): React95 is a React component library written with styled-components. In April 2019, it won the 'Fun side project of the year' award at the largest React conference in the world, in Amsterdam. (May 17, 2019)
 - [Hoisting. What is it?](https://ggdaltoso.dev/en/what-is-hoisting): What is hoisting? (August 3, 2017)
 - [Build a videogame with Raspberry Pi](https://ggdaltoso.dev/en/build-a-videogame-with-raspberry-pi): Building a console that emulates many other consoles is very easy. The secret is using a Raspberry Pi and following this post! (August 30, 2016)
+
+## Pages
+
+- [Hi](https://ggdaltoso.dev/en/about): Who Gabriel Daltoso is: frontend developer for more than a decade, creator of React95, and what he does away from the screen
