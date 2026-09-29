@@ -27,9 +27,9 @@ const GGImage = (props) => {
       />
 
       <Frame p="$3" pr="$4" as="figure" bgColor="$material">
-        <Frame bg="white" boxShadow="$in" pt="$2" pl="$2">
+        <Frame bg="white" boxShadow="$in" pt="$2" pl="$2" pr="$1" pb="$1">
           <Zoom>
-            <Frame as="img" mx="auto" src={src} alt={alt} title={title} />
+            <Frame as="img" width="100%" src={src} alt={alt} title={title} />
           </Zoom>
         </Frame>
 
