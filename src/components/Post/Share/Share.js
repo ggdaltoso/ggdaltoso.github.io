@@ -3,6 +3,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Button } from '@react95/core';
 import { Tick, WebLink } from '@react95/icons';
 import siteConfig from '@config';
+import buildDocumentTitle from '@utils/build-document-title';
 import * as styles from './Share.module.scss';
 
 const SUCCESS_TIMEOUT = 2000;
@@ -21,9 +22,9 @@ const Share = ({ title, compact = false }) => {
     timeoutRef.current = setTimeout(() => setStatus(null), SUCCESS_TIMEOUT);
   };
 
-  const copyLink = async (url) => {
+  const copyLink = async (text) => {
     try {
-      await navigator.clipboard.writeText(url);
+      await navigator.clipboard.writeText(text);
       showSuccess('copied');
     } catch {
       // Clipboard can be blocked (e.g. insecure context); nothing else to do.
@@ -33,10 +34,12 @@ const Share = ({ title, compact = false }) => {
   const handleShare = async () => {
     // Canonical URL: drops query strings and hashes, keeps the locale prefix.
     const url = `${siteConfig.url}${window.location.pathname}`;
+    // "Blog do GG - <post title>", same as the browser tab.
+    const shareTitle = buildDocumentTitle(title);
 
     if (navigator.share) {
       try {
-        await navigator.share({ title, url });
+        await navigator.share({ title: shareTitle, url });
         showSuccess('shared');
         return;
       } catch (error) {
@@ -45,7 +48,7 @@ const Share = ({ title, compact = false }) => {
       }
     }
 
-    copyLink(url);
+    copyLink(`${shareTitle}\n${url}`);
   };
 
   const labels = {
