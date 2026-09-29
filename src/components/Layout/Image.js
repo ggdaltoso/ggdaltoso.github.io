@@ -16,7 +16,7 @@ const GGImage = (props) => {
         mobile: '100%',
         tablet: width ? `${width}px` : undefined,
       }}
-      mh="auto"
+      maxWidth="100%"
     >
       <TitleBar
         title={description}
@@ -29,7 +29,7 @@ const GGImage = (props) => {
       <Frame p="$3" pr="$4" as="figure" bgColor="$material">
         <Frame bg="white" boxShadow="$in" pt="$2" pl="$2">
           <Zoom>
-            <img src={src} alt={alt} title={title} />
+            <Frame as="img" mx="auto" src={src} alt={alt} title={title} />
           </Zoom>
         </Frame>
 
