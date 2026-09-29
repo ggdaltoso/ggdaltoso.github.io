@@ -1,0 +1,24 @@
+.share {
+  &__icon {
+    display: inline-flex;
+    padding: 0;
+    border: 0;
+    background: none;
+    line-height: 0;
+    cursor: pointer;
+
+    // Inline SVGs sit on the text baseline and leave a gap below them.
+    & svg {
+      display: block;
+    }
+  }
+
+  &__labels {
+    display: inline-grid;
+  }
+
+  &__label {
+    grid-area: 1 / 1;
+    text-align: center;
+  }
+}

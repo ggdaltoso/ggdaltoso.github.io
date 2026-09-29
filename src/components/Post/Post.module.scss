@@ -7,6 +7,14 @@
     padding: 0 4px;
   }
 
+  &__footer-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--typographic-leading) * 0.5);
+  }
+
   &__comments {
     max-width: var(--layout-post-width);
     margin: 0 auto;

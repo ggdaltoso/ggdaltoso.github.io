@@ -15,10 +15,23 @@
     margin-bottom: 0;
   }
 
-  &__reading-time {
+  &__meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--typographic-leading) * 0.5);
     max-width: var(--layout-post-width);
     margin: calc(var(--typographic-leading) * 0.25) auto
       calc(var(--typographic-leading) * 1.25);
+  }
+
+  &__separator {
+    color: var(--color-gray);
+    font-weight: 600;
+  }
+
+  &__reading-time {
+    margin: 0;
     font-size: var(--typographic-small-font-size);
     color: var(--color-gray);
     font-weight: 600;
@@ -93,7 +106,7 @@
       margin-bottom: 0;
     }
 
-    &__reading-time {
+    &__meta {
       margin-top: calc(var(--typographic-leading) * 0.25);
       margin-bottom: calc(var(--typographic-leading) * 1.5);
     }

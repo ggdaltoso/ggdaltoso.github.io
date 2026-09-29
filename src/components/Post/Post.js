@@ -5,6 +5,7 @@ import Author from './Author/Author';
 import Comments from './Comments/Comments';
 import Content from './Content/Content';
 import Meta from './Meta/Meta';
+import Share from './Share/Share';
 import * as styles from './Post.module.scss';
 
 const Post = ({ post, mdxContent }) => {
@@ -20,13 +21,16 @@ const Post = ({ post, mdxContent }) => {
       </Link>
 
       <div>
-        <Content title={title} readingTime={readingTime}>
+        <Content title={title} readingTime={readingTime} shareable>
           {mdxContent}
         </Content>
       </div>
 
       <div className={styles['post__footer']}>
-        <Meta date={date} />
+        <div className={styles['post__footerMeta']}>
+          <Meta date={date} />
+          <Share title={title} />
+        </div>
         <Author />
       </div>
 
