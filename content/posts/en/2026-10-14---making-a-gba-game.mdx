@@ -1,0 +1,113 @@
+---
+title: 'Making a GBA game'
+date: '2026-10-14T12:00:00.000Z'
+template: 'post'
+draft: false
+slug: '/making-a-gba-game'
+description: 'I got back into the Game Boy Advance as an adult and, as you might
+expect, decided to make my own game. From my first GBA at 14 to my first Hello
+World running on an emulator.'
+---
+
+When I was 14, I scraped together enough money to buy a GBA. It came with one
+game that I played for ages: Yoshi's Island: Super Mario Advance 3. For a long
+time it was the only game I owned, and I played it to death.
+
+Time went by, life happened: college, work, etc. Before I knew it I had a few
+years behind me and a long list of games I wanted to play and never did. So,
+many years later, I decided to give it another shot and buy (and play) the
+relics I'd always wanted.
+
+<span class="figure float-left">
+
+![An open case holding sixteen GBA cartridges, with a Game Boy Pokémon Silver cartridge in front](/media/gg-game/parte-colecao.jpg "Part of the collection | 310")
+
+</span>
+
+Besides liking the GBA and its games, playing an old console in 2026 is very
+different from playing modern games, for a few reasons:
+ - Most of it is offline. Multiplayer is usually optional, when it exists at all
+ - Picking an old game means physically holding it
+ - Turn on the console, the game starts
+ - Shallow tutorials (if any) that make you play to figure out the mechanics
+
+To me, it's another way of disconnecting a bit from the online world.
+
+I remember seeing people online reuse cassette tape cases to store their games.
+I made a few and I'm in love with how they turned out. I'm trying to make one
+for every game I have, but the cases are really hard to find. If you have some
+lying around and aren't using them, say hi? 😉
+
+<span class="figure float-right">
+
+![Four cassette tape cases with GBA game inserts: Metroid, Pokémon Mystery Dungeon, Pokémon FireRed and Yoshi's Island](/media/gg-game/fitas-capa-cassete.jpg "Cassette tape cases | 310")
+
+</span>
+
+I have this habit of building something around the things I like. I've
+[built a videogame with a Raspberry Pi](/en/build-a-videogame-with-raspberry-pi),
+made [React95](/en/react95-fun-side-project-of-the-year) and, more recently,
+[Alexo](/en/alexo). So it was only a matter of time before this thought showed
+up:
+
+> I'm going to make a GBA game
+
+With the idea and the will to learn, I decided to find out how hard it was.
+
+It is.
+
+### The tools
+
+To build a GBA game I had to accept that the platform is nothing like what I'm
+used to. On the web I have a whole computer at my disposal, with endless features
+and possibilities. The GBA changes all of that: less memory, a tiny screen, less
+processing power, and so on.
+
+There's a lot of documentation out there for making GBA games, plus libraries
+and tools written in all sorts of languages. Out of the options, I picked
+[Butano](https://github.com/GValiente/butano), a C++ engine for the GBA. The
+last time I touched C++ was many years ago, so I know I'll have a lot to review and relearn.
+Following Butano's suggestions, I'm using
+[Qt Creator](https://gvaliente.github.io/butano/qt_creator.html) as my editor
+and mGBA as my emulator. They integrate really well, and it makes development a
+lot nicer.
+
+Setting up the environment isn't exactly trivial, but once it was done, I
+naively figured that starting to write code would be easy.
+
+### Hello World
+
+I decided to start where everyone in tech starts: with "Hello World". The first
+one was a log, the way I'd do it in any other language. I compiled it, ran it
+and nothing happened. The emulator screen stayed empty. It didn't feel like I was
+saying hi to any world at all, you know? Later I found out mGBA has a section
+just for viewing logs, but either way, seeing the text running in the ROM is a
+lot better.
+
+So I decided to write straight to the screen. Except that on the GBA, text turns
+into a bunch of sprites, with each letter drawn from an 8x16 pixel font. I took
+the code from one of Butano's own examples, pasted it into my project, and it
+didn't work. The Makefile in the template Butano gives you doesn't include all
+the assets the examples use, and I couldn't find anything warning me to watch
+out for that. Maybe someone with C++ experience would breeze through it, but I
+struggled. After a lot of trial and error, "Hello GG GAMEEE" showed up in mGBA,
+and even though it's VERY simple, I was really happy with it. Now it actually
+felt like someone was saying hi.
+
+![C++ code using Butano in the editor and, on top of it, mGBA running the ROM with the text "Hello GG GAMEEE" on screen](/media/gg-game/GG-Game.jpg "Hello GG GAMEEE | 640")
+
+Learning has been the hardest part, and the Makefile was just one example.
+There's nothing like the React docs, walking you through things step by step.
+You end up following examples instead of tutorials, and it's not always easy to
+take code from a finished game and adapt it to what you're building.
+
+There's still a lot to do, but at least I've started.
+
+At 14, I spent hours with a single Yoshi's Island cartridge. I never imagined
+I'd one day see my own text running in a GBA ROM, even if it's just a hi. So
+far it's been [fun](/en/fun-is-the-key), and as long as it stays that way, I'll
+keep going.
+
+Maybe I'll keep posting about the game here. In the meantime, I'll be playing
+the cartridges in my collection and trying to get mine to say something other
+than hi.
