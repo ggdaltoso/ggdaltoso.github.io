@@ -12,6 +12,7 @@ Contatos: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltos
 
 ## Artigos
 
+- [Fazendo um jogo de GBA](https://ggdaltoso.dev/fazendo-um-jogo-de-gba): Voltei a jogar Game Boy Advance depois de adulto e, como era de se esperar, decidi fazer meu próprio jogo. Do primeiro GBA aos 14 anos até o primeiro Hello World rodando no emulador. (14 de outubro de 2026)
 - [Alexo](https://ggdaltoso.dev/alexo): O Alexo é um dispositivo que eu construí num Raspberry Pi Zero: numa tela de 3,5 polegadas ele mostra minhas fotos, o horário, o tempo e a cotação do dólar e do euro, e agora também toca música por tag NFC. (25 de setembro de 2026)
 - [Por que eu faço as coisas do meu jeito na internet](https://ggdaltoso.dev/do-meu-jeito-na-internet): Homelab, React95, fontes do Windows 95, fun is the key. Percebi que tudo isso é o mesmo impulso de fazer a internet do meu jeito, com a minha cara, sem depender de quem já decidiu como ela deveria ser. (20 de julho de 2026)
 - [Meu Homelab](https://ggdaltoso.dev/meu-homelab): Como montei um homelab com Raspberry Pi 4 para ter controle total dos meus dados: fotos, documentos e DNS. Sem depender do Google ou de qualquer outro serviço que cobra pelo que já é seu. (9 de julho de 2026)

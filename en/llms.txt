@@ -12,6 +12,7 @@ Contact: email: ggdaltoso@gmail.com, Bluesky: https://bsky.app/profile/ggdaltoso
 
 ## Articles
 
+- [Making a GBA game](https://ggdaltoso.dev/en/making-a-gba-game): I got back into the Game Boy Advance as an adult and, as you might expect, decided to make my own game. From my first GBA at 14 to my first Hello World running on an emulator. (October 14, 2026)
 - [Alexo](https://ggdaltoso.dev/en/alexo): Alexo is a device I built on a Raspberry Pi Zero. On a 3.5 inch screen it shows my photos, the time, the weather and the exchange rates, and now it plays music from an NFC tag too. (September 25, 2026)
 - [Why I do things my own way on the internet](https://ggdaltoso.dev/en/my-own-way-on-the-internet): Homelab, React95, Windows 95 fonts, fun is the key. I realized all of it is the same impulse of making the internet my way, with my own face on it, without depending on whoever already decided what it should look like. (July 20, 2026)
 - [My Homelab](https://ggdaltoso.dev/en/my-homelab): How I built a homelab with a Raspberry Pi 4 to take full control of my data: photos, documents, and DNS. No Google, no third-party service charging me for what is already mine. (July 9, 2026)
