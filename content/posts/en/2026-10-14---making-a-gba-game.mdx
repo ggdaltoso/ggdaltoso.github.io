@@ -65,8 +65,8 @@ processing power, and so on.
 
 There's a lot of documentation out there for making GBA games, plus libraries
 and tools written in all sorts of languages. Out of the options, I picked
-[Butano](https://github.com/GValiente/butano), a C++ engine for the GBA. I
-touched C++ many years ago, so I know I'll have a lot to review and relearn.
+[Butano](https://github.com/GValiente/butano), a C++ engine for the GBA. The
+last time I touched C++ was many years ago, so I know I'll have a lot to review and relearn.
 Following Butano's suggestions, I'm using
 [Qt Creator](https://gvaliente.github.io/butano/qt_creator.html) as my editor
 and mGBA as my emulator. They integrate really well, and it makes development a
@@ -79,14 +79,14 @@ naively figured that starting to write code would be easy.
 
 I decided to start where everyone in tech starts: with "Hello World". The first
 one was a log, the way I'd do it in any other language. I compiled it, ran it
-and... nothing. The emulator screen stayed empty. It didn't feel like I was
+and nothing happened. The emulator screen stayed empty. It didn't feel like I was
 saying hi to any world at all, you know? Later I found out mGBA has a section
 just for viewing logs, but either way, seeing the text running in the ROM is a
 lot better.
 
 So I decided to write straight to the screen. Except that on the GBA, text turns
 into a bunch of sprites, with each letter drawn from an 8x16 pixel font. I took
-the code from one of Butano's own examples, pasted it into my project and... it
+the code from one of Butano's own examples, pasted it into my project, and it
 didn't work. The Makefile in the template Butano gives you doesn't include all
 the assets the examples use, and I couldn't find anything warning me to watch
 out for that. Maybe someone with C++ experience would breeze through it, but I
