@@ -155,10 +155,16 @@ pre * {
 ul {
   list-style: square;
   margin-bottom: var(--typographic-leading);
+  // Keeps bullets and indent beside a floated figure instead of under it
+  display: flow-root;
 
   & li {
     padding: 0 5px;
     margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
