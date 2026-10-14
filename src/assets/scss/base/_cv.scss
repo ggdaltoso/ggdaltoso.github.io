@@ -1,0 +1,79 @@
+/**
+ * CV page
+ *
+ * Global instead of a CSS module because the markup lives in
+ * content/pages/{pt,en}/cv.mdx and reaches the DOM through MDX.
+ * The inner rules are nested (rather than written with `&__`
+ * concatenation) so they outrank the `.content__body` rules the
+ * page template wraps this content in.
+ */
+
+.cv {
+  .cv__header {
+    text-align: center;
+    margin-bottom: calc(var(--typographic-leading) * 1.5);
+  }
+
+  .cv__download {
+    text-decoration: none;
+
+    // The separator before the icon lives here instead of in the MDX so it
+    // disappears along with the icon when the page goes to the printer.
+    // Middot, not bullet: R95 Sans Serif draws U+2022 as a lowercase "o".
+    &::before {
+      content: '\00B7';
+      color: var(--typographic-base-font-color);
+      margin-right: 0.4em;
+    }
+
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  .cv__meta {
+    color: var(--color-gray);
+    margin-top: calc(var(--typographic-leading) * -0.25);
+    margin-bottom: calc(var(--typographic-leading) * 0.5);
+  }
+
+  h2 {
+    border-bottom: 1px solid var(--color-gray-border);
+    padding-bottom: calc(var(--typographic-leading) * 0.25);
+  }
+
+  ul {
+    margin-top: 0;
+  }
+}
+
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+
+  // _generic.scss pins the Win95 bitmap faces with `!important`, and they
+  // only render clean at their native pixel heights. Print scales type to
+  // whatever the printer asks for, so hand the page back to a system face.
+  .cv,
+  .cv * {
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    color: var(--color-base);
+  }
+
+  .cv {
+    .cv__download {
+      display: none;
+    }
+
+    h2,
+    h3 {
+      break-after: avoid;
+    }
+
+    ul {
+      break-inside: avoid;
+    }
+  }
+}

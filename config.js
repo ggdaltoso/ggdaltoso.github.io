@@ -13,6 +13,10 @@ module.exports = {
         pt: '/sobre',
         en: '/about',
       },
+      cv: {
+        pt: '/cv',
+        en: '/cv',
+      },
     },
   },
   googleAnalyticsId: 'G-N0Z6Q2SFLR',
@@ -26,6 +30,10 @@ module.exports = {
         label: 'Sobre mim',
         path: '/sobre',
       },
+      {
+        label: 'CV',
+        path: '/cv',
+      },
     ],
     en: [
       {
@@ -35,6 +43,10 @@ module.exports = {
       {
         label: 'About me',
         path: '/about',
+      },
+      {
+        label: 'CV',
+        path: '/cv',
       },
     ],
   },
@@ -49,6 +61,7 @@ module.exports = {
       email: 'ggdaltoso@gmail.com',
       bluesky: 'ggdaltoso.bsky.social',
       github: 'ggdaltoso',
+      linkedin: 'ggdaltoso',
       rss: '/rss.xml',
     },
   },
